@@ -8,6 +8,7 @@ import ReferencesSection from "@/components/references-section";
 import FeedbackSection from "@/components/feedback-section";
 import SiteFooter from "@/components/site-footer";
 import WhatsAppButton from "@/components/whatsapp-button";
+import ExitIntentPopup from "@/components/exit-intent-popup";
 import Link from "next/link";
 import { projects, formatPrice } from "@/lib/data";
 import { Card, CardContent } from "@/components/ui/card";
@@ -154,6 +155,7 @@ export default function Home() {
       </main>
       <SiteFooter />
       <WhatsAppButton />
+      <ExitIntentPopup />
     </div>
   );
 }

@@ -7,31 +7,81 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Phone, Mail, MapPin, MessageCircle, Clock, Send } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle, Clock, Send, Shield, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+
+const budgetOptions = [
+  { value: "3m-5m", label: "AED 3M - 5M" },
+  { value: "5m-10m", label: "AED 5M - 10M" },
+  { value: "10m-20m", label: "AED 10M - 20M" },
+  { value: "20m+", label: "AED 20M+" },
+];
+
+const timelineOptions = [
+  { value: "immediate", label: "Immediate / Ready to Buy" },
+  { value: "1-3months", label: "Within 1-3 Months" },
+  { value: "3-6months", label: "Within 3-6 Months" },
+  { value: "6-12months", label: "Within 6-12 Months" },
+  { value: "exploring", label: "Just Exploring" },
+];
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-    interest: "",
+    name: "", email: "", phone: "", message: "", interest: "", budget: "", timeline: "", honeypot: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    toast({
-      title: "Message Sent!",
-      description: "Our team will contact you within 24 hours.",
-    });
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: "", email: "", phone: "", message: "", interest: "" });
-    }, 3000);
+
+    // Honeypot check
+    if (formData.honeypot) return;
+
+    setLoading(true);
+    try {
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          budget: formData.budget,
+          timeline: formData.timeline,
+          propertyInterest: formData.interest,
+          message: formData.message,
+          formType: "contact",
+          pageUrl: window.location.href,
+          honeypot: formData.honeypot,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setSubmitted(true);
+        toast({
+          title: "Message Sent!",
+          description: data.qualified
+            ? "A senior consultant will contact you within 2 hours."
+            : "Our team will contact you within 24 hours.",
+        });
+        setTimeout(() => {
+          setSubmitted(false);
+          setFormData({ name: "", email: "", phone: "", message: "", interest: "", budget: "", timeline: "", honeypot: "" });
+        }, 5000);
+      } else if (res.status === 429) {
+        toast({ title: "Too Many Attempts", description: "Please wait before submitting again.", variant: "destructive" });
+      } else {
+        toast({ title: "Already Registered", description: data.message || "We have your details." });
+      }
+    } catch {
+      toast({ title: "Error", description: "Please try again or contact us on WhatsApp.", variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const contactInfo = [
@@ -52,7 +102,7 @@ export default function ContactSection() {
             Contact Us
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto">
-            Ready to explore The Oasis? Our property consultants are here to help you find your perfect home.
+            Ready to explore The Oasis? Fill in your details and our property consultants will reach out with personalized recommendations.
           </p>
           <div className="section-divider max-w-xs mx-auto mt-6" />
         </div>
@@ -92,6 +142,28 @@ export default function ContactSection() {
               </div>
             </div>
 
+            {/* Security Badge */}
+            <div className="bg-white rounded-xl p-5 border border-gray-200">
+              <div className="flex items-center gap-3 mb-3">
+                <Shield className="w-5 h-5 text-green-600" />
+                <h4 className="font-bold text-[#1A2332] text-sm">Your Data Is Secure</h4>
+              </div>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-xs text-gray-500">
+                  <CheckCircle className="w-3.5 h-3.5 text-green-500" />
+                  <span>SSL encrypted connection</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs text-gray-500">
+                  <CheckCircle className="w-3.5 h-3.5 text-green-500" />
+                  <span>Data never shared with third parties</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs text-gray-500">
+                  <CheckCircle className="w-3.5 h-3.5 text-green-500" />
+                  <span>RERA licensed & regulated</span>
+                </div>
+              </div>
+            </div>
+
             {/* Map placeholder */}
             <div className="bg-gradient-to-br from-[#2A3A52] to-[#1A2332] rounded-xl h-48 flex items-center justify-center">
               <div className="text-center text-white/40">
@@ -113,13 +185,25 @@ export default function ContactSection() {
                     <Send className="w-8 h-8 text-green-500" />
                   </div>
                   <h4 className="text-xl font-bold text-[#1A2332] mb-2">Message Sent!</h4>
-                  <p className="text-gray-500">Our property consultant will contact you within 24 hours.</p>
+                  <p className="text-gray-500">Our property consultant will contact you shortly with personalized options.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
+                  {/* Honeypot - hidden from real users */}
+                  <div className="absolute opacity-0 h-0 w-0 overflow-hidden" aria-hidden="true">
+                    <Label htmlFor="contact-website">Website</Label>
+                    <Input
+                      id="contact-website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={formData.honeypot}
+                      onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
+                    />
+                  </div>
+
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="contact-name">Full Name</Label>
+                      <Label htmlFor="contact-name">Full Name *</Label>
                       <Input
                         id="contact-name"
                         placeholder="Your name"
@@ -130,7 +214,7 @@ export default function ContactSection() {
                       />
                     </div>
                     <div>
-                      <Label htmlFor="contact-phone">Phone Number</Label>
+                      <Label htmlFor="contact-phone">Phone / WhatsApp *</Label>
                       <Input
                         id="contact-phone"
                         type="tel"
@@ -143,7 +227,7 @@ export default function ContactSection() {
                     </div>
                   </div>
                   <div>
-                    <Label htmlFor="contact-email">Email Address</Label>
+                    <Label htmlFor="contact-email">Email Address *</Label>
                     <Input
                       id="contact-email"
                       type="email"
@@ -154,22 +238,47 @@ export default function ContactSection() {
                       className="mt-1"
                     />
                   </div>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="contact-interest">Property Interest</Label>
+                      <Select value={formData.interest} onValueChange={(v) => setFormData({ ...formData, interest: v })}>
+                        <SelectTrigger className="mt-1">
+                          <SelectValue placeholder="Select a project" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="oasis-villas">The Oasis Villas</SelectItem>
+                          <SelectItem value="oasis-mansions">The Oasis Mansions</SelectItem>
+                          <SelectItem value="oasis-creek">Oasis Creek Townhouses</SelectItem>
+                          <SelectItem value="oasis-lagoon">Oasis Lagoon Residences</SelectItem>
+                          <SelectItem value="oasis-heights">Oasis Heights Penthouses</SelectItem>
+                          <SelectItem value="general">General Inquiry</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <Label htmlFor="contact-budget">Budget Range</Label>
+                      <Select value={formData.budget} onValueChange={(v) => setFormData({ ...formData, budget: v })}>
+                        <SelectTrigger className="mt-1">
+                          <SelectValue placeholder="Select budget" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {budgetOptions.map((opt) => (
+                            <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
                   <div>
-                    <Label htmlFor="contact-interest">Property Interest</Label>
-                    <Select
-                      value={formData.interest}
-                      onValueChange={(v) => setFormData({ ...formData, interest: v })}
-                    >
+                    <Label htmlFor="contact-timeline">Purchase Timeline</Label>
+                    <Select value={formData.timeline} onValueChange={(v) => setFormData({ ...formData, timeline: v })}>
                       <SelectTrigger className="mt-1">
-                        <SelectValue placeholder="Select a project" />
+                        <SelectValue placeholder="When are you planning to buy?" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="oasis-villas">The Oasis Villas</SelectItem>
-                        <SelectItem value="oasis-mansions">The Oasis Mansions</SelectItem>
-                        <SelectItem value="oasis-creek">Oasis Creek Townhouses</SelectItem>
-                        <SelectItem value="oasis-lagoon">Oasis Lagoon Residences</SelectItem>
-                        <SelectItem value="oasis-heights">Oasis Heights Penthouses</SelectItem>
-                        <SelectItem value="general">General Inquiry</SelectItem>
+                        {timelineOptions.map((opt) => (
+                          <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
                   </div>
@@ -180,17 +289,21 @@ export default function ContactSection() {
                       placeholder="Tell us about your requirements..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      rows={4}
+                      rows={3}
                       className="mt-1"
                     />
                   </div>
                   <Button
                     type="submit"
+                    disabled={loading}
                     size="lg"
                     className="w-full gold-gradient text-[#1A2332] font-bold py-6 rounded-md hover:opacity-90"
                   >
-                    Send Message
+                    {loading ? "Sending..." : "Send Message"}
                   </Button>
+                  <p className="text-xs text-gray-400 text-center flex items-center justify-center gap-1">
+                    <Shield className="w-3 h-3" /> Your information is secure and encrypted
+                  </p>
                 </form>
               )}
             </div>

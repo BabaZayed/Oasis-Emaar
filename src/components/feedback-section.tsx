@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Star, ThumbsUp, MessageSquare, CheckCircle, User } from "lucide-react";
+import { Star, ThumbsUp, MessageSquare, CheckCircle, User, Shield } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface FeedbackItem {
@@ -80,23 +80,63 @@ const ratingSummary = {
 
 export default function FeedbackSection() {
   const [showForm, setShowForm] = useState(false);
-  const [formData, setFormData] = useState({ name: "", rating: 0, property: "", comment: "" });
+  const [formData, setFormData] = useState({ name: "", rating: 0, property: "", comment: "", honeypot: "" });
   const [hoverRating, setHoverRating] = useState(0);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    toast({
-      title: "Thank You!",
-      description: "Your feedback has been submitted and will appear after review.",
-    });
-    setTimeout(() => {
-      setSubmitted(false);
-      setShowForm(false);
-      setFormData({ name: "", rating: 0, property: "", comment: "" });
-    }, 3000);
+
+    // Honeypot check
+    if (formData.honeypot) return;
+
+    setLoading(true);
+    try {
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: `feedback_${Date.now()}@oasisemaar.com`, // Feedback doesn't require email
+          phone: "N/A",
+          propertyInterest: formData.property,
+          message: `[Rating: ${formData.rating}/5] ${formData.comment}`,
+          formType: "feedback",
+          pageUrl: window.location.href,
+          honeypot: formData.honeypot,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.success || res.status === 200) {
+        setSubmitted(true);
+        toast({
+          title: "Thank You!",
+          description: "Your feedback has been submitted and will appear after review.",
+        });
+        setTimeout(() => {
+          setSubmitted(false);
+          setShowForm(false);
+          setFormData({ name: "", rating: 0, property: "", comment: "", honeypot: "" });
+        }, 3000);
+      } else if (res.status === 429) {
+        toast({ title: "Too Many Attempts", description: "Please wait before submitting again.", variant: "destructive" });
+      }
+    } catch {
+      // Still show success to not disrupt UX for feedback
+      setSubmitted(true);
+      toast({ title: "Thank You!", description: "Your feedback has been submitted." });
+      setTimeout(() => {
+        setSubmitted(false);
+        setShowForm(false);
+        setFormData({ name: "", rating: 0, property: "", comment: "", honeypot: "" });
+      }, 3000);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -226,6 +266,18 @@ export default function FeedbackSection() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
+                  {/* Honeypot - hidden from real users */}
+                  <div className="absolute opacity-0 h-0 w-0 overflow-hidden" aria-hidden="true">
+                    <Label htmlFor="fb-website">Website</Label>
+                    <Input
+                      id="fb-website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={formData.honeypot}
+                      onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
+                    />
+                  </div>
+
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="fb-name">Your Name</Label>
@@ -297,9 +349,9 @@ export default function FeedbackSection() {
                     <Button
                       type="submit"
                       className="flex-1 gold-gradient text-[#1A2332] font-bold py-3 rounded-md hover:opacity-90"
-                      disabled={formData.rating === 0}
+                      disabled={formData.rating === 0 || loading}
                     >
-                      Submit Feedback
+                      {loading ? "Submitting..." : "Submit Feedback"}
                     </Button>
                     <Button
                       type="button"
