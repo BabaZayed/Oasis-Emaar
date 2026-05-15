@@ -90,7 +90,7 @@ export const metadata: Metadata = {
     canonical: "https://oasisemaar.com",
   },
   verification: {
-    google: "YOUR_GOOGLE_VERIFICATION_CODE",
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || "YOUR_GOOGLE_VERIFICATION_CODE",
   },
   category: "real estate",
 };
@@ -194,7 +194,7 @@ export default function RootLayout({
         {/* Google Analytics */}
         <script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID || "G-XXXXXXXXXX"}`}
         />
         <script
           dangerouslySetInnerHTML={{
@@ -202,7 +202,7 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-XXXXXXXXXX', {
+              gtag('config', '${process.env.NEXT_PUBLIC_GA_ID || "G-XXXXXXXXXX"}', {
                 page_title: document.title,
                 page_location: window.location.href,
               });
@@ -221,7 +221,7 @@ export default function RootLayout({
               t.src=v;s=b.getElementsByTagName(e)[0];
               s.parentNode.insertBefore(t,s)}(window, document,'script',
               'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', 'YOUR_META_PIXEL_ID');
+              fbq('init', '${process.env.NEXT_PUBLIC_META_PIXEL_ID || "YOUR_META_PIXEL_ID"}');
               fbq('track', 'PageView');
             `,
           }}
