@@ -213,7 +213,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: "How do I schedule a viewing or register interest?",
-    answer: "You can register your interest through our website by filling out the contact form, calling us at +971 55 564 4700, or messaging us on WhatsApp. Our property consultants are available to arrange private viewings, provide detailed brochures, and guide you through the purchasing process."
+    answer: "You can register your interest through our website by filling out the contact form, calling us at +971 52 691 9169, or messaging us on WhatsApp. Our property consultants are available to arrange private viewings, provide detailed brochures, and guide you through the purchasing process."
   },
 ];
 
@@ -245,8 +245,8 @@ export function formatSqft(sqft: number): string {
   return sqft.toLocaleString() + " sqft";
 }
 
-export const WHATSAPP_NUMBER = "+971555644700";
-export const WHATSAPP_LINK = "https://wa.me/971555644700";
-export const PHONE_NUMBER = "+971 55 564 4700";
+export const WHATSAPP_NUMBER = "+971526919169";
+export const WHATSAPP_LINK = "https://wa.me/971526919169";
+export const PHONE_NUMBER = "+971 52 691 9169";
 export const EMAIL = "info@oasisemaar.com";
 export const ADDRESS = "Al Quoz Street 21, Dubai, UAE";
