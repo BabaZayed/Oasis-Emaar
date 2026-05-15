@@ -5,22 +5,25 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_LINK, PHONE_NUMBER } from "@/lib/data";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Projects", href: "#projects" },
-  { label: "Inventory", href: "#inventory" },
-  { label: "Floor Plans", href: "#floor-plans" },
-  { label: "Payment Plan", href: "#payment-plan" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "About", href: "#about" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Projects", href: "/projects" },
+  { label: "Inventory", href: "/inventory" },
+  { label: "Floor Plans", href: "/floor-plans" },
+  { label: "Payment Plan", href: "/payment-plan" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "About", href: "/about" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -28,11 +31,10 @@ export default function SiteHeader() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (href: string) => {
+  // Close mobile menu on route change
+  useEffect(() => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
+  }, [pathname]);
 
   return (
     <>
@@ -46,14 +48,7 @@ export default function SiteHeader() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo */}
-            <a
-              href="#home"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick("#home");
-              }}
-              className="flex items-center gap-2"
-            >
+            <Link href="/" className="flex items-center gap-2">
               <div className="flex flex-col">
                 <span className="text-xl sm:text-2xl font-bold tracking-wider text-[#C8A45C]">
                   OASIS
@@ -62,23 +57,27 @@ export default function SiteHeader() {
                   EMAAR
                 </span>
               </div>
-            </a>
+            </Link>
 
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick(link.href);
-                  }}
-                  className="px-3 py-2 text-sm text-white/80 hover:text-[#C8A45C] transition-colors duration-200"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href ||
+                  (link.href !== "/" && pathname.startsWith(link.href));
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`px-3 py-2 text-sm transition-colors duration-200 ${
+                      isActive
+                        ? "text-[#C8A45C]"
+                        : "text-white/80 hover:text-[#C8A45C]"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </nav>
 
             {/* Right side */}
@@ -90,12 +89,13 @@ export default function SiteHeader() {
                 <Phone className="w-4 h-4" />
                 <span className="hidden md:inline">{PHONE_NUMBER}</span>
               </a>
-              <Button
-                onClick={() => handleNavClick("#contact")}
-                className="gold-gradient text-[#1A2332] font-semibold text-sm px-4 py-2 rounded-md hover:opacity-90 transition-opacity hidden sm:flex"
-              >
-                Register Interest
-              </Button>
+              <Link href="/contact">
+                <Button
+                  className="gold-gradient text-[#1A2332] font-semibold text-sm px-4 py-2 rounded-md hover:opacity-90 transition-opacity hidden sm:flex"
+                >
+                  Register Interest
+                </Button>
+              </Link>
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
                 className="lg:hidden p-2 text-white hover:text-[#C8A45C] transition-colors"
@@ -126,19 +126,23 @@ export default function SiteHeader() {
             />
             <div className="absolute top-16 left-0 right-0 bg-[#1A2332] border-t border-white/10 shadow-2xl">
               <nav className="max-w-7xl mx-auto px-4 py-4 flex flex-col">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick(link.href);
-                    }}
-                    className="px-4 py-3 text-white/80 hover:text-[#C8A45C] hover:bg-white/5 rounded-md transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                ))}
+                {navLinks.map((link) => {
+                  const isActive = pathname === link.href ||
+                    (link.href !== "/" && pathname.startsWith(link.href));
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={`px-4 py-3 rounded-md transition-colors ${
+                        isActive
+                          ? "text-[#C8A45C] bg-white/5"
+                          : "text-white/80 hover:text-[#C8A45C] hover:bg-white/5"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })}
                 <div className="mt-4 pt-4 border-t border-white/10 px-4">
                   <a
                     href={WHATSAPP_LINK}
@@ -147,12 +151,13 @@ export default function SiteHeader() {
                   >
                     WhatsApp: {PHONE_NUMBER}
                   </a>
-                  <Button
-                    onClick={() => handleNavClick("#contact")}
-                    className="w-full gold-gradient text-[#1A2332] font-semibold py-3 rounded-md"
-                  >
-                    Register Interest
-                  </Button>
+                  <Link href="/contact">
+                    <Button
+                      className="w-full gold-gradient text-[#1A2332] font-semibold py-3 rounded-md"
+                    >
+                      Register Interest
+                    </Button>
+                  </Link>
                 </div>
               </nav>
             </div>

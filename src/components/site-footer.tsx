@@ -5,17 +5,18 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Facebook, Instagram, Twitter, Linkedin, Youtube, MapPin, Phone, Mail, MessageCircle, ArrowUp } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
 
 const quickLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Projects", href: "#projects" },
-  { label: "Inventory", href: "#inventory" },
-  { label: "Floor Plans", href: "#floor-plans" },
-  { label: "Payment Plan", href: "#payment-plan" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "About", href: "#about" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Projects", href: "/projects" },
+  { label: "Inventory", href: "/inventory" },
+  { label: "Floor Plans", href: "/floor-plans" },
+  { label: "Payment Plan", href: "/payment-plan" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "About", href: "/about" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const socialLinks = [
@@ -28,10 +29,6 @@ const socialLinks = [
 
 export default function SiteFooter() {
   const [email, setEmail] = useState("");
-
-  const scrollTo = (href: string) => {
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <footer className="bg-[#1A2332] text-white">
@@ -67,13 +64,12 @@ export default function SiteFooter() {
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
-                    onClick={(e) => { e.preventDefault(); scrollTo(link.href); }}
                     className="text-white/50 hover:text-[#C8A45C] text-sm transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
