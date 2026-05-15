@@ -16,6 +16,7 @@ const navLinks = [
   { label: "Payment Plan", href: "/payment-plan" },
   { label: "Gallery", href: "/gallery" },
   { label: "About", href: "/about" },
+  { label: "Reviews", href: "/#feedback" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
 ];

@@ -3,6 +3,9 @@
 import SiteHeader from "@/components/site-header";
 import HeroSection from "@/components/hero-section";
 import BenefitsSection from "@/components/benefits-section";
+import PaywallSection from "@/components/paywall-section";
+import ReferencesSection from "@/components/references-section";
+import FeedbackSection from "@/components/feedback-section";
 import SiteFooter from "@/components/site-footer";
 import WhatsAppButton from "@/components/whatsapp-button";
 import Link from "next/link";
@@ -105,6 +108,15 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Premium Access / Paywall Section */}
+        <PaywallSection />
+
+        {/* References / Testimonials */}
+        <ReferencesSection />
+
+        {/* User Feedback / Reviews */}
+        <FeedbackSection />
 
         {/* CTA Section */}
         <section className="py-20 sm:py-28 bg-[#1A2332] text-white">
