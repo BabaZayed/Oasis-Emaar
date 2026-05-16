@@ -23,10 +23,10 @@ export default function StatsSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
             >
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold gold-text mb-2">
+              <div className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold gold-text mb-2">
                 {stat.value}
               </div>
-              <p className="text-white/60 text-sm sm:text-base">{stat.label}</p>
+              <p className="font-body text-white/60 text-sm sm:text-base">{stat.label}</p>
             </motion.div>
           ))}
         </div>

@@ -18,13 +18,13 @@ export default function FloorPlansSection() {
     <section id="floor-plans" className="py-20 sm:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
-          <span className="text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
+          <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
             Floor Plans
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
             Explore Floor Plans
           </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
+          <p className="font-body text-gray-500 max-w-2xl mx-auto">
             Detailed layouts for each residence type. Download brochures for complete specifications.
           </p>
           <div className="section-divider max-w-xs mx-auto mt-6" />
@@ -60,7 +60,7 @@ export default function FloorPlansSection() {
                         </div>
                       </div>
                       <CardContent className="p-5">
-                        <h4 className="font-bold text-[#1A2332] mb-3">{plan.name}</h4>
+                        <h4 className="font-heading font-bold text-[#1A2332] mb-3">{plan.name}</h4>
                         <div className="flex items-center gap-4 mb-4 text-sm text-gray-500">
                           <span className="flex items-center gap-1">
                             <Bed className="w-4 h-4 text-[#C8A45C]" /> {plan.bedrooms} Bed

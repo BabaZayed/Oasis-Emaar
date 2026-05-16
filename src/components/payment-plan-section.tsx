@@ -8,13 +8,13 @@ export default function PaymentPlanSection() {
     <section id="payment-plan" className="py-20 sm:py-28 bg-[#1A2332] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
-          <span className="text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
+          <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
             Payment Structure
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-3 mb-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mt-3 mb-4">
             Flexible Payment Plans
           </h2>
-          <p className="text-white/60 max-w-2xl mx-auto">
+          <p className="font-body text-white/60 max-w-2xl mx-auto">
             Emaar offers competitive payment plans designed to make luxury waterfront living accessible. Post-handover options available.
           </p>
           <div className="section-divider max-w-xs mx-auto mt-6" />
@@ -31,8 +31,8 @@ export default function PaymentPlanSection() {
                 {i < paymentMilestones.length - 1 && (
                   <div className="hidden sm:block absolute top-8 sm:top-10 left-[60%] w-[80%] h-0.5 bg-[#C8A45C]/30" />
                 )}
-                <h3 className="font-bold text-[#C8A45C] mb-2 text-sm sm:text-base">{milestone.label}</h3>
-                <p className="text-white/50 text-xs sm:text-sm px-2">{milestone.description}</p>
+                <h3 className="font-heading font-bold text-[#C8A45C] mb-2 text-sm sm:text-base">{milestone.label}</h3>
+                <p className="font-body text-white/50 text-xs sm:text-sm px-2">{milestone.description}</p>
               </div>
             ))}
           </div>
@@ -57,7 +57,7 @@ export default function PaymentPlanSection() {
 
         {/* Price Comparison Table */}
         <div className="max-w-4xl mx-auto">
-          <h3 className="text-xl font-bold text-center mb-6">Starting Prices by Project</h3>
+          <h3 className="font-heading text-xl font-bold text-center mb-6">Starting Prices by Project</h3>
           <div className="bg-white/5 rounded-xl overflow-hidden">
             <div className="grid grid-cols-3 gap-4 p-4 sm:p-6 bg-white/5 font-semibold text-sm text-[#C8A45C]">
               <span>Project</span>

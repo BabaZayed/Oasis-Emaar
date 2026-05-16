@@ -95,13 +95,13 @@ export default function ContactSection() {
     <section id="contact" className="py-20 sm:py-28 bg-[#F5F0E8]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
-          <span className="text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
+          <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
             Get in Touch
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
             Contact Us
           </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
+          <p className="font-body text-gray-500 max-w-2xl mx-auto">
             Ready to explore The Oasis? Fill in your details and our property consultants will reach out with personalized recommendations.
           </p>
           <div className="section-divider max-w-xs mx-auto mt-6" />
@@ -111,7 +111,7 @@ export default function ContactSection() {
           {/* Contact Info */}
           <div className="lg:col-span-2 space-y-6">
             <div className="bg-[#1A2332] rounded-xl p-6 sm:p-8 text-white">
-              <h3 className="text-xl font-bold text-[#C8A45C] mb-6">Contact Information</h3>
+              <h3 className="font-heading text-xl font-bold text-[#C8A45C] mb-6">Contact Information</h3>
               <div className="space-y-5">
                 {contactInfo.map((info) => (
                   <a
@@ -124,7 +124,7 @@ export default function ContactSection() {
                       <info.icon className="w-5 h-5 text-[#C8A45C]" />
                     </div>
                     <div>
-                      <p className="text-xs text-white/50 uppercase tracking-wider">{info.label}</p>
+                      <p className="font-body text-xs text-white/50 uppercase tracking-wider">{info.label}</p>
                       <p className="text-white group-hover:text-[#C8A45C] transition-colors">{info.value}</p>
                     </div>
                   </a>
@@ -177,14 +177,14 @@ export default function ContactSection() {
           {/* Contact Form */}
           <div className="lg:col-span-3">
             <div className="bg-white rounded-xl shadow-md p-6 sm:p-8">
-              <h3 className="text-xl font-bold text-[#1A2332] mb-6">Send Us a Message</h3>
+              <h3 className="font-heading text-xl font-bold text-[#1A2332] mb-6">Send Us a Message</h3>
 
               {submitted ? (
                 <div className="py-12 text-center">
                   <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
                     <Send className="w-8 h-8 text-green-500" />
                   </div>
-                  <h4 className="text-xl font-bold text-[#1A2332] mb-2">Message Sent!</h4>
+                  <h4 className="font-heading text-xl font-bold text-[#1A2332] mb-2">Message Sent!</h4>
                   <p className="text-gray-500">Our property consultant will contact you shortly with personalized options.</p>
                 </div>
               ) : (

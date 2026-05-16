@@ -39,13 +39,13 @@ export default function AboutSection() {
     <section id="about" className="py-20 sm:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
-          <span className="text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
+          <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
             About Us
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
             Your Authorised Emaar Agent
           </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
+          <p className="font-body text-gray-500 max-w-2xl mx-auto">
             We are an independent authorised real estate brokerage specialising in The Oasis by Emaar — your trusted partner for navigating all 9 clusters of Dubai's most prestigious waterfront community
           </p>
           <div className="section-divider max-w-xs mx-auto mt-6" />
@@ -55,8 +55,8 @@ export default function AboutSection() {
         <div className="max-w-4xl mx-auto mb-16">
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-[#1A2332] mb-4">Why Choose Us</h3>
-              <p className="text-gray-600 leading-relaxed mb-4">
+              <h3 className="font-heading text-2xl font-bold text-[#1A2332] mb-4">Why Choose Us</h3>
+              <p className="font-body text-gray-600 leading-relaxed mb-4">
                 The Oasis by Emaar is a master-planned waterfront community that represents the next chapter in Dubai&apos;s evolution as a global destination for luxury living. Spanning over 9.4 million square metres, this visionary development is home to more than 7,000 residences across nine distinctive clusters, each surrounded by crystal-clear lagoons, water canals, and lush green parks.
               </p>
               <p className="text-gray-600 leading-relaxed mb-4">
@@ -67,16 +67,16 @@ export default function AboutSection() {
               </p>
             </div>
             <div className="bg-gradient-to-br from-[#1A2332] to-[#2A3A52] rounded-xl p-8 sm:p-10 text-white h-full flex flex-col justify-center">
-              <h4 className="text-xl font-bold text-[#C8A45C] mb-6">The Oasis by Emaar</h4>
-              <p className="text-white/70 leading-relaxed mb-6">
+              <h4 className="font-heading text-xl font-bold text-[#C8A45C] mb-6">The Oasis by Emaar</h4>
+              <p className="font-body text-white/70 leading-relaxed mb-6">
                 One of Emaar&apos;s most ambitious projects, The Oasis is a 100-million-sq-ft waterfront community featuring nine clusters of villas and mansions, crystal lagoons, private beaches, and world-class amenities — all just 20 minutes from Downtown Dubai.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {stats.map((stat) => (
                   <div key={stat.label} className="text-center">
                     <stat.icon className="w-5 h-5 text-[#C8A45C] mx-auto mb-1" />
-                    <p className="text-lg font-bold">{stat.value}</p>
-                    <p className="text-xs text-white/50">{stat.label}</p>
+                    <p className="font-heading text-lg font-bold">{stat.value}</p>
+                    <p className="font-body text-xs text-white/50">{stat.label}</p>
                   </div>
                 ))}
               </div>
@@ -86,7 +86,7 @@ export default function AboutSection() {
 
         {/* Why Choose Us */}
         <div>
-          <h3 className="text-2xl font-bold text-center text-[#1A2332] mb-8">
+          <h3 className="font-heading text-2xl font-bold text-center text-[#1A2332] mb-8">
             Why Choose The Oasis
           </h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -98,8 +98,8 @@ export default function AboutSection() {
                 <div className="w-12 h-12 rounded-lg gold-gradient flex items-center justify-center mb-4">
                   <reason.icon className="w-6 h-6 text-[#1A2332]" />
                 </div>
-                <h4 className="font-bold text-[#1A2332] mb-2">{reason.title}</h4>
-                <p className="text-sm text-gray-600 leading-relaxed">{reason.description}</p>
+                <h4 className="font-heading font-bold text-[#1A2332] mb-2">{reason.title}</h4>
+                <p className="font-body text-sm text-gray-600 leading-relaxed">{reason.description}</p>
               </div>
             ))}
           </div>

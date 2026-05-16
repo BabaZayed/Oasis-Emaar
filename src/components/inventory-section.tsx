@@ -45,7 +45,7 @@ function PropertyCard({ item, onPremiumClick }: { item: InventoryItem; onPremium
         <p className="text-xs text-[#C8A45C] font-semibold uppercase tracking-wider mb-1">
           {project?.name}
         </p>
-        <h4 className="font-bold text-[#1A2332] mb-3 text-sm sm:text-base">{item.name}</h4>
+        <h4 className="font-heading font-bold text-[#1A2332] mb-3 text-sm sm:text-base">{item.name}</h4>
 
         <div className="flex items-center gap-4 mb-4 text-sm text-gray-500">
           <span className="flex items-center gap-1">
@@ -59,7 +59,7 @@ function PropertyCard({ item, onPremiumClick }: { item: InventoryItem; onPremium
         <div className="flex items-end justify-between pt-3 border-t border-gray-100">
           <div>
             <p className="text-xs text-gray-400">Price</p>
-            <p className="text-lg font-bold text-[#C8A45C]">{formatPrice(item.price)}</p>
+            <p className="font-heading text-lg font-bold text-[#C8A45C]">{formatPrice(item.price)}</p>
           </div>
           {item.isPremium ? (
             <Button
@@ -114,13 +114,13 @@ export default function InventorySection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <span className="text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
+          <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
             Property Listings
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
             Available Inventory
           </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
+          <p className="font-body text-gray-500 max-w-2xl mx-auto">
             Browse our curated selection of available properties at The Oasis. Premium listings require registration to view full details.
           </p>
           <div className="section-divider max-w-xs mx-auto mt-6" />

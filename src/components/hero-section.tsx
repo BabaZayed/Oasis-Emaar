@@ -46,7 +46,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight"
+          className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight tracking-tight"
         >
           The Oasis
           <span className="block text-[#C8A45C]">Dubai</span>
@@ -56,7 +56,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg sm:text-xl md:text-2xl text-white/70 max-w-3xl mx-auto mb-4 sm:mb-6"
+          className="font-body text-lg sm:text-xl md:text-2xl text-white/70 max-w-3xl mx-auto mb-4 sm:mb-6 font-light"
         >
           9 Exclusive Clusters · Ultra-Luxury Waterfront Living
         </motion.p>
@@ -65,7 +65,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-sm sm:text-base text-white/50 max-w-2xl mx-auto mb-8 sm:mb-12"
+          className="font-body text-sm sm:text-base text-white/50 max-w-2xl mx-auto mb-8 sm:mb-12"
         >
           Adress Villas Tierra · Lavita · Mareva · Mirage · Palace Villas Ostra · Palmeira Collective · Palmiera
           <br />
@@ -108,10 +108,10 @@ export default function HeroSection() {
               className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-4 sm:p-6"
             >
               <stat.icon className="w-5 h-5 sm:w-6 sm:h-6 text-[#C8A45C] mx-auto mb-2" />
-              <p className="text-lg sm:text-xl md:text-2xl font-bold text-white">
+              <p className="font-heading text-lg sm:text-xl md:text-2xl font-bold text-white">
                 {stat.value}
               </p>
-              <p className="text-xs sm:text-sm text-white/50">{stat.label}</p>
+              <p className="font-body text-xs sm:text-sm text-white/50 uppercase tracking-wider">{stat.label}</p>
             </div>
           ))}
         </motion.div>

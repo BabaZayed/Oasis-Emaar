@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Poppins } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-heading",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
-const poppins = Poppins({
-  variable: "--font-poppins",
-  weight: ["300", "400", "500", "600", "700"],
+const inter = Inter({
+  variable: "--font-body",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -198,8 +199,8 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${playfair.variable} ${poppins.variable} antialiased bg-background text-foreground`}
-        style={{ fontFamily: "var(--font-poppins), sans-serif" }}
+        className={`${cormorant.variable} ${inter.variable} antialiased bg-background text-foreground`}
+        style={{ fontFamily: "var(--font-body), sans-serif" }}
       >
         {children}
         <Toaster />

@@ -134,30 +134,30 @@ export default function PaywallSection() {
           <div className="w-20 h-20 rounded-full gold-gradient flex items-center justify-center mx-auto mb-6">
             <CheckCircle className="w-10 h-10 text-[#1A2332]" />
           </div>
-          <span className="text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
+          <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
             Premium Member
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-3 mb-6">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mt-3 mb-6">
             Your Premium Access Is Active
           </h2>
-          <p className="text-white/60 max-w-2xl mx-auto mb-8 text-lg">
+          <p className="font-body text-white/60 max-w-2xl mx-auto mb-8 text-lg">
             You have full access to all premium listings, downloadable brochures, and priority viewing requests. Our dedicated property consultant will be in touch with you shortly.
           </p>
           <div className="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
             <div className="bg-white/5 border border-white/10 rounded-xl p-5">
               <Eye className="w-6 h-6 text-[#C8A45C] mx-auto mb-2" />
-              <p className="text-sm font-semibold">All Listings</p>
-              <p className="text-xs text-white/50 mt-1">Premium & standard</p>
+              <p className="font-body text-sm font-semibold">All Listings</p>
+              <p className="font-body text-xs text-white/50 mt-1">Premium & standard</p>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-xl p-5">
               <Download className="w-6 h-6 text-[#C8A45C] mx-auto mb-2" />
-              <p className="text-sm font-semibold">Brochures</p>
-              <p className="text-xs text-white/50 mt-1">Floor plans & specs</p>
+              <p className="font-body text-sm font-semibold">Brochures</p>
+              <p className="font-body text-xs text-white/50 mt-1">Floor plans & specs</p>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-xl p-5">
               <Crown className="w-6 h-6 text-[#C8A45C] mx-auto mb-2" />
-              <p className="text-sm font-semibold">Priority</p>
-              <p className="text-xs text-white/50 mt-1">First viewings access</p>
+              <p className="font-body text-sm font-semibold">Priority</p>
+              <p className="font-body text-xs text-white/50 mt-1">First viewings access</p>
             </div>
           </div>
         </div>
@@ -177,13 +177,13 @@ export default function PaywallSection() {
           <div className="w-16 h-16 rounded-full gold-gradient flex items-center justify-center mx-auto mb-6">
             <Lock className="w-8 h-8 text-[#1A2332]" />
           </div>
-          <span className="text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
+          <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
             Exclusive Access Required
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-3 mb-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mt-3 mb-4">
             Unlock Premium Listings & Pricing
           </h2>
-          <p className="text-white/60 max-w-2xl mx-auto text-lg">
+          <p className="font-body text-white/60 max-w-2xl mx-auto text-lg">
             Property prices, exclusive floor plans, and premium inventory are available to registered members only. Complete the form to get instant access.
           </p>
           <div className="section-divider max-w-xs mx-auto mt-6" />
@@ -192,7 +192,7 @@ export default function PaywallSection() {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Benefits */}
           <div>
-            <h3 className="text-xl font-bold text-[#C8A45C] mb-6">What You Get With Premium Access</h3>
+            <h3 className="font-heading text-xl font-bold text-[#C8A45C] mb-6">What You Get With Premium Access</h3>
             <div className="space-y-5">
               {premiumBenefits.map((benefit) => (
                 <div
@@ -203,8 +203,8 @@ export default function PaywallSection() {
                     <benefit.icon className="w-5 h-5 text-[#1A2332]" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white mb-1">{benefit.title}</h4>
-                    <p className="text-white/50 text-sm leading-relaxed">{benefit.description}</p>
+                    <h4 className="font-heading font-bold text-white mb-1">{benefit.title}</h4>
+                    <p className="font-body text-white/50 text-sm leading-relaxed">{benefit.description}</p>
                   </div>
                 </div>
               ))}
@@ -214,8 +214,8 @@ export default function PaywallSection() {
             <div className="mt-6 bg-[#C8A45C]/10 border border-[#C8A45C]/30 rounded-xl p-4 flex items-start gap-3">
               <AlertTriangle className="w-5 h-5 text-[#C8A45C] flex-shrink-0 mt-0.5" />
               <div>
-                <p className="text-sm font-semibold text-[#C8A45C]">Limited Availability</p>
-                <p className="text-xs text-white/50 mt-1">Over 60% of premium listings already reserved. Register now to secure your preferred unit before prices increase.</p>
+                <p className="font-body text-sm font-semibold text-[#C8A45C]">Limited Availability</p>
+                <p className="font-body text-xs text-white/50 mt-1">Over 60% of premium listings already reserved. Register now to secure your preferred unit before prices increase.</p>
               </div>
             </div>
           </div>
@@ -227,11 +227,11 @@ export default function PaywallSection() {
                 <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
                   <CheckCircle className="w-10 h-10 text-green-500" />
                 </div>
-                <h3 className="text-2xl font-bold text-[#1A2332] mb-3">Premium Access Unlocked!</h3>
-                <p className="text-gray-500 mb-4">
+                <h3 className="font-heading text-2xl font-bold text-[#1A2332] mb-3">Premium Access Unlocked!</h3>
+                <p className="font-body text-gray-500 mb-4">
                   Welcome aboard! You now have full access to all exclusive listings, pricing, brochures, and priority viewings.
                 </p>
-                <p className="text-sm text-gray-400">
+                <p className="font-body text-sm text-gray-400">
                   A property consultant will contact you within 24 hours with personalized recommendations.
                 </p>
               </div>
@@ -242,8 +242,8 @@ export default function PaywallSection() {
                     <Crown className="w-5 h-5 text-[#1A2332]" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold">Register for Free Access</h3>
-                    <p className="text-sm text-gray-500">No credit card required • Instant access</p>
+                    <h3 className="font-heading text-xl font-bold">Register for Free Access</h3>
+                    <p className="font-body text-sm text-gray-500">No credit card required • Instant access</p>
                   </div>
                 </div>
 

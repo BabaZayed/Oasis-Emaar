@@ -1,26 +1,29 @@
+# Oasis Emaar Project Worklog
+
 ---
 Task ID: 1
-Agent: Main Agent
-Task: Update website with real 9 Oasis clusters from Google Drive + agency positioning
+Agent: Main
+Task: Implement Sotheby's-inspired typography system (Mercury + Benton Sans equivalents)
 
 Work Log:
-- Accessed Google Drive folder structure: https://drive.google.com/drive/folders/1UpCaJIiJ2VqgZ-R-0RhvKpr75R2-xkWm
-- Extracted all 9 cluster subfolders and their contents (brochure, factsheet, floor plan, images, maps, moodboard, one-pager, payment plan, renders, video)
-- Searched web for real pricing, bedroom counts, areas, handover dates for each cluster
-- Updated data.ts with 9 real clusters replacing 5 placeholder projects
-- Updated hero section with all 9 cluster names and "Authorised Emaar Sales Agent" badge
-- Updated About section emphasizing authorised agent positioning with disclaimer
-- Updated footer with comprehensive disclaimer (NOT Emaar Properties PJSC)
-- Updated JSON-LD structured data with all 9 property listings
-- Added handover dates and payment plan info to all project cards and detail pages
-- Added cluster tags (Branded Residences, Mansions, Villas, Limited Edition, Premium Villas)
-- Updated inventory items for all 9 clusters (28 items total)
-- Updated floor plans for all 9 clusters (18 plans total)
-- Added FAQ about agency relationship with Emaar
-- Built successfully and pushed to GitHub (BabaZayed/Oasis-Emaar)
+- Analyzed current typography: Playfair Display (serif) + Poppins (sans-serif)
+- Selected Google Fonts equivalents: Cormorant Garamond (= Mercury) + Inter (= Benton Sans)
+- Updated layout.tsx: Replaced font imports and CSS variables
+- Updated globals.css: Added heading typography rules with font-family overrides, body font rules, and sans-serif override for nav/labels/data
+- Updated tailwind.config.ts: Added fontFamily.heading and fontFamily.body entries
+- Updated 15+ component files with font-heading and font-body classes
+- Key typography decisions:
+  - All h1-h6: Cormorant Garamond (serif) — luxury editorial feel
+  - Body text, descriptions: Inter (sans-serif) — clean scannability
+  - Prices: Cormorant Garamond (serif) — prestige emphasis
+  - Stats values: Cormorant Garamond for visual weight
+  - Labels, metadata, nav: Inter (sans-serif) — data clarity
+  - Logo "OASIS": Cormorant Garamond for heritage feel
+- Build successful with zero errors
 
 Stage Summary:
-- Site now has all 9 real Oasis clusters with accurate data
-- Agency positioning clearly established throughout (authorized agent, NOT Emaar direct)
-- No copyrighted Emaar content used (no logos, renders, proprietary images)
-- Vercel auto-deploy triggered from GitHub push
+- Typography system fully implemented across all 15+ components
+- Font stack: Cormorant Garamond (heading) + Inter (body)
+- CSS variables: --font-heading, --font-body
+- Tailwind utilities: font-heading, font-body
+- Production build passes with no errors

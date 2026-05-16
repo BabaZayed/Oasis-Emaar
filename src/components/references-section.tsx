@@ -78,13 +78,13 @@ export default function ReferencesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <span className="text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
+          <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
             Trusted By Experts
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
             Industry References
           </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto text-lg">
+          <p className="font-body text-gray-500 max-w-2xl mx-auto text-lg">
             Hear from top real estate professionals, investors, and consultants who trust The Oasis by Emaar as a premier investment and lifestyle destination.
           </p>
           <div className="section-divider max-w-xs mx-auto mt-6" />
@@ -101,7 +101,7 @@ export default function ReferencesSection() {
               <Quote className="w-8 h-8 text-[#C8A45C]/40 mb-4" />
 
               {/* Quote Text */}
-              <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-1">
+              <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-1 font-body">
                 &ldquo;{ref.quote}&rdquo;
               </p>
 
@@ -132,7 +132,7 @@ export default function ReferencesSection() {
 
         {/* Trusted By / Partner Logos */}
         <div className="border-t border-gray-200 pt-12">
-          <p className="text-center text-sm font-semibold tracking-[0.2em] uppercase text-gray-400 mb-8">
+          <p className="font-body text-center text-sm font-semibold tracking-[0.2em] uppercase text-gray-400 mb-8">
             Recognized & Licensed
           </p>
           <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12">
