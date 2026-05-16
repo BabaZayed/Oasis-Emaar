@@ -4,7 +4,8 @@ import { useState } from "react";
 import { galleryImages, type GalleryImage } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { X, ZoomIn } from "lucide-react";
+import Image from "next/image";
+import { ZoomIn } from "lucide-react";
 
 const categories = ["All", "Exterior", "Interior", "Amenities", "Community", "Master Plan"] as const;
 
@@ -62,11 +63,13 @@ export default function GallerySection() {
                 i % 5 === 0 ? "md:col-span-2 md:row-span-2" : ""
               }`}
             >
-              <div
-                className={`bg-gradient-to-br ${img.gradient} ${
-                  i % 5 === 0 ? "h-64 sm:h-80" : "h-40 sm:h-52"
-                } w-full`}
-              >
+              <div className={`relative ${i % 5 === 0 ? "h-64 sm:h-80" : "h-40 sm:h-52"} w-full`}>
+                <Image
+                  src={img.imageUrl}
+                  alt={img.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
                   <ZoomIn className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
@@ -82,10 +85,15 @@ export default function GallerySection() {
 
       {/* Lightbox */}
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-        <DialogContent className="max-w-3xl p-0 overflow-hidden bg-black border-0">
+        <DialogContent className="max-w-4xl p-0 overflow-hidden bg-black border-0">
           {selectedImage && (
-            <div className={`h-64 sm:h-96 md:h-[500px] bg-gradient-to-br ${selectedImage.gradient} flex items-center justify-center`}>
-              <p className="text-white/40 text-lg">{selectedImage.alt}</p>
+            <div className="relative h-64 sm:h-96 md:h-[500px]">
+              <Image
+                src={selectedImage.imageUrl}
+                alt={selectedImage.alt}
+                fill
+                className="object-cover"
+              />
             </div>
           )}
         </DialogContent>

@@ -53,10 +53,25 @@ export default function FloorPlansSection() {
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {plans.map((plan) => (
                     <Card key={plan.id} className="overflow-hidden border-0 shadow-md hover:shadow-lg transition-shadow">
-                      <div className={`h-48 bg-gradient-to-br ${plan.imageGradient} flex items-center justify-center`}>
-                        <div className="text-center">
-                          <div className="w-20 h-16 border-2 border-dashed border-gray-300 rounded mx-auto mb-2" />
-                          <p className="text-xs text-gray-400">Floor Plan Preview</p>
+                      <div className="relative h-48 bg-gradient-to-br from-[#F5F0E8] to-[#E8E0D0] flex items-center justify-center overflow-hidden">
+                        {(() => {
+                          const proj = projects.find((p) => p.id === plan.projectId);
+                          if (proj?.imageUrl) {
+                            return (
+                              <img
+                                src={proj.imageUrl}
+                                alt={plan.name}
+                                className="w-full h-full object-cover opacity-30"
+                              />
+                            );
+                          }
+                          return null;
+                        })()}
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="text-center">
+                            <div className="w-20 h-16 border-2 border-dashed border-gray-300 rounded mx-auto mb-2" />
+                            <p className="text-xs text-gray-400">Floor Plan Preview</p>
+                          </div>
                         </div>
                       </div>
                       <CardContent className="p-5">

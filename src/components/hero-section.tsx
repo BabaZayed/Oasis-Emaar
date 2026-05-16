@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, MapPin, Home, Building2, Ruler } from "lucide-react";
 import { formatPrice } from "@/lib/data";
+import Image from "next/image";
 
 const stats = [
   { icon: Home, label: "Starting From", value: formatPrice(9180000) },
@@ -22,8 +23,16 @@ export default function HeroSection() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1A2332] via-[#2A3A52] to-[#1A2332]" />
+      {/* Background Image */}
+      <Image
+        src="/images/hero-oasis.png"
+        alt="The Oasis by Emaar - Luxury Waterfront Community"
+        fill
+        className="object-cover"
+        priority
+        quality={90}
+      />
+      {/* Overlay */}
       <div className="absolute inset-0 hero-overlay" />
 
       {/* Decorative Elements */}
