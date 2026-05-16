@@ -40,13 +40,13 @@ export default function BenefitsSection() {
     <section className="py-20 sm:py-28 bg-[#1A2332] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
-          <span className="text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
+          <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
             Lifestyle
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-3 mb-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mt-3 mb-4">
             Benefits of Living at The Oasis
           </h2>
-          <p className="text-white/50 max-w-2xl mx-auto">
+          <p className="font-body text-white/50 max-w-2xl mx-auto">
             A community designed for those who seek the extraordinary in every aspect of life
           </p>
           <div className="section-divider max-w-xs mx-auto mt-6" />
@@ -61,8 +61,8 @@ export default function BenefitsSection() {
               <div className="w-12 h-12 rounded-lg gold-gradient flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <benefit.icon className="w-6 h-6 text-[#1A2332]" />
               </div>
-              <h3 className="text-lg font-bold text-[#C8A45C] mb-2">{benefit.title}</h3>
-              <p className="text-white/60 text-sm leading-relaxed">{benefit.description}</p>
+              <h3 className="font-heading text-lg font-bold text-[#C8A45C] mb-2">{benefit.title}</h3>
+              <p className="font-body text-white/60 text-sm leading-relaxed">{benefit.description}</p>
             </div>
           ))}
         </div>

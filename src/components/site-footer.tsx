@@ -40,8 +40,8 @@ export default function SiteFooter() {
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="mb-4">
-              <span className="text-2xl font-bold tracking-wider text-[#C8A45C]">OASIS</span>
-              <span className="text-sm tracking-[0.15em] text-white/50 ml-2">EMAAR</span>
+              <span className="font-heading text-2xl font-bold tracking-wider text-[#C8A45C]">OASIS</span>
+              <span className="font-body text-sm tracking-[0.15em] text-white/50 ml-2">EMAAR</span>
             </div>
             <p className="text-white/50 text-sm leading-relaxed mb-2">
               Authorized sales agent for Emaar Properties' The Oasis community in Dubai. We are an independent real estate brokerage — not Emaar Properties directly.
@@ -66,7 +66,7 @@ export default function SiteFooter() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold text-[#C8A45C] mb-4 text-sm uppercase tracking-wider">Quick Links</h4>
+            <h4 className="font-body font-semibold text-[#C8A45C] mb-4 text-sm uppercase tracking-wider">Quick Links</h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.href}>
@@ -83,7 +83,7 @@ export default function SiteFooter() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold text-[#C8A45C] mb-4 text-sm uppercase tracking-wider">Contact</h4>
+            <h4 className="font-body font-semibold text-[#C8A45C] mb-4 text-sm uppercase tracking-wider">Contact</h4>
             <div className="space-y-3">
               <a href={`tel:${PHONE_NUMBER.replace(/\s/g, "")}`} className="flex items-center gap-3 text-white/50 hover:text-[#C8A45C] text-sm transition-colors">
                 <Phone className="w-4 h-4 flex-shrink-0" /> {PHONE_NUMBER}
@@ -102,7 +102,7 @@ export default function SiteFooter() {
 
           {/* Newsletter */}
           <div>
-            <h4 className="font-semibold text-[#C8A45C] mb-4 text-sm uppercase tracking-wider">Newsletter</h4>
+            <h4 className="font-body font-semibold text-[#C8A45C] mb-4 text-sm uppercase tracking-wider">Newsletter</h4>
             <p className="text-white/50 text-sm mb-4">Stay updated with The Oasis project news and exclusive offers.</p>
             <form
               onSubmit={(e) => {

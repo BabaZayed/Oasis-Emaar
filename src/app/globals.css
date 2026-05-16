@@ -91,9 +91,34 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body), 'Inter', system-ui, -apple-system, sans-serif;
   }
   html {
     scroll-behavior: smooth;
+  }
+  /* ── Sotheby's-Inspired Typographic System ── */
+  /* Headings: Cormorant Garamond (high-contrast editorial serif) — Mercury equivalent */
+  /* Body: Inter (clean, understated sans-serif) — Benton Sans equivalent */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading), 'Cormorant Garamond', 'Georgia', serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  h1 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  h2 {
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+  h3 {
+    font-weight: 600;
+  }
+  /* Override: Elements that must remain sans-serif (data, labels, nav) */
+  .font-body, nav, .nav-text, label, .label, small, .text-xs, .text-sm,
+  input, select, textarea, button, [data-body] {
+    font-family: var(--font-body), 'Inter', system-ui, -apple-system, sans-serif;
   }
 }
 

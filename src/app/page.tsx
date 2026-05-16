@@ -38,7 +38,7 @@ function ProjectPreviewCard({ project }: { project: typeof projects[0] }) {
       </div>
 
       <CardContent className="p-5 sm:p-6">
-        <h3 className="text-xl font-bold text-[#1A2332] mb-3">{project.name}</h3>
+        <h3 className="font-heading text-xl font-bold text-[#1A2332] mb-3">{project.name}</h3>
 
         <div className="grid grid-cols-2 gap-3 mb-4">
           <div className="flex items-center gap-2 text-sm text-gray-600">
@@ -59,8 +59,8 @@ function ProjectPreviewCard({ project }: { project: typeof projects[0] }) {
 
         <div className="flex items-end justify-between pt-4 border-t border-gray-100">
           <div>
-            <p className="text-xs text-gray-400 uppercase tracking-wider">Starting from</p>
-            <p className="text-xl font-bold text-[#C8A45C]">{formatPrice(project.startingPrice)}</p>
+            <p className="font-body text-xs text-gray-400 uppercase tracking-wider">Starting from</p>
+            <p className="font-heading text-xl font-bold text-[#C8A45C]">{formatPrice(project.startingPrice)}</p>
           </div>
           <Link href={`/projects/${project.slug}`}>
             <Button className="bg-[#1A2332] text-white hover:bg-[#2A3A52] text-sm rounded-md">
@@ -87,13 +87,13 @@ export default function Home() {
         <section className="py-20 sm:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12 sm:mb-16">
-              <span className="text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
+              <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
                 9 Exclusive Clusters
               </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
+              <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
                 Discover The Oasis Collection
               </h2>
-              <p className="text-gray-500 max-w-2xl mx-auto text-lg">
+              <p className="font-body text-gray-500 max-w-2xl mx-auto text-lg">
                 Nine distinctive clusters, each offering a unique perspective on luxury waterfront living in Dubai — from branded residences to ultra-exclusive limited editions
               </p>
               <div className="section-divider max-w-xs mx-auto mt-6" />
@@ -119,13 +119,13 @@ export default function Home() {
         {/* CTA Section */}
         <section className="py-20 sm:py-28 bg-[#1A2332] text-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span className="text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
+            <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
               Start Your Journey
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-3 mb-6">
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mt-3 mb-6">
               Ready to Find Your Dream Home?
             </h2>
-            <p className="text-white/60 max-w-2xl mx-auto mb-10 text-lg">
+            <p className="font-body text-white/60 max-w-2xl mx-auto mb-10 text-lg">
               As an authorised Emaar sales agent, we offer exclusive access, expert guidance, and personalised service across all 9 clusters at The Oasis.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

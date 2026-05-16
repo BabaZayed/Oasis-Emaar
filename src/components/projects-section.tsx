@@ -31,7 +31,7 @@ function ProjectCard({ project, onViewDetails }: { project: Project; onViewDetai
       </div>
 
       <CardContent className="p-5 sm:p-6">
-        <h3 className="text-xl font-bold text-[#1A2332] mb-3">{project.name}</h3>
+        <h3 className="font-heading text-xl font-bold text-[#1A2332] mb-3">{project.name}</h3>
         
         <div className="grid grid-cols-2 gap-3 mb-4">
           <div className="flex items-center gap-2 text-sm text-gray-600">
@@ -52,8 +52,8 @@ function ProjectCard({ project, onViewDetails }: { project: Project; onViewDetai
 
         <div className="flex items-end justify-between pt-4 border-t border-gray-100">
           <div>
-            <p className="text-xs text-gray-400 uppercase tracking-wider">Starting from</p>
-            <p className="text-xl font-bold text-[#C8A45C]">{formatPrice(project.startingPrice)}</p>
+            <p className="font-body text-xs text-gray-400 uppercase tracking-wider">Starting from</p>
+            <p className="font-heading text-xl font-bold text-[#C8A45C]">{formatPrice(project.startingPrice)}</p>
           </div>
           <Button
             onClick={() => onViewDetails(project)}
@@ -74,7 +74,7 @@ function ProjectDetailModal({ project, open, onClose }: { project: Project | nul
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-[#1A2332]">{project.name}</DialogTitle>
+          <DialogTitle className="font-heading text-2xl font-bold text-[#1A2332]">{project.name}</DialogTitle>
         </DialogHeader>
 
         <div className={`h-48 sm:h-64 rounded-lg bg-gradient-to-br ${project.imageGradient} mb-6 flex items-end p-6`}>
@@ -90,29 +90,29 @@ function ProjectDetailModal({ project, open, onClose }: { project: Project | nul
 
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
           <div className="bg-gray-50 rounded-lg p-4">
-            <p className="text-xs text-gray-400 uppercase tracking-wider">Bedrooms</p>
-            <p className="text-lg font-bold text-[#1A2332]">{project.bedrooms}</p>
+            <p className="font-body text-xs text-gray-400 uppercase tracking-wider">Bedrooms</p>
+            <p className="font-heading text-lg font-bold text-[#1A2332]">{project.bedrooms}</p>
           </div>
           <div className="bg-gray-50 rounded-lg p-4">
-            <p className="text-xs text-gray-400 uppercase tracking-wider">Area</p>
-            <p className="text-lg font-bold text-[#1A2332]">{project.areaRange}</p>
+            <p className="font-body text-xs text-gray-400 uppercase tracking-wider">Area</p>
+            <p className="font-heading text-lg font-bold text-[#1A2332]">{project.areaRange}</p>
           </div>
           <div className="bg-gray-50 rounded-lg p-4">
-            <p className="text-xs text-gray-400 uppercase tracking-wider">Starting Price</p>
-            <p className="text-lg font-bold text-[#C8A45C]">{formatPrice(project.startingPrice)}</p>
+            <p className="font-body text-xs text-gray-400 uppercase tracking-wider">Starting Price</p>
+            <p className="font-heading text-lg font-bold text-[#C8A45C]">{formatPrice(project.startingPrice)}</p>
           </div>
           <div className="bg-gray-50 rounded-lg p-4">
-            <p className="text-xs text-gray-400 uppercase tracking-wider">Handover</p>
-            <p className="text-lg font-bold text-[#1A2332]">{project.handover}</p>
+            <p className="font-body text-xs text-gray-400 uppercase tracking-wider">Handover</p>
+            <p className="font-heading text-lg font-bold text-[#1A2332]">{project.handover}</p>
           </div>
           <div className="bg-gray-50 rounded-lg p-4">
-            <p className="text-xs text-gray-400 uppercase tracking-wider">Payment Plan</p>
-            <p className="text-lg font-bold text-[#1A2332]">{project.paymentPlan}</p>
+            <p className="font-body text-xs text-gray-400 uppercase tracking-wider">Payment Plan</p>
+            <p className="font-heading text-lg font-bold text-[#1A2332]">{project.paymentPlan}</p>
           </div>
           {project.plotArea && (
             <div className="bg-gray-50 rounded-lg p-4">
-              <p className="text-xs text-gray-400 uppercase tracking-wider">Plot Area</p>
-              <p className="text-lg font-bold text-[#1A2332]">{project.plotArea}</p>
+              <p className="font-body text-xs text-gray-400 uppercase tracking-wider">Plot Area</p>
+              <p className="font-heading text-lg font-bold text-[#1A2332]">{project.plotArea}</p>
             </div>
           )}
         </div>
@@ -176,13 +176,13 @@ export default function ProjectsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <span className="text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
+          <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
             9 Exclusive Clusters
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
             Discover The Oasis Collection
           </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto text-lg">
+          <p className="font-body text-gray-500 max-w-2xl mx-auto text-lg">
             Nine distinctive clusters, each offering a unique perspective on luxury waterfront living in Dubai
           </p>
           <div className="section-divider max-w-xs mx-auto mt-6" />

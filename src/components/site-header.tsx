@@ -51,7 +51,7 @@ export default function SiteHeader() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
               <div className="flex flex-col">
-                <span className="text-xl sm:text-2xl font-bold tracking-wider text-[#C8A45C]">
+                <span className="font-heading text-xl sm:text-2xl font-bold tracking-wider text-[#C8A45C]">
                   OASIS
                 </span>
                 <span className="text-[10px] sm:text-xs tracking-[0.15em] text-white/70 -mt-1">
@@ -69,7 +69,7 @@ export default function SiteHeader() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`px-3 py-2 text-sm transition-colors duration-200 ${
+                    className={`font-body px-3 py-2 text-sm transition-colors duration-200 ${
                       isActive
                         ? "text-[#C8A45C]"
                         : "text-white/80 hover:text-[#C8A45C]"

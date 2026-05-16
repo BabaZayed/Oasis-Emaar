@@ -62,7 +62,7 @@ export default function PropertyCard({ item, onViewDetails }: PropertyCardProps)
       </div>
 
       <CardContent className="p-4">
-        <h3 className="font-bold text-navy text-base mb-1">{item.name}</h3>
+        <h3 className="font-heading font-bold text-navy text-base mb-1">{item.name}</h3>
         <p className="text-xs text-gold font-medium mb-3">{item.projectName}</p>
 
         <div className="grid grid-cols-2 gap-2 text-xs text-muted-foreground mb-3">
