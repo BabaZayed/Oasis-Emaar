@@ -10,11 +10,12 @@ import SiteFooter from "@/components/site-footer";
 import WhatsAppButton from "@/components/whatsapp-button";
 import ExitIntentPopup from "@/components/exit-intent-popup";
 import Link from "next/link";
+import Image from "next/image";
 import { projects, formatPrice } from "@/lib/data";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Bed, Maximize, ArrowRight, ChevronRight } from "lucide-react";
+import { Bed, Maximize, ArrowRight } from "lucide-react";
 
 function ProjectPreviewCard({ project }: { project: typeof projects[0] }) {
   const statusColor =
@@ -24,7 +25,13 @@ function ProjectPreviewCard({ project }: { project: typeof projects[0] }) {
 
   return (
     <Card className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
-      <div className={`relative h-56 sm:h-64 bg-gradient-to-br ${project.imageGradient} overflow-hidden`}>
+      <div className="relative h-56 sm:h-64 overflow-hidden">
+        <Image
+          src={project.imageUrl}
+          alt={project.name}
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-110"
+        />
         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-500" />
         <Badge className={`absolute top-4 left-4 ${statusColor} text-white text-xs font-semibold`}>
           {project.status}
@@ -84,7 +91,7 @@ export default function Home() {
         <BenefitsSection />
 
         {/* Projects Preview - Show all 9 clusters */}
-        <section className="py-20 sm:py-28 bg-white">
+        <section id="projects" className="py-20 sm:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12 sm:mb-16">
               <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">

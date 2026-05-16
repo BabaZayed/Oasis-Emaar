@@ -9,6 +9,8 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Bed, Maximize, Lock, Search, SlidersHorizontal, X } from "lucide-react";
 import { PaywallModal } from "@/components/paywall-modal";
+import Image from "next/image";
+import Link from "next/link";
 
 function PropertyCard({ item, onPremiumClick }: { item: InventoryItem; onPremiumClick: (item: InventoryItem) => void }) {
   const statusMap: Record<PropertyStatus, { label: string; color: string }> = {
@@ -29,7 +31,17 @@ function PropertyCard({ item, onPremiumClick }: { item: InventoryItem; onPremium
   return (
     <Card className="group overflow-hidden border-0 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 relative">
       {/* Image */}
-      <div className={`relative h-44 bg-gradient-to-br ${item.imageGradient} overflow-hidden`}>
+      <div className="relative h-44 overflow-hidden">
+        {project?.imageUrl ? (
+          <Image
+            src={project.imageUrl}
+            alt={item.name}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+        ) : (
+          <div className={`w-full h-full bg-gradient-to-br ${item.imageGradient}`} />
+        )}
         <div className="absolute inset-0 bg-black/20" />
         <Badge className={`absolute top-3 left-3 ${statusInfo.color} text-white text-xs`}>
           {statusInfo.label}

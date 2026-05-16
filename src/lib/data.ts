@@ -18,6 +18,7 @@ export interface Project {
   features: string[];
   amenities: string[];
   imageGradient: string;
+  imageUrl: string;
   clusterTag: string;
   driveFolderId: string;
   driveFolderUrl: string;
@@ -76,6 +77,7 @@ export interface GalleryImage {
   category: "Exterior" | "Interior" | "Amenities" | "Community" | "Master Plan";
   alt: string;
   gradient: string;
+  imageUrl: string;
 }
 
 // ======== PROJECTS (9 Clusters) ========
@@ -97,6 +99,7 @@ export const projects: Project[] = [
     features: ["Address Hotels Furnishing", "Private Swimming Pool", "Landscaped Garden", "Maid's Room", "Covered Parking", "Basement Level", "Rooftop Terrace", "Smart Home Technology"],
     amenities: ["Crystal Lagoon & Beach", "Address Hotel Services", "Private Beach Club", "Swimming Pools", "Fitness Centre & Spa", "Fine Dining", "Kids' Play Areas", "Walking Trails", "24/7 Security"],
     imageGradient: "from-emerald-700 via-teal-600 to-cyan-500",
+    imageUrl: "/images/projects/adress-villas-tierra.png",
     clusterTag: "Branded Residences",
     driveFolderId: "11cxYBTJ9dYWHMFMef-KwF1BlKPc_Xbxy",
     driveFolderUrl: "https://drive.google.com/drive/folders/11cxYBTJ9dYWHMFMef-KwF1BlKPc_Xbxy",
@@ -128,6 +131,7 @@ export const projects: Project[] = [
     features: ["Private Lift", "Home Cinema", "Wine Cellar", "Staff Quarters", "Infinity Pool", "Full Water View", "Rooftop Terrace", "Basement Level", "Private Garden Estate"],
     amenities: ["Crystal Lagoon & Beach", "Private Beach Club", "Concierge Service", "Spa & Wellness", "Golf Course Access", "Marina Berth", "Valet Parking", "24/7 Security & Gated"],
     imageGradient: "from-amber-800 via-yellow-700 to-orange-500",
+    imageUrl: "/images/projects/lavita.png",
     clusterTag: "Mansions",
     driveFolderId: "1SWdgl6zBznpHFfaB4abNvktXGxpSNcYD",
     driveFolderUrl: "https://drive.google.com/drive/folders/1SWdgl6zBznpHFfaB4abNvktXGxpSNcYD",
@@ -159,6 +163,7 @@ export const projects: Project[] = [
     features: ["Private Swimming Pool", "Landscaped Garden", "Maid's Room", "Covered Parking", "Lagoon View Terrace", "Basement Level", "Open-Plan Living", "Designer Kitchen"],
     amenities: ["Crystal Lagoon & Beach", "Swimming Pools", "Fitness Centre", "Community Parks", "Retail Boulevard", "Dining Destinations", "Jogging Tracks", "Kids' Play Areas"],
     imageGradient: "from-violet-700 via-purple-500 to-fuchsia-400",
+    imageUrl: "/images/projects/mareva.png",
     clusterTag: "Villas",
     driveFolderId: "1gpGDgvUybDYN6HK-64gNMwOf_guO7i4B",
     driveFolderUrl: "https://drive.google.com/drive/folders/1gpGDgvUybDYN6HK-64gNMwOf_guO7i4B",
@@ -181,6 +186,7 @@ export const projects: Project[] = [
     features: ["Private Swimming Pool", "Landscaped Garden", "Maid's Room", "Covered Parking", "Enhanced Lagoon Views", "Basement Level", "Study Room", "Walk-in Closets"],
     amenities: ["Crystal Lagoon & Beach", "Swimming Pools", "Fitness Centre & Spa", "Parks & Gardens", "Retail & Dining", "Water Sports Centre", "Cycling Tracks", "Community Centre"],
     imageGradient: "from-indigo-700 via-blue-500 to-cyan-400",
+    imageUrl: "/images/projects/mareva-2.png",
     clusterTag: "Villas",
     driveFolderId: "1qn1ExWOtXKe0kE_RbfgMDlnmsRdsMLPP",
     driveFolderUrl: "https://drive.google.com/drive/folders/1qn1ExWOtXKe0kE_RbfgMDlnmsRdsMLPP",
@@ -203,6 +209,7 @@ export const projects: Project[] = [
     features: ["Private Swimming Pool", "Landscaped Garden", "Maid's Room", "Covered Parking for 3+", "Basement Level", "Panoramic Water View", "Private Elevator", "Rooftop Terrace"],
     amenities: ["Crystal Lagoon & Beach", "Private Beach Club", "Concierge Service", "Spa & Wellness", "Fine Dining", "Jogging & Cycling Tracks", "Golf Course Access", "24/7 Gated Security"],
     imageGradient: "from-sky-700 via-blue-500 to-cyan-400",
+    imageUrl: "/images/projects/mirage.png",
     clusterTag: "Premium Villas",
     driveFolderId: "1aTQR_dDmWwY7uZujToTG3S270nAgt-Jh",
     driveFolderUrl: "https://drive.google.com/drive/folders/1aTQR_dDmWwY7uZujToTG3S270nAgt-Jh",
@@ -234,6 +241,7 @@ export const projects: Project[] = [
     features: ["Palace Brand Interiors", "Private Swimming Pool", "Landscaped Garden", "Maid's Room", "Covered Parking", "Basement Level", "In-Villa Dining Service", "Concierge Service"],
     amenities: ["Crystal Lagoon & Beach", "Palace Hotel Services", "Private Beach Club", "Spa & Wellness Centre", "Fine Dining Restaurants", "Fitness Centre", "Kids' Play Areas", "Walking Trails", "24/7 Gated Security"],
     imageGradient: "from-rose-700 via-pink-500 to-red-400",
+    imageUrl: "/images/projects/palace-villas-ostra.png",
     clusterTag: "Branded Residences",
     driveFolderId: "1vSoP0nr8behBJXJEJ6t9xexjATjVNCDJ",
     driveFolderUrl: "https://drive.google.com/drive/folders/1vSoP0nr8behBJXJEJ6t9xexjATjVNCDJ",
@@ -266,6 +274,7 @@ export const projects: Project[] = [
     features: ["Private Lift", "Two Kitchens", "Basement Level", "Domestic Staff Quarters", "Private Swimming Pool", "Landscaped Garden", "Maid's Room", "Covered Parking"],
     amenities: ["Crystal Lagoon & Beach", "Swimming Pools", "Community Centre", "Parks & Gardens", "Retail & Dining", "Fitness Centre", "Jogging Tracks", "24/7 Security"],
     imageGradient: "from-teal-700 via-emerald-500 to-green-400",
+    imageUrl: "/images/projects/palmeira-collective.png",
     clusterTag: "Limited Edition",
     driveFolderId: "1cbedM9CKaKtHjE0Oq9XM2gGtb-GOcjiR",
     driveFolderUrl: "https://drive.google.com/drive/folders/1cbedM9CKaKtHjE0Oq9XM2gGtb-GOcjiR",
@@ -295,6 +304,7 @@ export const projects: Project[] = [
     features: ["Private Swimming Pool", "Landscaped Garden", "Maid's Room", "Covered Parking", "Lagoon View Terrace", "Open-Plan Living", "Walk-in Closets", "Designer Kitchen"],
     amenities: ["Crystal Lagoon & Beach", "Swimming Pools", "Fitness Centre", "Parks & Gardens", "Retail Boulevard", "Dining Destinations", "Jogging Tracks", "Kids' Play Areas"],
     imageGradient: "from-orange-700 via-amber-500 to-yellow-400",
+    imageUrl: "/images/projects/palmiera.png",
     clusterTag: "Villas",
     driveFolderId: "12aUQUxfnOSsrUEVYX7EPz1J7qwYjci9a",
     driveFolderUrl: "https://drive.google.com/drive/folders/12aUQUxfnOSsrUEVYX7EPz1J7qwYjci9a",
@@ -326,6 +336,7 @@ export const projects: Project[] = [
     features: ["Private Swimming Pool", "Landscaped Garden", "Maid's Room", "Covered Parking", "Terrace with View", "Open-Plan Living", "Modern Kitchen", "En-Suite Bathrooms"],
     amenities: ["Crystal Lagoon & Beach", "Swimming Pools", "Fitness Centre", "Parks & Gardens", "Retail & Dining", "Kids' Play Areas", "Jogging Tracks", "Community Centre"],
     imageGradient: "from-cyan-700 via-sky-500 to-blue-400",
+    imageUrl: "/images/projects/palmiera-3.png",
     clusterTag: "Villas",
     driveFolderId: "1f_8PStTDAPLv9A6jV6dnS2yMW_n5gF6A",
     driveFolderUrl: "https://drive.google.com/drive/folders/1f_8PStTDAPLv9A6jV6dnS2yMW_n5gF6A",
@@ -456,18 +467,18 @@ export const faqs: FAQ[] = [
 
 // ======== GALLERY ========
 export const galleryImages: GalleryImage[] = [
-  { id: "g1", category: "Exterior", alt: "Villa exterior with lagoon view", gradient: "from-emerald-500 to-teal-300" },
-  { id: "g2", category: "Exterior", alt: "Mansion entrance and garden", gradient: "from-amber-500 to-yellow-300" },
-  { id: "g3", category: "Interior", alt: "Luxury living room with panoramic windows", gradient: "from-stone-400 to-amber-200" },
-  { id: "g4", category: "Interior", alt: "Designer kitchen with island", gradient: "from-gray-400 to-stone-200" },
-  { id: "g5", category: "Amenities", alt: "Crystal lagoon and beach area", gradient: "from-cyan-500 to-sky-300" },
-  { id: "g6", category: "Amenities", alt: "Infinity pool overlooking the waterway", gradient: "from-blue-500 to-cyan-300" },
-  { id: "g7", category: "Community", alt: "Waterfront promenade at sunset", gradient: "from-orange-500 to-amber-300" },
-  { id: "g8", category: "Community", alt: "Green parks and jogging tracks", gradient: "from-green-500 to-emerald-300" },
-  { id: "g9", category: "Master Plan", alt: "Aerial view of The Oasis master plan", gradient: "from-slate-500 to-blue-300" },
-  { id: "g10", category: "Exterior", alt: "Contemporary villa architecture", gradient: "from-sky-500 to-blue-300" },
-  { id: "g11", category: "Interior", alt: "Master bedroom with balcony", gradient: "from-rose-300 to-pink-100" },
-  { id: "g12", category: "Amenities", alt: "Children's play area and waterpark", gradient: "from-violet-400 to-purple-200" },
+  { id: "g1", category: "Exterior", alt: "Villa exterior with lagoon view", gradient: "from-emerald-500 to-teal-300", imageUrl: "/images/gallery/gallery-exterior-1.png" },
+  { id: "g2", category: "Exterior", alt: "Mansion entrance and garden", gradient: "from-amber-500 to-yellow-300", imageUrl: "/images/gallery/gallery-exterior-2.png" },
+  { id: "g3", category: "Interior", alt: "Luxury living room with panoramic windows", gradient: "from-stone-400 to-amber-200", imageUrl: "/images/gallery/gallery-interior-1.png" },
+  { id: "g4", category: "Interior", alt: "Designer kitchen with island", gradient: "from-gray-400 to-stone-200", imageUrl: "/images/gallery/gallery-interior-2.png" },
+  { id: "g5", category: "Amenities", alt: "Crystal lagoon and beach area", gradient: "from-cyan-500 to-sky-300", imageUrl: "/images/gallery/gallery-amenities-1.png" },
+  { id: "g6", category: "Amenities", alt: "Infinity pool overlooking the waterway", gradient: "from-blue-500 to-cyan-300", imageUrl: "/images/gallery/gallery-amenities-2.png" },
+  { id: "g7", category: "Community", alt: "Waterfront promenade at sunset", gradient: "from-orange-500 to-amber-300", imageUrl: "/images/gallery/gallery-community-1.png" },
+  { id: "g8", category: "Community", alt: "Green parks and jogging tracks", gradient: "from-green-500 to-emerald-300", imageUrl: "/images/gallery/gallery-community-2.png" },
+  { id: "g9", category: "Master Plan", alt: "Aerial view of The Oasis master plan", gradient: "from-slate-500 to-blue-300", imageUrl: "/images/gallery/gallery-masterplan.png" },
+  { id: "g10", category: "Exterior", alt: "Contemporary villa architecture", gradient: "from-sky-500 to-blue-300", imageUrl: "/images/gallery/gallery-exterior-3.png" },
+  { id: "g11", category: "Interior", alt: "Master bedroom with balcony", gradient: "from-rose-300 to-pink-100", imageUrl: "/images/gallery/gallery-interior-3.png" },
+  { id: "g12", category: "Amenities", alt: "Children's play area and waterpark", gradient: "from-violet-400 to-purple-200", imageUrl: "/images/gallery/gallery-amenities-3.png" },
 ];
 
 // ======== HELPERS ========

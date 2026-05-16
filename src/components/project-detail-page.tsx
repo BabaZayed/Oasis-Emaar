@@ -4,7 +4,8 @@ import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import WhatsAppButton from "@/components/whatsapp-button";
 import Link from "next/link";
-import { inventoryItems, floorPlans, formatPrice, formatSqft, type Project } from "@/lib/data";
+import Image from "next/image";
+import { inventoryItems, floorPlans, projects, formatPrice, formatSqft, type Project } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -23,14 +24,26 @@ export default function ProjectDetailPage({ project }: { project: Project }) {
     project.status === "Off-Plan" ? "bg-[#C8A45C]" :
     "bg-orange-500";
 
+  // Get related projects (same type, exclude current)
+  const relatedProjects = projects
+    .filter((p) => p.id !== project.id && (p.type === project.type || p.clusterTag === project.clusterTag))
+    .slice(0, 3);
+
   return (
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative py-24 sm:py-32 overflow-hidden">
-          <div className={`absolute inset-0 bg-gradient-to-br ${project.imageGradient}`} />
-          <div className="absolute inset-0 bg-black/40" />
+          <Image
+            src={project.imageUrl}
+            alt={project.name}
+            fill
+            className="object-cover"
+            priority
+            quality={90}
+          />
+          <div className="absolute inset-0 bg-black/50" />
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Breadcrumb */}
             <nav className="mb-8" aria-label="Breadcrumb">
@@ -125,8 +138,50 @@ export default function ProjectDetailPage({ project }: { project: Project }) {
           </div>
         </section>
 
-        {/* Features & Amenities */}
+        {/* Project Image Gallery */}
         <section className="py-16 sm:py-20 bg-[#F5F0E8]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[#1A2332] mb-8">Project Gallery</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="relative h-72 sm:h-96 rounded-xl overflow-hidden">
+                <Image
+                  src={project.imageUrl}
+                  alt={`${project.name} - Exterior`}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="relative h-36 sm:h-[calc(12rem-0.5rem)] rounded-xl overflow-hidden bg-gradient-to-br from-[#1A2332] to-[#2A3A52] flex items-center justify-center">
+                  <div className="text-center">
+                    <Bed className="w-8 h-8 text-[#C8A45C]/40 mx-auto mb-2" />
+                    <p className="text-white/40 text-sm">Interior View</p>
+                  </div>
+                </div>
+                <div className="relative h-36 sm:h-[calc(12rem-0.5rem)] rounded-xl overflow-hidden bg-gradient-to-br from-[#C8A45C]/20 to-[#1A2332]/20 flex items-center justify-center">
+                  <div className="text-center">
+                    <Maximize className="w-8 h-8 text-[#C8A45C]/40 mx-auto mb-2" />
+                    <p className="text-[#1A2332]/40 text-sm">Floor Plan</p>
+                  </div>
+                </div>
+                <div className="col-span-2 relative h-36 sm:h-[calc(12rem-0.5rem)] rounded-xl overflow-hidden">
+                  <Image
+                    src={project.imageUrl}
+                    alt={`${project.name} - Aerial View`}
+                    fill
+                    className="object-cover opacity-80"
+                  />
+                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                    <p className="text-white font-medium text-sm">Aerial View</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Features & Amenities */}
+        <section className="py-16 sm:py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-12">
               <div>
@@ -157,7 +212,7 @@ export default function ProjectDetailPage({ project }: { project: Project }) {
 
         {/* Available Inventory */}
         {projectInventory.length > 0 && (
-          <section className="py-16 sm:py-20 bg-white">
+          <section className="py-16 sm:py-20 bg-[#F5F0E8]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex items-center justify-between mb-8">
                 <div>
@@ -240,7 +295,7 @@ export default function ProjectDetailPage({ project }: { project: Project }) {
 
         {/* Floor Plans */}
         {projectFloorPlans.length > 0 && (
-          <section className="py-16 sm:py-20 bg-[#F5F0E8]">
+          <section className="py-16 sm:py-20 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex items-center justify-between mb-8">
                 <div>
@@ -280,6 +335,42 @@ export default function ProjectDetailPage({ project }: { project: Project }) {
                       {plan.plotSqft && (
                         <p className="text-sm text-gray-400">Plot: {formatSqft(plan.plotSqft)}</p>
                       )}
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Related Projects */}
+        {relatedProjects.length > 0 && (
+          <section className="py-16 sm:py-20 bg-[#F5F0E8]">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[#1A2332] mb-8">Similar Projects</h2>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {relatedProjects.map((p) => (
+                  <Card key={p.id} className="group overflow-hidden border-0 shadow-md hover:shadow-xl transition-all duration-300">
+                    <div className="relative h-48 overflow-hidden">
+                      <Image
+                        src={p.imageUrl}
+                        alt={p.name}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-black/20" />
+                    </div>
+                    <CardContent className="p-5">
+                      <h4 className="font-heading font-bold text-[#1A2332] mb-2">{p.name}</h4>
+                      <p className="text-sm text-gray-500 mb-3">{p.tagline}</p>
+                      <div className="flex items-end justify-between">
+                        <p className="font-heading text-lg font-bold text-[#C8A45C]">{formatPrice(p.startingPrice)}</p>
+                        <Link href={`/projects/${p.slug}`}>
+                          <Button size="sm" className="bg-[#1A2332] text-white hover:bg-[#2A3A52] text-xs rounded-md">
+                            View <ArrowRight className="w-3 h-3 ml-1" />
+                          </Button>
+                        </Link>
+                      </div>
                     </CardContent>
                   </Card>
                 ))}
