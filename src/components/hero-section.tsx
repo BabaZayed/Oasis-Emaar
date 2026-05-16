@@ -38,7 +38,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8 }}
         >
           <span className="inline-block px-4 py-1.5 mb-6 text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase border border-[#C8A45C]/40 text-[#C8A45C] rounded-full">
-            By Emaar Properties
+            Authorized Emaar Sales Agent
           </span>
         </motion.div>
 
@@ -61,7 +61,7 @@ export default function HeroSection() {
           Ultra Luxury Waterfront Villas, Mansions & Residences
           <br className="hidden sm:block" />
           <span className="text-white/50">
-            Surrounded by Crystal Lagoons & Pristine Beaches
+            Your Trusted Emaar Partner in Dubai
           </span>
         </motion.p>
 

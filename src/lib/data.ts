@@ -117,7 +117,7 @@ export const projects: Project[] = [
     slug: "oasis-lagoon",
     type: "apartment",
     tagline: "Lagoon-Front Apartment Living",
-    description: "Oasis Lagoon Residences offer elegantly designed 1, 2, and 3 bedroom apartments with sweeping views of the crystal lagoon. Featuring resort-style amenities, smart home technology, and finishes that reflect Emaar's commitment to excellence. These residences provide the perfect blend of luxury and convenience for professionals and couples seeking waterfront living.",
+    description: "Oasis Lagoon Residences offer elegantly designed 1, 2, and 3 bedroom apartments with sweeping views of the crystal lagoon. Featuring resort-style amenities, smart home technology, and premium finishes throughout. These residences provide the perfect blend of luxury and convenience for professionals and couples seeking waterfront living.",
     bedrooms: "1, 2 & 3",
     startingPrice: 3200000,
     areaRange: "850 - 2,200 sqft",
@@ -189,15 +189,15 @@ export const paymentMilestones: PaymentMilestone[] = [
 export const faqs: FAQ[] = [
   {
     question: "What is The Oasis by Emaar?",
-    answer: "The Oasis by Emaar is a premium waterfront community in Dubai, featuring over 7,000 residential units including villas, mansions, townhouses, apartments, and penthouses. Spread across 9.4 million square meters, the community is centered around crystal-clear lagoons, water canals, and lush green parks, offering residents a resort-style lifestyle just 20 minutes from Downtown Dubai."
+    answer: "The Oasis by Emaar is a premium waterfront community in Dubai, featuring over 7,000 residential units including villas, mansions, townhouses, apartments, and penthouses. Spread across 9.4 million square meters, the community is centered around crystal-clear lagoons, water canals, and lush green parks, offering residents a resort-style lifestyle just 20 minutes from Downtown Dubai. Contact us for the latest availability and pricing."
   },
   {
     question: "What property types are available at The Oasis?",
-    answer: "The Oasis offers a diverse range of property types to suit different lifestyles: 4-5 bedroom villas with lagoon views, 5-6 bedroom ultra-luxury mansions, 3-4 bedroom creek-side townhouses, 1-3 bedroom lagoon-front apartments, and 2-4 bedroom sky penthouses. Each type is designed with premium finishes and unique waterfront features."
+    answer: "The Oasis offers a diverse range of property types to suit different lifestyles: 4-5 bedroom villas with lagoon views, 5-6 bedroom ultra-luxury mansions, 3-4 bedroom creek-side townhouses, 1-3 bedroom lagoon-front apartments, and 2-4 bedroom sky penthouses. Each type is designed with premium finishes and unique waterfront features. Register with us for detailed floor plans and pricing."
   },
   {
     question: "What payment plans are available?",
-    answer: "Emaar offers flexible payment plans for The Oasis. The standard plan requires 10% on booking, 40% during construction in installments, and 50% on handover. Post-handover payment plans are also available for select units, extending payments up to 2 years after handover. Contact our sales team for customized payment solutions."
+    answer: "Emaar offers flexible payment plans for The Oasis. The standard plan requires 10% on booking, 40% during construction in installments, and 50% on handover. Post-handover payment plans are also available for select units, extending payments up to 2 years after handover. As an authorized agent, we can help you find the best payment solution for your needs."
   },
   {
     question: "When is the expected handover date?",
@@ -213,7 +213,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: "How do I schedule a viewing or register interest?",
-    answer: "You can register your interest through our website by filling out the contact form, calling us at +971 52 691 9169, or messaging us on WhatsApp. Our property consultants are available to arrange private viewings, provide detailed brochures, and guide you through the purchasing process."
+    answer: "You can register your interest through our website by filling out the contact form, calling us at +971 52 691 9169, or messaging us on WhatsApp. As an authorized Emaar agent, our property consultants can arrange private viewings, provide detailed brochures, and guide you through the purchasing process with expert advice."
   },
 ];
 
@@ -250,3 +250,8 @@ export const WHATSAPP_LINK = "https://wa.me/971526919169";
 export const PHONE_NUMBER = "+971 52 691 9169";
 export const EMAIL = "info@oasisemaar.com";
 export const ADDRESS = "Al Quoz Street 21, Dubai, UAE";
+
+// ======== AGENCY INFO ========
+export const AGENCY_NAME = "Oasis Emaar";
+export const AGENCY_TAGLINE = "Authorized Sales Agent for The Oasis by Emaar";
+export const AGENCY_DISCLAIMER = "We are an independent authorized real estate brokerage and sales agent for Emaar Properties. This website is not the official Emaar Properties website. All project information, specifications, images, and pricing are provided for informational and marketing purposes only and are subject to change by the developer (Emaar Properties PJSC) without notice. Emaar, The Oasis, and related names are trademarks of Emaar Properties PJSC. Artistic renders and images are for illustration purposes only and may differ from the final product.";
