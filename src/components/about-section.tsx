@@ -1,35 +1,36 @@
 "use client";
 
-import { Building2, Award, Users, TrendingUp, Shield, Leaf } from "lucide-react";
+import { Building2, Award, Users, TrendingUp, Shield, Leaf, Handshake, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AGENCY_DISCLAIMER } from "@/lib/data";
 
 const stats = [
-  { icon: Award, value: "25+", label: "Years of Excellence" },
-  { icon: Building2, value: "60,000+", label: "Homes Delivered" },
-  { icon: Users, value: "100,000+", label: "Happy Residents" },
-  { icon: TrendingUp, value: "AED 100B+", label: "Projects Value" },
+  { icon: Award, value: "9", label: "Exclusive Clusters" },
+  { icon: Building2, value: "7,000+", label: "Residences" },
+  { icon: Users, value: "9.4M", label: "Sqm Community" },
+  { icon: TrendingUp, value: "AED 73B+", label: "Project Value" },
 ];
 
 const reasons = [
   {
-    icon: Shield,
-    title: "Trusted Developer",
-    description: "Emaar Properties is one of the world's most valuable and trusted real estate development companies, with a proven track record of delivering iconic communities in Dubai.",
+    icon: Handshake,
+    title: "Authorised Emaar Agent",
+    description: "We are an officially authorised sales agent for Emaar Properties, giving you direct access to The Oasis inventory, pricing, and pre-launch opportunities. Our relationship with Emaar ensures you receive accurate, up-to-date information and priority service throughout your purchase journey.",
   },
   {
-    icon: Building2,
-    title: "World-Class Architecture",
-    description: "Every residence at The Oasis is designed by internationally acclaimed architects, blending contemporary aesthetics with functional luxury and premium finishes throughout.",
+    icon: Star,
+    title: "Expert Market Knowledge",
+    description: "With deep expertise across all 9 clusters at The Oasis, from the entry-level Palmiera 3 to the ultra-luxury Lavita mansions, we provide personalised guidance to match your lifestyle and investment goals. We understand the nuances of each cluster and can advise on the best options for your needs.",
   },
   {
     icon: Leaf,
-    title: "Sustainable Living",
-    description: "25% of the community is dedicated to green spaces, parks, and water features. The Oasis promotes a healthy, active lifestyle in harmony with nature.",
+    title: "Waterfront Living Redefined",
+    description: "The Oasis is set across 9.4 million square metres of waterfront landscape featuring crystal-clear lagoons, water canals, and lush green parks. With 25% dedicated to green spaces, 1.5 million sqft of retail, and private beaches, it offers a resort-style lifestyle just 20 minutes from Downtown Dubai.",
   },
   {
-    icon: TrendingUp,
-    title: "Strong Investment Potential",
-    description: "Emaar properties consistently deliver strong ROI. The Oasis strategic location near Downtown Dubai and four golf courses makes it a prime investment opportunity.",
+    icon: Shield,
+    title: "Secure Investment",
+    description: "Emaar Properties is one of the world's most trusted developers with a proven track record. The Oasis offers 100% freehold ownership for all nationalities, flexible payment plans (80/20 and 90/10), and Golden Visa eligibility for properties above AED 2 million — making it an excellent investment opportunity.",
   },
 ];
 
@@ -42,10 +43,10 @@ export default function AboutSection() {
             About Us
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
-            About The Oasis by Emaar
+            Your Authorised Emaar Agent
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto">
-            One of Emaar Properties' most ambitious projects, The Oasis redefines luxury waterfront living in Dubai
+            We are an independent authorised real estate brokerage specialising in The Oasis by Emaar — your trusted partner for navigating all 9 clusters of Dubai's most prestigious waterfront community
           </p>
           <div className="section-divider max-w-xs mx-auto mt-6" />
         </div>
@@ -54,21 +55,21 @@ export default function AboutSection() {
         <div className="max-w-4xl mx-auto mb-16">
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-[#1A2332] mb-4">Our Story</h3>
+              <h3 className="text-2xl font-bold text-[#1A2332] mb-4">Why Choose Us</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
-                The Oasis by Emaar is a master-planned waterfront community that represents the next chapter in Dubai's evolution as a global destination for luxury living. Spanning over 9.4 million square meters, this visionary development is home to more than 7,000 residences surrounded by crystal-clear lagoons, water canals, and lush green parks.
+                The Oasis by Emaar is a master-planned waterfront community that represents the next chapter in Dubai&apos;s evolution as a global destination for luxury living. Spanning over 9.4 million square metres, this visionary development is home to more than 7,000 residences across nine distinctive clusters, each surrounded by crystal-clear lagoons, water canals, and lush green parks.
               </p>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Strategically located just 20 minutes from Downtown Dubai, The Oasis offers residents the perfect balance between tranquil waterfront living and urban connectivity. The community features an extensive range of amenities including private beaches, retail boulevards, sports facilities, and dining destinations spread across 1.5 million square feet of retail space.
+                As your authorised Emaar sales agent, we provide exclusive access to inventory, priority viewings, and expert guidance across all clusters — from the accessible luxury of Palmiera 3 to the ultra-exclusive Lavita mansions and branded residences by Address Hotels and Palace. We are not Emaar Properties directly, but an independent brokerage authorised to sell on their behalf.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                From the Burj Khalifa to Dubai Marina, Emaar Properties has consistently delivered world-class communities that become landmarks. The Oasis continues this legacy, offering a resort-style lifestyle where every detail has been thoughtfully crafted for the discerning homeowner.
+                Whether you are seeking a family home, a branded investment, or an ultra-luxury estate, our team offers personalised service and deep market knowledge to help you make the right decision within The Oasis community.
               </p>
             </div>
             <div className="bg-gradient-to-br from-[#1A2332] to-[#2A3A52] rounded-xl p-8 sm:p-10 text-white h-full flex flex-col justify-center">
-              <h4 className="text-xl font-bold text-[#C8A45C] mb-6">Emaar Properties</h4>
+              <h4 className="text-xl font-bold text-[#C8A45C] mb-6">The Oasis by Emaar</h4>
               <p className="text-white/70 leading-relaxed mb-6">
-                Emaar Properties is a global property developer and provider of premium lifestyles. Since its inception in 1997, Emaar has been shaping the skyline of Dubai with iconic developments that have redefined luxury living.
+                One of Emaar&apos;s most ambitious projects, The Oasis is a 100-million-sq-ft waterfront community featuring nine clusters of villas and mansions, crystal lagoons, private beaches, and world-class amenities — all just 20 minutes from Downtown Dubai.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {stats.map((stat) => (
@@ -104,7 +105,12 @@ export default function AboutSection() {
           </div>
         </div>
 
-        <div className="text-center mt-12">
+        {/* Disclaimer */}
+        <div className="mt-12 bg-gray-50 rounded-lg p-6 text-center">
+          <p className="text-xs text-gray-400 leading-relaxed max-w-4xl mx-auto">{AGENCY_DISCLAIMER}</p>
+        </div>
+
+        <div className="text-center mt-8">
           <Button
             onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
             size="lg"

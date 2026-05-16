@@ -130,7 +130,7 @@ export default function SiteFooter() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-xs text-white/30">
-            &copy; {new Date().getFullYear()} Oasis Emaar. All rights reserved. Not affiliated with Emaar Properties PJSC. Emaar and The Oasis are trademarks of Emaar Properties PJSC.
+            &copy; {new Date().getFullYear()} Oasis Emaar (Authorised Sales Agent). All rights reserved. We are an independent authorised real estate brokerage, NOT Emaar Properties PJSC. Emaar, The Oasis, Address, Palace, and related names are trademarks of Emaar Properties PJSC. All project information is subject to change by the developer. Artistic impressions only — actual products may differ.
           </p>
           <div className="flex items-center gap-4 text-xs text-white/30">
             <a href="#" className="hover:text-[#C8A45C] transition-colors">Privacy Policy</a>

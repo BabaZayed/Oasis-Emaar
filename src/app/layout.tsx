@@ -127,59 +127,18 @@ const jsonLd = {
 const propertyListJsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "The Oasis by Emaar — Available Properties (Authorized Agent)",
-  numberOfItems: 5,
+  name: "The Oasis by Emaar — Available Properties (Authorised Agent)",
+  numberOfItems: 9,
   itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      item: {
-        "@type": "RealEstateListing",
-        name: "The Oasis Villas",
-        description: "4 & 5 bedroom waterfront villas starting from AED 8.1M",
-        url: "https://oasisemaar.com/projects/oasis-villas",
-      },
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      item: {
-        "@type": "RealEstateListing",
-        name: "The Oasis Mansions",
-        description: "5 & 6 bedroom ultra-luxury mansions starting from AED 12M",
-        url: "https://oasisemaar.com/projects/oasis-mansions",
-      },
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      item: {
-        "@type": "RealEstateListing",
-        name: "Oasis Creek Townhouses",
-        description: "3 & 4 bedroom creek-side townhouses starting from AED 5.5M",
-        url: "https://oasisemaar.com/projects/oasis-creek",
-      },
-    },
-    {
-      "@type": "ListItem",
-      position: 4,
-      item: {
-        "@type": "RealEstateListing",
-        name: "Oasis Lagoon Residences",
-        description: "1, 2 & 3 bedroom apartments starting from AED 3.2M",
-        url: "https://oasisemaar.com/projects/oasis-lagoon",
-      },
-    },
-    {
-      "@type": "ListItem",
-      position: 5,
-      item: {
-        "@type": "RealEstateListing",
-        name: "Oasis Heights Penthouses",
-        description: "2, 3 & 4 bedroom penthouses starting from AED 15M",
-        url: "https://oasisemaar.com/projects/oasis-heights",
-      },
-    },
+    { "@type": "ListItem", position: 1, item: { "@type": "RealEstateListing", name: "Adress Villas Tierra", description: "4-6 bedroom Address-branded villas from AED 13.16M", url: "https://oasisemaar.com/projects/adress-villas-tierra" } },
+    { "@type": "ListItem", position: 2, item: { "@type": "RealEstateListing", name: "Lavita", description: "6-7 bedroom ultra-luxury waterfront mansions from AED 37M", url: "https://oasisemaar.com/projects/lavita" } },
+    { "@type": "ListItem", position: 3, item: { "@type": "RealEstateListing", name: "Mareva", description: "4-6 bedroom waterfront villas from AED 13.47M", url: "https://oasisemaar.com/projects/mareva-1" } },
+    { "@type": "ListItem", position: 4, item: { "@type": "RealEstateListing", name: "Mareva 2", description: "4-6 bedroom next-phase villas from AED 13.83M", url: "https://oasisemaar.com/projects/mareva-2" } },
+    { "@type": "ListItem", position: 5, item: { "@type": "RealEstateListing", name: "Mirage", description: "5-6 bedroom premium villas from AED 15.8M", url: "https://oasisemaar.com/projects/mirage" } },
+    { "@type": "ListItem", position: 6, item: { "@type": "RealEstateListing", name: "Palace Villas Ostra", description: "4-6 bedroom Palace-branded villas from AED 13.9M", url: "https://oasisemaar.com/projects/palace-villas-ostra" } },
+    { "@type": "ListItem", position: 7, item: { "@type": "RealEstateListing", name: "Palmeira Collective", description: "Only 38 bespoke 4-bedroom villas from AED 11M", url: "https://oasisemaar.com/projects/palmeira-collective" } },
+    { "@type": "ListItem", position: 8, item: { "@type": "RealEstateListing", name: "Palmiera", description: "4-bedroom contemporary villas from AED 10.5M", url: "https://oasisemaar.com/projects/palmiera" } },
+    { "@type": "ListItem", position: 9, item: { "@type": "RealEstateListing", name: "Palmiera 3", description: "4-bedroom villas from AED 9.18M — earliest handover Q4 2028", url: "https://oasisemaar.com/projects/palmiera-3" } },
   ],
 };
 

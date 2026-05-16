@@ -22,6 +22,9 @@ function ProjectCard({ project, onViewDetails }: { project: Project; onViewDetai
         <Badge className={`absolute top-4 left-4 ${statusColor} text-white text-xs font-semibold`}>
           {project.status}
         </Badge>
+        <Badge className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white text-xs font-medium border-0">
+          {project.clusterTag}
+        </Badge>
         <div className="absolute bottom-4 left-4 right-4">
           <p className="text-white/80 text-sm font-medium">{project.tagline}</p>
         </div>
@@ -39,6 +42,12 @@ function ProjectCard({ project, onViewDetails }: { project: Project; onViewDetai
             <Maximize className="w-4 h-4 text-[#C8A45C]" />
             <span>{project.areaRange}</span>
           </div>
+        </div>
+
+        <div className="flex items-center gap-2 text-xs text-gray-400 mb-4">
+          <span>Handover: {project.handover}</span>
+          <span>·</span>
+          <span>{project.paymentPlan} Plan</span>
         </div>
 
         <div className="flex items-end justify-between pt-4 border-t border-gray-100">
@@ -92,14 +101,21 @@ function ProjectDetailModal({ project, open, onClose }: { project: Project | nul
             <p className="text-xs text-gray-400 uppercase tracking-wider">Starting Price</p>
             <p className="text-lg font-bold text-[#C8A45C]">{formatPrice(project.startingPrice)}</p>
           </div>
-        </div>
-
-        {project.plotArea && (
-          <div className="bg-gray-50 rounded-lg p-4 mb-6">
-            <p className="text-xs text-gray-400 uppercase tracking-wider">Plot Area</p>
-            <p className="text-lg font-bold text-[#1A2332]">{project.plotArea}</p>
+          <div className="bg-gray-50 rounded-lg p-4">
+            <p className="text-xs text-gray-400 uppercase tracking-wider">Handover</p>
+            <p className="text-lg font-bold text-[#1A2332]">{project.handover}</p>
           </div>
-        )}
+          <div className="bg-gray-50 rounded-lg p-4">
+            <p className="text-xs text-gray-400 uppercase tracking-wider">Payment Plan</p>
+            <p className="text-lg font-bold text-[#1A2332]">{project.paymentPlan}</p>
+          </div>
+          {project.plotArea && (
+            <div className="bg-gray-50 rounded-lg p-4">
+              <p className="text-xs text-gray-400 uppercase tracking-wider">Plot Area</p>
+              <p className="text-lg font-bold text-[#1A2332]">{project.plotArea}</p>
+            </div>
+          )}
+        </div>
 
         <div className="grid sm:grid-cols-2 gap-6 mb-6">
           <div>
@@ -161,13 +177,13 @@ export default function ProjectsSection() {
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
           <span className="text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
-            Our Projects
+            9 Exclusive Clusters
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
             Discover The Oasis Collection
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto text-lg">
-            Five distinctive communities, each offering a unique perspective on luxury waterfront living in Dubai
+            Nine distinctive clusters, each offering a unique perspective on luxury waterfront living in Dubai
           </p>
           <div className="section-divider max-w-xs mx-auto mt-6" />
         </div>
