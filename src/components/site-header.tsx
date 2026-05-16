@@ -54,8 +54,8 @@ export default function SiteHeader() {
                 <span className="text-xl sm:text-2xl font-bold tracking-wider text-[#C8A45C]">
                   OASIS
                 </span>
-                <span className="text-[10px] sm:text-xs tracking-[0.3em] text-white/70 -mt-1">
-                  EMAAR
+                <span className="text-[10px] sm:text-xs tracking-[0.15em] text-white/70 -mt-1">
+                  EMAAR | AUTHORIZED AGENT
                 </span>
               </div>
             </Link>

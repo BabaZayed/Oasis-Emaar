@@ -41,10 +41,13 @@ export default function SiteFooter() {
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="mb-4">
               <span className="text-2xl font-bold tracking-wider text-[#C8A45C]">OASIS</span>
-              <span className="text-sm tracking-[0.3em] text-white/50 ml-2">EMAAR</span>
+              <span className="text-sm tracking-[0.15em] text-white/50 ml-2">EMAAR</span>
             </div>
+            <p className="text-white/50 text-sm leading-relaxed mb-2">
+              Authorized sales agent for Emaar Properties' The Oasis community in Dubai. We are an independent real estate brokerage — not Emaar Properties directly.
+            </p>
             <p className="text-white/50 text-sm leading-relaxed mb-6">
-              Ultra luxury waterfront community by Emaar Properties in Dubai. Villas, mansions, townhouses, apartments, and penthouses surrounded by crystal lagoons and pristine beaches.
+              All project information, specifications, and pricing are provided for marketing purposes and are subject to change by the developer. Images and renders are artistic impressions only.
             </p>
             <div className="flex gap-3">
               {socialLinks.map((social) => (
@@ -127,11 +130,12 @@ export default function SiteFooter() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-xs text-white/30">
-            &copy; {new Date().getFullYear()} Oasis Emaar. All rights reserved.
+            &copy; {new Date().getFullYear()} Oasis Emaar. All rights reserved. Not affiliated with Emaar Properties PJSC. Emaar and The Oasis are trademarks of Emaar Properties PJSC.
           </p>
           <div className="flex items-center gap-4 text-xs text-white/30">
             <a href="#" className="hover:text-[#C8A45C] transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-[#C8A45C] transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-[#C8A45C] transition-colors">Disclaimer</a>
           </div>
         </div>
       </div>

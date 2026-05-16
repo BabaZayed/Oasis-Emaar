@@ -19,11 +19,11 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL("https://oasisemaar.com"),
   title: {
-    default: "The Oasis by Emaar | Ultra Luxury Waterfront Villas in Dubai",
-    template: "%s | The Oasis by Emaar",
+    default: "The Oasis by Emaar | Authorized Agent — Ultra Luxury Waterfront Villas in Dubai",
+    template: "%s | Oasis Emaar — Authorized Agent",
   },
   description:
-    "Discover The Oasis by Emaar Properties — a premium waterfront community in Dubai featuring luxury villas, mansions, townhouses, apartments, and penthouses surrounded by crystal lagoons and pristine beaches. Starting from AED 3.2M.",
+    "Explore The Oasis by Emaar with an authorized sales agent. Premium waterfront community in Dubai featuring luxury villas, mansions, townhouses, apartments, and penthouses. Starting from AED 3.2M. Expert guidance, exclusive inventory access.",
   keywords: [
     "Oasis Emaar",
     "Dubai real estate",
@@ -46,9 +46,9 @@ export const metadata: Metadata = {
     "Dubai property investment",
     "Emaar new launch Dubai",
   ],
-  authors: [{ name: "Oasis Emaar", url: "https://oasisemaar.com" }],
+  authors: [{ name: "Oasis Emaar — Authorized Sales Agent", url: "https://oasisemaar.com" }],
   creator: "Oasis Emaar",
-  publisher: "Oasis Emaar",
+  publisher: "Oasis Emaar — Authorized Emaar Agent",
   robots: {
     index: true,
     follow: true,
@@ -61,11 +61,11 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "The Oasis by Emaar | Ultra Luxury Waterfront Villas in Dubai",
+    title: "The Oasis by Emaar | Authorized Agent — Ultra Luxury Waterfront Villas in Dubai",
     description:
-      "Premium waterfront community featuring luxury villas, mansions & residences. Starting from AED 3.2M. Crystal lagoons, pristine beaches, world-class amenities.",
+      "Explore The Oasis by Emaar with an authorized sales agent. Premium waterfront villas, mansions & residences. Starting from AED 3.2M.",
     url: "https://oasisemaar.com",
-    siteName: "Oasis Emaar",
+    siteName: "Oasis Emaar — Authorized Agent",
     type: "website",
     locale: "en_AE",
     images: [
@@ -79,9 +79,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Oasis by Emaar | Ultra Luxury Waterfront Villas in Dubai",
+    title: "The Oasis by Emaar | Authorized Agent — Ultra Luxury Waterfront Villas in Dubai",
     description:
-      "Premium waterfront community featuring luxury villas, mansions & residences. Starting from AED 3.2M.",
+      "Explore The Oasis by Emaar with an authorized sales agent. Premium waterfront villas, mansions & residences. Starting from AED 3.2M.",
     images: ["/og-image.jpg"],
     creator: "@OasisEmaar",
     site: "@OasisEmaar",
@@ -98,9 +98,9 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
-  name: "The Oasis by Emaar",
+  name: "Oasis Emaar — Authorized Sales Agent",
   description:
-    "Premium waterfront community by Emaar Properties in Dubai featuring luxury villas, mansions, townhouses, apartments, and penthouses.",
+    "Authorized sales agent for The Oasis by Emaar Properties in Dubai. Independent real estate brokerage offering premium waterfront villas, mansions, townhouses, apartments, and penthouses.",
   url: "https://oasisemaar.com",
   logo: "https://oasisemaar.com/logo.png",
   telephone: "+971526919169",
@@ -127,7 +127,7 @@ const jsonLd = {
 const propertyListJsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "The Oasis by Emaar - Property Listings",
+  name: "The Oasis by Emaar — Available Properties (Authorized Agent)",
   numberOfItems: 5,
   itemListElement: [
     {
