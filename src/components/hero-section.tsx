@@ -6,7 +6,7 @@ import { ChevronDown, MapPin, Home, Building2, Ruler } from "lucide-react";
 import { formatPrice } from "@/lib/data";
 
 const stats = [
-  { icon: Home, label: "Starting From", value: formatPrice(8100000) },
+  { icon: Home, label: "Starting From", value: formatPrice(9180000) },
   { icon: Building2, label: "Residences", value: "7,000+" },
   { icon: Ruler, label: "Total Area", value: "9.4M sqm" },
   { icon: MapPin, label: "Location", value: "20 min from Downtown" },
@@ -38,7 +38,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8 }}
         >
           <span className="inline-block px-4 py-1.5 mb-6 text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase border border-[#C8A45C]/40 text-[#C8A45C] rounded-full">
-            Authorized Emaar Sales Agent
+            Authorised Emaar Sales Agent
           </span>
         </motion.div>
 
@@ -56,13 +56,20 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg sm:text-xl md:text-2xl text-white/70 max-w-3xl mx-auto mb-8 sm:mb-12"
+          className="text-lg sm:text-xl md:text-2xl text-white/70 max-w-3xl mx-auto mb-4 sm:mb-6"
         >
-          Ultra Luxury Waterfront Villas, Mansions & Residences
-          <br className="hidden sm:block" />
-          <span className="text-white/50">
-            Your Trusted Emaar Partner in Dubai
-          </span>
+          9 Exclusive Clusters · Ultra-Luxury Waterfront Living
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="text-sm sm:text-base text-white/50 max-w-2xl mx-auto mb-8 sm:mb-12"
+        >
+          Adress Villas Tierra · Lavita · Mareva · Mirage · Palace Villas Ostra · Palmeira Collective · Palmiera
+          <br />
+          <span className="text-[#C8A45C]/80">Your Trusted Authorised Emaar Partner</span>
         </motion.p>
 
         <motion.div
@@ -76,7 +83,7 @@ export default function HeroSection() {
             size="lg"
             className="gold-gradient text-[#1A2332] font-bold px-8 py-6 text-base rounded-md hover:opacity-90 transition-opacity w-full sm:w-auto"
           >
-            Explore Projects
+            Explore All 9 Clusters
           </Button>
           <Button
             onClick={() => scrollTo("#contact")}

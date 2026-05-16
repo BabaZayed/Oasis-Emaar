@@ -52,13 +52,19 @@ export default function ProjectDetailPage({ project }: { project: Project }) {
             </nav>
 
             <div className="max-w-3xl">
-              <Badge className={`${statusColor} text-white text-sm font-semibold mb-4`}>
-                {project.status}
-              </Badge>
+              <div className="flex items-center gap-3 mb-4">
+                <Badge className={`${statusColor} text-white text-sm font-semibold`}>{project.status}</Badge>
+                <Badge className="bg-white/20 backdrop-blur-sm text-white text-sm font-medium border-0">{project.clusterTag}</Badge>
+              </div>
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
                 {project.name}
               </h1>
-              <p className="text-xl sm:text-2xl text-white/80 mb-8">{project.tagline}</p>
+              <p className="text-xl sm:text-2xl text-white/80 mb-2">{project.tagline}</p>
+              <div className="flex items-center gap-4 text-white/50 text-sm mb-8">
+                <span>Handover: {project.handover}</span>
+                <span>·</span>
+                <span>{project.paymentPlan} Payment Plan</span>
+              </div>
               <div className="flex flex-wrap gap-4">
                 <Link href="/contact">
                   <Button size="lg" className="gold-gradient text-[#1A2332] font-bold px-8 py-6 rounded-md hover:opacity-90">
@@ -78,29 +84,37 @@ export default function ProjectDetailPage({ project }: { project: Project }) {
         {/* Overview */}
         <section className="py-16 sm:py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 mb-12">
-              <div className="bg-[#F5F0E8] rounded-xl p-6 text-center">
-                <Bed className="w-6 h-6 text-[#C8A45C] mx-auto mb-2" />
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 mb-12">
+              <div className="bg-[#F5F0E8] rounded-xl p-5 text-center">
+                <Bed className="w-5 h-5 text-[#C8A45C] mx-auto mb-2" />
                 <p className="text-xs text-gray-400 uppercase tracking-wider">Bedrooms</p>
-                <p className="text-xl font-bold text-[#1A2332]">{project.bedrooms}</p>
+                <p className="text-lg font-bold text-[#1A2332]">{project.bedrooms}</p>
               </div>
-              <div className="bg-[#F5F0E8] rounded-xl p-6 text-center">
-                <Maximize className="w-6 h-6 text-[#C8A45C] mx-auto mb-2" />
+              <div className="bg-[#F5F0E8] rounded-xl p-5 text-center">
+                <Maximize className="w-5 h-5 text-[#C8A45C] mx-auto mb-2" />
                 <p className="text-xs text-gray-400 uppercase tracking-wider">Area</p>
-                <p className="text-xl font-bold text-[#1A2332]">{project.areaRange}</p>
+                <p className="text-lg font-bold text-[#1A2332]">{project.areaRange}</p>
               </div>
-              <div className="bg-[#F5F0E8] rounded-xl p-6 text-center">
-                <MapPin className="w-6 h-6 text-[#C8A45C] mx-auto mb-2" />
+              <div className="bg-[#F5F0E8] rounded-xl p-5 text-center">
+                <MapPin className="w-5 h-5 text-[#C8A45C] mx-auto mb-2" />
                 <p className="text-xs text-gray-400 uppercase tracking-wider">Starting Price</p>
-                <p className="text-xl font-bold text-[#C8A45C]">{formatPrice(project.startingPrice)}</p>
+                <p className="text-lg font-bold text-[#C8A45C]">{formatPrice(project.startingPrice)}</p>
               </div>
               {project.plotArea && (
-                <div className="bg-[#F5F0E8] rounded-xl p-6 text-center">
-                  <Maximize className="w-6 h-6 text-[#C8A45C] mx-auto mb-2" />
+                <div className="bg-[#F5F0E8] rounded-xl p-5 text-center">
+                  <Maximize className="w-5 h-5 text-[#C8A45C] mx-auto mb-2" />
                   <p className="text-xs text-gray-400 uppercase tracking-wider">Plot Area</p>
-                  <p className="text-xl font-bold text-[#1A2332]">{project.plotArea}</p>
+                  <p className="text-lg font-bold text-[#1A2332]">{project.plotArea}</p>
                 </div>
               )}
+              <div className="bg-[#F5F0E8] rounded-xl p-5 text-center">
+                <p className="text-xs text-gray-400 uppercase tracking-wider">Handover</p>
+                <p className="text-lg font-bold text-[#1A2332]">{project.handover}</p>
+              </div>
+              <div className="bg-[#F5F0E8] rounded-xl p-5 text-center">
+                <p className="text-xs text-gray-400 uppercase tracking-wider">Payment</p>
+                <p className="text-lg font-bold text-[#1A2332]">{project.paymentPlan}</p>
+              </div>
             </div>
 
             {/* Description */}

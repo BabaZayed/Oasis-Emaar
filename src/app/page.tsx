@@ -29,6 +29,9 @@ function ProjectPreviewCard({ project }: { project: typeof projects[0] }) {
         <Badge className={`absolute top-4 left-4 ${statusColor} text-white text-xs font-semibold`}>
           {project.status}
         </Badge>
+        <Badge className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white text-xs font-medium border-0">
+          {project.clusterTag}
+        </Badge>
         <div className="absolute bottom-4 left-4 right-4">
           <p className="text-white/80 text-sm font-medium">{project.tagline}</p>
         </div>
@@ -46,6 +49,12 @@ function ProjectPreviewCard({ project }: { project: typeof projects[0] }) {
             <Maximize className="w-4 h-4 text-[#C8A45C]" />
             <span>{project.areaRange}</span>
           </div>
+        </div>
+
+        <div className="flex items-center gap-2 text-xs text-gray-400 mb-4">
+          <span>Handover: {project.handover}</span>
+          <span>·</span>
+          <span>{project.paymentPlan} Plan</span>
         </div>
 
         <div className="flex items-end justify-between pt-4 border-t border-gray-100">
@@ -74,38 +83,26 @@ export default function Home() {
         {/* Benefits Preview */}
         <BenefitsSection />
 
-        {/* Projects Preview - Show first 3 */}
+        {/* Projects Preview - Show all 9 clusters */}
         <section className="py-20 sm:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12 sm:mb-16">
               <span className="text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
-                Our Projects
+                9 Exclusive Clusters
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
                 Discover The Oasis Collection
               </h2>
               <p className="text-gray-500 max-w-2xl mx-auto text-lg">
-                Five distinctive communities, each offering a unique perspective on luxury waterfront living in Dubai
+                Nine distinctive clusters, each offering a unique perspective on luxury waterfront living in Dubai — from branded residences to ultra-exclusive limited editions
               </p>
               <div className="section-divider max-w-xs mx-auto mt-6" />
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {projects.slice(0, 3).map((project) => (
+              {projects.map((project) => (
                 <ProjectPreviewCard key={project.id} project={project} />
               ))}
-            </div>
-
-            <div className="text-center mt-12">
-              <Link href="/projects">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-[#C8A45C] text-[#C8A45C] hover:bg-[#C8A45C]/10 px-8 py-6 text-base rounded-md"
-                >
-                  View All Projects <ChevronRight className="w-5 h-5 ml-1" />
-                </Button>
-              </Link>
             </div>
           </div>
         </section>
@@ -129,7 +126,7 @@ export default function Home() {
               Ready to Find Your Dream Home?
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto mb-10 text-lg">
-              Explore our exclusive collection of waterfront villas, mansions, townhouses, apartments, and penthouses at The Oasis by Emaar.
+              As an authorised Emaar sales agent, we offer exclusive access, expert guidance, and personalised service across all 9 clusters at The Oasis.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/contact">
