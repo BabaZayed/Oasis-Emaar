@@ -602,6 +602,20 @@ export const galleryImages: GalleryImage[] = [
   { id: "g30", category: "Community", alt: "Waterfront promenade at sunset", gradient: "from-orange-500 to-amber-300", imageUrl: "/images/gallery/gallery-community-1.png" },
   { id: "g31", category: "Community", alt: "Green parks and jogging tracks", gradient: "from-green-500 to-emerald-300", imageUrl: "/images/gallery/gallery-community-2.png" },
   { id: "g32", category: "Amenities", alt: "Children's play area and waterpark", gradient: "from-violet-400 to-purple-200", imageUrl: "/images/gallery/gallery-amenities-3.png" },
+  // AI-generated property renders from brochure processing
+  { id: "g33", category: "Exterior", alt: "Adress Villas Tierra — Branded Luxury by Address Hotels", gradient: "from-emerald-500 to-teal-300", imageUrl: "/images/gallery/adress-villas-tierra-render.png" },
+  { id: "g34", category: "Exterior", alt: "Lavita Ultra-Luxury Waterfront Mansion", gradient: "from-amber-600 to-yellow-300", imageUrl: "/images/gallery/lavita-mansion-exterior.png" },
+  { id: "g35", category: "Exterior", alt: "Mareva Elegant Waterfront Villa", gradient: "from-violet-500 to-purple-300", imageUrl: "/images/gallery/mareva-villa-exterior.png" },
+  { id: "g36", category: "Exterior", alt: "Mirage Premium Villa — The Pinnacle", gradient: "from-sky-600 to-blue-300", imageUrl: "/images/gallery/mirage-villa-premium.png" },
+  { id: "g37", category: "Exterior", alt: "Palace Villas Ostra — Palace-Branded Luxury", gradient: "from-rose-500 to-pink-300", imageUrl: "/images/gallery/palace-villa-ostra.png" },
+  { id: "g38", category: "Exterior", alt: "Palmeira Collective — Limited Edition Villa", gradient: "from-teal-500 to-emerald-300", imageUrl: "/images/gallery/palmeira-collective-exterior.png" },
+  { id: "g39", category: "Exterior", alt: "Palmiera Contemporary Waterfront Villa", gradient: "from-orange-500 to-amber-300", imageUrl: "/images/gallery/palmiera-villa-contemporary.png" },
+  { id: "g40", category: "Exterior", alt: "Palmiera 3 Accessible Luxury Villa", gradient: "from-cyan-500 to-sky-300", imageUrl: "/images/gallery/palmiera-3-villa.png" },
+  { id: "g41", category: "Interior", alt: "Ultra-Luxury Villa Interior — Grand Living Room", gradient: "from-amber-400 to-orange-200", imageUrl: "/images/gallery/luxury-interior-living.png" },
+  { id: "g42", category: "Amenities", alt: "Crystal Lagoon Beach Club & Resort Pool", gradient: "from-cyan-400 to-blue-200", imageUrl: "/images/gallery/beach-club-amenity.png" },
+  { id: "g43", category: "Master Plan", alt: "The Oasis Community — Master Plan Aerial View", gradient: "from-teal-400 to-cyan-200", imageUrl: "/images/gallery/masterplan-aerial.png" },
+  { id: "g44", category: "Exterior", alt: "Mareva Villa — From Official Brochure", gradient: "from-violet-400 to-fuchsia-200", imageUrl: "/images/gallery/mareva-render-1.png" },
+  { id: "g45", category: "Exterior", alt: "Mareva Waterfront Living — Brochure View", gradient: "from-indigo-400 to-blue-200", imageUrl: "/images/gallery/mareva-render-2.png" },
 ];
 
 // ======== HELPERS ========
