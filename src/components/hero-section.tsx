@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, MapPin, Home, Building2, Ruler } from "lucide-react";
+import { ChevronDown, MapPin, Home, Building2, Ruler, Tag } from "lucide-react";
 import { formatPrice } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
@@ -103,6 +103,16 @@ export default function HeroSection() {
               className="border-[#C8A45C] text-[#C8A45C] hover:bg-[#C8A45C]/10 px-8 py-6 text-base rounded-md w-full sm:w-auto"
             >
               Register Your Interest
+            </Button>
+          </Link>
+          <Link href="/sell" className="w-full sm:w-auto">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-emerald-400 text-emerald-400 hover:bg-emerald-400/10 px-8 py-6 text-base rounded-md w-full sm:w-auto gap-2"
+            >
+              <Tag className="w-5 h-5" />
+              List Your Property
             </Button>
           </Link>
         </motion.div>
