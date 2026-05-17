@@ -105,7 +105,7 @@ const jsonLd = {
   url: "https://oasisemaar.com",
   logo: "https://oasisemaar.com/logo.png",
   telephone: "+971526919169",
-  email: "info@oasisemaar.com",
+  email: "sales@oasisemaar.com",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Al Quoz Street 21",

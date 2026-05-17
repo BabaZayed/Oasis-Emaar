@@ -689,7 +689,7 @@ export function formatSqft(sqft: number): string {
 export const WHATSAPP_NUMBER = "+971526919169";
 export const WHATSAPP_LINK = "https://wa.me/971526919169";
 export const PHONE_NUMBER = "+971 52 691 9169";
-export const EMAIL = "info@oasisemaar.com";
+export const EMAIL = "sales@oasisemaar.com";
 export const ADDRESS = "Al Quoz Street 21, Dubai, UAE";
 
 // ======== AGENCY INFO ========
