@@ -142,10 +142,10 @@ export const projects: Project[] = [
     type: "mansion",
     tagline: "Ultra-Luxury Waterfront Mansions",
     description: "Lavita at The Oasis is the crown jewel of the community — an exclusive collection of 6 and 7-bedroom waterfront mansions designed for those who demand the extraordinary. With built-up areas exceeding 20,000 sqft and private plots spanning over 22,000 sqft, these mansions offer an estate-scale living experience rarely found in Dubai. Each residence is positioned for full water-facing orientation, ensuring panoramic lagoon views from every major living space. The mansions feature private lifts, home cinemas, wine cellars, staff quarters, and expansive infinity pools that seem to merge with the waterway beyond. Lavita is for the discerning few who seek absolute exclusivity within The Oasis.",
-    bedrooms: "6 & 7",
-    startingPrice: 37000000,
-    areaRange: "20,096 - 23,824 sqft",
-    plotArea: "22,000 - 22,275 sqft",
+    bedrooms: "6",
+    startingPrice: 46970888,
+    areaRange: "20,096 sqft",
+    plotArea: "22,275 - 23,824 sqft",
     status: "Off-Plan",
     handover: "Q1 2029",
     paymentPlan: "80/20",
@@ -454,51 +454,107 @@ export const projects: Project[] = [
   },
 ];
 
-// ======== INVENTORY ========
+// ======== INVENTORY (77 Real Properties from Availability Sheet) ========
 export const inventoryItems: InventoryItem[] = [
-  // Adress Villas Tierra
-  { id: "inv-avt-1", projectId: "adress-villas-tierra", name: "Type A - 4BR Lagoon View", type: "branded-villa", bedrooms: 4, areaSqft: 7269, plotSqft: 8500, price: 13160000, status: "available", isPremium: false, imageGradient: "from-emerald-600 to-teal-400" },
-  { id: "inv-avt-2", projectId: "adress-villas-tierra", name: "Type B - 5BR Garden View", type: "branded-villa", bedrooms: 5, areaSqft: 9500, plotSqft: 11000, price: 18500000, status: "available", isPremium: true, imageGradient: "from-teal-600 to-cyan-400" },
-  { id: "inv-avt-3", projectId: "adress-villas-tierra", name: "Type C - 6BR Premium Waterfront", type: "branded-villa", bedrooms: 6, areaSqft: 12777, plotSqft: 15000, price: 26580000, status: "available", isPremium: true, imageGradient: "from-emerald-700 to-cyan-300" },
+  // OP Palmiera 3 (1 unit)
+  { id: "inv-p3-1", projectId: "palmiera-3", name: "OP Palmiera 3-V-359", type: "villa", bedrooms: 4, areaSqft: 5885, plotSqft: 8396, price: 11829888, status: "available", isPremium: false, imageGradient: "from-cyan-600 to-sky-400" },
 
-  // Lavita
-  { id: "inv-lav-1", projectId: "lavita", name: "6BR Waterfront Mansion", type: "mansion", bedrooms: 6, areaSqft: 20096, plotSqft: 22000, price: 37000000, status: "available", isPremium: true, imageGradient: "from-amber-700 to-yellow-400" },
-  { id: "inv-lav-2", projectId: "lavita", name: "7BR Grand Waterfront Mansion", type: "mansion", bedrooms: 7, areaSqft: 23824, plotSqft: 22275, price: 47800000, status: "available", isPremium: true, imageGradient: "from-amber-800 to-orange-400" },
-  { id: "inv-lav-3", projectId: "lavita", name: "6BR Corner Waterfront Mansion", type: "mansion", bedrooms: 6, areaSqft: 22110, plotSqft: 22000, price: 43000000, status: "reserved", isPremium: true, imageGradient: "from-yellow-700 to-amber-400" },
+  // OD Mareva 2 — 4 Bedroom (13 units)
+  { id: "inv-mar2-4br-1", projectId: "mareva-2", name: "OD Mareva 2-V-258", type: "villa", bedrooms: 4, areaSqft: 7258, plotSqft: 8267, price: 13875888, status: "available", isPremium: false, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-4br-2", projectId: "mareva-2", name: "OD Mareva 2-V-288", type: "villa", bedrooms: 4, areaSqft: 7302, plotSqft: 8645, price: 14244888, status: "available", isPremium: false, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-4br-3", projectId: "mareva-2", name: "OD Mareva 2-V-291", type: "villa", bedrooms: 4, areaSqft: 7254, plotSqft: 8363, price: 14569888, status: "available", isPremium: false, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-4br-4", projectId: "mareva-2", name: "OD Mareva 2-V-307", type: "villa", bedrooms: 4, areaSqft: 7258, plotSqft: 8267, price: 14605888, status: "available", isPremium: false, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-4br-5", projectId: "mareva-2", name: "OD Mareva 2-V-335", type: "villa", bedrooms: 4, areaSqft: 7258, plotSqft: 8267, price: 14605888, status: "available", isPremium: false, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-4br-6", projectId: "mareva-2", name: "OD Mareva 2-V-48", type: "villa", bedrooms: 4, areaSqft: 7258, plotSqft: 8267, price: 14605888, status: "available", isPremium: false, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-4br-7", projectId: "mareva-2", name: "OD Mareva 2-V-293", type: "villa", bedrooms: 4, areaSqft: 7258, plotSqft: 8363, price: 14620888, status: "available", isPremium: false, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-4br-8", projectId: "mareva-2", name: "OD Mareva 2-V-311", type: "villa", bedrooms: 4, areaSqft: 7258, plotSqft: 8780, price: 14684888, status: "available", isPremium: false, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-4br-9", projectId: "mareva-2", name: "OD Mareva 2-V-40", type: "villa", bedrooms: 4, areaSqft: 7302, plotSqft: 8267, price: 14935888, status: "available", isPremium: false, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-4br-10", projectId: "mareva-2", name: "OD Mareva 2-V-47", type: "villa", bedrooms: 4, areaSqft: 7302, plotSqft: 8267, price: 14935888, status: "available", isPremium: false, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-4br-11", projectId: "mareva-2", name: "OD Mareva 2-V-49", type: "villa", bedrooms: 4, areaSqft: 7302, plotSqft: 8267, price: 14935888, status: "available", isPremium: false, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-4br-12", projectId: "mareva-2", name: "OD Mareva 2-V-317", type: "villa", bedrooms: 4, areaSqft: 7302, plotSqft: 8780, price: 15014888, status: "available", isPremium: true, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-4br-13", projectId: "mareva-2", name: "OD Mareva 2-V-44", type: "villa", bedrooms: 4, areaSqft: 7302, plotSqft: 8267, price: 15085888, status: "available", isPremium: true, imageGradient: "from-indigo-600 to-blue-400" },
 
-  // Mareva 1
-  { id: "inv-mar1-1", projectId: "mareva-1", name: "4BR Villa - Lagoon View", type: "villa", bedrooms: 4, areaSqft: 7254, plotSqft: 8800, price: 13470000, status: "available", isPremium: false, imageGradient: "from-violet-600 to-purple-400" },
-  { id: "inv-mar1-2", projectId: "mareva-1", name: "5BR Villa - Garden Premium", type: "villa", bedrooms: 5, areaSqft: 9800, plotSqft: 12000, price: 19500000, status: "available", isPremium: true, imageGradient: "from-purple-600 to-fuchsia-400" },
-  { id: "inv-mar1-3", projectId: "mareva-1", name: "6BR Villa - Waterfront Estate", type: "villa", bedrooms: 6, areaSqft: 12779, plotSqft: 16000, price: 28000000, status: "available", isPremium: true, imageGradient: "from-fuchsia-600 to-pink-400" },
+  // OD Mareva 2 — 4 Bedroom (continued)
+  { id: "inv-mar2-4br-14", projectId: "mareva-2", name: "OD Mareva 2-V-29", type: "villa", bedrooms: 4, areaSqft: 7302, plotSqft: 8321, price: 15093888, status: "available", isPremium: true, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-4br-15", projectId: "mareva-2", name: "OD Mareva 2-V-297", type: "villa", bedrooms: 4, areaSqft: 7302, plotSqft: 8363, price: 15100888, status: "available", isPremium: true, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-4br-16", projectId: "mareva-2", name: "OD Mareva 2-V-30", type: "villa", bedrooms: 4, areaSqft: 7302, plotSqft: 8671, price: 15148888, status: "available", isPremium: true, imageGradient: "from-indigo-600 to-blue-400" },
 
-  // Mareva 2
-  { id: "inv-mar2-1", projectId: "mareva-2", name: "4BR Villa - Enhanced Lagoon View", type: "villa", bedrooms: 4, areaSqft: 7500, plotSqft: 9000, price: 13830000, status: "available", isPremium: false, imageGradient: "from-indigo-600 to-blue-400" },
-  { id: "inv-mar2-2", projectId: "mareva-2", name: "5BR Villa - Premium Garden", type: "villa", bedrooms: 5, areaSqft: 10200, plotSqft: 13000, price: 21000000, status: "available", isPremium: true, imageGradient: "from-blue-600 to-cyan-400" },
-  { id: "inv-mar2-3", projectId: "mareva-2", name: "6BR Villa - Estate Collection", type: "villa", bedrooms: 6, areaSqft: 13000, plotSqft: 16500, price: 29500000, status: "available", isPremium: true, imageGradient: "from-cyan-600 to-sky-400" },
+  // OD Mareva — 4 Bedroom (10 units)
+  { id: "inv-mar1-4br-1", projectId: "mareva-1", name: "OD Mareva-V-286", type: "villa", bedrooms: 4, areaSqft: 7258, plotSqft: 8598, price: 13925888, status: "available", isPremium: false, imageGradient: "from-violet-600 to-purple-400" },
+  { id: "inv-mar1-4br-2", projectId: "mareva-1", name: "OD Mareva-V-25", type: "villa", bedrooms: 4, areaSqft: 7258, plotSqft: 8267, price: 14607888, status: "available", isPremium: false, imageGradient: "from-violet-600 to-purple-400" },
+  { id: "inv-mar1-4br-3", projectId: "mareva-1", name: "OD Mareva-V-264", type: "villa", bedrooms: 4, areaSqft: 7258, plotSqft: 8267, price: 14607888, status: "available", isPremium: false, imageGradient: "from-violet-600 to-purple-400" },
+  { id: "inv-mar1-4br-4", projectId: "mareva-1", name: "OD Mareva-V-296", type: "villa", bedrooms: 4, areaSqft: 7254, plotSqft: 8707, price: 14623888, status: "available", isPremium: false, imageGradient: "from-violet-600 to-purple-400" },
+  { id: "inv-mar1-4br-5", projectId: "mareva-1", name: "OD Mareva-V-14", type: "villa", bedrooms: 4, areaSqft: 7254, plotSqft: 8267, price: 14701888, status: "available", isPremium: false, imageGradient: "from-violet-600 to-purple-400" },
+  { id: "inv-mar1-4br-6", projectId: "mareva-1", name: "OD Mareva-V-35", type: "villa", bedrooms: 4, areaSqft: 7254, plotSqft: 8762, price: 14778888, status: "available", isPremium: false, imageGradient: "from-violet-600 to-purple-400" },
+  { id: "inv-mar1-4br-7", projectId: "mareva-1", name: "OD Mareva-V-36", type: "villa", bedrooms: 4, areaSqft: 7258, plotSqft: 8761, price: 14829888, status: "available", isPremium: false, imageGradient: "from-violet-600 to-purple-400" },
+  { id: "inv-mar1-4br-8", projectId: "mareva-1", name: "OD Mareva-V-56", type: "villa", bedrooms: 4, areaSqft: 7258, plotSqft: 8492, price: 14933888, status: "available", isPremium: false, imageGradient: "from-violet-600 to-purple-400" },
+  { id: "inv-mar1-4br-9", projectId: "mareva-1", name: "OD Mareva-V-193", type: "villa", bedrooms: 4, areaSqft: 7302, plotSqft: 8267, price: 14936888, status: "available", isPremium: false, imageGradient: "from-violet-600 to-purple-400" },
+  { id: "inv-mar1-4br-10", projectId: "mareva-1", name: "OD Mareva-V-195", type: "villa", bedrooms: 4, areaSqft: 7258, plotSqft: 8444, price: 15072888, status: "available", isPremium: true, imageGradient: "from-violet-600 to-purple-400" },
 
-  // Mirage
-  { id: "inv-mir-1", projectId: "mirage", name: "5BR Villa - Mirage Collection", type: "mansion", bedrooms: 5, areaSqft: 9500, plotSqft: 12000, price: 15800000, status: "available", isPremium: true, imageGradient: "from-sky-600 to-blue-400" },
-  { id: "inv-mir-2", projectId: "mirage", name: "6BR Villa - Pinnacle Series", type: "mansion", bedrooms: 6, areaSqft: 11297, plotSqft: 14000, price: 20500000, status: "available", isPremium: true, imageGradient: "from-blue-600 to-indigo-400" },
-  { id: "inv-mir-3", projectId: "mirage", name: "6BR Villa - Grand Waterfront", type: "mansion", bedrooms: 6, areaSqft: 11357, plotSqft: 15000, price: 24000000, status: "reserved", isPremium: true, imageGradient: "from-indigo-600 to-violet-400" },
+  // OP Palmiera Collective — 4 Bedroom (12 units)
+  { id: "inv-pc-4br-1", projectId: "palmeira-collective", name: "OP Palmiera Collective-V-416", type: "villa", bedrooms: 4, areaSqft: 7914, plotSqft: 8267, price: 16548888, status: "available", isPremium: false, imageGradient: "from-teal-600 to-emerald-400" },
+  { id: "inv-pc-4br-2", projectId: "palmeira-collective", name: "OP Palmiera Collective-V-387", type: "villa", bedrooms: 4, areaSqft: 8099, plotSqft: 8267, price: 16869888, status: "available", isPremium: false, imageGradient: "from-teal-600 to-emerald-400" },
+  { id: "inv-pc-4br-3", projectId: "palmeira-collective", name: "OP Palmiera Collective-V-393", type: "villa", bedrooms: 4, areaSqft: 7880, plotSqft: 9396, price: 16895888, status: "available", isPremium: false, imageGradient: "from-teal-600 to-emerald-400" },
+  { id: "inv-pc-4br-4", projectId: "palmeira-collective", name: "OP Palmiera Collective-V-411", type: "villa", bedrooms: 4, areaSqft: 7914, plotSqft: 8267, price: 17172888, status: "available", isPremium: false, imageGradient: "from-teal-600 to-emerald-400" },
+  { id: "inv-pc-4br-5", projectId: "palmeira-collective", name: "OP Palmiera Collective-V-413", type: "villa", bedrooms: 4, areaSqft: 7914, plotSqft: 8267, price: 17172888, status: "available", isPremium: false, imageGradient: "from-teal-600 to-emerald-400" },
+  { id: "inv-pc-4br-6", projectId: "palmeira-collective", name: "OP Palmiera Collective-V-418", type: "villa", bedrooms: 4, areaSqft: 8099, plotSqft: 8267, price: 17187888, status: "available", isPremium: false, imageGradient: "from-teal-600 to-emerald-400" },
+  { id: "inv-pc-4br-7", projectId: "palmeira-collective", name: "OP Palmiera Collective-V-402", type: "villa", bedrooms: 4, areaSqft: 8099, plotSqft: 8267, price: 17505888, status: "available", isPremium: false, imageGradient: "from-teal-600 to-emerald-400" },
+  { id: "inv-pc-4br-8", projectId: "palmeira-collective", name: "OP Palmiera Collective-V-417", type: "villa", bedrooms: 4, areaSqft: 7880, plotSqft: 8267, price: 17656888, status: "available", isPremium: false, imageGradient: "from-teal-600 to-emerald-400" },
+  { id: "inv-pc-4br-9", projectId: "palmeira-collective", name: "OP Palmiera Collective-V-410", type: "villa", bedrooms: 4, areaSqft: 7880, plotSqft: 11298, price: 17692888, status: "available", isPremium: false, imageGradient: "from-teal-600 to-emerald-400" },
+  { id: "inv-pc-4br-10", projectId: "palmeira-collective", name: "OP Palmiera Collective-V-389", type: "villa", bedrooms: 4, areaSqft: 8099, plotSqft: 11240, price: 17845888, status: "available", isPremium: false, imageGradient: "from-teal-600 to-emerald-400" },
+  { id: "inv-pc-4br-11", projectId: "palmeira-collective", name: "OP Palmiera Collective-V-409", type: "villa", bedrooms: 4, areaSqft: 8099, plotSqft: 8267, price: 17983888, status: "available", isPremium: false, imageGradient: "from-teal-600 to-emerald-400" },
+  { id: "inv-pc-4br-12", projectId: "palmeira-collective", name: "OP Palmiera Collective-V-390", type: "villa", bedrooms: 4, areaSqft: 8099, plotSqft: 8859, price: 18086888, status: "available", isPremium: false, imageGradient: "from-teal-600 to-emerald-400" },
 
-  // Palace Villas Ostra
-  { id: "inv-pvo-1", projectId: "palace-villas-ostra", name: "4BR Palace Villa - Garden View", type: "branded-villa", bedrooms: 4, areaSqft: 7500, plotSqft: 9000, price: 13900000, status: "available", isPremium: false, imageGradient: "from-rose-600 to-pink-400" },
-  { id: "inv-pvo-2", projectId: "palace-villas-ostra", name: "5BR Palace Villa - Lagoon View", type: "branded-villa", bedrooms: 5, areaSqft: 10500, plotSqft: 13000, price: 22000000, status: "available", isPremium: true, imageGradient: "from-pink-600 to-rose-400" },
-  { id: "inv-pvo-3", projectId: "palace-villas-ostra", name: "6BR Palace Villa - Royal Waterfront", type: "branded-villa", bedrooms: 6, areaSqft: 13500, plotSqft: 17000, price: 32000000, status: "available", isPremium: true, imageGradient: "from-red-600 to-rose-400" },
+  // OD Mareva — 5 Bedroom (1 unit)
+  { id: "inv-mar1-5br-1", projectId: "mareva-1", name: "OD Mareva-V-288", type: "villa", bedrooms: 5, areaSqft: 8101, plotSqft: 8705, price: 16783888, status: "available", isPremium: false, imageGradient: "from-violet-600 to-purple-400" },
 
-  // Palmeira Collective
-  { id: "inv-pc-1", projectId: "palmeira-collective", name: "4BR Bespoke Villa - Limited Edition", type: "villa", bedrooms: 4, areaSqft: 7879, plotSqft: 10000, price: 11000000, status: "available", isPremium: true, imageGradient: "from-teal-600 to-emerald-400" },
-  { id: "inv-pc-2", projectId: "palmeira-collective", name: "4BR Bespoke Villa - Waterfront", type: "villa", bedrooms: 4, areaSqft: 7879, plotSqft: 10000, price: 13500000, status: "available", isPremium: true, imageGradient: "from-emerald-600 to-green-400" },
-  { id: "inv-pc-3", projectId: "palmeira-collective", name: "4BR Bespoke Villa - Corner Plot", type: "villa", bedrooms: 4, areaSqft: 7879, plotSqft: 10500, price: 14000000, status: "reserved", isPremium: true, imageGradient: "from-green-600 to-teal-400" },
+  // OD Mareva 2 — 5 Bedroom (10 units)
+  { id: "inv-mar2-5br-1", projectId: "mareva-2", name: "OD Mareva 2-V-210", type: "villa", bedrooms: 5, areaSqft: 10290, plotSqft: 10333, price: 19383888, status: "available", isPremium: false, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-5br-2", projectId: "mareva-2", name: "OD Mareva 2-V-212", type: "villa", bedrooms: 5, areaSqft: 10290, plotSqft: 10333, price: 19383888, status: "available", isPremium: false, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-5br-3", projectId: "mareva-2", name: "OD Mareva 2-V-98", type: "villa", bedrooms: 5, areaSqft: 10290, plotSqft: 10333, price: 19383888, status: "available", isPremium: false, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-5br-4", projectId: "mareva-2", name: "OD Mareva 2-V-220", type: "villa", bedrooms: 5, areaSqft: 10363, plotSqft: 10333, price: 19496888, status: "available", isPremium: false, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-5br-5", projectId: "mareva-2", name: "OD Mareva 2-V-224", type: "villa", bedrooms: 5, areaSqft: 10290, plotSqft: 11872, price: 19608888, status: "available", isPremium: false, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-5br-6", projectId: "mareva-2", name: "OD Mareva 2-V-218", type: "villa", bedrooms: 5, areaSqft: 10363, plotSqft: 10333, price: 19702888, status: "available", isPremium: false, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-5br-7", projectId: "mareva-2", name: "OD Mareva 2-V-226", type: "villa", bedrooms: 5, areaSqft: 10363, plotSqft: 11871, price: 19721888, status: "available", isPremium: false, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-5br-8", projectId: "mareva-2", name: "OD Mareva 2-V-87", type: "villa", bedrooms: 5, areaSqft: 10290, plotSqft: 10333, price: 20403888, status: "available", isPremium: true, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-5br-9", projectId: "mareva-2", name: "OD Mareva 2-V-2", type: "villa", bedrooms: 5, areaSqft: 10399, plotSqft: 10333, price: 20657888, status: "available", isPremium: true, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-5br-10", projectId: "mareva-2", name: "OD Mareva 2-V-82", type: "villa", bedrooms: 5, areaSqft: 10399, plotSqft: 10333, price: 20657888, status: "available", isPremium: true, imageGradient: "from-indigo-600 to-blue-400" },
 
-  // Palmiera
-  { id: "inv-pal-1", projectId: "palmiera", name: "4BR Villa - Contemporary Lagoon", type: "villa", bedrooms: 4, areaSqft: 8279, plotSqft: 10500, price: 10500000, status: "available", isPremium: false, imageGradient: "from-orange-600 to-amber-400" },
-  { id: "inv-pal-2", projectId: "palmiera", name: "4BR Villa - Premium Waterfront", type: "villa", bedrooms: 4, areaSqft: 8279, plotSqft: 10500, price: 13500000, status: "available", isPremium: true, imageGradient: "from-amber-600 to-yellow-400" },
+  // OD Mareva 2 — 5 Bedroom (continued)
+  { id: "inv-mar2-5br-11", projectId: "mareva-2", name: "OD Mareva 2-V-85", type: "villa", bedrooms: 5, areaSqft: 10399, plotSqft: 10333, price: 20657888, status: "available", isPremium: true, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-5br-12", projectId: "mareva-2", name: "OD Mareva 2-V-86", type: "villa", bedrooms: 5, areaSqft: 10399, plotSqft: 10333, price: 20657888, status: "available", isPremium: true, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-5br-13", projectId: "mareva-2", name: "OD Mareva 2-V-91", type: "villa", bedrooms: 5, areaSqft: 10363, plotSqft: 11165, price: 20960888, status: "available", isPremium: true, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-5br-14", projectId: "mareva-2", name: "OD Mareva 2-V-81", type: "villa", bedrooms: 5, areaSqft: 10399, plotSqft: 10333, price: 21277888, status: "available", isPremium: true, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-5br-15", projectId: "mareva-2", name: "OD Mareva 2-V-84", type: "villa", bedrooms: 5, areaSqft: 10399, plotSqft: 10333, price: 21277888, status: "available", isPremium: true, imageGradient: "from-indigo-600 to-blue-400" },
+  { id: "inv-mar2-5br-16", projectId: "mareva-2", name: "OD Mareva 2-V-342", type: "villa", bedrooms: 5, areaSqft: 10363, plotSqft: 10338, price: 22370888, status: "available", isPremium: true, imageGradient: "from-indigo-600 to-blue-400" },
 
-  // Palmiera 3
-  { id: "inv-p3-1", projectId: "palmiera-3", name: "4BR Villa - Lagoon View", type: "villa", bedrooms: 4, areaSqft: 5666, plotSqft: 7000, price: 9180000, status: "available", isPremium: false, imageGradient: "from-cyan-600 to-sky-400" },
-  { id: "inv-p3-2", projectId: "palmiera-3", name: "4BR Villa - Garden Premium", type: "villa", bedrooms: 4, areaSqft: 5914, plotSqft: 8000, price: 10500000, status: "available", isPremium: false, imageGradient: "from-sky-600 to-blue-400" },
-  { id: "inv-p3-3", projectId: "palmiera-3", name: "4BR Villa - Corner Waterfront", type: "villa", bedrooms: 4, areaSqft: 5914, plotSqft: 8000, price: 12000000, status: "sold", isPremium: true, imageGradient: "from-blue-600 to-cyan-400" },
+  // OD Mareva — 5 Bedroom (6 units)
+  { id: "inv-mar1-5br-2", projectId: "mareva-1", name: "OD Mareva-V-2", type: "villa", bedrooms: 5, areaSqft: 10290, plotSqft: 10333, price: 20405888, status: "available", isPremium: true, imageGradient: "from-violet-600 to-purple-400" },
+  { id: "inv-mar1-5br-3", projectId: "mareva-1", name: "OD Mareva-V-60", type: "villa", bedrooms: 5, areaSqft: 10290, plotSqft: 10612, price: 20448888, status: "available", isPremium: true, imageGradient: "from-violet-600 to-purple-400" },
+  { id: "inv-mar1-5br-4", projectId: "mareva-1", name: "OD Mareva-V-63", type: "villa", bedrooms: 5, areaSqft: 10363, plotSqft: 10333, price: 20524888, status: "available", isPremium: true, imageGradient: "from-violet-600 to-purple-400" },
+  { id: "inv-mar1-5br-5", projectId: "mareva-1", name: "OD Mareva-V-64", type: "villa", bedrooms: 5, areaSqft: 10363, plotSqft: 10333, price: 20524888, status: "available", isPremium: true, imageGradient: "from-violet-600 to-purple-400" },
+  { id: "inv-mar1-5br-6", projectId: "mareva-1", name: "OD Mareva-V-59", type: "villa", bedrooms: 5, areaSqft: 10290, plotSqft: 10188, price: 20994888, status: "available", isPremium: true, imageGradient: "from-violet-600 to-purple-400" },
+  { id: "inv-mar1-5br-7", projectId: "mareva-1", name: "OD Mareva-V-270", type: "villa", bedrooms: 5, areaSqft: 10399, plotSqft: 10334, price: 22518888, status: "available", isPremium: true, imageGradient: "from-violet-600 to-purple-400" },
+
+  // OD Mareva — 6 Bedroom (11 units)
+  { id: "inv-mar1-6br-1", projectId: "mareva-1", name: "OD Mareva-V-71", type: "villa", bedrooms: 6, areaSqft: 12779, plotSqft: 14773, price: 24178888, status: "available", isPremium: true, imageGradient: "from-violet-600 to-purple-400" },
+  { id: "inv-mar1-6br-2", projectId: "mareva-1", name: "OD Mareva-V-77", type: "villa", bedrooms: 6, areaSqft: 12779, plotSqft: 14773, price: 24178888, status: "available", isPremium: true, imageGradient: "from-violet-600 to-purple-400" },
+  { id: "inv-mar1-6br-3", projectId: "mareva-1", name: "OD Mareva-V-127", type: "villa", bedrooms: 6, areaSqft: 12779, plotSqft: 14780, price: 24179888, status: "available", isPremium: true, imageGradient: "from-violet-600 to-purple-400" },
+  { id: "inv-mar1-6br-4", projectId: "mareva-1", name: "OD Mareva-V-75", type: "villa", bedrooms: 6, areaSqft: 12779, plotSqft: 14773, price: 24432888, status: "available", isPremium: true, imageGradient: "from-violet-600 to-purple-400" },
+  { id: "inv-mar1-6br-5", projectId: "mareva-1", name: "OD Mareva-V-133", type: "villa", bedrooms: 6, areaSqft: 12986, plotSqft: 14773, price: 24503888, status: "available", isPremium: true, imageGradient: "from-violet-600 to-purple-400" },
+  { id: "inv-mar1-6br-6", projectId: "mareva-1", name: "OD Mareva-V-135", type: "villa", bedrooms: 6, areaSqft: 12986, plotSqft: 14773, price: 24503888, status: "available", isPremium: true, imageGradient: "from-violet-600 to-purple-400" },
+  { id: "inv-mar1-6br-7", projectId: "mareva-1", name: "OD Mareva-V-73", type: "villa", bedrooms: 6, areaSqft: 12986, plotSqft: 14773, price: 24761888, status: "available", isPremium: true, imageGradient: "from-violet-600 to-purple-400" },
+  { id: "inv-mar1-6br-8", projectId: "mareva-1", name: "OD Mareva-V-88", type: "villa", bedrooms: 6, areaSqft: 12779, plotSqft: 14639, price: 26955888, status: "available", isPremium: true, imageGradient: "from-violet-600 to-purple-400" },
+  { id: "inv-mar1-6br-9", projectId: "mareva-1", name: "OD Mareva-V-151", type: "villa", bedrooms: 6, areaSqft: 12986, plotSqft: 14639, price: 27318888, status: "available", isPremium: true, imageGradient: "from-violet-600 to-purple-400" },
+  { id: "inv-mar1-6br-10", projectId: "mareva-1", name: "OD Mareva-V-74", type: "villa", bedrooms: 6, areaSqft: 12986, plotSqft: 14776, price: 27341888, status: "available", isPremium: true, imageGradient: "from-violet-600 to-purple-400" },
+  { id: "inv-mar1-6br-11", projectId: "mareva-1", name: "OD Mareva-V-143", type: "villa", bedrooms: 6, areaSqft: 12779, plotSqft: 14726, price: 27479888, status: "available", isPremium: true, imageGradient: "from-violet-600 to-purple-400" },
+
+  // OD Mareva 2 — 6 Bedroom (1 unit)
+  { id: "inv-mar2-6br-1", projectId: "mareva-2", name: "OD Mareva 2-V-231", type: "villa", bedrooms: 6, areaSqft: 12779, plotSqft: 14737, price: 27988888, status: "available", isPremium: true, imageGradient: "from-indigo-600 to-blue-400" },
+
+  // OP Lavita — 6 Bedroom (2 units)
+  { id: "inv-lav-1", projectId: "lavita", name: "OP Lavita-V-27", type: "mansion", bedrooms: 6, areaSqft: 20096, plotSqft: 22275, price: 46970888, status: "available", isPremium: true, imageGradient: "from-amber-700 to-yellow-400", floorPlan: "/images/inventory/lavita-v27-floorplan.png" },
+  { id: "inv-lav-2", projectId: "lavita", name: "OP Lavita-V-47", type: "mansion", bedrooms: 6, areaSqft: 20096, plotSqft: 23824, price: 47696888, status: "available", isPremium: true, imageGradient: "from-amber-700 to-yellow-400", floorPlan: "/images/inventory/lavita-v47-floorplan.png" },
 ];
 
 // ======== FLOOR PLANS ========
@@ -506,8 +562,8 @@ export const floorPlans: FloorPlan[] = [
   { id: "fp-avt-1", projectId: "adress-villas-tierra", name: "Type A - 4 Bedroom Villa", bedrooms: 4, areaSqft: 7269, plotSqft: 8500, imageGradient: "from-emerald-100 to-teal-50", imageUrl: "/images/floorplans/adress-villas-tierra-fp-1.png" },
   { id: "fp-avt-2", projectId: "adress-villas-tierra", name: "Type B - 5 Bedroom Villa", bedrooms: 5, areaSqft: 9500, plotSqft: 11000, imageGradient: "from-teal-100 to-cyan-50", imageUrl: "/images/floorplans/adress-villas-tierra-fp-2.png" },
   { id: "fp-avt-3", projectId: "adress-villas-tierra", name: "Type C - 6 Bedroom Villa", bedrooms: 6, areaSqft: 12777, plotSqft: 15000, imageGradient: "from-cyan-100 to-sky-50", imageUrl: "/images/floorplans/adress-villas-tierra-fp-3.png" },
-  { id: "fp-lav-1", projectId: "lavita", name: "6 Bedroom Waterfront Mansion", bedrooms: 6, areaSqft: 20096, plotSqft: 22000, imageGradient: "from-amber-100 to-yellow-50", imageUrl: "/images/floorplans/lavita-fp-1.png" },
-  { id: "fp-lav-2", projectId: "lavita", name: "7 Bedroom Grand Mansion", bedrooms: 7, areaSqft: 23824, plotSqft: 22275, imageGradient: "from-yellow-100 to-orange-50", imageUrl: "/images/floorplans/lavita-fp-2.png" },
+  { id: "fp-lav-1", projectId: "lavita", name: "OP Lavita-V-27 - Type S1A", bedrooms: 6, areaSqft: 20096, plotSqft: 22275, imageGradient: "from-amber-100 to-yellow-50", imageUrl: "/images/inventory/lavita-v27-floorplan.png" },
+  { id: "fp-lav-2", projectId: "lavita", name: "OP Lavita-V-47 - Type S1A", bedrooms: 6, areaSqft: 20096, plotSqft: 23824, imageGradient: "from-yellow-100 to-orange-50", imageUrl: "/images/inventory/lavita-v47-floorplan.png" },
   { id: "fp-mar1-1", projectId: "mareva-1", name: "4 Bedroom Villa", bedrooms: 4, areaSqft: 7254, plotSqft: 8800, imageGradient: "from-violet-100 to-purple-50" },
   { id: "fp-mar1-2", projectId: "mareva-1", name: "5 Bedroom Villa", bedrooms: 5, areaSqft: 9800, plotSqft: 12000, imageGradient: "from-purple-100 to-fuchsia-50" },
   { id: "fp-mar1-3", projectId: "mareva-1", name: "6 Bedroom Villa", bedrooms: 6, areaSqft: 12779, plotSqft: 16000, imageGradient: "from-fuchsia-100 to-pink-50" },
