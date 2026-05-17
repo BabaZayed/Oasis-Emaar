@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Bed, Maximize, ChevronRight, Home, ArrowRight, MapPin, Lock } from "lucide-react";
 import { PaywallModal } from "@/components/paywall-modal";
+import ProjectFactsSection from "@/components/project-facts-section";
 import { useState } from "react";
 
 export default function ProjectDetailPage({ project }: { project: Project }) {
@@ -179,6 +180,9 @@ export default function ProjectDetailPage({ project }: { project: Project }) {
             </div>
           </div>
         </section>
+
+        {/* Project Facts */}
+        <ProjectFactsSection project={project} />
 
         {/* Features & Amenities */}
         <section className="py-16 sm:py-20 bg-white">

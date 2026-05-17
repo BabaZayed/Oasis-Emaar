@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown, MapPin, Home, Building2, Ruler } from "lucide-react";
 import { formatPrice } from "@/lib/data";
 import Image from "next/image";
+import Link from "next/link";
 
 const stats = [
   { icon: Home, label: "Starting From", value: formatPrice(9180000) },
@@ -87,21 +88,23 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 sm:mb-16"
         >
-          <Button
-            onClick={() => scrollTo("#projects")}
-            size="lg"
-            className="gold-gradient text-[#1A2332] font-bold px-8 py-6 text-base rounded-md hover:opacity-90 transition-opacity w-full sm:w-auto"
-          >
-            Explore All 9 Clusters
-          </Button>
-          <Button
-            onClick={() => scrollTo("#contact")}
-            size="lg"
-            variant="outline"
-            className="border-[#C8A45C] text-[#C8A45C] hover:bg-[#C8A45C]/10 px-8 py-6 text-base rounded-md w-full sm:w-auto"
-          >
-            Register Your Interest
-          </Button>
+          <Link href="/projects" className="w-full sm:w-auto">
+            <Button
+              size="lg"
+              className="gold-gradient text-[#1A2332] font-bold px-8 py-6 text-base rounded-md hover:opacity-90 transition-opacity w-full sm:w-auto"
+            >
+              Explore All 9 Clusters
+            </Button>
+          </Link>
+          <Link href="/contact" className="w-full sm:w-auto">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-[#C8A45C] text-[#C8A45C] hover:bg-[#C8A45C]/10 px-8 py-6 text-base rounded-md w-full sm:w-auto"
+            >
+              Register Your Interest
+            </Button>
+          </Link>
         </motion.div>
 
         {/* Stats */}
