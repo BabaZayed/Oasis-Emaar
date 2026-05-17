@@ -26,7 +26,7 @@ export default function HeroSection() {
     >
       {/* Background Image */}
       <Image
-        src="/images/hero-oasis.png"
+        src="/images/hero-oasis-real.png"
         alt="The Oasis by Emaar - Luxury Waterfront Community"
         fill
         className="object-cover"
