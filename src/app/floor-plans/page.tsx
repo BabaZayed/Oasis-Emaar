@@ -255,10 +255,19 @@ function FloorPlanCard({
   project: typeof projects[0];
   driveUrl: string | null;
 }) {
+  const hasRealImage = !!plan.imageUrl;
+  
   return (
     <Card className="overflow-hidden border-0 shadow-md hover:shadow-lg transition-shadow group">
-      <div className="relative h-52 overflow-hidden">
-        {project.imageUrl ? (
+      <div className="relative h-72 overflow-hidden bg-[#F5F0E8]">
+        {hasRealImage ? (
+          <Image
+            src={plan.imageUrl!}
+            alt={plan.name}
+            fill
+            className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
+          />
+        ) : project.imageUrl ? (
           <img
             src={project.imageUrl}
             alt={plan.name}
@@ -267,15 +276,22 @@ function FloorPlanCard({
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-[#F5F0E8] to-[#E8E0D0]" />
         )}
-        <div className="absolute inset-0 flex items-center justify-center bg-[#1A2332]/30">
-          <div className="text-center">
-            <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center mx-auto mb-3 shadow-lg">
-              <LayoutGrid className="w-6 h-6 text-[#C8A45C]" />
+        {!hasRealImage && (
+          <div className="absolute inset-0 flex items-center justify-center bg-[#1A2332]/30">
+            <div className="text-center">
+              <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center mx-auto mb-3 shadow-lg">
+                <LayoutGrid className="w-6 h-6 text-[#C8A45C]" />
+              </div>
+              <p className="font-heading text-lg font-bold text-white drop-shadow-md">View Floor Plans</p>
+              <p className="font-body text-xs text-white/70 mt-1">{plan.name}</p>
             </div>
-            <p className="font-heading text-lg font-bold text-white drop-shadow-md">View Floor Plans</p>
-            <p className="font-body text-xs text-white/70 mt-1">{plan.name}</p>
           </div>
-        </div>
+        )}
+        {hasRealImage && (
+          <div className="absolute top-3 left-3">
+            <Badge className="bg-emerald-600 text-white text-xs font-semibold">Real Floor Plan</Badge>
+          </div>
+        )}
         <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 flex items-center justify-center">
           <ExternalLink className="w-4 h-4 text-[#1A2332]" />
         </div>
