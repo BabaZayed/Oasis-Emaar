@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { inventoryItems, projects, formatPrice, formatSqft } from "@/lib/data";
+import { inventoryItems, projects, formatPrice, formatSqft, type InventoryItem } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Bed, Maximize, ArrowRight, ChevronDown, ChevronUp, Home } from "lucide-react";
+import { Bed, Maximize, ArrowRight, ChevronDown, ChevronUp, Home, Eye } from "lucide-react";
 import Link from "next/link";
+import PropertyDetailModal from "@/components/property-detail-modal";
 
 // Cluster display order and info
 const clusterOrder = [
@@ -21,6 +22,8 @@ type BedroomFilter = "all" | 4 | 5 | 6;
 export default function QuickInventorySection() {
   const [bedroomFilter, setBedroomFilter] = useState<BedroomFilter>("all");
   const [expandedClusters, setExpandedClusters] = useState<Set<string>>(new Set());
+
+  const [detailItem, setDetailItem] = useState<InventoryItem | null>(null);
 
   const filtered = useMemo(() => {
     return inventoryItems.filter((item) => {
@@ -182,9 +185,13 @@ export default function QuickInventorySection() {
                         <p className="font-heading text-base sm:text-lg font-bold text-[#C8A45C]">
                           {formatPrice(item.price)}
                         </p>
-                        <Badge className="bg-green-100 text-green-700 text-[10px] font-semibold border-0">
-                          Available
-                        </Badge>
+                        <Button
+                          onClick={() => setDetailItem(item)}
+                          size="sm"
+                          className="bg-[#1A2332] text-white hover:bg-[#2A3A52] text-xs rounded-md min-h-[36px]"
+                        >
+                          <Eye className="w-3 h-3 mr-1" /> View Details
+                        </Button>
                       </div>
                     </div>
                   ))}
@@ -227,6 +234,13 @@ export default function QuickInventorySection() {
           </Link>
         </div>
       </div>
+
+      {/* Property Detail Modal */}
+      <PropertyDetailModal
+        item={detailItem}
+        open={!!detailItem}
+        onClose={() => setDetailItem(null)}
+      />
     </section>
   );
 }

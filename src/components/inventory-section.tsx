@@ -7,8 +7,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Bed, Maximize, Lock, Search, SlidersHorizontal, X, LayoutGrid, List, ChevronDown } from "lucide-react";
-import { PaywallModal } from "@/components/paywall-modal";
+import { Bed, Maximize, Lock, Search, SlidersHorizontal, X, LayoutGrid, List, Eye } from "lucide-react";
+import PropertyDetailModal from "@/components/property-detail-modal";
 import Image from "next/image";
 
 const statusMap: Record<PropertyStatus, { label: string; color: string }> = {
@@ -40,7 +40,7 @@ const priceRanges = [
   { value: "30m+", label: "AED 30M+" },
 ];
 
-function PropertyCardGrid({ item, onPremiumClick }: { item: InventoryItem; onPremiumClick: (item: InventoryItem) => void }) {
+function PropertyCardGrid({ item, onViewDetails }: { item: InventoryItem; onViewDetails: (item: InventoryItem) => void }) {
   const project = projects.find((p) => p.id === item.projectId);
   const statusInfo = statusMap[item.status];
 
@@ -89,11 +89,11 @@ function PropertyCardGrid({ item, onPremiumClick }: { item: InventoryItem; onPre
             <p className="font-heading text-lg font-bold text-[#C8A45C]">{formatPrice(item.price)}</p>
           </div>
           <Button
-            onClick={() => item.isPremium ? onPremiumClick(item) : document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() => onViewDetails(item)}
             size="sm"
             className="bg-[#1A2332] text-white hover:bg-[#2A3A52] text-xs rounded-md min-h-[44px]"
           >
-            {item.isPremium ? <><Lock className="w-3 h-3 mr-1" /> Unlock</> : "Inquire"}
+            <Eye className="w-3 h-3 mr-1" /> View Details
           </Button>
         </div>
       </CardContent>
@@ -101,7 +101,7 @@ function PropertyCardGrid({ item, onPremiumClick }: { item: InventoryItem; onPre
   );
 }
 
-function PropertyCardList({ item, onPremiumClick }: { item: InventoryItem; onPremiumClick: (item: InventoryItem) => void }) {
+function PropertyCardList({ item, onViewDetails }: { item: InventoryItem; onViewDetails: (item: InventoryItem) => void }) {
   const project = projects.find((p) => p.id === item.projectId);
   const statusInfo = statusMap[item.status];
 
@@ -152,11 +152,11 @@ function PropertyCardList({ item, onPremiumClick }: { item: InventoryItem; onPre
       <div className="flex flex-col items-end gap-2 flex-shrink-0">
         <p className="font-heading text-sm sm:text-lg font-bold text-[#C8A45C] whitespace-nowrap">{formatPrice(item.price)}</p>
         <Button
-          onClick={() => item.isPremium ? onPremiumClick(item) : document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
+          onClick={() => onViewDetails(item)}
           size="sm"
           className="bg-[#1A2332] text-white hover:bg-[#2A3A52] text-xs rounded-md min-h-[36px] min-w-[80px]"
         >
-          {item.isPremium ? <><Lock className="w-3 h-3 mr-1" /> Unlock</> : "Inquire"}
+          <Eye className="w-3 h-3 mr-1" /> View Details
         </Button>
       </div>
     </div>
@@ -170,7 +170,7 @@ export default function InventorySection() {
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [priceRange, setPriceRange] = useState<string>("all");
   const [sortBy, setSortBy] = useState<string>("price-asc");
-  const [premiumItem, setPremiumItem] = useState<InventoryItem | null>(null);
+  const [detailItem, setDetailItem] = useState<InventoryItem | null>(null);
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [filtersOpen, setFiltersOpen] = useState(false);
 
@@ -365,13 +365,13 @@ export default function InventorySection() {
         {viewMode === "grid" ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {filtered.map((item) => (
-              <PropertyCardGrid key={item.id} item={item} onPremiumClick={setPremiumItem} />
+              <PropertyCardGrid key={item.id} item={item} onViewDetails={setDetailItem} />
             ))}
           </div>
         ) : (
           <div className="flex flex-col gap-3">
             {filtered.map((item) => (
-              <PropertyCardList key={item.id} item={item} onPremiumClick={setPremiumItem} />
+              <PropertyCardList key={item.id} item={item} onViewDetails={setDetailItem} />
             ))}
           </div>
         )}
@@ -390,11 +390,11 @@ export default function InventorySection() {
         )}
       </div>
 
-      {/* Paywall Modal */}
-      <PaywallModal
-        open={!!premiumItem}
-        onClose={() => setPremiumItem(null)}
-        itemName={premiumItem?.name || ""}
+      {/* Property Detail Modal */}
+      <PropertyDetailModal
+        item={detailItem}
+        open={!!detailItem}
+        onClose={() => setDetailItem(null)}
       />
     </section>
   );

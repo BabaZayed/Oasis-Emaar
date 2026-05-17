@@ -283,7 +283,7 @@ export default function Home() {
                   size="lg"
                   className="gold-gradient text-[#1A2332] font-bold px-8 py-6 text-base rounded-md hover:opacity-90 w-full sm:w-auto"
                 >
-                  Register Your Interest
+                  Check Availability
                 </Button>
               </a>
               <Link href="/inventory">
