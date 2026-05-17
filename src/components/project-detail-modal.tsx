@@ -132,7 +132,7 @@ export default function ProjectDetailModal({ project, open, onClose }: ProjectDe
             }}
             className="flex-1 bg-gold hover:bg-gold-dark text-white font-semibold rounded-md"
           >
-            Register Interest
+            Check Availability
             <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
           <Button

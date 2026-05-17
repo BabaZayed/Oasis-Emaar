@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Bed, Maximize, Eye, Lock, Building2 } from 'lucide-react';
 import { InventoryItem } from '@/lib/data';
-import { usePaywallStore } from '@/lib/paywall-store';
 
 interface PropertyCardProps {
   item: InventoryItem;
@@ -19,15 +18,8 @@ const statusStyles: Record<string, string> = {
 };
 
 export default function PropertyCard({ item, onViewDetails }: PropertyCardProps) {
-  const { isRegistered, setShowPaywallModal, checkRegistration } = usePaywallStore();
-
   const handleClick = () => {
-    checkRegistration();
-    if (item.isPremium && !isRegistered) {
-      setShowPaywallModal(true, () => onViewDetails(item));
-    } else {
-      onViewDetails(item);
-    }
+    onViewDetails(item);
   };
 
   return (
@@ -86,23 +78,10 @@ export default function PropertyCard({ item, onViewDetails }: PropertyCardProps)
         <Button
           onClick={handleClick}
           variant="outline"
-          className={`w-full font-semibold text-sm rounded-md transition-all ${
-            item.isPremium && !isRegistered
-              ? 'border-gold text-gold hover:bg-gold/10'
-              : 'border-navy/20 text-navy hover:bg-navy hover:text-white'
-          }`}
+          className="w-full font-semibold text-sm rounded-md transition-all border-navy/20 text-navy hover:bg-navy hover:text-white"
         >
-          {item.isPremium && !isRegistered ? (
-            <>
-              <Lock className="w-3.5 h-3.5 mr-1.5" />
-              Unlock Details
-            </>
-          ) : (
-            <>
-              <Eye className="w-3.5 h-3.5 mr-1.5" />
-              View Details
-            </>
-          )}
+          <Eye className="w-3.5 h-3.5 mr-1.5" />
+          View Details
         </Button>
       </CardContent>
     </Card>

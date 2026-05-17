@@ -184,3 +184,96 @@
 
 - `bun run lint` — No errors or warnings
 - Dev server running on port 3000, homepage loads (200), inventory page loads (200)
+
+---
+
+## TASK 3: "Check Availability" Text Changes + PropertyDetailModal + PaywallModal Replacement
+
+**Date:** 2026-05-18
+**Status:** All tasks completed, build passing, lint clean
+
+---
+
+### Task 1: Replace "Register Your Interest" / "Register Interest" → "Check Availability"
+
+All occurrences across the entire codebase replaced:
+
+**`src/components/hero-section.tsx`** (line 105)
+- "Register Your Interest" → "Check Availability"
+
+**`src/components/project-detail-page.tsx`** (lines 85, 398)
+- "Register Your Interest" → "Check Availability" (both hero CTA and bottom CTA)
+
+**`src/components/site-header.tsx`** (lines 105, 179)
+- "Register Interest" → "Check Availability" (desktop nav button + mobile nav button)
+
+**`src/components/project-detail-modal.tsx`** (line 135)
+- "Register Interest" → "Check Availability" (project detail modal CTA)
+
+**`src/app/page.tsx`** (line 286)
+- "Register Your Interest" → "Check Availability" (bottom CTA section)
+
+**`src/app/master-plan/master-plan-page-client.tsx`** (line 301)
+- "Register Your Interest" → "Check Availability" (master plan CTA)
+
+### Task 2: Create PropertyDetailModal + Replace "Inquire"/"Unlock" with "View Details"
+
+**`src/components/property-detail-modal.tsx`** — NEW component
+- Full property detail modal with:
+  - Property header: cluster name (gold), full location code, status badge
+  - Key Details Grid: Bedrooms, Built-up Area, Plot Area, Property Type, Price, Payment Plan
+  - Premium items show blurred price with "Register to unlock pricing" form inline
+  - Floor Plan section: matches inventory item's floorPlan field OR floorPlans array by projectId+bedrooms
+  - Cluster Location Map: uses clusterMapUrls mapping, falls back to /images/maps/masterplan.png
+  - CTA buttons: Check Availability (gold), WhatsApp (green), View Cluster (outline)
+- Responsive: Sheet (slide-up from bottom) on mobile, Dialog (centered max-w-2xl) on desktop
+- Scrollable content area with fixed header and footer
+- Imports floorPlans from @/lib/data for floor plan lookup
+- Imports WHATSAPP_LINK from @/lib/data for WhatsApp button
+
+**Cluster Map URLs:**
+- adress-villas-tierra → /images/maps/adress-villas-tierra-map.png
+- lavita → /images/maps/lavita-map.png
+- palmeira-collective → /images/maps/palmeira-collective-map.png
+- All others → /images/maps/masterplan.png (fallback)
+
+**`src/components/inventory-section.tsx`** — Updated
+- Replaced `PaywallModal` import with `PropertyDetailModal`
+- Replaced `onPremiumClick` prop with `onViewDetails` in both PropertyCardGrid and PropertyCardList
+- "Inquire" and "Unlock" buttons replaced with "View Details" (Eye icon)
+- Both grid and list view cards now open PropertyDetailModal on click
+- State variable renamed: premiumItem → detailItem
+
+### Task 3: Update quick-inventory-section.tsx
+
+**`src/components/quick-inventory-section.tsx`** — Updated
+- Added PropertyDetailModal import and detailItem state
+- "Available" badge replaced with "View Details" button (Eye icon)
+- PropertyDetailModal renders at section level
+
+### Task 4: Replace PaywallModal with PropertyDetailModal in project-detail-page.tsx and property-card.tsx
+
+**`src/components/project-detail-page.tsx`** — Updated
+- Replaced PaywallModal import with PropertyDetailModal
+- Replaced "Unlock" (premium) / "Inquire" (non-premium) with unified "View Details" button
+- State variable: premiumItem → detailItem
+- PropertyDetailModal opens for all inventory items, premium items show blurred price inline
+
+**`src/components/property-card.tsx`** — Updated
+- Removed usePaywallStore dependency (no longer uses paywall state)
+- Unified button: always shows "View Details" with Eye icon (no more "Unlock Details" variant)
+- Simplified handleClick: always calls onViewDetails directly
+
+### Task 5: Cluster map URLs mapping
+
+Implemented inside `property-detail-modal.tsx` as `clusterMapUrls` Record:
+- 3 specific cluster maps (adress-villas-tierra, lavita, palmeira-collective)
+- Fallback to /images/maps/masterplan.png for all others
+
+---
+
+## Build & Lint Verification (Task 3)
+
+- `npm run build` — Passed successfully (all 26 routes generated)
+- `bun run lint` — No errors or warnings
+- Dev server running on port 3000

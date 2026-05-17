@@ -102,7 +102,7 @@ export default function SiteHeader() {
                 <Button
                   className="gold-gradient text-[#1A2332] font-semibold text-sm px-4 py-2 rounded-md hover:opacity-90 transition-opacity hidden sm:flex"
                 >
-                  Register Interest
+                  Check Availability
                 </Button>
               </Link>
               <button
@@ -176,7 +176,7 @@ export default function SiteHeader() {
                     <Button
                       className="w-full gold-gradient text-[#1A2332] font-semibold py-3 rounded-md"
                     >
-                      Register Interest
+                      Check Availability
                     </Button>
                   </Link>
                 </div>

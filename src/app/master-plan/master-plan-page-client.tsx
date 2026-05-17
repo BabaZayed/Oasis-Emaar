@@ -298,7 +298,7 @@ export default function MasterPlanPageClient() {
                   size="lg"
                   className="gold-gradient text-[#1A2332] font-bold px-8 py-6 rounded-md hover:opacity-90 w-full sm:w-auto"
                 >
-                  Register Your Interest
+                  Check Availability
                 </Button>
               </Link>
               <Link href="/floor-plans">

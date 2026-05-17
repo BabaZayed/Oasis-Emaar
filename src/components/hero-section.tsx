@@ -102,7 +102,7 @@ export default function HeroSection() {
               variant="outline"
               className="border-[#C8A45C] text-[#C8A45C] hover:bg-[#C8A45C]/10 px-8 py-6 text-base rounded-md w-full sm:w-auto"
             >
-              Register Your Interest
+              Check Availability
             </Button>
           </Link>
           <Link href="/sell" className="w-full sm:w-auto">

@@ -9,13 +9,13 @@ import { inventoryItems, floorPlans, projects, formatPrice, formatSqft, type Pro
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Bed, Maximize, ChevronRight, Home, ArrowRight, MapPin, Lock } from "lucide-react";
-import { PaywallModal } from "@/components/paywall-modal";
+import { Bed, Maximize, ChevronRight, Home, ArrowRight, MapPin, Eye, Lock } from "lucide-react";
+import PropertyDetailModal from "@/components/property-detail-modal";
 import ProjectFactsSection from "@/components/project-facts-section";
 import { useState } from "react";
 
 export default function ProjectDetailPage({ project }: { project: Project }) {
-  const [premiumItem, setPremiumItem] = useState<typeof inventoryItems[0] | null>(null);
+  const [detailItem, setDetailItem] = useState<typeof inventoryItems[0] | null>(null);
 
   const projectInventory = inventoryItems.filter((item) => item.projectId === project.id);
   const projectFloorPlans = floorPlans.filter((fp) => fp.projectId === project.id);
@@ -82,7 +82,7 @@ export default function ProjectDetailPage({ project }: { project: Project }) {
               <div className="flex flex-wrap gap-4">
                 <Link href="/contact">
                   <Button size="lg" className="gold-gradient text-[#1A2332] font-bold px-8 py-6 rounded-md hover:opacity-90">
-                    Register Your Interest
+                    Check Availability
                   </Button>
                 </Link>
                 <Link href="/inventory">
@@ -272,21 +272,13 @@ export default function ProjectDetailPage({ project }: { project: Project }) {
                             <p className="text-xs text-gray-400">Price</p>
                             <p className="font-heading text-lg font-bold text-[#C8A45C]">{formatPrice(item.price)}</p>
                           </div>
-                          {item.isPremium ? (
-                            <Button
-                              onClick={() => setPremiumItem(item)}
+                          <Button
+                              onClick={() => setDetailItem(item)}
                               size="sm"
                               className="bg-[#1A2332] text-white hover:bg-[#2A3A52] text-xs rounded-md"
                             >
-                              <Lock className="w-3 h-3 mr-1" /> Unlock
+                              <Eye className="w-3 h-3 mr-1" /> View Details
                             </Button>
-                          ) : (
-                            <Link href="/contact">
-                              <Button size="sm" className="bg-[#1A2332] text-white hover:bg-[#2A3A52] text-xs rounded-md">
-                                Inquire
-                              </Button>
-                            </Link>
-                          )}
                         </div>
                       </CardContent>
                     </Card>
@@ -395,7 +387,7 @@ export default function ProjectDetailPage({ project }: { project: Project }) {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/contact">
                 <Button size="lg" className="gold-gradient text-[#1A2332] font-bold px-8 py-6 rounded-md hover:opacity-90 w-full sm:w-auto">
-                  Register Your Interest
+                  Check Availability
                 </Button>
               </Link>
               <Link href="/payment-plan">
@@ -410,11 +402,11 @@ export default function ProjectDetailPage({ project }: { project: Project }) {
       <SiteFooter />
       <WhatsAppButton />
 
-      {/* Paywall Modal */}
-      <PaywallModal
-        open={!!premiumItem}
-        onClose={() => setPremiumItem(null)}
-        itemName={premiumItem?.name || ""}
+      {/* Property Detail Modal */}
+      <PropertyDetailModal
+        item={detailItem}
+        open={!!detailItem}
+        onClose={() => setDetailItem(null)}
       />
     </div>
   );
