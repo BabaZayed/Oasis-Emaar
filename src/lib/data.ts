@@ -34,6 +34,16 @@ export interface Project {
     renders?: string;
     video?: string;
   };
+  facts: {
+    totalUnits: number;
+    communitySize: string;
+    greenSpace: string;
+    retailSpace: string;
+    lagoonLength: string;
+    developer: string;
+    location: string;
+    goldenVisa: boolean;
+  };
 }
 
 export interface InventoryItem {
@@ -59,6 +69,7 @@ export interface FloorPlan {
   areaSqft: number;
   plotSqft?: number;
   imageGradient: string;
+  imageUrl?: string;
 }
 
 export interface PaymentMilestone {
@@ -113,6 +124,16 @@ export const projects: Project[] = [
       onePager: "12PVuJDl438sSIwXmY4rNNv0lkCpGfp6r",
       paymentPlanDoc: "1ijleeb2yxaY11QNwJV_t46hyLq8c7Id4",
     },
+    facts: {
+      totalUnits: 58,
+      communitySize: "9.4M sqm",
+      greenSpace: "25%",
+      retailSpace: "1.5M sqft",
+      lagoonLength: "3.5km",
+      developer: "Emaar Properties PJSC",
+      location: "The Oasis, Dubailand — Near Hessa Street",
+      goldenVisa: true,
+    },
   },
   {
     id: "lavita",
@@ -145,6 +166,16 @@ export const projects: Project[] = [
       renders: "11p1IV6T0yEG6fP6yJK8kwU11j3Ud1_4W",
       video: "1dVrK5pJKfg70XiMbNwC4MWuQNv3a4FsP",
     },
+    facts: {
+      totalUnits: 24,
+      communitySize: "9.4M sqm",
+      greenSpace: "25%",
+      retailSpace: "1.5M sqft",
+      lagoonLength: "3.5km",
+      developer: "Emaar Properties PJSC",
+      location: "The Oasis, Dubailand — Premium Waterfront Zone",
+      goldenVisa: true,
+    },
   },
   {
     id: "mareva-1",
@@ -168,6 +199,16 @@ export const projects: Project[] = [
     driveFolderId: "1gpGDgvUybDYN6HK-64gNMwOf_guO7i4B",
     driveFolderUrl: "https://drive.google.com/drive/folders/1gpGDgvUybDYN6HK-64gNMwOf_guO7i4B",
     subfolders: {},
+    facts: {
+      totalUnits: 150,
+      communitySize: "9.4M sqm",
+      greenSpace: "25%",
+      retailSpace: "1.5M sqft",
+      lagoonLength: "3.5km",
+      developer: "Emaar Properties PJSC",
+      location: "The Oasis, Dubailand — Central Lagoon District",
+      goldenVisa: true,
+    },
   },
   {
     id: "mareva-2",
@@ -191,6 +232,16 @@ export const projects: Project[] = [
     driveFolderId: "1qn1ExWOtXKe0kE_RbfgMDlnmsRdsMLPP",
     driveFolderUrl: "https://drive.google.com/drive/folders/1qn1ExWOtXKe0kE_RbfgMDlnmsRdsMLPP",
     subfolders: {},
+    facts: {
+      totalUnits: 140,
+      communitySize: "9.4M sqm",
+      greenSpace: "25%",
+      retailSpace: "1.5M sqft",
+      lagoonLength: "3.5km",
+      developer: "Emaar Properties PJSC",
+      location: "The Oasis, Dubailand — Enhanced Lagoon Zone",
+      goldenVisa: true,
+    },
   },
   {
     id: "mirage",
@@ -222,6 +273,16 @@ export const projects: Project[] = [
       onePager: "1-AasCuebt4OGJ0eApW7nVJbi0oy9H0Fh",
       paymentPlanDoc: "1tL70KRgnygDMOM3lNSWdKILQ4FpUXdrI",
       video: "1NDjx_z5ElEajtt19oRYdLrlAz6MvYqzj",
+    },
+    facts: {
+      totalUnits: 95,
+      communitySize: "9.4M sqm",
+      greenSpace: "25%",
+      retailSpace: "1.5M sqft",
+      lagoonLength: "3.5km",
+      developer: "Emaar Properties PJSC",
+      location: "The Oasis, Dubailand — Exclusive Zone",
+      goldenVisa: true,
     },
   },
   {
@@ -256,6 +317,16 @@ export const projects: Project[] = [
       paymentPlanDoc: "1wg-3Yvusw1yGh4PtGx1v-wNBSTO_xefu",
       video: "1qJ-FpDJZtkYzvrfYAkw1H6_xUAB-o7NS",
     },
+    facts: {
+      totalUnits: 62,
+      communitySize: "9.4M sqm",
+      greenSpace: "25%",
+      retailSpace: "1.5M sqft",
+      lagoonLength: "3.5km",
+      developer: "Emaar Properties PJSC",
+      location: "The Oasis, Dubailand — Palace District",
+      goldenVisa: true,
+    },
   },
   {
     id: "palmeira-collective",
@@ -285,6 +356,16 @@ export const projects: Project[] = [
       maps: "1NOtUrnKANNwtCkDT48U32peZLRNN-8hG",
       onePager: "1zv0KAmCFdIfNHSVO6mk5bw5Zf_xh3vu7",
       video: "1YZ7U1n9LM8CPe4K0JMX-y5QsxkLyL8Y5",
+    },
+    facts: {
+      totalUnits: 38,
+      communitySize: "9.4M sqm",
+      greenSpace: "25%",
+      retailSpace: "1.5M sqft",
+      lagoonLength: "3.5km",
+      developer: "Emaar Properties PJSC",
+      location: "The Oasis, Dubailand — Boutique Collection",
+      goldenVisa: true,
     },
   },
   {
@@ -318,6 +399,16 @@ export const projects: Project[] = [
       renders: "1ch-2BAi5aPPO21b4dLf5rWk_DIP4qu9O",
       video: "12vhluuIG3Krzu1_loNwQIQBhLWqno-N2",
     },
+    facts: {
+      totalUnits: 110,
+      communitySize: "9.4M sqm",
+      greenSpace: "25%",
+      retailSpace: "1.5M sqft",
+      lagoonLength: "3.5km",
+      developer: "Emaar Properties PJSC",
+      location: "The Oasis, Dubailand — Contemporary Quarter",
+      goldenVisa: true,
+    },
   },
   {
     id: "palmiera-3",
@@ -349,6 +440,16 @@ export const projects: Project[] = [
       onePager: "1eJ36G3ko13EkjXUomGgUTOCGTdtvlq5J",
       paymentPlanDoc: "19FK4dp_vsshm3Rg3psPzeGeq2Pb-3-us",
       video: "1ktLcqW4_ueYzUtRUox6-K1Xx8plGG1Tl",
+    },
+    facts: {
+      totalUnits: 120,
+      communitySize: "9.4M sqm",
+      greenSpace: "25%",
+      retailSpace: "1.5M sqft",
+      lagoonLength: "3.5km",
+      developer: "Emaar Properties PJSC",
+      location: "The Oasis, Dubailand — Accessible Luxury Zone",
+      goldenVisa: true,
     },
   },
 ];
@@ -503,3 +604,21 @@ export const ADDRESS = "Al Quoz Street 21, Dubai, UAE";
 export const AGENCY_NAME = "Oasis Emaar";
 export const AGENCY_TAGLINE = "Authorised Sales Agent for The Oasis by Emaar";
 export const AGENCY_DISCLAIMER = "We are an independent authorised real estate brokerage and sales agent for Emaar Properties. This website is not the official Emaar Properties website. All project information, specifications, images, and pricing are provided for informational and marketing purposes only and are subject to change by the developer (Emaar Properties PJSC) without notice. Emaar, The Oasis, Address, Palace, and related names are trademarks of Emaar Properties PJSC. Artistic renders and images are for illustration purposes only and may differ from the final product.";
+
+// ======== MASTER PLAN FACTS ========
+export const masterPlanFacts = {
+  totalArea: "9.4 million sqm",
+  totalResidences: "7,000+",
+  clusters: 9,
+  greenSpace: "25% of total area",
+  retailSpace: "1.5 million sqft",
+  crystalLagoons: "3.5km of waterways",
+  location: "Dubailand, Dubai — 20 mins from Downtown",
+  nearestAirport: "Al Maktoum International Airport",
+  connectivity: "Near Hessa Street & Sheikh Zayed Road",
+  expoCity: "15 minutes to Expo City Dubai",
+  goldenVisa: "Eligible for all properties AED 2M+",
+  developer: "Emaar Properties PJSC",
+  handoverRange: "Q4 2028 — Q2 2031",
+  priceRange: "AED 9.18M — AED 47.8M",
+};

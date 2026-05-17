@@ -129,7 +129,7 @@ export default function PaywallSection() {
 
   if (isRegistered && !submitted) {
     return (
-      <section id="premium-access" className="py-20 sm:py-28 bg-gradient-to-br from-[#1A2332] via-[#2A3A52] to-[#1A2332] text-white">
+      <section id="paywall" className="py-20 sm:py-28 bg-gradient-to-br from-[#1A2332] via-[#2A3A52] to-[#1A2332] text-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="w-20 h-20 rounded-full gold-gradient flex items-center justify-center mx-auto mb-6">
             <CheckCircle className="w-10 h-10 text-[#1A2332]" />
@@ -166,7 +166,7 @@ export default function PaywallSection() {
   }
 
   return (
-    <section id="premium-access" className="py-20 sm:py-28 bg-gradient-to-br from-[#1A2332] via-[#2A3A52] to-[#1A2332] text-white relative overflow-hidden">
+    <section id="paywall" className="py-20 sm:py-28 bg-gradient-to-br from-[#1A2332] via-[#2A3A52] to-[#1A2332] text-white relative overflow-hidden">
       {/* Decorative lock icon background */}
       <div className="absolute inset-0 opacity-5">
         <Lock className="w-96 h-96 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />

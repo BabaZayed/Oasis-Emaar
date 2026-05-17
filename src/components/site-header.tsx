@@ -12,6 +12,8 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "Projects", href: "/projects" },
   { label: "Inventory", href: "/inventory" },
+  { label: "Marketplace", href: "/marketplace" },
+  { label: "Sell Property", href: "/sell" },
   { label: "Floor Plans", href: "/floor-plans" },
   { label: "Payment Plan", href: "/payment-plan" },
   { label: "Gallery", href: "/gallery" },
@@ -31,11 +33,6 @@ export default function SiteHeader() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // Close mobile menu on route change
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
 
   return (
     <>
@@ -134,6 +131,7 @@ export default function SiteHeader() {
                     <Link
                       key={link.href}
                       href={link.href}
+                      onClick={() => setMobileOpen(false)}
                       className={`px-4 py-3 rounded-md transition-colors ${
                         isActive
                           ? "text-[#C8A45C] bg-white/5"

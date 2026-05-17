@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -52,4 +52,23 @@ model RateLimit {
   count     Int      @default(1)
   windowStart DateTime @default(now())
   createdAt DateTime @default(now())
+}
+
+model SellerListing {
+  id            String   @id @default(cuid())
+  propertyType  String   // villa, mansion, townhouse, apartment, penthouse, branded-villa
+  villaNumber   String   // e.g. "V-102", "M-45"
+  cluster       String   // project ID or name
+  bedrooms      Int
+  areaSqft      Int
+  price         Int      // in AED
+  name          String   // seller name
+  email         String
+  phone         String
+  whatsapp      String?  // optional WhatsApp number
+  description   String?  // optional description from seller
+  isVerified    Boolean  @default(false)
+  isActive      Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 }
