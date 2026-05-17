@@ -2,6 +2,7 @@
 
 import SiteHeader from "@/components/site-header";
 import HeroSection from "@/components/hero-section";
+import QuickInventorySection from "@/components/quick-inventory-section";
 import BenefitsSection from "@/components/benefits-section";
 import PaywallSection from "@/components/paywall-section";
 import ReferencesSection from "@/components/references-section";
@@ -87,8 +88,8 @@ export default function Home() {
       <main className="flex-1">
         <HeroSection />
 
-        {/* Benefits Preview */}
-        <BenefitsSection />
+        {/* Quick Inventory - Prominent after hero */}
+        <QuickInventorySection />
 
         {/* Community Facts */}
         <section className="py-16 sm:py-20 bg-[#F5F0E8]">
@@ -181,6 +182,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Benefits Preview */}
+        <BenefitsSection />
 
         {/* Premium Access / Paywall Section */}
         <PaywallSection />

@@ -4,14 +4,14 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { WHATSAPP_LINK, PHONE_NUMBER } from "@/lib/data";
+import { WHATSAPP_LINK, PHONE_NUMBER, inventoryItems } from "@/lib/data";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
   { label: "Home", href: "/" },
+  { label: "Inventory", href: "/inventory", badge: true },
   { label: "Projects", href: "/projects" },
-  { label: "Inventory", href: "/inventory" },
   { label: "Marketplace", href: "/marketplace" },
   { label: "Sell Property", href: "/sell" },
   { label: "Floor Plans", href: "/floor-plans" },
@@ -63,13 +63,15 @@ export default function SiteHeader() {
                 const isActive = pathname === link.href ||
                   (link.href !== "/" && pathname.startsWith(link.href));
                 const isSellPage = link.href === "/sell";
+                const isBadge = "badge" in link && link.badge;
+                const availableCount = inventoryItems.filter((i) => i.status === "available").length;
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`font-body px-3 py-2 text-sm transition-colors duration-200 rounded-md ${
+                    className={`font-body px-3 py-2 text-sm transition-colors duration-200 rounded-md flex items-center gap-1.5 ${
                       isSellPage
-                        ? "bg-emerald-600 text-white font-semibold hover:bg-emerald-700 flex items-center gap-1.5"
+                        ? "bg-emerald-600 text-white font-semibold hover:bg-emerald-700"
                         : isActive
                           ? "text-[#C8A45C]"
                           : "text-white/80 hover:text-[#C8A45C]"
@@ -77,6 +79,11 @@ export default function SiteHeader() {
                   >
                     {isSellPage && <Tag className="w-3.5 h-3.5" />}
                     {link.label}
+                    {isBadge && (
+                      <span className="bg-[#C8A45C] text-[#1A2332] text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none">
+                        {availableCount}
+                      </span>
+                    )}
                   </Link>
                 );
               })}
@@ -132,12 +139,14 @@ export default function SiteHeader() {
                   const isActive = pathname === link.href ||
                     (link.href !== "/" && pathname.startsWith(link.href));
                   const isSellPage = link.href === "/sell";
+                  const isBadge = "badge" in link && link.badge;
+                  const availableCount = inventoryItems.filter((i) => i.status === "available").length;
                   return (
                     <Link
                       key={link.href}
                       href={link.href}
                       onClick={() => setMobileOpen(false)}
-                      className={`px-4 py-3 rounded-md transition-colors flex items-center gap-2 ${
+                      className={`px-4 py-3 rounded-md transition-colors flex items-center gap-2 min-h-[44px] ${
                         isSellPage
                           ? "bg-emerald-600 text-white font-semibold"
                           : isActive
@@ -147,6 +156,11 @@ export default function SiteHeader() {
                     >
                       {isSellPage && <Tag className="w-4 h-4" />}
                       {link.label}
+                      {isBadge && (
+                        <span className="bg-[#C8A45C] text-[#1A2332] text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none">
+                          {availableCount}
+                        </span>
+                      )}
                     </Link>
                   );
                 })}
