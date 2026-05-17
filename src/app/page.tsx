@@ -15,7 +15,7 @@ import { projects, formatPrice } from "@/lib/data";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Bed, Maximize, ArrowRight, Building2, Trees, Store, Waves, MapPin, Crown, ShieldCheck, Users } from "lucide-react";
+import { Bed, Maximize, ArrowRight, Building2, Trees, Store, Waves, MapPin, Crown, ShieldCheck, Users, Tag, Eye, BadgeCheck, Star } from "lucide-react";
 
 function ProjectPreviewCard({ project }: { project: typeof projects[0] }) {
   const statusColor =
@@ -190,6 +190,76 @@ export default function Home() {
 
         {/* User Feedback / Reviews */}
         <FeedbackSection />
+
+        {/* Seller Marketplace Section */}
+        <section className="py-16 sm:py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-emerald-600">
+                Seller Marketplace
+              </span>
+              <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
+                List Your Property for Sale
+              </h2>
+              <p className="font-body text-gray-500 max-w-2xl mx-auto text-lg">
+                Are you a current owner at The Oasis? List your property on our marketplace and reach thousands of verified buyers actively looking to invest.
+              </p>
+              <div className="section-divider max-w-xs mx-auto mt-6" />
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+              {[
+                { icon: Users, title: "Reach Thousands of Buyers", desc: "Your property is showcased to our verified network of investors and homebuyers actively seeking Oasis properties." },
+                { icon: Star, title: "Free Listing, No Hidden Fees", desc: "List your property completely free with zero commissions or hidden charges. You only deal directly with buyers." },
+                { icon: BadgeCheck, title: "Professional Verification", desc: "Our team verifies every listing, building trust and credibility that attracts serious, qualified buyers." },
+                { icon: Eye, title: "Featured Placement", desc: "Premium properties get featured placement on our homepage and marketing campaigns for maximum visibility." },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="bg-[#F5F0E8] rounded-xl p-6 hover:shadow-md transition-all duration-300 group border border-transparent hover:border-emerald-400/20 text-center"
+                >
+                  <div className="w-12 h-12 rounded-lg bg-emerald-600 flex items-center justify-center mx-auto mb-4 group-hover:bg-emerald-700 transition-colors duration-300">
+                    <item.icon className="w-5 h-5 text-white group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="font-heading text-lg font-bold text-[#1A2332] mb-2">{item.title}</h3>
+                  <p className="font-body text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Dual CTA */}
+            <div className="bg-gradient-to-r from-[#1A2332] to-[#2A3A52] rounded-2xl p-8 sm:p-12 flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+              <div className="flex-1 text-center lg:text-left">
+                <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white mb-3">
+                  Ready to Sell Your Oasis Property?
+                </h3>
+                <p className="font-body text-white/60 text-base sm:text-lg max-w-xl">
+                  Whether you have a villa, mansion, or branded residence, our marketplace connects you with serious buyers. Listing is free and takes just a few minutes.
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row items-center gap-4 flex-shrink-0">
+                <Link href="/sell">
+                  <Button
+                    size="lg"
+                    className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-6 text-base rounded-md gap-2 w-full sm:w-auto"
+                  >
+                    <Tag className="w-5 h-5" />
+                    List Your Property Free
+                  </Button>
+                </Link>
+                <Link href="/marketplace">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-[#C8A45C] text-[#C8A45C] hover:bg-[#C8A45C]/10 px-8 py-6 text-base rounded-md w-full sm:w-auto"
+                  >
+                    Browse Marketplace
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* CTA Section */}
         <section className="py-20 sm:py-28 bg-[#1A2332] text-white">

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_LINK, PHONE_NUMBER } from "@/lib/data";
 import Link from "next/link";
@@ -62,16 +62,20 @@ export default function SiteHeader() {
               {navLinks.map((link) => {
                 const isActive = pathname === link.href ||
                   (link.href !== "/" && pathname.startsWith(link.href));
+                const isSellPage = link.href === "/sell";
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`font-body px-3 py-2 text-sm transition-colors duration-200 ${
-                      isActive
-                        ? "text-[#C8A45C]"
-                        : "text-white/80 hover:text-[#C8A45C]"
+                    className={`font-body px-3 py-2 text-sm transition-colors duration-200 rounded-md ${
+                      isSellPage
+                        ? "bg-emerald-600 text-white font-semibold hover:bg-emerald-700 flex items-center gap-1.5"
+                        : isActive
+                          ? "text-[#C8A45C]"
+                          : "text-white/80 hover:text-[#C8A45C]"
                     }`}
                   >
+                    {isSellPage && <Tag className="w-3.5 h-3.5" />}
                     {link.label}
                   </Link>
                 );
@@ -127,17 +131,21 @@ export default function SiteHeader() {
                 {navLinks.map((link) => {
                   const isActive = pathname === link.href ||
                     (link.href !== "/" && pathname.startsWith(link.href));
+                  const isSellPage = link.href === "/sell";
                   return (
                     <Link
                       key={link.href}
                       href={link.href}
                       onClick={() => setMobileOpen(false)}
-                      className={`px-4 py-3 rounded-md transition-colors ${
-                        isActive
-                          ? "text-[#C8A45C] bg-white/5"
-                          : "text-white/80 hover:text-[#C8A45C] hover:bg-white/5"
+                      className={`px-4 py-3 rounded-md transition-colors flex items-center gap-2 ${
+                        isSellPage
+                          ? "bg-emerald-600 text-white font-semibold"
+                          : isActive
+                            ? "text-[#C8A45C] bg-white/5"
+                            : "text-white/80 hover:text-[#C8A45C] hover:bg-white/5"
                       }`}
                     >
+                      {isSellPage && <Tag className="w-4 h-4" />}
                       {link.label}
                     </Link>
                   );
