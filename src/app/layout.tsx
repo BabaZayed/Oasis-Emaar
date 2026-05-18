@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import WhatsAppButton from "@/components/whatsapp-button";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-heading",
@@ -203,6 +204,7 @@ export default function RootLayout({
         style={{ fontFamily: "var(--font-body), sans-serif" }}
       >
         {children}
+        <WhatsAppButton />
         <Toaster />
       </body>
     </html>
