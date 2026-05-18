@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { projects } from "@/lib/data";
+import { blogPosts } from "@/lib/blog-data";
 
 const BASE_URL = "https://oasisemaar.com";
 
@@ -80,6 +81,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily",
       priority: 0.5,
     },
+    {
+      url: `${BASE_URL}/blog`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
   ];
 
   // Dynamic project pages
@@ -90,5 +97,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  return [...staticPages, ...projectPages];
+  // Dynamic blog pages
+  const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `${BASE_URL}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
+  }));
+
+  return [...staticPages, ...projectPages, ...blogPages];
 }
