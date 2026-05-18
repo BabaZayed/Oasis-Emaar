@@ -23,25 +23,29 @@ async function pushToGoogleSheet(lead: {
   if (!GOOGLE_SHEETS_URL) return; // Skip if not configured
 
   try {
-    await fetch(GOOGLE_SHEETS_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        timestamp: new Date().toISOString(),
-        name: lead.name,
-        email: lead.email,
-        phone: lead.phone,
-        budget: lead.budget || "",
-        timeline: lead.timeline || "",
-        nationality: lead.nationality || "",
-        propertyInterest: lead.propertyInterest || "",
-        formType: lead.formType,
-        message: lead.message || "",
-        pageUrl: lead.pageUrl || "",
-        leadScore: lead.leadScore,
-        isQualified: lead.isQualified ? "Yes" : "No",
-        source: lead.source,
-      }),
+    // Use GET with URL parameters — most reliable method for Google Apps Script
+    const params = new URLSearchParams({
+      timestamp: new Date().toISOString(),
+      name: lead.name,
+      email: lead.email,
+      phone: lead.phone,
+      budget: lead.budget || "",
+      timeline: lead.timeline || "",
+      nationality: lead.nationality || "",
+      propertyInterest: lead.propertyInterest || "",
+      formType: lead.formType,
+      message: (lead.message || "").substring(0, 500), // Limit message length for URL
+      pageUrl: lead.pageUrl || "",
+      leadScore: String(lead.leadScore),
+      isQualified: lead.isQualified ? "Yes" : "No",
+      source: lead.source,
+    });
+
+    const url = `${GOOGLE_SHEETS_URL}?${params.toString()}`;
+    
+    await fetch(url, {
+      method: "GET",
+      redirect: "follow",
     });
     console.log(`[GOOGLE SHEETS] Lead pushed: ${lead.name}`);
   } catch (error) {
