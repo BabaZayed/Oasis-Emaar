@@ -379,7 +379,7 @@ export default function PropertyDetailModal({
       <div className="flex-shrink-0 px-4 sm:px-6 py-4 border-t border-gray-100 bg-white">
         <div className="flex flex-col sm:flex-row gap-3">
           <Link
-            href="/contact"
+            href="/availability"
             className="flex-1"
             onClick={onClose}
           >

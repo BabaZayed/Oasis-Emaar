@@ -278,7 +278,7 @@ export default function Home() {
               As an authorised Emaar sales agent, we offer exclusive access, expert guidance, and personalised service across all 9 clusters at The Oasis.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="#paywall">
+              <a href="/availability">
                 <Button
                   size="lg"
                   className="gold-gradient text-[#1A2332] font-bold px-8 py-6 text-base rounded-md hover:opacity-90 w-full sm:w-auto"

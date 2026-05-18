@@ -21,6 +21,7 @@ const navLinks = [
   { label: "About", href: "/about" },
   { label: "Reviews", href: "/#feedback" },
   { label: "FAQ", href: "/faq" },
+  { label: "Listings", href: "/listings" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -99,7 +100,7 @@ export default function SiteHeader() {
                 <Phone className="w-4 h-4" />
                 <span className="hidden md:inline">{PHONE_NUMBER}</span>
               </a>
-              <Link href="/contact">
+              <Link href="/availability">
                 <Button
                   className="gold-gradient text-[#1A2332] font-semibold text-sm px-4 py-2 rounded-md hover:opacity-90 transition-opacity hidden sm:flex"
                 >
@@ -173,7 +174,7 @@ export default function SiteHeader() {
                   >
                     WhatsApp: {PHONE_NUMBER}
                   </a>
-                  <Link href="/contact">
+                  <Link href="/availability">
                     <Button
                       className="w-full gold-gradient text-[#1A2332] font-semibold py-3 rounded-md"
                     >

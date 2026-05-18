@@ -96,7 +96,7 @@ export default function HeroSection() {
               Explore All 9 Clusters
             </Button>
           </Link>
-          <Link href="/contact" className="w-full sm:w-auto">
+          <Link href="/availability" className="w-full sm:w-auto">
             <Button
               size="lg"
               variant="outline"

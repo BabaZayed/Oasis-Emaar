@@ -423,7 +423,7 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
                   across all 9 clusters. Speak with our authorised team.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-                  <Link href="/contact">
+                  <Link href="/availability">
                     <Button className="gold-gradient text-[#1A2332] font-bold px-8 py-4 rounded-lg text-base hover:opacity-90 transition-opacity w-full sm:w-auto">
                       Check Availability
                     </Button>

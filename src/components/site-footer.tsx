@@ -11,6 +11,8 @@ const quickLinks = [
   { label: "Home", href: "/" },
   { label: "Projects", href: "/projects" },
   { label: "Inventory", href: "/inventory" },
+  { label: "Availability", href: "/availability" },
+  { label: "Listings", href: "/listings" },
   { label: "Marketplace", href: "/marketplace" },
   { label: "Sell Property", href: "/sell" },
   { label: "Floor Plans", href: "/floor-plans" },
