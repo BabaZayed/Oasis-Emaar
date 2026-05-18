@@ -17,6 +17,7 @@ const navLinks = [
   { label: "Floor Plans", href: "/floor-plans" },
   { label: "Payment Plan", href: "/payment-plan" },
   { label: "Gallery", href: "/gallery" },
+  { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
   { label: "Reviews", href: "/#feedback" },
   { label: "FAQ", href: "/faq" },

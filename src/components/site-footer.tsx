@@ -16,6 +16,7 @@ const quickLinks = [
   { label: "Floor Plans", href: "/floor-plans" },
   { label: "Payment Plan", href: "/payment-plan" },
   { label: "Gallery", href: "/gallery" },
+  { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
   { label: "Premium Access", href: "/#premium-access" },
   { label: "References", href: "/#references" },
