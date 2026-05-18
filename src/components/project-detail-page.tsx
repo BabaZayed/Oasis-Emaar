@@ -80,7 +80,7 @@ export default function ProjectDetailPage({ project }: { project: Project }) {
                 <span>{project.paymentPlan} Payment Plan</span>
               </div>
               <div className="flex flex-wrap gap-4">
-                <Link href="/contact">
+                <Link href="/availability">
                   <Button size="lg" className="gold-gradient text-[#1A2332] font-bold px-8 py-6 rounded-md hover:opacity-90">
                     Check Availability
                   </Button>
@@ -385,7 +385,7 @@ export default function ProjectDetailPage({ project }: { project: Project }) {
               Register your interest to receive exclusive pricing, floor plans, and priority access to available units at {project.name}.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contact">
+              <Link href="/availability">
                 <Button size="lg" className="gold-gradient text-[#1A2332] font-bold px-8 py-6 rounded-md hover:opacity-90 w-full sm:w-auto">
                   Check Availability
                 </Button>

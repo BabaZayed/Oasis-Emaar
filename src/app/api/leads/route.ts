@@ -182,7 +182,7 @@ const leadSchema = z.object({
   timeline: z.string().optional(),
   nationality: z.string().optional(),
   propertyInterest: z.string().optional(),
-  formType: z.enum(["paywall", "contact", "exit_intent", "feedback", "general"]).default("general"),
+  formType: z.enum(["paywall", "contact", "exit_intent", "feedback", "general", "availability"]).default("general"),
   message: z.string().max(2000).optional(),
   pageUrl: z.string().max(500).optional(),
   honeypot: z.string().max(0).optional(), // Must be empty
