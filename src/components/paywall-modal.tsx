@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Lock, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { trackLead, trackInitiateCheckout, trackCompleteRegistration } from "@/lib/meta-pixel";
 
 function checkRegistered(): boolean {
   if (typeof window === "undefined") return false;
@@ -33,6 +34,17 @@ export function PaywallModal({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Meta Pixel tracking — fire before setting registered state
+    trackLead({
+      formType: "paywall",
+      propertyInterest: itemName,
+      budget: formData.budget || undefined,
+    });
+    trackCompleteRegistration({
+      propertyName: itemName,
+    });
+
     localStorage.setItem("oasis_registered", "true");
     setSubmitted(true);
     toast({

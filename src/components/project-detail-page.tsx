@@ -12,10 +12,22 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Bed, Maximize, ChevronRight, Home, ArrowRight, MapPin, Eye, Lock } from "lucide-react";
 import PropertyDetailModal from "@/components/property-detail-modal";
 import ProjectFactsSection from "@/components/project-facts-section";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { trackViewContent } from "@/lib/meta-pixel";
 
 export default function ProjectDetailPage({ project }: { project: Project }) {
   const [detailItem, setDetailItem] = useState<typeof inventoryItems[0] | null>(null);
+
+  // Meta Pixel: Track ViewContent when page loads
+  useEffect(() => {
+    trackViewContent({
+      contentType: "property",
+      contentName: project.name,
+      contentId: project.id,
+      value: project.startingPrice,
+      currency: "AED",
+    });
+  }, [project.name, project.id, project.startingPrice]);
 
   const projectInventory = inventoryItems.filter((item) => item.projectId === project.id);
   const projectFloorPlans = floorPlans.filter((fp) => fp.projectId === project.id);

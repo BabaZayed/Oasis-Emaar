@@ -37,6 +37,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import Link from "next/link";
+import { trackLead } from "@/lib/meta-pixel";
 
 type SortOption = "price-asc" | "price-desc" | "area" | "newest";
 
@@ -173,6 +174,13 @@ export default function AvailabilityPageClient() {
       const data = await res.json();
       if (data.success) {
         setFormSuccess(true);
+
+        // Meta Pixel tracking
+        trackLead({
+          formType: "availability",
+          propertyInterest: formInterest || undefined,
+        });
+
         setFormName("");
         setFormPhone("");
         setFormEmail("");

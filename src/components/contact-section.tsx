@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Phone, Mail, MapPin, MessageCircle, Clock, Send, Shield, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { trackLead, trackContact } from "@/lib/meta-pixel";
 
 const budgetOptions = [
   { value: "3m-5m", label: "AED 3M - 5M" },
@@ -62,6 +63,18 @@ export default function ContactSection() {
 
       if (data.success) {
         setSubmitted(true);
+
+        // Meta Pixel tracking
+        trackLead({
+          formType: "contact",
+          propertyInterest: formData.interest || undefined,
+          budget: formData.budget || undefined,
+        });
+        trackContact({
+          propertyInterest: formData.interest || undefined,
+          budget: formData.budget || undefined,
+        });
+
         toast({
           title: "Message Sent!",
           description: data.qualified

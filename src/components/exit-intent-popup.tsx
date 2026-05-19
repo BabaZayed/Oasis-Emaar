@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { X, Clock, Gift, ArrowRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { trackLead } from "@/lib/meta-pixel";
 
 function checkDismissed(): boolean {
   if (typeof window === "undefined") return false;
@@ -67,6 +68,10 @@ export default function ExitIntentPopup() {
 
       if (data.success) {
         setSubmitted(true);
+
+        // Meta Pixel tracking
+        trackLead({ formType: "exit_intent" });
+
         localStorage.setItem("oasis_registered", "true");
         toast({
           title: "Exclusive Access Granted!",
