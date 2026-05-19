@@ -62,17 +62,30 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
+    image: {
+      "@type": "ImageObject",
+      url: "https://oasisemaar.com/og-image.jpg",
+      width: 1200,
+      height: 630,
+      description: post.title,
+    },
     author: {
-      "@type": "Organization",
+      "@type": "Person",
       name: post.author,
-      url: "https://oasisemaar.com",
+      url: "https://oasisemaar.com/about",
+      jobTitle: "Real Estate Research Analyst",
+      worksFor: {
+        "@type": "Organization",
+        name: "Oasis Emaar — Authorized Sales Agent",
+        url: "https://oasisemaar.com",
+      },
     },
     publisher: {
       "@type": "Organization",
       name: "Oasis Emaar — Authorized Agent",
       logo: {
         "@type": "ImageObject",
-        url: "https://oasisemaar.com/logo.png",
+        url: "https://oasisemaar.com/logo.svg",
       },
     },
     datePublished: post.date,
@@ -80,10 +93,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `https://oasisemaar.com/blog/${post.slug}`,
+      dateModified: post.date,
     },
     keywords: post.tags.join(", "),
     articleSection: post.category,
     wordCount: post.content.split(/\s+/).length,
+    inLanguage: "en",
   };
 
   const breadcrumbJsonLd = {

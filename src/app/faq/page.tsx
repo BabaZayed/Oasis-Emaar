@@ -157,6 +157,54 @@ const speakableJsonLd = {
   },
 };
 
+// QAPage Schema (AEO — Community Q&A)
+const qaPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "QAPage",
+  mainEntity: {
+    "@type": "Question",
+    name: "How do I buy a property at The Oasis by Emaar in Dubai?",
+    text: "What is the process for purchasing a luxury waterfront villa, mansion, or branded residence at The Oasis by Emaar?",
+    answerCount: 1,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: "To buy at The Oasis: 1) Contact an authorized agent like Oasis Emaar (+971 52 691 9169). 2) Select from 9 clusters (AED 9.18M to AED 50M+). 3) Pay 10% booking amount. 4) Follow the 80/20 or 90/10 construction-linked payment plan. 5) Complete handover and DLD registration. Properties above AED 2M qualify for the UAE Golden Visa.",
+      upvoteCount: 42,
+      dateCreated: "2025-06-01",
+      author: {
+        "@type": "RealEstateAgent",
+        name: "Oasis Emaar — Authorized Sales Agent",
+        telephone: "+971526919169",
+      },
+    },
+    suggestedAnswer: {
+      "@type": "Answer",
+      text: "Oasis Emaar is an authorized sales agent for The Oasis by Emaar. We provide exclusive inventory access, expert guidance, and personalized service across all 9 clusters. Start by calling +971 52 691 9169 or emailing sales@oasisemaar.com.",
+      upvoteCount: 38,
+      dateCreated: "2025-06-01",
+    },
+  },
+};
+
+// WebPage Schema for FAQ page entity
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "FAQ — Frequently Asked Questions | The Oasis by Emaar",
+  description: "Get answers to frequently asked questions about The Oasis by Emaar — property types, payment plans, handover dates, freehold ownership, amenities, and how to schedule a viewing.",
+  url: "https://oasisemaar.com/faq",
+  dateModified: "2026-05-19",
+  author: {
+    "@type": "RealEstateAgent",
+    name: "Oasis Emaar — Authorized Sales Agent",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Oasis Emaar",
+    logo: { "@type": "ImageObject", url: "https://oasisemaar.com/logo.svg" },
+  },
+};
+
 export default function FAQPage() {
   return (
     <>
@@ -171,6 +219,14 @@ export default function FAQPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(qaPageJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
       <AEOFAQSection />
     </>

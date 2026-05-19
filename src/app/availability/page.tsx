@@ -24,6 +24,14 @@ export const metadata: Metadata = {
     url: "https://oasisemaar.com/availability",
     siteName: "Oasis Emaar",
     type: "website",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "The Oasis by Emaar Availability" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Check Availability | The Oasis by Emaar",
+    description:
+      "Browse real-time availability of 77+ luxury properties across 9 clusters. Starting from AED 9.2M.",
+    images: ["/og-image.jpg"],
   },
   alternates: {
     canonical: "https://oasisemaar.com/availability",
