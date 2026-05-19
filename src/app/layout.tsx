@@ -237,6 +237,14 @@ export default function RootLayout({
           title="Oasis Emaar Blog RSS Feed"
           href="https://oasisemaar.com/feed.xml"
         />
+        {/* Hreflang Tags for Multilingual SEO */}
+        <link rel="alternate" hrefLang="en" href="https://oasisemaar.com" />
+        <link rel="alternate" hrefLang="ar" href="https://oasisemaar.com/ar" />
+        <link rel="alternate" hrefLang="zh" href="https://oasisemaar.com/zh" />
+        <link rel="alternate" hrefLang="ru" href="https://oasisemaar.com/ru" />
+        <link rel="alternate" hrefLang="fr" href="https://oasisemaar.com/fr" />
+        <link rel="alternate" hrefLang="de" href="https://oasisemaar.com/de" />
+        <link rel="alternate" hrefLang="x-default" href="https://oasisemaar.com" />
         {/* Google Analytics */}
         <script
           async

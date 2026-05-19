@@ -1,12 +1,21 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, Tag } from "lucide-react";
+import { Menu, X, Phone, Tag, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_LINK, PHONE_NUMBER, inventoryItems } from "@/lib/data";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
+const languages = [
+  { code: "en", label: "English", flag: "🇬🇧", href: "/" },
+  { code: "ar", label: "العربية", flag: "🇸🇦", href: "/ar" },
+  { code: "zh", label: "中文", flag: "🇨🇳", href: "/zh" },
+  { code: "ru", label: "Русский", flag: "🇷🇺", href: "/ru" },
+  { code: "fr", label: "Français", flag: "🇫🇷", href: "/fr" },
+  { code: "de", label: "Deutsch", flag: "🇩🇪", href: "/de" },
+];
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -28,7 +37,24 @@ const navLinks = [
 export default function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const langRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+
+  const currentLang = languages.find(l => l.code !== "en" && pathname.startsWith(l.href)) || languages[0];
+
+  // Click outside to close language dropdown
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+    }
+    if (langOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [langOpen]);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -100,6 +126,38 @@ export default function SiteHeader() {
                 <Phone className="w-4 h-4 flex-shrink-0" />
                 <span className="whitespace-nowrap">{PHONE_NUMBER}</span>
               </a>
+              {/* Language Switcher */}
+              <div ref={langRef} className="relative hidden sm:block">
+                <button
+                  onClick={() => setLangOpen(!langOpen)}
+                  className="flex items-center gap-1 p-2 text-white/80 hover:text-[#C8A45C] transition-colors rounded-md hover:bg-white/5"
+                  aria-label="Switch language"
+                >
+                  <Globe className="w-5 h-5" />
+                  <span className="text-[10px] font-bold bg-[#C8A45C] text-[#1A2332] px-1 py-0.5 rounded leading-none">
+                    {currentLang.code.toUpperCase()}
+                  </span>
+                </button>
+                {langOpen && (
+                  <div className="absolute right-0 top-full mt-2 w-48 bg-[#1A2332] border border-white/10 rounded-lg shadow-2xl overflow-hidden z-50">
+                    {languages.map((lang) => (
+                      <Link
+                        key={lang.code}
+                        href={lang.href}
+                        onClick={() => setLangOpen(false)}
+                        className={`flex items-center gap-3 px-4 py-3 text-sm transition-colors ${
+                          currentLang.code === lang.code
+                            ? "text-[#C8A45C] bg-white/5"
+                            : "text-white/80 hover:text-[#C8A45C] hover:bg-white/5"
+                        }`}
+                      >
+                        <span className="text-lg">{lang.flag}</span>
+                        <span>{lang.label}</span>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
               <Link href="/availability">
                 <Button
                   className="gold-gradient text-[#1A2332] font-semibold text-sm px-4 py-2 rounded-md hover:opacity-90 transition-opacity hidden sm:flex"
@@ -181,6 +239,27 @@ export default function SiteHeader() {
                       Check Availability
                     </Button>
                   </Link>
+                  {/* Mobile Language Options */}
+                  <div className="mt-3 pt-3 border-t border-white/10">
+                    <p className="text-xs text-white/50 mb-2 px-1">Language</p>
+                    <div className="grid grid-cols-2 gap-1">
+                      {languages.map((lang) => (
+                        <Link
+                          key={lang.code}
+                          href={lang.href}
+                          onClick={() => setMobileOpen(false)}
+                          className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm min-h-[44px] transition-colors ${
+                            currentLang.code === lang.code
+                              ? "text-[#C8A45C] bg-white/5"
+                              : "text-white/80 hover:text-[#C8A45C] hover:bg-white/5"
+                          }`}
+                        >
+                          <span>{lang.flag}</span>
+                          <span>{lang.label}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </nav>
             </div>

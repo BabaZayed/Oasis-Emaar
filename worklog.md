@@ -792,3 +792,226 @@ Added 5 new SEO-optimized blog articles to `src/lib/blog-data.ts` to drive organ
 - All 5 new slugs are unique
 - All categories match the BlogPost interface union type
 - Total blog posts: 11 (6 existing + 5 new)
+
+---
+
+## TASK 6-8: Language Switcher, Hreflang Tags, and Sitemap Update
+
+**Date:** 2026-05-20
+**Status:** All tasks completed, lint clean, dev server running
+
+---
+
+### Task 1: Language Switcher in Header
+
+**`src/components/site-header.tsx`** — Updated
+
+- Added `Globe` import from lucide-react
+- Added `useRef` import from React
+- Added `languages` constant array with 6 languages: English (🇬🇧), العربية (🇸🇦), 中文 (🇨🇳), Русский (🇷🇺), Français (🇫🇷), Deutsch (🇩🇪)
+- Added `langOpen` state and `langRef` ref for dropdown control
+- Added `currentLang` detection using `usePathname()` — checks if pathname starts with `/ar`, `/zh`, `/ru`, `/fr`, `/de`; defaults to English
+- Added click-outside handler via `useRef` + `useEffect` to close dropdown when clicking outside
+- **Desktop:** Globe icon button with gold badge showing current language code (EN, AR, ZH, etc.) positioned between phone number and "Check Availability" button
+- **Desktop dropdown:** Navy bg (#1A2332), white/10 border, rounded-lg, shadow-2xl, appears below globe button; current language highlighted with gold text (#C8A45C) and white/5 background
+- **Mobile:** Language options in a 2-column grid after WhatsApp link and Check Availability button; "Language" section header; each option has flag emoji + label; current language highlighted with gold text; min-h-[44px] touch targets
+
+### Task 2: Hreflang Tags in Layout
+
+**`src/app/layout.tsx`** — Updated
+
+- Added 7 hreflang `<link>` tags after the RSS feed link and before Google Analytics:
+  - `hrefLang="en"` → https://oasisemaar.com
+  - `hrefLang="ar"` → https://oasisemaar.com/ar
+  - `hrefLang="zh"` → https://oasisemaar.com/zh
+  - `hrefLang="ru"` → https://oasisemaar.com/ru
+  - `hrefLang="fr"` → https://oasisemaar.com/fr
+  - `hrefLang="de"` → https://oasisemaar.com/de
+  - `hrefLang="x-default"` → https://oasisemaar.com (MANDATORY for proper SEO)
+
+### Task 3: Sitemap Update
+
+**`src/app/sitemap.ts`** — Updated
+
+- Added 5 multilingual landing page entries to the `staticPages` array:
+  - `/ar` — weekly, priority 0.9
+  - `/zh` — weekly, priority 0.9
+  - `/ru` — weekly, priority 0.9
+  - `/fr` — weekly, priority 0.9
+  - `/de` — weekly, priority 0.9
+
+### Task 4: Robots.txt Verification
+
+**`public/robots.txt`** — No changes needed
+
+- `User-agent: * Allow: /` already permits crawling all pages including `/ar`, `/zh`, `/ru`, `/fr`, `/de`
+- Only `Disallow` rules are for `/api/leads` and `/api/marketplace` (API routes)
+- Language pages are fully crawlable
+
+---
+
+## Build & Lint Verification (Task 6-8)
+
+- `bun run lint` — No errors or warnings
+- Dev server running on port 3000, homepage loads (200)
+
+---
+
+## TASK 4-5: French and German Multilingual Landing Pages
+
+**Date:** 2026-05-21
+**Status:** All tasks completed, lint clean, both pages live
+
+---
+
+### Task: Create French (/fr/) and German (/de/) Multilingual Landing Pages
+
+Created 4 files — 2 per language (server component + client component). Each page is a standalone, self-contained, fully translated landing page with 5 sections and comprehensive SEO.
+
+#### Files Created:
+
+**`src/app/fr/page.tsx`** — French server component
+- Metadata: title, description (159 chars), keywords (15 French keywords), openGraph (fr_AE locale), twitter card, canonical URL, 6-language alternates
+- JSON-LD schemas (4):
+  1. RealEstateAgent — translated name/description in French
+  2. FAQPage — 6 French Q&A pairs about buying property in Dubai
+  3. BreadcrumbList — Accueil > Page en Français
+  4. WebPage — inLanguage: "fr", French publisher name
+
+**`src/app/fr/fr-page-client.tsx`** — French client component
+- Section 1: Hero — Navy gradient background, "L'Oasis by Emaar / Villas de Luxe à Dubaï" headline, "Agent de Vente Autorisé Emaar" badge, 2 CTAs ("Vérifier la Disponibilité" + "Contactez-nous WhatsApp"), 4 stat cards
+- Section 2: Key Features (6 cards) — Lagon Cristal, 9 Grappes Résidentielles, Résidences de Marque, Garantie de Qualité Emaar, Plans de Paiement Flexibles, Éligibilité au Golden Visa
+- Section 3: Clusters Overview (9 grid) — All 9 clusters with French bed labels ("4 Ch.", "5 SZ" → "4 Ch."), starting prices, tag badges in French
+- Section 4: FAQ (6 accordion items) — Natural French translations about buying as a French resident, payment plans, Golden Visa, branded vs classic villas, delivery dates, availability
+- Section 5: CTA — Navy background, "Prêt à Découvrir The Oasis?" headline, WhatsApp + Check Availability buttons, phone + email + "Agent Autorisé Emaar" badge
+- Design: gold-gradient, #1A2332, #C8A45C, #F5F0E8, font-heading, font-body, framer-motion animations
+
+**`src/app/de/page.tsx`** — German server component
+- Metadata: title, description (155 chars), keywords (15 German keywords), openGraph (de_AE locale), twitter card, canonical URL, 6-language alternates
+- JSON-LD schemas (4):
+  1. RealEstateAgent — translated name/description in German
+  2. FAQPage — 6 German Q&A pairs about buying property in Dubai
+  3. BreadcrumbList — Startseite > Deutsche Seite
+  4. WebPage — inLanguage: "de", German publisher name
+
+**`src/app/de/de-page-client.tsx`** — German client component
+- Section 1: Hero — Navy gradient, "The Oasis by Emaar / Luxus-Villen in Dubai" headline, "Autorisierter Emaar Verkaufsagent" badge, 2 CTAs ("Verfügbarkeit Prüfen" + "WhatsApp Kontakt"), 4 stat cards
+- Section 2: Key Features (6 cards) — Kristalllagune, 9 Wohncluster, Marken-Residenzen, Emaar Qualitätsgarantie, Flexible Zahlungspläne, Golden Visa Berechtigung
+- Section 3: Clusters Overview (9 grid) — All 9 clusters with German bed labels ("4 SZ"), starting prices, tag badges in German (Villen, Premium, Anwesen, Marke, Limitiert)
+- Section 4: FAQ (6 accordion items) — Natural German translations about buying as a German citizen, payment plans, Golden Visa, branded vs classic villas, delivery dates, availability
+- Section 5: CTA — Navy background, "Bereit, The Oasis zu Entdecken?" headline, WhatsApp + Check Availability buttons, phone + email + "Autorisierter Emaar Agent" badge
+
+### SEO Features Per Language Page:
+- Translated title with local keywords
+- Translated description (150-160 chars)
+- 15 local-language keywords
+- openGraph with locale (fr_AE / de_AE)
+- canonical URL pointing to language page
+- alternates.languages with all 6 variants (en, ar, zh, ru, fr, de)
+- 4 JSON-LD schemas (RealEstateAgent, FAQPage, BreadcrumbList, WebPage)
+- inLanguage property on WebPage schema
+
+### Translation Quality:
+- All content is natural and idiomatic (not machine-translation quality)
+- Proper nouns preserved (Emaar, The Oasis, Address, Palace, Palmiera, Mareva, Mirage, Lavita)
+- Culturally appropriate phrasing for French and German real estate contexts
+- AED prices and Dubai-specific terms correctly handled
+
+---
+
+### Build & Lint Verification (Task 4-5)
+
+- `bun run lint` — No errors or warnings
+- Dev server running on port 3000
+- GET /fr — 200 OK (compiled successfully)
+- GET /de — 200 OK (compiled successfully)
+- All metadata correctly rendered in HTML (verified via curl)
+
+---
+
+## TASK 1-3: Arabic, Chinese, and Russian Multilingual Landing Pages
+
+**Date:** 2026-05-21
+**Status:** All tasks completed, build passing, lint clean, all 3 pages live
+
+---
+
+### Task: Create Arabic (/ar/), Chinese (/zh/), and Russian (/ru/) Multilingual Landing Pages
+
+Created 6 files — 2 per language (server component + client component). Each page is a standalone, self-contained, fully translated landing page with 5 sections and comprehensive SEO.
+
+#### Files Created:
+
+**`src/app/ar/page.tsx`** — Arabic server component
+- Metadata: title "واحة إعمار | وكيل معتمد — فلل فاخرة على الواجهة البحرية في دبي", description, keywords (13 Arabic keywords), openGraph (ar_AE locale), canonical URL, 6-language alternates (en, ar, zh, ru, fr, de)
+- JSON-LD schemas (4):
+  1. RealEstateAgent — translated name/description in Arabic
+  2. FAQPage — 8 Arabic Q&A pairs about The Oasis
+  3. BreadcrumbList — الرئيسية > واحة إعمار — العربية
+  4. WebPage — inLanguage: "ar"
+
+**`src/app/ar/ar-page-client.tsx`** — Arabic client component
+- Section 1: Hero — Full-width with gradient overlay, RTL layout (`dir="rtl" lang="ar"`), "واحة إعمار / دبي" headline, "9 مجموعات حصرية · معيشة فاخرة على الواجهة البحرية" subheadline, "تحقق من التوفر" + "تواصل واتساب" CTA buttons, 4 stats cards
+- Section 2: Key Features (6 cards) — بحيرة بلورية, 9 مجموعات سكنية, وحدات علامة تجارية, ضمان جودة إعمار, خطط دفع مرنة, تأشيرة ذهبية
+- Section 3: Clusters Overview (9-card grid) — All 9 clusters with Arabic names, AED prices, bed counts, links to project detail pages
+- Section 4: FAQ (8 questions) — Accordion with translated Q&As, text-right alignment for RTL
+- Section 5: CTA — "هل أنت مستعد للعثور على منزل أحلامك؟", WhatsApp + Check Availability buttons, phone/email/location
+- Footer with language switcher links (English, 中文, Русский)
+- **RTL Support:** `dir="rtl"` on root div, ArrowRight icon rotated 180° for RTL, text-right on FAQ triggers/content
+
+**`src/app/zh/page.tsx`** — Chinese server component
+- Metadata: title "伊玛尔绿洲 | 授权代理 — 迪拜豪华水滨别墅", description, keywords (13 Chinese keywords), openGraph (zh_CN locale), canonical URL, 6-language alternates
+- JSON-LD schemas (4):
+  1. RealEstateAgent — translated name/description in Chinese
+  2. FAQPage — 8 Chinese Q&A pairs (includes Dubai-specific questions for Chinese buyers)
+  3. BreadcrumbList — 首页 > 伊玛尔绿洲 — 中文
+  4. WebPage — inLanguage: "zh"
+
+**`src/app/zh/zh-page-client.tsx`** — Chinese client component
+- Section 1: Hero — "伊玛尔绿洲 / 迪拜" headline, "九大独享社区 · 尊贵水滨生活" subheadline, "查询房源" + "WhatsApp咨询" CTA buttons
+- Section 2: Key Features (6 cards) — 水晶潟湖, 9大住宅社区, 品牌住宅, 伊玛尔品质保证, 灵活付款计划, 黄金签证资格
+- Section 3: Clusters Overview (9-card grid) — All clusters with Chinese prices, bed counts
+- Section 4: FAQ (8 questions) — Includes "迪拜买房外国人可以拥有100%产权吗？" (foreign ownership FAQ specific to Chinese buyers)
+- Section 5: CTA — "准备好寻找您的梦想之家了吗？"
+- Footer with language switcher links (English, العربية, Русский)
+
+**`src/app/ru/page.tsx`** — Russian server component
+- Metadata: title "Оазис Эмаар | Авторизованный агент — Роскошные виллы у воды в Дубае", description, keywords (13 Russian keywords), openGraph (ru_AE locale), canonical URL, 6-language alternates
+- JSON-LD schemas (4):
+  1. RealEstateAgent — translated name/description in Russian
+  2. FAQPage — 8 Russian Q&A pairs (includes foreign ownership FAQ for Russian speakers)
+  3. BreadcrumbList — Главная > Оазис Эмаар — Русский
+  4. WebPage — inLanguage: "ru"
+
+**`src/app/ru/ru-page-client.tsx`** — Russian client component
+- Section 1: Hero — "Оазис Эмаар / Дубай" headline, "9 Эксклюзивных кластеров · Роскошная жизнь у воды" subheadline, "Проверить наличие" + "WhatsApp" CTA buttons
+- Section 2: Key Features (6 cards) — Кристальная лагуна, 9 жилых кластеров, Брендовые резиденции, Гарантия качества Emaar, Гибкие планы оплаты, Золотая виза
+- Section 3: Clusters Overview (9-card grid) — All clusters with Russian prices, bed counts
+- Section 4: FAQ (8 questions) — Includes "Могут ли иностранцы владеть недвижимостью в Дубае?" (foreign ownership FAQ)
+- Section 5: CTA — "Готовы найти дом мечты?"
+- Footer with language switcher links (English, العربية, 中文)
+
+#### Design Consistency (all 3 pages):
+- Colors: #1A2332 (navy), #C8A45C (gold), #F5F0E8 (cream), gold-gradient class
+- Fonts: font-heading for headings, font-body for body text
+- Framer Motion: whileInView scroll animations on features, clusters, FAQ
+- Lucide React icons: Home, Waves, Building2, Shield, CreditCard, Plane, MessageCircle, Phone, Mail, MapPin, Star, Users, ArrowRight, CheckCircle, ChevronDown
+- Imports: WHATSAPP_LINK, PHONE_NUMBER, EMAIL from @/lib/data
+- Components: Button, Badge, Card from shadcn/ui; Accordion for FAQ
+- Responsive: Mobile-first with sm:/md:/lg: breakpoints, w-full buttons on mobile
+- Hero image: Same /images/hero-oasis-real.png as main site
+
+#### SEO Features (per page):
+1. **Metadata**: Translated title, description, keywords in target language, openGraph with locale, canonical URL
+2. **alternates.languages**: 6-language hreflang entries (en, ar, zh, ru, fr, de)
+3. **JSON-LD**: RealEstateAgent (translated), FAQPage (8 Q&As), BreadcrumbList, WebPage schemas
+4. **Self-contained**: Each page is a complete landing page, not a redirect
+
+---
+
+## Build & Lint Verification (Task 1-3)
+
+- `bun run lint` — No errors or warnings
+- `npx next build` — Passed successfully (all routes including /ar, /zh, /ru generated as static)
+- Dev server running on port 3000
+- All 3 pages return HTTP 200
