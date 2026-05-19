@@ -12,6 +12,7 @@ import {
   MessageCircle,
   Twitter,
   Linkedin,
+  Facebook,
   Copy,
   Check,
   User,
@@ -99,6 +100,7 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
     whatsapp: `https://wa.me/?text=${encodeURIComponent(post.title + " " + currentUrl)}`,
     twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(currentUrl)}`,
     linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentUrl)}`,
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`,
   };
 
   const handleCopyLink = async () => {
@@ -253,6 +255,15 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
                     <Linkedin className="w-4 h-4" />
                     LinkedIn
                   </a>
+                  <a
+                    href={shareLinks.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm font-body py-2 px-3 rounded-lg bg-indigo-50 text-indigo-700 hover:bg-indigo-100 transition-colors"
+                  >
+                    <Facebook className="w-4 h-4" />
+                    Facebook
+                  </a>
                   <button
                     onClick={handleCopyLink}
                     className="flex items-center gap-2 text-sm font-body py-2 px-3 rounded-lg bg-gray-50 text-gray-700 hover:bg-gray-100 transition-colors w-full"
@@ -316,7 +327,7 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
                   <Share2 className="w-4 h-4 text-[#C8A45C]" />
                   Share this article
                 </h3>
-                <div className="grid grid-cols-4 gap-2">
+                <div className="grid grid-cols-5 gap-2">
                   <a
                     href={shareLinks.whatsapp}
                     target="_blank"
@@ -343,6 +354,15 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
                   >
                     <Linkedin className="w-5 h-5" />
                     LinkedIn
+                  </a>
+                  <a
+                    href={shareLinks.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center gap-1 text-xs font-body py-3 rounded-lg bg-indigo-50 text-indigo-700 hover:bg-indigo-100 transition-colors"
+                  >
+                    <Facebook className="w-5 h-5" />
+                    Facebook
                   </a>
                   <button
                     onClick={handleCopyLink}
