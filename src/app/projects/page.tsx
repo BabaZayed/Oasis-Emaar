@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ProjectsSection from "@/components/projects-section";
+import WebPageSchema from "@/components/web-page-schema";
 
 export const metadata: Metadata = {
   title: "Projects - Luxury Villas, Mansions & Residences",
@@ -60,6 +61,12 @@ const breadcrumbJsonLd = {
 export default function ProjectsPage() {
   return (
     <>
+      <WebPageSchema
+        name="All Projects — The Oasis by Emaar"
+        description="Explore all 9 exclusive clusters at The Oasis by Emaar — from Palmiera 3 villas starting at AED 9.18M to Lavita mansions from AED 37M."
+        url="https://oasisemaar.com/projects"
+        breadcrumbItems={[{name:"Home",url:"https://oasisemaar.com"},{name:"Projects",url:"https://oasisemaar.com/projects"}]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

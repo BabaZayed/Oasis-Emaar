@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import AvailabilityPageClient from "./availability-page-client";
+import WebPageSchema from "@/components/web-page-schema";
 
 export const metadata: Metadata = {
   title: "Check Availability | The Oasis by Emaar - Luxury Villas & Mansions",
@@ -60,6 +61,12 @@ const breadcrumbJsonLd = {
 export default function AvailabilityPage() {
   return (
     <>
+      <WebPageSchema
+        name="Check Availability — The Oasis by Emaar"
+        description="Check real-time availability at The Oasis by Emaar. Filter by cluster, bedrooms, and budget."
+        url="https://oasisemaar.com/availability"
+        breadcrumbItems={[{name:"Home",url:"https://oasisemaar.com"},{name:"Availability",url:"https://oasisemaar.com/availability"}]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

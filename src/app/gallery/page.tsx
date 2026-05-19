@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import GallerySection from "@/components/gallery-section";
+import WebPageSchema from "@/components/web-page-schema";
 
 export const metadata: Metadata = {
   title: "Gallery - Visual Tour of The Oasis",
@@ -97,6 +98,12 @@ const imageGalleryJsonLd = {
 export default function GalleryPage() {
   return (
     <>
+      <WebPageSchema
+        name="Gallery — The Oasis by Emaar"
+        description="Explore The Oasis by Emaar through our curated gallery of renders, interiors, amenities, and community visuals."
+        url="https://oasisemaar.com/gallery"
+        breadcrumbItems={[{name:"Home",url:"https://oasisemaar.com"},{name:"Gallery",url:"https://oasisemaar.com/gallery"}]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

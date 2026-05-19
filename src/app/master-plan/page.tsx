@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import MasterPlanPageClient from "./master-plan-page-client";
+import WebPageSchema from "@/components/web-page-schema";
 
 export const metadata: Metadata = {
   title: "Master Plan - The Oasis by Emaar Community Layout",
@@ -56,6 +57,12 @@ const breadcrumbJsonLd = {
 export default function MasterPlanPage() {
   return (
     <>
+      <WebPageSchema
+        name="Master Plan — The Oasis by Emaar"
+        description="Explore the master plan of The Oasis by Emaar — a 9.4 million sqm waterfront community with 9 clusters, crystal lagoons, and world-class amenities."
+        url="https://oasisemaar.com/master-plan"
+        breadcrumbItems={[{name:"Home",url:"https://oasisemaar.com"},{name:"Master Plan",url:"https://oasisemaar.com/master-plan"}]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

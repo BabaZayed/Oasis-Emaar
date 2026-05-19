@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PaymentPlanSection from "@/components/payment-plan-section";
+import WebPageSchema from "@/components/web-page-schema";
 
 export const metadata: Metadata = {
   title: "Payment Plan - Flexible Payment Options",
@@ -58,6 +59,12 @@ const breadcrumbJsonLd = {
 export default function PaymentPlanPage() {
   return (
     <>
+      <WebPageSchema
+        name="Payment Plans — The Oasis by Emaar"
+        description="Understand payment plans at The Oasis by Emaar — 80/20 and 90/10 options with milestone-linked installments."
+        url="https://oasisemaar.com/payment-plan"
+        breadcrumbItems={[{name:"Home",url:"https://oasisemaar.com"},{name:"Payment Plans",url:"https://oasisemaar.com/payment-plan"}]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

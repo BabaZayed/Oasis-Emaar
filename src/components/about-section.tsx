@@ -42,9 +42,9 @@ export default function AboutSection() {
           <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
             About Us
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
+          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
             Your Authorised Emaar Agent
-          </h2>
+          </h1>
           <p className="font-body text-gray-500 max-w-2xl mx-auto">
             We are an independent authorised real estate brokerage specialising in The Oasis by Emaar — your trusted partner for navigating all 9 clusters of Dubai's most prestigious waterfront community
           </p>

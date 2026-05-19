@@ -11,9 +11,9 @@ export default function PaymentPlanSection() {
           <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
             Payment Structure
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mt-3 mb-4">
+          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mt-3 mb-4">
             Flexible Payment Plans
-          </h2>
+          </h1>
           <p className="font-body text-white/60 max-w-2xl mx-auto">
             Emaar offers competitive payment plans designed to make luxury waterfront living accessible. Post-handover options available.
           </p>

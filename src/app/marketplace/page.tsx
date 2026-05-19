@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import MarketplaceClient from "./marketplace-client";
+import WebPageSchema from "@/components/web-page-schema";
 
 export const metadata: Metadata = {
   title: "Resale Marketplace | The Oasis by Emaar - Verified Properties",
@@ -78,6 +79,12 @@ const itemListJsonLd = {
 export default function MarketplacePage() {
   return (
     <>
+      <WebPageSchema
+        name="Buyer Marketplace — The Oasis by Emaar"
+        description="Browse verified resale listings at The Oasis by Emaar. Find villas and mansions from current owners."
+        url="https://oasisemaar.com/marketplace"
+        breadcrumbItems={[{name:"Home",url:"https://oasisemaar.com"},{name:"Marketplace",url:"https://oasisemaar.com/marketplace"}]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

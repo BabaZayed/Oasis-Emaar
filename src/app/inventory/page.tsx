@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import InventorySection from "@/components/inventory-section";
+import WebPageSchema from "@/components/web-page-schema";
 
 export const metadata: Metadata = {
   title: "Inventory - Available Properties for Sale",
@@ -124,6 +125,12 @@ const productCollectionJsonLd = {
 export default function InventoryPage() {
   return (
     <>
+      <WebPageSchema
+        name="Available Inventory — The Oasis by Emaar"
+        description="Browse available properties at The Oasis by Emaar. 76 villas and mansions across 9 clusters starting from AED 9.18M."
+        url="https://oasisemaar.com/inventory"
+        breadcrumbItems={[{name:"Home",url:"https://oasisemaar.com"},{name:"Inventory",url:"https://oasisemaar.com/inventory"}]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

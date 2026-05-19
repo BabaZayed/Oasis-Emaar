@@ -222,9 +222,9 @@ export default function InventorySection() {
           <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
             Property Listings
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
+          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
             Available Inventory
-          </h2>
+          </h1>
           <p className="font-body text-gray-500 max-w-2xl mx-auto text-sm sm:text-base">
             Browse our curated selection of available properties at The Oasis. Premium listings require registration to view full details.
           </p>

@@ -81,9 +81,9 @@ export default function ProjectsSection() {
           <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
             9 Exclusive Clusters
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
+          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
             Discover The Oasis Collection
-          </h2>
+          </h1>
           <p className="font-body text-gray-500 max-w-2xl mx-auto text-lg">
             Nine distinctive clusters, each offering a unique perspective on luxury waterfront living in Dubai
           </p>

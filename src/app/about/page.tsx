@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AboutSection from "@/components/about-section";
+import WebPageSchema from "@/components/web-page-schema";
 
 export const metadata: Metadata = {
   title: "About - The Oasis by Emaar",
@@ -58,6 +59,15 @@ const breadcrumbJsonLd = {
 export default function AboutPage() {
   return (
     <>
+      <WebPageSchema
+        name="About — The Oasis by Emaar"
+        description="Learn about The Oasis by Emaar Properties — a 9.4 million sqm waterfront community with over 7,000 residences by Dubai's most trusted developer."
+        url="https://oasisemaar.com/about"
+        breadcrumbItems={[
+          { name: "Home", url: "https://oasisemaar.com" },
+          { name: "About", url: "https://oasisemaar.com/about" },
+        ]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
