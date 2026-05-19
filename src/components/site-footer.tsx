@@ -3,9 +3,11 @@
 import { PHONE_NUMBER, EMAIL, ADDRESS, WHATSAPP_LINK } from "@/lib/data";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Facebook, Instagram, Twitter, Linkedin, Youtube, MapPin, Phone, Mail, MessageCircle, ArrowUp, ExternalLink } from "lucide-react";
+import { Facebook, Instagram, Twitter, Linkedin, Youtube, MapPin, Phone, Mail, MessageCircle, ArrowUp, ExternalLink, Loader2, CheckCircle } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import { useToast } from "@/hooks/use-toast";
+import { trackLead } from "@/lib/meta-pixel";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -46,6 +48,54 @@ const trustedResources = [
 
 export default function SiteFooter() {
   const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const { toast } = useToast();
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          formType: "newsletter",
+          pageUrl: window.location.href,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setIsSuccess(true);
+        setEmail("");
+        trackLead({ formType: "general", propertyInterest: "Newsletter" });
+        toast({
+          title: "Subscribed!",
+          description: "You've been added to our newsletter. Stay tuned for exclusive updates.",
+        });
+        setTimeout(() => setIsSuccess(false), 3000);
+      } else {
+        toast({
+          title: "Something went wrong",
+          description: data.error || "Please try again later.",
+          variant: "destructive",
+        });
+      }
+    } catch {
+      toast({
+        title: "Network error",
+        description: "Please check your connection and try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <footer className="bg-[#1A2332] text-white">
@@ -143,10 +193,7 @@ export default function SiteFooter() {
             <h4 className="font-body font-semibold text-[#C8A45C] mb-4 text-sm uppercase tracking-wider">Newsletter</h4>
             <p className="text-white/50 text-sm mb-4">Stay updated with The Oasis project news and exclusive offers.</p>
             <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                setEmail("");
-              }}
+              onSubmit={handleNewsletterSubmit}
               className="flex gap-2"
             >
               <Input
@@ -154,12 +201,28 @@ export default function SiteFooter() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/30 text-sm"
+                required
+                disabled={isSubmitting}
+                className="bg-white/10 border-white/20 text-white placeholder:text-white/30 text-sm disabled:opacity-50"
               />
-              <Button type="submit" size="sm" className="gold-gradient text-[#1A2332] font-semibold px-4 rounded-md flex-shrink-0">
-                Join
+              <Button
+                type="submit"
+                size="sm"
+                disabled={isSubmitting || isSuccess}
+                className="gold-gradient text-[#1A2332] font-semibold px-4 rounded-md flex-shrink-0 disabled:opacity-50"
+              >
+                {isSubmitting ? (
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                ) : isSuccess ? (
+                  <CheckCircle className="w-4 h-4" />
+                ) : (
+                  "Join"
+                )}
               </Button>
             </form>
+            {isSuccess && (
+              <p className="text-emerald-400 text-xs mt-2 font-body">You&apos;re subscribed! Check your inbox soon.</p>
+            )}
           </div>
         </div>
       </div>

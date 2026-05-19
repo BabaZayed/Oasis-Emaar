@@ -545,3 +545,250 @@ Created 3 full legal pages replacing "#" links:
 4. **Trust Signals** — Social media links and government resource links build credibility
 5. **No Dead Links** — All "#" links eliminated (social, legal, address)
 6. **User Experience** — Real Google Maps embed improves engagement and time-on-page
+
+---
+
+## TASK 4 (New): Fix Newsletter Integration + Add Referral/UTM Tracking
+
+**Date:** 2026-05-19
+**Status:** All tasks completed, build passing, lint clean
+
+---
+
+### Fix 1: Newsletter Integration (site-footer.tsx)
+
+**Problem:** Footer newsletter form just cleared the email input — it didn't actually save or send the email anywhere.
+
+**`src/components/site-footer.tsx`** — Major update
+- Added `useToast` import from `@/hooks/use-toast`
+- Added `trackLead` import from `@/lib/meta-pixel`
+- Added `Loader2` and `CheckCircle` icons from lucide-react
+- Added state management: `isSubmitting` (loading) and `isSuccess` (success) states
+- Created `handleNewsletterSubmit` async function that:
+  - Submits to `/api/leads` with `formType: "newsletter"` and `email`
+  - Shows success toast after submission
+  - Tracks with Meta Pixel using `trackLead({ formType: "general", propertyInterest: "Newsletter" })`
+  - Clears the email after successful submission
+  - Shows error toast if submission fails (API error or network error)
+  - Shows loading state (Loader2 spinner) while submitting
+  - Shows success state (CheckCircle icon + "You're subscribed!" text) for 3 seconds
+
+**`src/app/api/leads/route.ts`** — Updated to support newsletter formType
+- Added "newsletter" to the `formType` zod enum
+- Made `name` and `phone` optional in the schema (newsletter only requires email)
+- Added default values for newsletter submissions: name = "Newsletter Subscriber", phone = "0000000000"
+- Updated spam detection to handle missing name/phone (skip for newsletter)
+- Updated duplicate check: for newsletter, only check by email (not phone)
+- Updated lead scoring: newsletter leads get minimal score of 10
+- Updated Meta CAPI call to handle optional firstName
+
+### Fix 2: UTM Referral Tracking System
+
+**`src/lib/utm-helpers.ts`** — NEW file
+- `UTMData` interface with: source, medium, campaign, term, content, ref, firstTouchTimestamp, landingPage
+- `getUTMData()`: reads UTM data from localStorage key "oasis_utm"
+- `getUTMString()`: builds a URL query string from stored UTM data
+
+**`src/components/utm-tracker.tsx`** — NEW component ("use client")
+- On mount, reads UTM parameters from URL (utm_source, utm_medium, utm_campaign, utm_term, utm_content, ref)
+- Stores them in localStorage under key "oasis_utm" with first-touch timestamp and landing page
+- First-touch attribution: doesn't overwrite existing UTM data
+- Fires Meta Pixel `fbq('trackCustom', 'UTM_Capture', { source, medium, campaign })` when UTM params found
+- If no UTM params, preserves any existing localStorage data
+- Renders nothing (returns null)
+
+**`src/app/layout.tsx`** — Added UTMTracker
+- Imported `UTMTracker` from `@/components/utm-tracker`
+- Added `<UTMTracker />` before `{children}` in the body element
+
+### Fix 3: Referral Share Links in Blog Posts
+
+**`src/app/blog/[slug]/blog-post-client.tsx`** — Added Share & Track section
+- Added `TrendingUp` icon import from lucide-react
+- Added `referralCopied` state for the tracked URL copy button
+- Computed `referralShareUrl`: `https://oasisemaar.com/blog/{slug}?utm_source=share&utm_medium=social&utm_campaign=blog_share`
+- Created `handleCopyReferralLink` function to copy the tracked URL
+- Added "Share & Track" section in desktop sidebar (after existing Share buttons):
+  - Heading with TrendingUp icon
+  - Brief text about referral tracking
+  - Cream background box showing the tracked URL
+  - "Copy Share Link" button (navy bg, shows Check icon on copy)
+- Added identical "Share & Track" section in mobile share bar
+
+---
+
+## Build & Lint Verification (Task 4)
+
+- `bun run lint` — 0 errors, 1 pre-existing warning (social-proof.tsx)
+- `npx next build` — Passed successfully (all 43 routes generated)
+- Dev server running on port 3000
+
+---
+
+## TASK 2 (Batch): Social Proof, Link-to-Us Page, PWA Install Prompt
+
+**Date:** 2026-05-20
+**Status:** All tasks completed, build passing, lint clean
+
+---
+
+### Feature 1: Social Proof Notifications Component
+
+**`src/components/social-proof.tsx`** — NEW component ("use client")
+- FOMO-generating toast notifications at bottom-left corner
+- 15 realistic notification messages with random rotation:
+  - "12 people are viewing The Oasis right now" (Users icon)
+  - "Someone from Dubai just inquired about Palmiera villas" (Home icon + location)
+  - "3 units sold this week in Mirage cluster" (TrendingUp icon)
+  - "A buyer from London just reserved a Mareva mansion" (Star icon + location)
+  - And 11 more with locations: Abu Dhabi, Mumbai, Riyadh, Singapore, Moscow
+- Appears every 15-25 seconds (random interval)
+- Each notification stays visible for 5 seconds then fades out
+- Framer Motion for smooth enter/exit animations (opacity, y, x, scale transitions)
+- Icons: Users, Home, TrendingUp, MapPin, Clock, Star from lucide-react
+- Only shows after 10 seconds on site (INITIAL_DELAY)
+- Only 1 notification at a time (AnimatePresence mode="wait")
+- Tracks last-seen in localStorage ("oasis-social-proof-last-seen")
+- Gold (#C8A45C) accent gradient on icon and top border, navy (#1A2332) background
+- Location pill with MapPin icon when applicable
+- "Just now" timestamp with Clock icon
+
+**`src/app/layout.tsx`** — Added SocialProof
+- Imported `SocialProof` from `@/components/social-proof`
+- Added `<SocialProof />` after `<WhatsAppButton />`
+
+### Feature 2: "Link to Us" / Embed Widget Page
+
+**`src/app/link-to-us/page.tsx`** — NEW server component
+- Title: "Link to Oasis Emaar | Embed Widgets & Badges"
+- Description: Copy-paste HTML snippets for real estate directories, blogs, and partner sites
+- BreadcrumbList JSON-LD schema (Home > Link to Us)
+- Canonical URL: https://oasisemaar.com/link-to-us
+- Delegates to LinkToUsClient component
+
+**`src/app/link-to-us/link-to-us-client.tsx`** — NEW client component
+- Navy hero section with gold accents matching site design
+- Section 1: "Text Links" — 4 pre-made HTML link snippets:
+  1. Simple text link: `<a href="https://oasisemaar.com">The Oasis by Emaar — Authorized Agent</a>`
+  2. Descriptive link with title attribute
+  3. SEO-optimized link with "luxury waterfront villas in Dubai" anchor text
+  4. Full reference link with description
+  - Each has "Copy HTML" button (copies to clipboard)
+- Section 2: "Embeddable Property Badge" — Side-by-side preview + code:
+  - Visual badge preview with OE logo, "Authorized Sales Agent", phone, "View Properties" CTA
+  - Self-contained HTML code with inline styles, gold-gradient, navy background
+  - Copy button
+- Section 3: "Embeddable Search Widget" — Side-by-side preview + code:
+  - Mini search box linking to oasisemaar.com/inventory
+  - Preview shows form with input and "Search" button
+  - HTML code with copy button
+- Section 4: "Cite This Page" — 3 citation formats:
+  - APA, MLA, Chicago with copy buttons
+- Bottom CTA: "Need a Custom Widget?" with link to /contact
+- Uses CopyButton component with clipboard API and fallback
+- Full design system: font-heading, font-body, #1A2332, #C8A45C, #F5F0E8, gold-gradient
+
+### Feature 3: PWA Manifest + Install Prompt
+
+**`public/manifest.json`** — NEW
+- name: "Oasis Emaar — The Oasis by Emaar Authorized Agent"
+- short_name: "Oasis Emaar"
+- background_color: #1A2332, theme_color: #C8A45C
+- display: standalone, orientation: portrait-primary
+- Icon: /logo.svg (SVG, any size)
+- Categories: business, lifestyle
+
+**`src/app/layout.tsx`** — Added PWA meta tags in <head>
+- `<link rel="manifest" href="/manifest.json" />`
+- `<meta name="theme-color" content="#C8A45C" />`
+- `<meta name="apple-mobile-web-app-capable" content="yes" />`
+- `<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />`
+- `<meta name="apple-mobile-web-app-title" content="Oasis Emaar" />`
+
+**`src/components/pwa-install-prompt.tsx`** — NEW component ("use client")
+- Listens for `beforeinstallprompt` event (stores deferred prompt)
+- Shows subtle banner at bottom of screen (above WhatsApp button)
+- Navy background with gold accent, Smartphone icon
+- "Install Oasis Emaar for quick access" messaging
+- "Install" button (gold-gradient) triggers native install prompt
+- "Dismiss" button stores preference in localStorage
+- Only shows once per device (localStorage: "oasis-pwa-dismissed" / "oasis-pwa-installed")
+- After install: fires Meta Pixel `fbqTrackCustom("PWA_Install")`
+- Framer Motion animations (slide up from bottom)
+- 3-second delay before showing banner
+
+**`src/lib/meta-pixel.ts`** — Updated
+- Exported `fbqTrackCustom` function (was previously module-private) for PWA install prompt
+
+**`src/app/layout.tsx`** — Added PWAInstallPrompt
+- Imported `PWAInstallPrompt` from `@/components/pwa-install-prompt`
+- Added `<PWAInstallPrompt />` after `<SocialProof />`
+
+---
+
+## Build & Lint Verification (Task 2 Batch)
+
+- `bun run lint` — No errors or warnings
+- `npx next build` — Passed successfully (all 43 routes generated, including /link-to-us)
+- Dev server running on port 3000
+
+---
+
+## TASK 3: Add 5 New SEO-Optimized Blog Articles
+
+**Date:** 2026-05-20
+**Status:** All 5 articles added, lint clean, no type errors, dev server running
+
+---
+
+### Summary
+
+Added 5 new SEO-optimized blog articles to `src/lib/blog-data.ts` to drive organic traffic. All existing blog posts preserved — only new posts added to the `blogPosts` array.
+
+### Article 1: Dubai Golden Visa Through Property Investment
+- **Slug:** `dubai-golden-visa-property-investment-guide`
+- **Title:** "Dubai Golden Visa Through Property Investment — Complete 2025 Guide"
+- **Category:** Buying Guide
+- **Tags:** dubai golden visa, golden visa property investment, uae residency by property, dubai investor visa, emaar golden visa
+- **Date:** 2025-02-25 | **Read Time:** 12 min read
+- **Content:** What is the Golden Visa, AED 2M minimum threshold, off-plan qualification, step-by-step application process, key benefits (10-year residency, family sponsorship, no sponsor), how The Oasis properties qualify, required documents and costs, timeline
+
+### Article 2: Emaar Mirage Villas Deep Dive
+- **Slug:** `emaar-mirage-villas-oasis-deep-dive`
+- **Title:** "Emaar Mirage Villas at The Oasis — Complete Deep Dive Review"
+- **Category:** Community
+- **Tags:** emaar mirage villas, mirage the oasis, 5 bedroom villa dubai, luxury villa dubai 2025, emaar mirage review
+- **Date:** 2025-03-01 | **Read Time:** 11 min read
+- **Content:** Cluster overview, 5 & 6-bedroom villa types, pricing and payment structure (90/10 plan), crystal lagoon proximity advantage, design and architecture, Mirage vs Lavita comparison, investment case
+
+### Article 3: Dubai Real Estate Market Forecast 2025-2030
+- **Slug:** `dubai-real-estate-market-forecast-2025-2030`
+- **Title:** "Dubai Real Estate Market Forecast 2025–2030 — What Investors Need to Know"
+- **Category:** Market Analysis
+- **Tags:** dubai real estate forecast, dubai property market 2025, dubai investment outlook, uae real estate trends, dubai villa market prediction
+- **Date:** 2025-03-05 | **Read Time:** 13 min read
+- **Content:** 2024 market recap (AED 528B+), population growth projections, villa vs apartment divergence, infrastructure developments (Etihad Rail, airport expansion, Expo City), Golden Visa impact, interest rate outlook, supply pipeline, where The Oasis fits, 5-year price projections
+
+### Article 4: Crystal Lagoon Communities Guide
+- **Slug:** `crystal-lagoon-communities-dubai-guide`
+- **Title:** "Crystal Lagoon Communities in Dubai — The Ultimate Buyer's Guide"
+- **Category:** Community
+- **Tags:** crystal lagoon dubai, lagoon community dubai, beach living dubai, artificial beach dubai, waterfront community guide
+- **Date:** 2025-03-10 | **Read Time:** 11 min read
+- **Content:** What are crystal lagoons, technology behind them, all Dubai lagoon communities (District One, The Oasis, Damac Lagoons, Mina Rashid, etc.), price per sqft comparison, rental premium for lagoon-facing, lifestyle benefits, maintenance considerations, The Oasis 3.5km lagoon as largest in a villa community
+
+### Article 5: Buying vs Renting in Dubai 2025
+- **Slug:** `buying-vs-renting-dubai-2025`
+- **Title:** "Buying vs Renting in Dubai 2025 — Which Makes More Financial Sense?"
+- **Category:** Investment
+- **Tags:** buying vs renting dubai, dubai property buy or rent, rent vs buy calculator dubai, dubai real estate decision, property investment vs renting
+- **Date:** 2025-03-15 | **Read Time:** 12 min read
+- **Content:** Rent vs buy math in 2025, average villa rental costs (AED 200K-500K/year), total cost of buying (mortgage + maintenance + service charges), 5-year and 10-year projections with specific numbers, Golden Visa factor, tax advantages (no property tax, no capital gains tax), when renting makes sense, when buying is better, how off-plan payment plans change the equation
+
+### Verification
+- `bun run lint` — No errors or warnings
+- `npx tsc --noEmit` — No errors in blog-data.ts
+- Dev server running on port 3000
+- All 5 new slugs are unique
+- All categories match the BlogPost interface union type
+- Total blog posts: 11 (6 existing + 5 new)

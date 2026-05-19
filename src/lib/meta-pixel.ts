@@ -58,7 +58,7 @@ function fbqTrack(event: MetaPixelEvent, params?: Record<string, unknown>) {
 /**
  * Fire a custom Meta Pixel event (for non-standard events)
  */
-function fbqTrackCustom(event: string, params?: Record<string, unknown>) {
+export function fbqTrackCustom(event: string, params?: Record<string, unknown>) {
   if (typeof window === "undefined") return;
   try {
     if (window.fbq) {
