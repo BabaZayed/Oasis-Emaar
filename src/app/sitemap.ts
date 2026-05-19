@@ -114,6 +114,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.4,
     },
+    // Multilingual landing pages
+    { url: `${BASE_URL}/ar`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
+    { url: `${BASE_URL}/zh`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
+    { url: `${BASE_URL}/ru`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
+    { url: `${BASE_URL}/fr`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
+    { url: `${BASE_URL}/de`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
   ];
 
   // Dynamic project pages with project images
