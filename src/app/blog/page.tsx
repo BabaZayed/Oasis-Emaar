@@ -20,7 +20,16 @@ export const metadata: Metadata = {
     description:
       "Expert insights on Dubai real estate, The Oasis by Emaar investment analysis, payment plan guides, and community comparisons.",
     url: "https://oasisemaar.com/blog",
+    siteName: "Oasis Emaar",
     type: "website",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "The Oasis by Emaar Blog" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog — Dubai Real Estate Insights & The Oasis by Emaar",
+    description:
+      "Expert insights on Dubai real estate, The Oasis by Emaar investment analysis, and community comparisons.",
+    images: ["/og-image.jpg"],
   },
   alternates: {
     canonical: "https://oasisemaar.com/blog",
@@ -46,12 +55,30 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const blogCollectionJsonLd = {
+  "@context": "https://schema.org",
+  "@type": ["CollectionPage", "Blog"],
+  name: "The Oasis by Emaar Blog — Dubai Real Estate Insights",
+  description: "Expert insights on Dubai real estate, The Oasis by Emaar investment analysis, payment plan guides, community comparisons, and off-plan buying advice.",
+  url: "https://oasisemaar.com/blog",
+  publisher: {
+    "@type": "Organization",
+    name: "Oasis Emaar — Authorized Sales Agent",
+    logo: { "@type": "ImageObject", url: "https://oasisemaar.com/logo.svg" },
+  },
+  dateModified: "2026-05-19",
+};
+
 export default function BlogPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogCollectionJsonLd) }}
       />
       <BlogPageClient />
     </>

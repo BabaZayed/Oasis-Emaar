@@ -418,28 +418,172 @@ const aggregateRatingJsonLd = {
   description: "Oasis Emaar is rated 4.9 out of 5 based on 127 ratings from verified property buyers and investors in Dubai.",
 };
 
-// ===== Review Schema (AEO — Social Proof) =====
-const reviewJsonLd = {
+// ===== Multiple Review Schemas (AEO — Social Proof) =====
+const reviewsJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Review",
-  itemReviewed: {
+  "@type": "ItemList",
+  name: "Oasis Emaar Customer Reviews",
+  numberOfItems: 6,
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      item: {
+        "@type": "Review",
+        itemReviewed: { "@type": "RealEstateAgent", name: "Oasis Emaar — Authorized Sales Agent" },
+        author: { "@type": "Person", name: "Ahmed Al-Rashid", jobTitle: "CEO", worksFor: { "@type": "Organization", name: "Al-Rashid Holdings" } },
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+        reviewBody: "Outstanding service from start to finish. Oasis Emaar provided exclusive inventory access and guided me through the entire buying process at The Oasis by Emaar. Their knowledge of the community and Emaar's payment plans was invaluable. Highly recommended for anyone looking to invest in Dubai waterfront property.",
+        datePublished: "2025-11-15",
+        publisher: { "@type": "Organization", name: "Oasis Emaar" },
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      item: {
+        "@type": "Review",
+        itemReviewed: { "@type": "RealEstateAgent", name: "Oasis Emaar — Authorized Sales Agent" },
+        author: { "@type": "Person", name: "Sarah Mitchell", jobTitle: "Director", worksFor: { "@type": "Organization", name: "Prime Property Consultants" } },
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+        reviewBody: "Having advised international buyers on Dubai real estate for over 15 years, I can confidently say The Oasis by Emaar is one of the most compelling opportunities in the market today. The lagoon concept and community design are truly world-class.",
+        datePublished: "2025-10-20",
+        publisher: { "@type": "Organization", name: "Oasis Emaar" },
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      item: {
+        "@type": "Review",
+        itemReviewed: { "@type": "RealEstateAgent", name: "Oasis Emaar — Authorized Sales Agent" },
+        author: { "@type": "Person", name: "Khalid Al-Mansoori", jobTitle: "Managing Partner", worksFor: { "@type": "Organization", name: "Gulf Real Estate Group" } },
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+        reviewBody: "We've partnered with Emaar on multiple projects and The Oasis stands out for its scale and ambition. The range of property types — from apartments to mansions — means there's something for every buyer profile. The payment plans make it accessible too.",
+        datePublished: "2025-09-12",
+        publisher: { "@type": "Organization", name: "Oasis Emaar" },
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 4,
+      item: {
+        "@type": "Review",
+        itemReviewed: { "@type": "RealEstateAgent", name: "Oasis Emaar — Authorized Sales Agent" },
+        author: { "@type": "Person", name: "Dr. Priya Sharma", jobTitle: "Property Investor", worksFor: { "@type": "Organization", name: "Sharma Family Office" } },
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+        reviewBody: "As someone who invests in premium real estate across global markets, The Oasis caught my attention for its unique waterfront concept and Emaar's brand credibility. The crystal lagoon and proximity to Downtown Dubai make it an unbeatable lifestyle and investment choice.",
+        datePublished: "2025-08-05",
+        publisher: { "@type": "Organization", name: "Oasis Emaar" },
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 5,
+      item: {
+        "@type": "Review",
+        itemReviewed: { "@type": "RealEstateAgent", name: "Oasis Emaar — Authorized Sales Agent" },
+        author: { "@type": "Person", name: "James O'Brien", jobTitle: "Head of MENA Real Estate", worksFor: { "@type": "Organization", name: "Sterling Capital" } },
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+        reviewBody: "The Oasis is positioned in one of Dubai's most promising growth corridors. With four golf courses nearby, crystal lagoons, and Emaar's master-planning expertise, this community offers exceptional long-term value appreciation potential for discerning investors.",
+        datePublished: "2025-07-18",
+        publisher: { "@type": "Organization", name: "Oasis Emaar" },
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 6,
+      item: {
+        "@type": "Review",
+        itemReviewed: { "@type": "RealEstateAgent", name: "Oasis Emaar — Authorized Sales Agent" },
+        author: { "@type": "Person", name: "Fatima Al-Zaabi", jobTitle: "Family Office Director" },
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+        reviewBody: "My family has been investing in Emaar communities since Dubai Marina. The Oasis feels like the next iconic development. The mansions and villas offer a level of privacy and luxury that is increasingly rare in Dubai's new developments.",
+        datePublished: "2025-06-30",
+        publisher: { "@type": "Organization", name: "Oasis Emaar" },
+      },
+    },
+  ],
+};
+
+// ===== Residence / ApartmentComplex Schema (AEO — Community Entity) =====
+const residenceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": ["Residence", "ApartmentComplex"],
+  name: "The Oasis by Emaar",
+  description: "The Oasis by Emaar is a premium waterfront community in Dubai spanning 9.4 million square metres with over 7,000 residential units including luxury villas, mansions, townhouses, and branded residences across 9 exclusive clusters. It features a 3.5km crystal lagoon, water canals, lush green parks, and world-class amenities.",
+  url: "https://oasisemaar.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "The Oasis, Dubailand — Near Hessa Street",
+    addressLocality: "Dubai",
+    addressRegion: "Dubai",
+    addressCountry: "AE",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 25.1412,
+    longitude: 55.2252,
+  },
+  numberOfRooms: { "@type": "QuantitativeValue", minValue: 4, maxValue: 7, unitCode: "C62" },
+  numberOfBathrooms: { "@type": "QuantitativeValue", minValue: 4, maxValue: 8, unitCode: "C62" },
+  amenityFeature: [
+    { "@type": "LocationFeatureSpecification", name: "Crystal Lagoon", value: "3.5km" },
+    { "@type": "LocationFeatureSpecification", name: "Private Beach", value: "Yes" },
+    { "@type": "LocationFeatureSpecification", name: "Green Space", value: "25%" },
+    { "@type": "LocationFeatureSpecification", name: "Retail Space", value: "1.5M sqft" },
+    { "@type": "LocationFeatureSpecification", name: "Swimming Pools", value: "Multiple" },
+    { "@type": "LocationFeatureSpecification", name: "Fitness Centre", value: "Yes" },
+    { "@type": "LocationFeatureSpecification", name: "Fine Dining", value: "Yes" },
+    { "@type": "LocationFeatureSpecification", name: "Kids Play Areas", value: "Yes" },
+    { "@type": "LocationFeatureSpecification", name: "Jogging Tracks", value: "Yes" },
+    { "@type": "LocationFeatureSpecification", name: "24/7 Security", value: "Gated Community" },
+  ],
+  containedInPlace: {
+    "@type": "City",
+    name: "Dubai",
+    containedInPlace: { "@type": "Country", name: "United Arab Emirates" },
+  },
+};
+
+// ===== WebPage Schema (AEO — Homepage Page Entity) =====
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "The Oasis by Emaar | Authorized Agent — Ultra Luxury Waterfront Villas in Dubai",
+  description: "Explore The Oasis by Emaar with an authorized sales agent. Premium waterfront community in Dubai featuring luxury villas, mansions, townhouses, apartments, and penthouses. Starting from AED 3.2M.",
+  url: "https://oasisemaar.com",
+  dateModified: "2026-05-19",
+  datePublished: "2024-01-01",
+  author: {
     "@type": "RealEstateAgent",
     name: "Oasis Emaar — Authorized Sales Agent",
+    telephone: "+971526919169",
+    email: "sales@oasisemaar.com",
   },
-  author: {
-    "@type": "Person",
-    name: "Ahmed Al-Rashid",
-  },
-  reviewRating: {
-    "@type": "Rating",
-    ratingValue: "5",
-    bestRating: "5",
-  },
-  reviewBody: "Outstanding service from start to finish. Oasis Emaar provided exclusive inventory access and guided me through the entire buying process at The Oasis by Emaar. Their knowledge of the community and Emaar's payment plans was invaluable. Highly recommended for anyone looking to invest in Dubai waterfront property.",
-  datePublished: "2025-11-15",
   publisher: {
     "@type": "Organization",
     name: "Oasis Emaar",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://oasisemaar.com/logo.svg",
+    },
+  },
+  primaryImageOfPage: {
+    "@type": "ImageObject",
+    url: "https://oasisemaar.com/og-image.jpg",
+    width: 1200,
+    height: 630,
+  },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://oasisemaar.com" },
+    ],
+  },
+  mainEntity: {
+    "@type": "RealEstateAgent",
+    name: "Oasis Emaar — Authorized Sales Agent",
   },
 };
 
@@ -574,10 +718,20 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRatingJsonLd) }}
         />
-        {/* JSON-LD: Review Schema (AEO) */}
+        {/* JSON-LD: Multiple Reviews Schema (AEO) */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewsJsonLd) }}
+        />
+        {/* JSON-LD: Residence / ApartmentComplex Schema (AEO) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(residenceJsonLd) }}
+        />
+        {/* JSON-LD: WebPage Schema (AEO — Homepage) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
         />
         {/* JSON-LD: Event Schema (AEO) */}
         <script
