@@ -25,6 +25,7 @@ const quickLinks = [
   { label: "Reviews", href: "/#feedback" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
+  { label: "Press Kit", href: "/press" },
 ];
 
 const socialLinks = [
