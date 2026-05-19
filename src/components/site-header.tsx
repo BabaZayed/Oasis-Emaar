@@ -95,10 +95,10 @@ export default function SiteHeader() {
             <div className="flex items-center gap-3">
               <a
                 href={`tel:${PHONE_NUMBER}`}
-                className="hidden sm:flex items-center gap-2 text-white/80 hover:text-[#C8A45C] text-sm transition-colors whitespace-nowrap"
+                className="hidden sm:flex flex-row items-center gap-2 text-white/80 hover:text-[#C8A45C] text-sm transition-colors whitespace-nowrap"
               >
                 <Phone className="w-4 h-4 flex-shrink-0" />
-                <span className="sm:inline">{PHONE_NUMBER}</span>
+                <span className="whitespace-nowrap">{PHONE_NUMBER}</span>
               </a>
               <Link href="/availability">
                 <Button
