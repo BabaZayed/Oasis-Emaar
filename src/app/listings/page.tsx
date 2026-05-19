@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import ListingsPageClient from "./listings-page-client";
+import WebPageSchema from "@/components/web-page-schema";
 
 export const metadata: Metadata = {
   title: "Property Listings | The Oasis by Emaar - Verified Inventory",
@@ -55,6 +56,12 @@ const breadcrumbJsonLd = {
 export default function ListingsPage() {
   return (
     <>
+      <WebPageSchema
+        name="Property Listings — The Oasis by Emaar"
+        description="Browse all property listings at The Oasis by Emaar — available villas, mansions, and branded residences."
+        url="https://oasisemaar.com/listings"
+        breadcrumbItems={[{name:"Home",url:"https://oasisemaar.com"},{name:"Listings",url:"https://oasisemaar.com/listings"}]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

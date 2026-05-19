@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import SellClient from "./sell-client";
+import WebPageSchema from "@/components/web-page-schema";
 
 export const metadata: Metadata = {
   title: "Sell Your Property | The Oasis by Emaar - Free Listing",
@@ -67,6 +68,12 @@ const breadcrumbJsonLd = {
 export default function SellPage() {
   return (
     <>
+      <WebPageSchema
+        name="Sell Your Property — The Oasis by Emaar"
+        description="List your Oasis property for sale. Free listing with professional verification and featured placement."
+        url="https://oasisemaar.com/sell"
+        breadcrumbItems={[{name:"Home",url:"https://oasisemaar.com"},{name:"Sell Property",url:"https://oasisemaar.com/sell"}]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

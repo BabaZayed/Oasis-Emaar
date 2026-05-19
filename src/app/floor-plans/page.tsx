@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import FloorPlansClient from "./floor-plans-client";
+import WebPageSchema from "@/components/web-page-schema";
 
 export const metadata: Metadata = {
   title: "Floor Plans - The Oasis by Emaar | All Cluster Layouts",
@@ -88,6 +89,12 @@ const floorPlanJsonLd = {
 export default function FloorPlansPage() {
   return (
     <>
+      <WebPageSchema
+        name="Floor Plans — The Oasis by Emaar"
+        description="View floor plans for all 9 clusters at The Oasis by Emaar. Browse villa layouts, sizes, and configurations."
+        url="https://oasisemaar.com/floor-plans"
+        breadcrumbItems={[{name:"Home",url:"https://oasisemaar.com"},{name:"Floor Plans",url:"https://oasisemaar.com/floor-plans"}]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import BlogPageClient from "./blog-page-client";
+import WebPageSchema from "@/components/web-page-schema";
 
 export const metadata: Metadata = {
   title: "Blog — Dubai Real Estate Insights & The Oasis by Emaar",
@@ -72,6 +73,12 @@ const blogCollectionJsonLd = {
 export default function BlogPage() {
   return (
     <>
+      <WebPageSchema
+        name="Blog — The Oasis by Emaar"
+        description="Expert insights on The Oasis by Emaar — investment analysis, payment plans, community comparisons, and buying guides."
+        url="https://oasisemaar.com/blog"
+        breadcrumbItems={[{name:"Home",url:"https://oasisemaar.com"},{name:"Blog",url:"https://oasisemaar.com/blog"}]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

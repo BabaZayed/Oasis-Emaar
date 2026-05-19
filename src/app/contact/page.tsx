@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ContactSection from "@/components/contact-section";
+import WebPageSchema from "@/components/web-page-schema";
 
 export const metadata: Metadata = {
   title: "Contact - Get in Touch",
@@ -58,6 +59,12 @@ const breadcrumbJsonLd = {
 export default function ContactPage() {
   return (
     <>
+      <WebPageSchema
+        name="Contact Us — The Oasis by Emaar"
+        description="Contact Oasis Emaar, authorized sales agent for The Oasis by Emaar Properties. Call +971 52 691 9169, email sales@oasisemaar.com, or visit our Dubai office."
+        url="https://oasisemaar.com/contact"
+        breadcrumbItems={[{name:"Home",url:"https://oasisemaar.com"},{name:"Contact",url:"https://oasisemaar.com/contact"}]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
