@@ -4,6 +4,7 @@ import { WHATSAPP_LINK } from "@/lib/data";
 import { MessageCircle, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import { trackAddToWishlist } from "@/lib/meta-pixel";
 
 export default function WhatsAppButton() {
   const [showTooltip, setShowTooltip] = useState(false);
@@ -54,6 +55,7 @@ export default function WhatsAppButton() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
+        onClick={() => trackAddToWishlist({ propertyName: "WhatsApp Inquiry" })}
         className="w-14 h-14 bg-[#25D366] hover:bg-[#1ebe57] text-white rounded-full shadow-xl flex items-center justify-center transition-all hover:shadow-2xl"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}

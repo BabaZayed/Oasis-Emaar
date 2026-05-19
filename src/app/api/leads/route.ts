@@ -1,9 +1,86 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { z } from "zod";
+import crypto from "crypto";
 
 // ====== GOOGLE SHEETS INTEGRATION ======
 const GOOGLE_SHEETS_URL = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+
+// ====== META CONVERSIONS API ======
+const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+const META_CAPI_TOKEN = process.env.META_CONVERSIONS_API_TOKEN;
+
+async function sendMetaServerEvent(params: {
+  eventName: string;
+  email?: string;
+  phone?: string;
+  firstName?: string;
+  ip?: string;
+  userAgent?: string;
+  eventSourceUrl?: string;
+  value?: number;
+  currency?: string;
+  contentName?: string;
+  contentCategory?: string;
+}) {
+  if (!META_PIXEL_ID || !META_CAPI_TOKEN || META_CAPI_TOKEN === "") return; // Skip if not configured
+
+  try {
+    const eventId = crypto.randomUUID();
+    const timestamp = Math.floor(Date.now() / 1000);
+
+    // Hash PII per Meta's requirements (SHA-256, lowercase, trimmed)
+    const hash = (val: string) => crypto.createHash("sha256").update(val.trim().toLowerCase()).digest("hex");
+
+    const userData: Record<string, string> = {};
+    if (params.email) userData.em = hash(params.email);
+    if (params.phone) userData.ph = hash(params.phone);
+    if (params.firstName) userData.fn = hash(params.firstName);
+    if (params.ip) userData.client_ip_address = params.ip;
+    if (params.userAgent) userData.client_user_agent = params.userAgent.substring(0, 200);
+
+    const customData: Record<string, unknown> = {};
+    if (params.value) customData.value = params.value;
+    if (params.currency) customData.currency = params.currency;
+    if (params.contentName) customData.content_name = params.contentName;
+    if (params.contentCategory) customData.content_category = params.contentCategory;
+
+    const payload = {
+      data: [
+        {
+          event_name: params.eventName,
+          event_time: timestamp,
+          event_id: eventId,
+          event_source_url: params.eventSourceUrl || "https://oasisemaar.com",
+          action_source: "website",
+          event_source: "website",
+          user_data: userData,
+          custom_data: customData,
+        },
+      ],
+      access_token: META_CAPI_TOKEN,
+    };
+
+    const response = await fetch(
+      `https://graph.facebook.com/v19.0/${META_PIXEL_ID}/events`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      }
+    );
+
+    if (!response.ok) {
+      const errText = await response.text();
+      console.error("[META CAPI] Failed:", response.status, errText);
+    } else {
+      console.log(`[META CAPI] Event sent: ${params.eventName}`);
+    }
+  } catch (error) {
+    console.error("[META CAPI] Error:", error);
+    // Don't fail the main request if CAPI fails
+  }
+}
 
 async function pushToGoogleSheet(lead: {
   name: string;
@@ -302,6 +379,19 @@ export async function POST(request: NextRequest) {
       leadScore,
       isQualified,
       source: "website",
+    });
+
+    // Meta Conversions API — server-side Lead event (non-blocking)
+    sendMetaServerEvent({
+      eventName: "Lead",
+      email: data.email,
+      phone: data.phone,
+      firstName: data.name.split(" ")[0],
+      ip: clientIp,
+      userAgent: request.headers.get("user-agent") || undefined,
+      eventSourceUrl: data.pageUrl || undefined,
+      contentName: data.propertyInterest || "General Inquiry",
+      contentCategory: data.formType,
     });
 
     return NextResponse.json({
