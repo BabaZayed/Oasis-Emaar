@@ -18,6 +18,7 @@ import {
   User,
   BookOpen,
   ArrowRight,
+  TrendingUp,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -70,6 +71,7 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
   const pathname = usePathname();
   const [activeHeading, setActiveHeading] = useState<string>("");
   const [copied, setCopied] = useState(false);
+  const [referralCopied, setReferralCopied] = useState(false);
   const headings = useMemo(() => extractHeadings(post.content), [post.content]);
 
   const handleScroll = useCallback(() => {
@@ -108,6 +110,20 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
       await navigator.clipboard.writeText(currentUrl);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Fallback
+    }
+  };
+
+  // Referral/tracked share URL with UTM parameters
+  const slug = pathname.split("/").pop() || post.slug;
+  const referralShareUrl = `https://oasisemaar.com/blog/${slug}?utm_source=share&utm_medium=social&utm_campaign=blog_share`;
+
+  const handleCopyReferralLink = async () => {
+    try {
+      await navigator.clipboard.writeText(referralShareUrl);
+      setReferralCopied(true);
+      setTimeout(() => setReferralCopied(false), 2000);
     } catch {
       // Fallback
     }
@@ -277,6 +293,39 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
                   </button>
                 </div>
               </div>
+
+              {/* Share & Track - Desktop */}
+              <div className="bg-white rounded-xl p-5 shadow-sm border border-[#C8A45C]/10 mt-4">
+                <h3 className="font-heading text-sm font-bold text-[#1A2332] uppercase tracking-wider mb-3 flex items-center gap-2">
+                  <TrendingUp className="w-4 h-4 text-[#C8A45C]" />
+                  Share & Track
+                </h3>
+                <p className="font-body text-xs text-[#1A2332]/50 mb-3 leading-relaxed">
+                  Share this link to track your referrals. When someone visits through your link, we&apos;ll know you sent them!
+                </p>
+                <div className="bg-[#F5F0E8] rounded-lg p-2.5 mb-3">
+                  <p className="font-body text-xs text-[#1A2332]/70 break-all leading-relaxed">
+                    {referralShareUrl}
+                  </p>
+                </div>
+                <Button
+                  onClick={handleCopyReferralLink}
+                  size="sm"
+                  className="w-full bg-[#1A2332] hover:bg-[#2A3A52] text-white font-semibold rounded-lg"
+                >
+                  {referralCopied ? (
+                    <>
+                      <Check className="w-4 h-4 mr-1.5 text-emerald-400" />
+                      Copied!
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-4 h-4 mr-1.5" />
+                      Copy Share Link
+                    </>
+                  )}
+                </Button>
+              </div>
             </div>
           </aside>
 
@@ -376,6 +425,39 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
                     {copied ? "Copied!" : "Copy"}
                   </button>
                 </div>
+              </div>
+
+              {/* Share & Track - Mobile */}
+              <div className="mt-4 bg-white rounded-xl p-5 shadow-sm border border-[#C8A45C]/10">
+                <h3 className="font-heading text-sm font-bold text-[#1A2332] uppercase tracking-wider mb-3 flex items-center gap-2">
+                  <TrendingUp className="w-4 h-4 text-[#C8A45C]" />
+                  Share & Track
+                </h3>
+                <p className="font-body text-xs text-[#1A2332]/50 mb-3 leading-relaxed">
+                  Share this link to track your referrals. When someone visits through your link, we&apos;ll know you sent them!
+                </p>
+                <div className="bg-[#F5F0E8] rounded-lg p-2.5 mb-3">
+                  <p className="font-body text-xs text-[#1A2332]/70 break-all leading-relaxed">
+                    {referralShareUrl}
+                  </p>
+                </div>
+                <Button
+                  onClick={handleCopyReferralLink}
+                  size="sm"
+                  className="w-full bg-[#1A2332] hover:bg-[#2A3A52] text-white font-semibold rounded-lg"
+                >
+                  {referralCopied ? (
+                    <>
+                      <Check className="w-4 h-4 mr-1.5 text-emerald-400" />
+                      Copied!
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-4 h-4 mr-1.5" />
+                      Copy Share Link
+                    </>
+                  )}
+                </Button>
               </div>
             </div>
 

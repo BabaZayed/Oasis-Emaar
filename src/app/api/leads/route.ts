@@ -252,14 +252,14 @@ function detectSpam(data: {
 
 // ====== VALIDATION SCHEMA ======
 const leadSchema = z.object({
-  name: z.string().min(2).max(100),
+  name: z.string().min(2).max(100).optional(),
   email: z.string().email().max(200),
-  phone: z.string().min(7).max(20),
+  phone: z.string().min(7).max(20).optional(),
   budget: z.string().optional(),
   timeline: z.string().optional(),
   nationality: z.string().optional(),
   propertyInterest: z.string().optional(),
-  formType: z.enum(["paywall", "contact", "exit_intent", "feedback", "general", "availability"]).default("general"),
+  formType: z.enum(["paywall", "contact", "exit_intent", "feedback", "general", "availability", "newsletter"]).default("general"),
   message: z.string().max(2000).optional(),
   pageUrl: z.string().max(500).optional(),
   honeypot: z.string().max(0).optional(), // Must be empty
@@ -294,8 +294,20 @@ export async function POST(request: NextRequest) {
 
     const data = parsed.data;
 
-    // Spam detection
-    const spamResult = detectSpam(data);
+    // Provide defaults for newsletter formType (only email required)
+    if (data.formType === "newsletter") {
+      data.name = data.name || "Newsletter Subscriber";
+      data.phone = data.phone || "0000000000";
+    }
+
+    // Spam detection (only for forms with name/phone)
+    const spamResult = data.name && data.phone ? detectSpam({
+      honeypot: body.honeypot,
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      message: data.message,
+    }) : { isSpam: false };
     if (spamResult.isSpam) {
       // Still save but mark as spam (silently accept so bots don't know)
       await db.lead.create({
@@ -320,12 +332,12 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: true, message: "Thank you for your submission." });
     }
 
-    // Check for duplicate (same email + phone within last 24h)
+    // Check for duplicate (same email within last 24h — phone too for non-newsletter)
     const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
     const existing = await db.lead.findFirst({
       where: {
         email: data.email,
-        phone: data.phone,
+        ...(data.formType !== "newsletter" && data.phone ? { phone: data.phone } : {}),
         createdAt: { gte: oneDayAgo },
         isSpam: false,
       },
@@ -338,8 +350,8 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    // Calculate lead score
-    const leadScore = calculateLeadScore(data);
+    // Calculate lead score (skip for newsletter — minimal scoring)
+    const leadScore = data.formType === "newsletter" ? 10 : calculateLeadScore(data);
     const isQualified = leadScore >= 40; // 40+ score = qualified lead
 
     // Save lead
@@ -362,7 +374,7 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    console.log(`[LEAD] New ${isQualified ? "QUALIFIED" : "UNQUALIFIED"} lead: ${data.name} | Score: ${leadScore} | Type: ${data.formType} | Interest: ${data.propertyInterest}`);
+    console.log(`[LEAD] New ${isQualified ? "QUALIFIED" : "UNQUALIFIED"} lead: ${data.name || "N/A"} | Score: ${leadScore} | Type: ${data.formType} | Interest: ${data.propertyInterest || "N/A"}`);
 
     // Push to Google Sheets (non-blocking)
     pushToGoogleSheet({
@@ -386,7 +398,7 @@ export async function POST(request: NextRequest) {
       eventName: "Lead",
       email: data.email,
       phone: data.phone,
-      firstName: data.name.split(" ")[0],
+      firstName: data.name?.split(" ")[0],
       ip: clientIp,
       userAgent: request.headers.get("user-agent") || undefined,
       eventSourceUrl: data.pageUrl || undefined,

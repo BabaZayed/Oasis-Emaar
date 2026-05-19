@@ -3,6 +3,9 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import WhatsAppButton from "@/components/whatsapp-button";
+import SocialProof from "@/components/social-proof";
+import PWAInstallPrompt from "@/components/pwa-install-prompt";
+import UTMTracker from "@/components/utm-tracker";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-heading",
@@ -221,6 +224,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* PWA Manifest & Meta */}
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#C8A45C" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="Oasis Emaar" />
         {/* RSS Feed Auto-Discovery */}
         <link
           rel="alternate"
@@ -283,8 +292,11 @@ export default function RootLayout({
         className={`${cormorant.variable} ${inter.variable} antialiased bg-background text-foreground`}
         style={{ fontFamily: "var(--font-body), sans-serif" }}
       >
+        <UTMTracker />
         {children}
         <WhatsAppButton />
+        <SocialProof />
+        <PWAInstallPrompt />
         <Toaster />
       </body>
     </html>

@@ -1,0 +1,22 @@
+{
+  "name": "Oasis Emaar — The Oasis by Emaar Authorized Agent",
+  "short_name": "Oasis Emaar",
+  "description": "Authorized sales agent for The Oasis by Emaar Properties — luxury waterfront villas in Dubai",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1A2332",
+  "theme_color": "#C8A45C",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["business", "lifestyle"],
+  "lang": "en",
+  "dir": "ltr"
+}
