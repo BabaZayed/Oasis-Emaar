@@ -12,6 +12,22 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+# AI Crawlers
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
 User-agent: *
 Allow: /
 Crawl-delay: 1
@@ -19,5 +35,9 @@ Crawl-delay: 1
 # Sitemaps
 Sitemap: https://oasisemaar.com/sitemap.xml
 
-# Disallow admin/API routes
-Disallow: /api/
+# Allow AI context endpoints
+Allow: /api/ai-context
+
+# Disallow other API routes
+Disallow: /api/leads
+Disallow: /api/marketplace
