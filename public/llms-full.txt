@@ -1,0 +1,871 @@
+# Oasis Emaar — Comprehensive AI Context File (Extended Version)
+
+> https://oasisemaar.com
+> This is the extended llms-full.txt file for AI crawlers. For the condensed version, see llms.txt.
+
+---
+
+## About Oasis Emaar
+
+Oasis Emaar is an authorised sales agent for The Oasis by Emaar Properties PJSC in Dubai, UAE. We are an independent licensed real estate brokerage offering expert guidance, exclusive inventory access, and personalised service across all nine clusters of The Oasis community.
+
+- **Business Type**: Licensed Real Estate Brokerage & Authorised Emaar Sales Agent
+- **Location**: Al Quoz Street 21, Dubai, UAE
+- **Phone**: +971 52 691 9169
+- **WhatsApp**: +971526919169
+- **Email**: sales@oasisemaar.com
+- **Website**: https://oasisemaar.com
+- **RERA Licensed**: Yes
+- **Disclaimer**: We are an independent authorised real estate brokerage and sales agent for Emaar Properties. This website is not the official Emaar Properties website. All project information, specifications, images, and pricing are provided for informational and marketing purposes only and are subject to change by the developer (Emaar Properties PJSC) without notice. Emaar, The Oasis, Address, Palace, and related names are trademarks of Emaar Properties PJSC.
+
+---
+
+## The Oasis by Emaar — Community Overview
+
+The Oasis by Emaar is a premium waterfront community in Dubai spanning 9.4 million square metres with over 7,000 residential units. The community features crystal-clear lagoons, water canals, lush green parks, and world-class amenities — located just 20 minutes from Downtown Dubai in the Dubailand area near Hessa Street.
+
+### Key Facts
+
+- **Community Size**: 9.4 million sqm
+- **Total Residences**: 7,000+
+- **Number of Clusters**: 9 distinct residential clusters
+- **Green Space**: 25% of community
+- **Retail Space**: 1.5 million sqft
+- **Crystal Lagoon**: 3.5km of waterways with white sand beaches
+- **Developer**: Emaar Properties PJSC
+- **Location**: The Oasis, Dubailand, Dubai — Near Hessa Street (D61)
+- **Ownership**: 100% Freehold
+- **Golden Visa**: Eligible for all properties (AED 2M+)
+- **Handover Range**: Q4 2028 — Q2 2031
+- **Price Range**: AED 9.18M — AED 47.7M+
+- **Nearest Airport**: Al Maktoum International Airport
+- **Connectivity**: Near Hessa Street & Sheikh Zayed Road
+- **Expo City**: 15 minutes to Expo City Dubai
+- **Coordinates**: 25.1412°N, 55.2252°E
+- **Distance to Downtown Dubai**: ~20 minutes
+- **Distance to Dubai Marina**: ~25 minutes
+- **Distance to DXB Airport**: ~30 minutes
+
+### Community Design Philosophy
+
+The master plan is centred around a 3.5-kilometre crystal lagoon with white sand beaches that winds through the heart of the development, creating waterfront views and access for residents across all nine clusters. The design philosophy draws inspiration from the world's most exclusive waterfront communities, combining natural water features with lush landscaping, green spaces that account for 25% of the total area, and a comprehensive network of pedestrian-friendly promenades, cycling tracks, and jogging paths. The community also includes 1.5 million square feet of retail and dining space.
+
+---
+
+## Detailed Project Profiles — All 9 Clusters
+
+### 1. Palmiera 3 — Accessible Luxury Waterfront Villas
+
+- **Type**: Villa
+- **Cluster Tag**: Villas
+- **Tagline**: Accessible Luxury Waterfront Villas
+- **Bedrooms**: 4
+- **Starting Price**: AED 9,180,000
+- **Built-Up Area**: 5,666 - 5,914 sqft
+- **Plot Area**: 7,000 - 8,000 sqft
+- **Status**: Off-Plan
+- **Handover**: Q4 2028 (earliest of all clusters)
+- **Payment Plan**: 80/20
+- **Total Units**: 120
+- **Location Zone**: The Oasis, Dubailand — Accessible Luxury Zone
+
+**Description**: Palmiera 3 at The Oasis is the latest phase of the popular Palmiera collection, offering 4-bedroom villas starting from AED 9.18 million. These villas provide an accessible entry point into The Oasis waterfront lifestyle without compromising on quality or design. Each villa features contemporary architecture, private gardens, swimming pools, and thoughtfully designed interiors with premium finishes. With an expected handover in Q4 2028, Palmiera 3 is one of the earliest clusters to be completed within The Oasis.
+
+**Full Features**:
+- Private Swimming Pool
+- Landscaped Garden
+- Maid's Room
+- Covered Parking
+- Terrace with View
+- Open-Plan Living
+- Modern Kitchen
+- En-Suite Bathrooms
+
+**Amenities**: Crystal Lagoon & Beach, Swimming Pools, Fitness Centre, Parks & Gardens, Retail & Dining, Kids' Play Areas, Jogging Tracks, Community Centre
+
+**Ideal For**: First-time luxury buyers, young families, investors seeking the lowest entry price and earliest handover
+
+---
+
+### 2. Palmiera — Contemporary Waterfront Villas
+
+- **Type**: Villa
+- **Cluster Tag**: Villas
+- **Tagline**: Contemporary Waterfront Villas
+- **Bedrooms**: 4
+- **Starting Price**: AED 10,500,000
+- **Built-Up Area**: ~8,279 sqft
+- **Plot Area**: ~10,500 sqft
+- **Status**: Off-Plan
+- **Handover**: Q1 2029
+- **Payment Plan**: 80/20
+- **Total Units**: 110
+- **Location Zone**: The Oasis, Dubailand — Contemporary Quarter
+
+**Description**: Palmiera at The Oasis presents a collection of 4-bedroom contemporary waterfront villas that blend modern architecture with the serenity of lagoon-side living. The contemporary design language emphasises clean lines, natural materials, and seamless indoor-outdoor transitions. Palmiera is ideal for families seeking a premium lifestyle within a vibrant waterfront community.
+
+**Full Features**:
+- Private Swimming Pool
+- Landscaped Garden
+- Maid's Room
+- Covered Parking
+- Lagoon View Terrace
+- Open-Plan Living
+- Walk-in Closets
+- Designer Kitchen
+
+**Amenities**: Crystal Lagoon & Beach, Swimming Pools, Fitness Centre, Parks & Gardens, Retail Boulevard, Dining Destinations, Jogging Tracks, Kids' Play Areas
+
+**Ideal For**: Families seeking a premium lifestyle upgrade, investors looking for balance between entry price, product quality, and capital appreciation
+
+---
+
+### 3. Palmeira Collective — Ultra-Exclusive Limited Edition
+
+- **Type**: Villa
+- **Cluster Tag**: Limited Edition
+- **Tagline**: Ultra-Exclusive Limited Collection — Only 38 Villas
+- **Bedrooms**: 4
+- **Starting Price**: AED 11,000,000
+- **Built-Up Area**: ~7,879 sqft
+- **Plot Area**: ~10,000 sqft
+- **Status**: Off-Plan
+- **Handover**: Q2 2029
+- **Payment Plan**: 80/20
+- **Total Units**: 38 (most exclusive by unit count)
+- **Location Zone**: The Oasis, Dubailand — Boutique Collection
+
+**Description**: Palmeira Collective is the most exclusive cluster within The Oasis, comprising just 38 bespoke 4-bedroom villas. This ultra-limited collection redefines luxury with next-generation villa design featuring basements, private lifts, two kitchens (main and prep), domestic staff quarters, and approximately 7,879 sqft of meticulously planned living space. The limited number of residences ensures unmatched privacy and exclusivity.
+
+**Full Features**:
+- Private Lift
+- Two Kitchens (Main and Preparation)
+- Basement Level
+- Domestic Staff Quarters
+- Private Swimming Pool
+- Landscaped Garden
+- Maid's Room
+- Covered Parking
+
+**Amenities**: Crystal Lagoon & Beach, Swimming Pools, Community Centre, Parks & Gardens, Retail & Dining, Fitness Centre, Jogging Tracks, 24/7 Security
+
+**Ideal For**: Discerning buyers who value exclusivity above all else; limited supply suggests stronger capital appreciation potential
+
+---
+
+### 4. Address Villas Tierra — Branded Luxury by Address Hotels & Resorts
+
+- **Type**: Branded Villa
+- **Cluster Tag**: Branded Residences
+- **Tagline**: Branded Luxury by Address Hotels & Resorts
+- **Bedrooms**: 4, 5 & 6
+- **Starting Price**: AED 13,160,000
+- **Built-Up Area**: 7,269 - 12,777 sqft
+- **Plot Area**: 8,500 - 15,000 sqft
+- **Status**: Off-Plan
+- **Handover**: June 2029
+- **Payment Plan**: 80/20
+- **Total Units**: 58
+- **Location Zone**: The Oasis, Dubailand — Near Hessa Street
+
+**Description**: Address Villas Tierra represents the pinnacle of branded living within The Oasis by Emaar. These 4 to 6-bedroom luxury villas are fully furnished and managed by Address Hotels & Resorts, bringing the signature hospitality experience into your private residence. Each villa features interiors designed by the Address brand, with premium finishes, private pools, landscaped gardens, and expansive living spaces that seamlessly blend indoor and outdoor waterfront living. The villas are strategically positioned to maximise lagoon and waterway views.
+
+**Full Features**:
+- Address Hotels Furnishing
+- Private Swimming Pool
+- Landscaped Garden
+- Maid's Room
+- Covered Parking
+- Basement Level
+- Rooftop Terrace
+- Smart Home Technology
+
+**Amenities**: Crystal Lagoon & Beach, Address Hotel Services, Private Beach Club, Swimming Pools, Fitness Centre & Spa, Fine Dining, Kids' Play Areas, Walking Trails, 24/7 Security
+
+**Ideal For**: International investors, frequent travellers, buyers who desire the convenience and prestige of a branded residence with full hotel-level service
+
+---
+
+### 5. Mareva — Elegant Waterfront Villas
+
+- **Type**: Villa
+- **Cluster Tag**: Villas
+- **Tagline**: Elegant Waterfront Villas
+- **Bedrooms**: 4, 5 & 6
+- **Starting Price**: AED 13,470,000
+- **Built-Up Area**: 7,254 - 12,779 sqft
+- **Plot Area**: 8,800 - 16,000 sqft
+- **Status**: Off-Plan
+- **Handover**: Q1 2031
+- **Payment Plan**: 80/20
+- **Total Units**: 150
+- **Location Zone**: The Oasis, Dubailand — Central Lagoon District
+
+**Description**: Mareva at The Oasis offers a refined collection of 4, 5, and 6-bedroom luxury villas that exemplify sophisticated waterfront living. Each villa is thoughtfully designed with premium finishes, open-plan living spaces, and seamless indoor-outdoor connectivity. Mareva villas feature private gardens, swimming pools, and terraces that capture the essence of lagoon-side living. Positioned within the heart of The Oasis, Mareva residents enjoy direct access to the community's world-class amenities and waterfront promenades.
+
+**Full Features**:
+- Private Swimming Pool
+- Landscaped Garden
+- Maid's Room
+- Covered Parking
+- Lagoon View Terrace
+- Basement Level
+- Open-Plan Living
+- Designer Kitchen
+
+**Amenities**: Crystal Lagoon & Beach, Swimming Pools, Fitness Centre, Community Parks, Retail Boulevard, Dining Destinations, Jogging Tracks, Kids' Play Areas
+
+**Ideal For**: Families seeking spacious configurations (4-6BR), buyers wanting central lagoon district positioning
+
+---
+
+### 6. Mareva 2 — Next-Phase Waterfront Villas
+
+- **Type**: Villa
+- **Cluster Tag**: Villas
+- **Tagline**: Next-Phase Waterfront Villas
+- **Bedrooms**: 4, 5 & 6
+- **Starting Price**: AED 13,830,000
+- **Built-Up Area**: 7,500 - 13,000 sqft
+- **Plot Area**: 9,000 - 16,500 sqft
+- **Status**: Off-Plan
+- **Handover**: Q2 2031
+- **Payment Plan**: 80/20
+- **Total Units**: 140
+- **Location Zone**: The Oasis, Dubailand — Enhanced Lagoon Zone
+
+**Description**: Mareva 2 is the highly anticipated second phase of the Mareva collection at The Oasis. Building on the success of Mareva, this phase introduces a fresh series of 4, 5, and 6-bedroom waterfront villas with refined architectural details and upgraded interior specifications. Mareva 2 features enhanced community positioning with even closer proximity to the crystal lagoons and beach areas.
+
+**Full Features**:
+- Private Swimming Pool
+- Landscaped Garden
+- Maid's Room
+- Covered Parking
+- Enhanced Lagoon Views
+- Basement Level
+- Study Room
+- Walk-in Closets
+
+**Amenities**: Crystal Lagoon & Beach, Swimming Pools, Fitness Centre & Spa, Parks & Gardens, Retail & Dining, Water Sports Centre, Cycling Tracks, Community Centre
+
+**Ideal For**: Families and investors seeking premium waterfront property with enhanced lagoon proximity
+
+---
+
+### 7. Palace Villas Ostra — Palace-Branded Ultra-Luxury Villas
+
+- **Type**: Branded Villa
+- **Cluster Tag**: Branded Residences
+- **Tagline**: Palace-Branded Ultra-Luxury Villas
+- **Bedrooms**: 4, 5 & 6
+- **Starting Price**: AED 13,900,000
+- **Built-Up Area**: 7,500 - 13,500 sqft
+- **Plot Area**: 9,000 - 17,000 sqft
+- **Status**: Off-Plan
+- **Handover**: September 2029
+- **Payment Plan**: 80/20
+- **Total Units**: 62
+- **Location Zone**: The Oasis, Dubailand — Palace District
+
+**Description**: Palace Villas Ostra brings the legendary Palace hospitality brand into the realm of private residential living. Each villa is a masterpiece of design featuring bespoke finishes, private pools, expansive terraces, and landscaped gardens. Residents enjoy exclusive access to Palace-level services including concierge, housekeeping, and in-villa dining. The architecture reflects the grandeur and sophistication that the Palace brand is known for, creating a living experience that is truly fit for royalty.
+
+**Full Features**:
+- Palace Brand Interiors
+- Private Swimming Pool
+- Landscaped Garden
+- Maid's Room
+- Covered Parking
+- Basement Level
+- In-Villa Dining Service
+- Concierge Service
+
+**Amenities**: Crystal Lagoon & Beach, Palace Hotel Services, Private Beach Club, Spa & Wellness Centre, Fine Dining Restaurants, Fitness Centre, Kids' Play Areas, Walking Trails, 24/7 Gated Security
+
+**Ideal For**: Buyers seeking the ultimate in branded luxury living; the Palace brand carries global prestige and the limited unit count ensures lasting exclusivity
+
+---
+
+### 8. Mirage — The Pinnacle of The Oasis
+
+- **Type**: Mansion
+- **Cluster Tag**: Premium Villas
+- **Tagline**: The Pinnacle of The Oasis
+- **Bedrooms**: 5 & 6
+- **Starting Price**: AED 15,800,000
+- **Built-Up Area**: 9,500 - 11,357 sqft
+- **Plot Area**: 12,000 - 15,000 sqft
+- **Status**: Off-Plan
+- **Handover**: Q4 2029
+- **Payment Plan**: 90/10 (unique — only 10% on handover)
+- **Total Units**: 95
+- **Location Zone**: The Oasis, Dubailand — Exclusive Zone
+
+**Description**: Mirage is the pinnacle product within The Oasis — a collection of 5 and 6-bedroom ultra-luxury villas that set a new standard for premium residential living in Dubai. These residences feature exceptional architectural design by world-renowned architects, with interiors created by prominent international designers. Each villa includes a basement level, ground floor, and upper floors with private terraces overlooking the waterways. The Mirage cluster is positioned within the most exclusive zone of The Oasis, offering unmatched privacy, panoramic water views, and direct lagoon access.
+
+**Full Features**:
+- Private Swimming Pool
+- Landscaped Garden
+- Maid's Room
+- Covered Parking for 3+
+- Basement Level
+- Panoramic Water View
+- Private Elevator
+- Rooftop Terrace
+
+**Amenities**: Crystal Lagoon & Beach, Private Beach Club, Concierge Service, Spa & Wellness, Fine Dining, Jogging & Cycling Tracks, Golf Course Access, 24/7 Gated Security
+
+**Ideal For**: Buyers who demand the finest in contemporary villa design and are willing to invest in a premium product with exceptional long-term value; the 90/10 plan benefits cash-rich buyers
+
+---
+
+### 9. Lavita — Ultra-Luxury Waterfront Mansions
+
+- **Type**: Mansion
+- **Cluster Tag**: Mansions
+- **Tagline**: Ultra-Luxury Waterfront Mansions
+- **Bedrooms**: 6
+- **Starting Price**: AED 46,970,888 (up to AED 47.7M+)
+- **Built-Up Area**: 20,096 sqft
+- **Plot Area**: 22,275 - 23,824 sqft
+- **Status**: Off-Plan
+- **Handover**: Q1 2029
+- **Payment Plan**: 80/20
+- **Total Units**: 24 (most exclusive product in the entire community)
+- **Location Zone**: The Oasis, Dubailand — Premium Waterfront Zone
+
+**Description**: Lavita at The Oasis is the crown jewel of the community — an exclusive collection of 6-bedroom waterfront mansions designed for those who demand the extraordinary. With built-up areas exceeding 20,000 sqft and private plots spanning over 22,000 sqft, these mansions offer an estate-scale living experience rarely found in Dubai. Each residence is positioned for full water-facing orientation, ensuring panoramic lagoon views from every major living space. The mansions feature private lifts, home cinemas, wine cellars, staff quarters, and expansive infinity pools that seem to merge with the waterway beyond.
+
+**Full Features**:
+- Private Lift
+- Home Cinema
+- Wine Cellar
+- Staff Quarters
+- Infinity Pool
+- Full Water View
+- Rooftop Terrace
+- Basement Level
+- Private Garden Estate
+
+**Amenities**: Crystal Lagoon & Beach, Private Beach Club, Concierge Service, Spa & Wellness, Golf Course Access, Marina Berth, Valet Parking, 24/7 Security & Gated
+
+**Ideal For**: Ultra-high-net-worth individuals seeking absolute exclusivity and the finest residential experience available in the Dubai market
+
+---
+
+## Inventory Summary — Units Per Cluster & Price Ranges
+
+### Available Inventory by Cluster (as of data compilation)
+
+| Cluster | Total Units in Community | Available Inventory Units | Bedroom Types | Price Range (Available Units) |
+|---------|--------------------------|--------------------------|---------------|-------------------------------|
+| Palmiera 3 | 120 | 1 | 4BR | AED 11.83M |
+| Palmiera | 110 | — | — | Sold out / inquire |
+| Palmeira Collective | 38 | 12 | 4BR | AED 16.55M — AED 18.09M |
+| Address Villas Tierra | 58 | — | — | Sold out / inquire |
+| Mareva | 150 | 28 | 4BR, 5BR, 6BR | AED 13.93M — AED 27.48M |
+| Mareva 2 | 140 | 27 | 4BR, 5BR, 6BR | AED 13.88M — AED 27.99M |
+| Palace Villas Ostra | 62 | — | — | Sold out / inquire |
+| Mirage | 95 | — | — | Sold out / inquire |
+| Lavita | 24 | 2 | 6BR | AED 46.97M — AED 47.70M |
+
+### Inventory Breakdown by Bedroom Count
+
+| Bedrooms | Available Units | Price Range |
+|----------|----------------|-------------|
+| 4BR | 23 units | AED 11.83M — AED 18.09M |
+| 5BR | 23 units | AED 16.78M — AED 22.37M |
+| 6BR (Villa) | 12 units | AED 24.18M — AED 27.99M |
+| 6BR (Mansion) | 2 units | AED 46.97M — AED 47.70M |
+
+**Total Available Inventory**: Approximately 60 units listed across Mareva, Mareva 2, Palmeira Collective, Palmiera 3, and Lavita. Premium units (with premium plot positioning) are available across Mareva and Mareva 2 clusters at higher price points.
+
+---
+
+## Payment Plans — Detailed Breakdown
+
+### Standard 80/20 Plan (Available on Most Clusters)
+
+Applicable to: Palmiera 3, Palmiera, Palmeira Collective, Address Villas Tierra, Mareva, Mareva 2, Palace Villas Ostra, Lavita
+
+| Milestone | Percentage | Description |
+|-----------|-----------|-------------|
+| Booking / EOI | 10% | Down payment upon signing the Expression of Interest or Sales and Purchase Agreement |
+| During Construction | 70% | Payable in installments during the construction phase (milestone-linked, every 3-6 months) |
+| On Handover | 20% | Final payment upon handover; flexible post-handover payment plans may also be available |
+
+**Example — Palmiera 3 at AED 9,180,000 (80/20 Plan)**:
+- Booking: AED 918,000 (10%)
+- During Construction: AED 6,426,000 (70%) spread over ~3.5 years
+- On Handover: AED 1,836,000 (20%)
+
+**Example — Lavita at AED 46,970,888 (80/20 Plan)**:
+- Booking: AED 4,697,089 (10%)
+- During Construction: AED 32,879,622 (70%) spread over ~4 years
+- On Handover: AED 9,394,178 (20%)
+
+### Mirage 90/10 Plan (Exclusive to Mirage Cluster)
+
+| Milestone | Percentage | Description |
+|-----------|-----------|-------------|
+| Booking / EOI | 10% | Down payment upon signing |
+| During Construction | 80% | Payable in installments during construction |
+| On Handover | 10% | Only 10% on handover — the lowest post-handover commitment |
+
+**Example — Mirage at AED 16,500,000 (90/10 Plan)**:
+- Booking: AED 1,650,000 (10%)
+- During Construction: AED 13,200,000 (80%)
+- On Handover: AED 1,650,000 (10%)
+
+### 70/30 Plan (Occasionally Available on Select Units)
+
+| Milestone | Percentage | Description |
+|-----------|-----------|-------------|
+| During Construction | 70% | Lower upfront commitment |
+| On Handover | 30% | Higher post-handover payment |
+
+### Additional Costs to Budget For
+
+- **DLD Registration Fee**: 4% of the purchase price
+- **Admin Fees**: AED 5,000 — AED 10,000
+- **Mortgage Processing Fees**: If financing (varies by bank)
+- **Late Payment Interest**: 1-2% per month on overdue amounts
+
+### Key Buyer Protections
+
+- All payments are held in DLD-regulated escrow accounts
+- Funds are released only in proportion to construction progress
+- Emaar's delivery track record provides additional security
+- Oqood (initial ownership) certificate issued upon SPA registration
+
+---
+
+## Detailed Buying Process Walkthrough
+
+### Step 1: Research and Shortlist
+
+Evaluate the nine clusters based on your budget, preferred villa size, handover timeline, and lifestyle preferences. Key considerations:
+- **Budget**: AED 9.18M (Palmiera 3) to AED 47.7M+ (Lavita)
+- **Timeline**: Earliest handover Q4 2028 (Palmiera 3), latest Q2 2031 (Mareva 2)
+- **Property Type**: Standard villas, branded villas, premium villas, or mansions
+- **Lifestyle**: Waterfront proximity, branded services, community positioning
+- **Investment Goal**: Capital appreciation vs. rental income vs. end-use
+
+### Step 2: Engage an Authorised Sales Agent
+
+Contact Oasis Emaar (+971 52 691 9169 or sales@oasisemaar.com) for:
+- Direct access to Emaar's full inventory across all 9 clusters
+- Units that may not be publicly listed
+- Expert guidance on which cluster and unit type suits your profile
+- No cost to the buyer — agent commission is paid by Emaar
+- Verify agent's RERA broker card and DLD credentials
+
+### Step 3: Understand Financial Commitments
+
+- Request a detailed payment schedule showing every instalment, due date, and linked construction milestone
+- Factor in DLD registration fee (4%), admin fees, and mortgage costs
+- Assess cash flow to ensure comfortable payment over 3-6 year construction period
+- International buyers: consider currency risk if income is not in AED
+
+### Step 4: Complete Booking and Documentation
+
+- Provide identification (passport, Emirates ID if UAE resident)
+- Sign the Sales and Purchase Agreement (SPA) — review with legal advisor
+- Pay the initial booking amount (typically 10%)
+- Register transaction with Dubai Land Department (4% DLD fee)
+- Receive Oqood (initial ownership) certificate
+- All payments go into DLD-regulated escrow account
+
+### Step 5: Monitor Construction Progress
+
+- Emaar provides updates through customer portal and mobile app
+- Authorised agent can provide periodic updates and site visit opportunities
+- Ensure payment schedule aligns with construction milestones
+- Construction milestones trigger payment obligations
+
+### Step 6: Handover and Registration
+
+- Upon completion, Emaar will issue a completion notice
+- Inspect the property for compliance with SPA specifications
+- Pay the final handover amount (20% or 10% depending on plan)
+- Receive the Title Deed from the Dubai Land Department
+- For mortgage buyers: bank releases final disbursement
+- Register for community service charges
+
+---
+
+## Community Amenities — Detailed List
+
+### Waterfront & Beach
+
+- 3.5-kilometre crystal lagoon with crystal-clear water
+- White sand beaches along the lagoon
+- Private beach clubs for residents
+- Water sports centres (kayaking, paddleboarding, sailing)
+- Marina berths (Lavita cluster)
+- Waterfront promenades and boardwalks
+
+### Recreation & Fitness
+
+- Multiple swimming pools (community and private)
+- State-of-the-art fitness centres
+- Spa and wellness facilities
+- Jogging and running tracks
+- Cycling tracks throughout the community
+- Golf course access (select clusters)
+- Sports courts and playing fields
+
+### Parks & Green Spaces
+
+- 25% of total community area dedicated to green spaces
+- Landscaped gardens and pocket parks
+- Children's play areas and water play zones
+- Community gardens
+- Outdoor yoga and meditation areas
+
+### Retail & Dining
+
+- 1.5 million sqft of retail space
+- Retail boulevards with luxury brands
+- Fine dining restaurants
+- Casual dining and cafes
+- Supermarkets and convenience stores
+- Community retail centres
+
+### Branded Residence Services (Address Villas Tierra & Palace Villas Ostra)
+
+- Address Hotels & Resorts concierge and hospitality services
+- Palace Hotels concierge, housekeeping, and in-villa dining
+- Private beach club access
+- Hotel-level service standards
+- Valet parking (select clusters)
+
+### Community Infrastructure
+
+- Community centres and clubhouses
+- 24/7 security with gated access
+- Smart home technology (standard in select clusters)
+- Covered parking (all clusters)
+- Underground utilities
+- Pedestrian-friendly pathways
+- Cycling infrastructure
+
+### Education & Healthcare
+
+- Proximity to schools (GEMS, DESS, and others in the wider Dubailand area)
+- Healthcare facilities nearby
+- Nursery and early learning centres
+
+---
+
+## Comparison with Other Dubai Communities
+
+### The Oasis vs. Dubai Hills Estate
+
+| Factor | The Oasis by Emaar | Dubai Hills Estate |
+|--------|--------------------|--------------------|
+| **Developer** | Emaar Properties | Emaar Properties |
+| **Launch Year** | 2024 | 2013 |
+| **Community Size** | 9.4M sqm | ~11M sqm |
+| **Property Types** | Villas & Mansions only | Apartments, Townhouses, Villas |
+| **Entry Price (Villa)** | AED 9.18M (4BR) | AED 3.5-5M (3BR) / AED 5-12M (4BR) |
+| **Waterfront** | Yes — 3.5km crystal lagoon | No — golf course community |
+| **Branded Residences** | Yes — Address & Palace | No |
+| **Maturity** | Off-Plan (handover 2028-2031) | Established and largely complete |
+| **Capital Appreciation** | 20-40% potential (off-plan phase) | 5-10% per annum (mature phase) |
+| **Rental Yield** | 5-6% projected | 4-5% current |
+| **Amenities Status** | Progressive delivery from 2028 | Fully operational |
+| **Retail** | 1.5M sqft planned | 650K sqft (Dubai Hills Mall — operational) |
+| **Location** | Dubailand, near Hessa Street | Umm Suqeim Street / Al Khail Road |
+| **Commute to Downtown** | 20-25 minutes | 15-20 minutes |
+| **Private Pools** | Standard in all villas | Not standard |
+
+**Verdict**: Dubai Hills is better for immediate lifestyle and established amenities. The Oasis is better for waterfront living, branded services, and higher capital appreciation potential over a 5-7 year horizon.
+
+### The Oasis vs. Palm Jumeirah
+
+| Factor | The Oasis by Emaar | Palm Jumeirah |
+|--------|--------------------|---------------|
+| **Developer** | Emaar Properties | Nakheel |
+| **Waterfront Type** | Crystal lagoon (man-made) | Natural beachfront (Arabian Gulf) |
+| **Entry Price (Villa)** | AED 9.18M (4BR) | AED 12-15M (garden view) |
+| **Premium Villa Price** | AED 47.7M (Lavita mansions) | AED 25-80M+ (frond-tip villas) |
+| **Maturity** | Off-Plan | Fully mature (completed 2006) |
+| **Capital Appreciation** | 20-40% potential | 5-8% per annum |
+| **Rental Yield** | 5-6% projected | 3-4% |
+| **Branded Residences** | Address & Palace | Multiple hotel brands |
+| **Retail** | 1.5M sqft planned | Nakheel Mall + multiple retail |
+| **Exclusivity** | 9 clusters, 7,000+ units | Iconic, irreplaceable location |
+
+**Verdict**: Palm Jumeirah offers irreplaceable beachfront prestige and immediate lifestyle. The Oasis offers more accessible pricing, higher growth potential, and a comprehensive villa-only waterfront community with lagoon living.
+
+### The Oasis vs. Dubai Marina
+
+| Factor | The Oasis by Emaar | Dubai Marina |
+|--------|--------------------|-------------|
+| **Property Types** | Villas & Mansions | Apartments & Penthouses |
+| **Waterfront Type** | Crystal lagoon | Marina waterfront / sea views |
+| **Entry Price** | AED 9.18M (4BR villa) | AED 1.5-3M (apartment) |
+| **Lifestyle** | Suburban, family-oriented | Urban, high-density, nightlife |
+| **Community Size** | 9.4M sqm (spread out) | Dense vertical community |
+| **Privacy** | Private villas with gardens | Apartment living |
+| **Target Buyer** | Families, HNWIs | Professionals, investors |
+
+**Verdict**: Fundamentally different communities. The Oasis is for villa and mansion buyers seeking privacy and space. Dubai Marina is for apartment buyers seeking urban waterfront living and nightlife.
+
+---
+
+## Investment Analysis — Data Points
+
+### Dubai Market Context (2024-2025)
+
+- Dubai Land Department: Real estate transactions exceeded AED 528 billion in 2024
+- Villa and townhouse segment has outperformed apartments in capital appreciation
+- Waterfront and lagoon-front communities commanding premium price growth of 15-25% YoY
+- Dubai's population growing at approximately 5-6% annually
+- Golden Visa programme continues to attract international buyers
+- Supply of premium waterfront villas remains constrained relative to demand
+
+### Projected Returns for The Oasis
+
+| Metric | Standard Villas | Ultra-Luxury Mansions |
+|--------|----------------|----------------------|
+| **Capital Appreciation (Construction Phase)** | 20-35% projected | 25-40% projected |
+| **Capital Appreciation (Post-Handover)** | 10-15% projected | 10-20% projected |
+| **Gross Rental Yield** | 5-6% projected | 4-5% projected |
+| **Investment Horizon** | 5-7 years recommended | 5-7 years recommended |
+
+### Key Investment Drivers
+
+1. **Emaar Brand Strength**: Dubai's most trusted and largest listed developer with an unparalleled delivery track record
+2. **Waterfront Premium**: Crystal lagoon positioning commands 15-25% premium over non-waterfront properties in comparable communities
+3. **Product Diversity**: Nine clusters spanning AED 9.18M to AED 47.7M+ ensure a broad buyer pool
+4. **Branded Residences**: Address and Palace branded villas attract international investors and command premium pricing
+5. **Golden Visa Eligibility**: All properties qualify (above AED 2M threshold), providing additional demand driver
+6. **Off-Plan Pricing Advantage**: Early buyers benefit from lower entry prices before construction milestones drive price increases
+7. **Infrastructure Development**: Ongoing expansion of Hessa Street and Dubailand corridor improving connectivity
+8. **Limited Supply**: Certain clusters (Palmeira Collective at 38 units, Lavita at 24 units) have extremely limited inventory
+
+### Risk Factors & Mitigants
+
+| Risk | Severity | Mitigant |
+|------|----------|----------|
+| Extended construction timeline (3-6 years) | Medium | Emaar's track record of on-time delivery |
+| Market conditions could shift | Medium | Dubai's strong fundamentals and government policies |
+| Large volume of inventory at handover | Low-Medium | Product diversity and Emaar brand support resale values |
+| Currency fluctuation (international buyers) | Low | AED pegged to USD; relative stability |
+| Interest rate changes | Low | Impact is manageable with construction-linked payment plans |
+
+### Comparable Emaar Community Appreciation History
+
+- **Downtown Dubai (launched 2003)**: Properties appreciated 200-400% from launch to maturity
+- **Dubai Marina (launched 2003)**: Properties appreciated 150-300% from launch to maturity
+- **Arabian Ranches (launched 2004)**: Properties appreciated 100-250% from launch to maturity
+- **Dubai Hills Estate (launched 2013)**: Early villa buyers saw 100-200% appreciation from launch prices
+
+---
+
+## Blog Post Summaries
+
+### 1. Is The Oasis by Emaar a Good Investment in 2025?
+
+- **Category**: Investment
+- **Date**: January 15, 2025
+- **Read Time**: 9 min
+- **URL**: https://oasisemaar.com/blog/is-the-oasis-by-emaar-a-good-investment-2025
+
+**Key Takeaways**:
+- Dubai real estate transactions exceeded AED 528 billion in 2024
+- Villa segment outperforms apartments in capital appreciation
+- The Oasis projected capital appreciation: 20-35% during construction, 10-15% post-handover
+- Projected gross rental yields: 5-6% for standard villas, 4-5% for mansions
+- Emaar's delivery track record and Golden Visa eligibility mitigate investment risks
+- Palmiera 3 is best for entry-level investors; Mirage and Lavita offer highest appreciation potential
+
+### 2. The Oasis by Emaar vs Dubai Hills — Complete Comparison
+
+- **Category**: Market Analysis
+- **Date**: January 20, 2025
+- **Read Time**: 11 min
+- **URL**: https://oasisemaar.com/blog/oasis-by-emaar-vs-dubai-hills-complete-comparison
+
+**Key Takeaways**:
+- Dubai Hills: mature, established, immediate lifestyle, 5-10% annual appreciation
+- The Oasis: off-plan, waterfront, higher growth potential (20-40% launch-to-handover)
+- The Oasis has no apartments — exclusively villas and mansions
+- The Oasis villas are larger, include private pools, and feature lagoon access
+- Branded residences (Address & Palace) are unique to The Oasis
+- Many buyers diversify across both communities
+
+### 3. Emaar Payment Plans Explained — 80/20 vs 70/30
+
+- **Category**: Payment Plans
+- **Date**: February 1, 2025
+- **Read Time**: 8 min
+- **URL**: https://oasisemaar.com/blog/emaar-payment-plans-explained-80-20-vs-70-30
+
+**Key Takeaways**:
+- 80/20 plan: Most popular, available on 7 of 9 clusters; 10% booking, 70% construction, 20% handover
+- 90/10 plan: Available only on Mirage; 10% booking, 80% construction, 10% handover
+- 70/30 plan: Occasionally available on select units; lower upfront, higher handover commitment
+- All payments held in DLD-regulated escrow accounts for buyer protection
+- UAE mortgage rates (early 2025): 4.5-5.5% for expats, LTV capped at 75-80%
+
+### 4. Dubai Waterfront Communities Comparison 2025
+
+- **Category**: Community
+- **Date**: February 10, 2025
+- **Read Time**: 10 min
+- **URL**: https://oasisemaar.com/blog/dubai-waterfront-communities-comparison-2025
+
+**Key Takeaways**:
+- Palm Jumeirah: Iconic, mature, 5-8% appreciation, 3-4% yield, AED 12M-80M+ villas
+- District One: Crystal lagoon pioneer, AED 15M-40M+, 4-5% yield, central location
+- Dubai Creek Harbour: Urban waterfront, apartment-focused, different buyer profile
+- Damac Lagoons: Value-oriented, AED 1.8M-5M, different luxury segment
+- The Oasis: Best balance of waterfront lifestyle, product quality, investment potential, and accessibility
+
+### 5. How to Buy Off-Plan Property in Dubai — Step by Step Guide
+
+- **Category**: Buying Guide
+- **Date**: February 20, 2025
+- **Read Time**: 10 min
+- **URL**: https://oasisemaar.com/blog/how-to-buy-off-plan-property-in-dubai-step-by-step
+
+**Key Takeaways**:
+- Off-plan properties typically priced 10-20% below expected completed value
+- 5-step process: Research → Engage Agent → Understand Payment Plan → Booking & Documentation → Monitor Construction
+- DLD registration (4%) and Oqood certificate provide legal protection
+- Escrow accounts ensure funds are released only per construction progress
+- Authorised agents provide service at no cost to the buyer
+
+### 6. The Oasis by Emaar Master Plan — All 9 Clusters Explained
+
+- **Category**: Community
+- **Date**: March 1, 2025
+- **Read Time**: 12 min
+- **URL**: https://oasisemaar.com/blog/the-oasis-by-emaar-master-plan-all-9-clusters-explained
+
+**Key Takeaways**:
+- Comprehensive walkthrough of all nine clusters from entry-level to ultra-luxury
+- Palmiera 3: Best for first-time luxury buyers and earliest handover
+- Palmeira Collective: Most exclusive by unit count (only 38 villas)
+- Address Villas Tierra & Palace Villas Ostra: Branded residences with hotel services
+- Mirage: Premium positioning with unique 90/10 payment plan
+- Lavita: Crown jewel — estate-scale mansions from AED 46.97M, only 24 units
+
+---
+
+## Floor Plan Summary
+
+| Cluster | Floor Plan Types | Area Range | Plot Range |
+|---------|-----------------|------------|------------|
+| Palmiera 3 | Type 1 (4BR), Type 2 (4BR) | 5,666 - 5,914 sqft | 7,000 - 8,000 sqft |
+| Palmiera | 4BR Villa | ~8,279 sqft | ~10,500 sqft |
+| Palmeira Collective | 4BR Bespoke Villa | ~7,879 sqft | ~10,000 sqft |
+| Address Villas Tierra | Type A (4BR), Type B (5BR), Type C (6BR) | 7,269 - 12,777 sqft | 8,500 - 15,000 sqft |
+| Mareva | 4BR, 5BR, 6BR Villas | 7,254 - 12,779 sqft | 8,800 - 16,000 sqft |
+| Mareva 2 | 4BR, 5BR Villas | 7,500 - 10,200 sqft | 9,000 - 13,000 sqft |
+| Palace Villas Ostra | 4BR, 5BR Palace Villas | 7,500 - 10,500 sqft | 9,000 - 13,000 sqft |
+| Mirage | 5BR, 6BR Premium Villas | 9,500 - 11,297 sqft | 12,000 - 14,000 sqft |
+| Lavita | Type S1A (6BR Mansion) | 20,096 sqft | 22,275 - 23,824 sqft |
+
+---
+
+## Handover Timeline
+
+| Cluster | Expected Handover |
+|---------|-------------------|
+| Palmiera 3 | Q4 2028 |
+| Palmiera | Q1 2029 |
+| Lavita | Q1 2029 |
+| Palmeira Collective | Q2 2029 |
+| Address Villas Tierra | June 2029 |
+| Palace Villas Ostra | September 2029 |
+| Mirage | Q4 2029 |
+| Mareva | Q1 2031 |
+| Mareva 2 | Q2 2031 |
+
+---
+
+## Frequently Asked Questions (Extended)
+
+**Q: What is The Oasis by Emaar?**
+A: The Oasis by Emaar is a premium waterfront community in Dubai, spanning over 9.4 million square metres and featuring more than 7,000 residential units including villas, mansions, and branded residences. The community is centred around crystal-clear lagoons, water canals, and lush green parks, offering residents a resort-style lifestyle just 20 minutes from Downtown Dubai.
+
+**Q: How much do villas cost at The Oasis Dubai?**
+A: Villa prices start from AED 9.18M (Palmiera 3, 4BR) and go up to AED 47.7M+ (Lavita 6BR mansions). Mid-range options include Palmiera at AED 10.5M, Mareva at AED 13.47M, and Mirage at AED 15.8M. Branded residences start from AED 13.16M (Address Villas Tierra) and AED 13.9M (Palace Villas Ostra).
+
+**Q: What is the payment plan for The Oasis by Emaar?**
+A: Most clusters offer an 80/20 plan (10% booking, 70% during construction, 20% on handover). Mirage offers a 90/10 plan with just 10% on handover. Post-handover plans may be available for select units. All payments are held in DLD-regulated escrow accounts.
+
+**Q: When will The Oasis by Emaar be completed?**
+A: Palmiera 3 has the earliest handover (Q4 2028). Most clusters deliver in 2029. Mareva clusters are expected in Q1-Q2 2031.
+
+**Q: Who is the authorized agent for The Oasis by Emaar?**
+A: Oasis Emaar is an authorized sales agent — an independent licensed brokerage. Contact: +971 52 691 9169 or sales@oasisemaar.com. Purchasing through an authorized agent costs the buyer nothing — the commission is paid by Emaar.
+
+**Q: What types of properties are available at The Oasis?**
+A: 4 to 7 bedroom waterfront villas, ultra-luxury mansions, and branded residences (Address Hotels and Palace branded) across nine distinct clusters. There are no apartments or townhouses.
+
+**Q: Is The Oasis by Emaar a good investment?**
+A: Yes. The Oasis offers 100% freehold ownership, Golden Visa eligibility, Emaar's strong appreciation track record, prime Dubai location, and world-class amenities including a 3.5km crystal lagoon. Projected capital appreciation is 20-35% during construction, with projected rental yields of 5-6% for standard villas.
+
+**Q: How do I buy a property at The Oasis Dubai?**
+A: Contact an authorized agent (Oasis Emaar: +971 52 691 9169), select your preferred cluster and unit, understand the payment plan, complete booking with 10% down payment and SPA signing, register with DLD (4% fee), monitor construction, and complete handover.
+
+**Q: Is The Oasis freehold for foreign buyers?**
+A: Yes, 100% freehold. Foreign nationals have full ownership rights. Properties above AED 2M qualify for the UAE Golden Visa.
+
+**Q: What amenities does The Oasis offer?**
+A: Crystal lagoons, private beaches, 25% green spaces, 1.5M sqft retail, diverse dining, sports facilities, water sports, cycling tracks, community centres, spa & wellness, 24/7 security, and smart home technology. Branded clusters offer hotel-level concierge services.
+
+**Q: Are you affiliated with Emaar Properties directly?**
+A: No. We are an independent authorized real estate brokerage and sales agent for Emaar Properties, not Emaar Properties PJSC itself. This website is independently operated and is not the official Emaar Properties website.
+
+**Q: What is the DLD registration fee?**
+A: 4% of the purchase price, payable to the Dubai Land Department upon booking.
+
+**Q: Can I get a mortgage for The Oasis?**
+A: Yes. UAE mortgage rates for expatriate buyers range from 4.5% to 5.5% (as of early 2025) with loan-to-value ratios typically capped at 75-80% for off-plan properties upon handover.
+
+**Q: What is the Oqood certificate?**
+A: An Oqood is an initial ownership certificate issued by the Dubai Land Department that confirms your legal interest in an off-plan property. It protects your rights as a buyer and can be used for mortgage applications.
+
+---
+
+## Key Pages on oasisemaar.com
+
+- Homepage: https://oasisemaar.com
+- All Projects: https://oasisemaar.com/projects
+- Availability: https://oasisemaar.com/availability
+- Inventory: https://oasisemaar.com/inventory
+- Payment Plans: https://oasisemaar.com/payment-plan
+- FAQ: https://oasisemaar.com/faq
+- Gallery: https://oasisemaar.com/gallery
+- Master Plan: https://oasisemaar.com/master-plan
+- Contact: https://oasisemaar.com/contact
+- About: https://oasisemaar.com/about
+- Blog: https://oasisemaar.com/blog
+- AI Context API: https://oasisemaar.com/api/ai-context
+
+## Social Media
+
+- Facebook: https://facebook.com/oasisemaar
+- Instagram: https://instagram.com/oasisemaar
+- Twitter/X: https://twitter.com/OasisEmaar
+- LinkedIn: https://linkedin.com/company/oasisemaar
+
+## Location
+
+- **Address**: Al Quoz Street 21, Dubai, UAE
+- **Community Location**: The Oasis, Dubailand, Dubai
+- **Coordinates**: 25.1412°N, 55.2252°E
+- **Distance to Downtown Dubai**: ~20 minutes
+- **Distance to Dubai Marina**: ~25 minutes
+- **Distance to DXB Airport**: ~30 minutes
+- **Distance to Al Maktoum International Airport**: ~25 minutes
+- **Distance to Expo City Dubai**: ~15 minutes
+
+---
+
+*This file is the extended llms-full.txt provided for AI crawlers and search engines to better understand the Oasis Emaar business and The Oasis by Emaar Properties community. For the condensed version, see llms.txt. For the latest availability and pricing, contact sales@oasisemaar.com or +971526919169. All information is subject to change by Emaar Properties PJSC without notice.*
