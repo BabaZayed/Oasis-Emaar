@@ -100,7 +100,7 @@ export default function ContactSection() {
   const contactInfo = [
     { icon: Phone, label: "Phone", value: PHONE_NUMBER, href: `tel:${PHONE_NUMBER.replace(/\s/g, "")}` },
     { icon: Mail, label: "Email", value: EMAIL, href: `mailto:${EMAIL}` },
-    { icon: MapPin, label: "Address", value: ADDRESS, href: "#" },
+    { icon: MapPin, label: "Address", value: ADDRESS, href: "https://www.google.com/maps/place/Al+Quoz+St+-+Dubai/@25.1412,55.2252,15z" },
     { icon: MessageCircle, label: "WhatsApp", value: "Chat with us", href: WHATSAPP_LINK },
   ];
 
@@ -177,13 +177,18 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* Map placeholder */}
-            <div className="bg-gradient-to-br from-[#2A3A52] to-[#1A2332] rounded-xl h-48 flex items-center justify-center">
-              <div className="text-center text-white/40">
-                <MapPin className="w-8 h-8 mx-auto mb-2" />
-                <p className="text-sm">Interactive Map</p>
-                <p className="text-xs">Al Quoz Street 21, Dubai</p>
-              </div>
+            {/* Google Maps Embed */}
+            <div className="rounded-xl overflow-hidden h-48">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.7!2d55.2252!3d25.1412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDA4JzI4LjMiTiA1NcKwMTMnMzAuNyJF!5e0!3m2!1sen!2sae!4v1700000000000!5m2!1sen!2sae"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Oasis Emaar Office Location — Al Quoz Street 21, Dubai"
+              />
             </div>
           </div>
 

@@ -3,7 +3,7 @@
 import { PHONE_NUMBER, EMAIL, ADDRESS, WHATSAPP_LINK } from "@/lib/data";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Facebook, Instagram, Twitter, Linkedin, Youtube, MapPin, Phone, Mail, MessageCircle, ArrowUp } from "lucide-react";
+import { Facebook, Instagram, Twitter, Linkedin, Youtube, MapPin, Phone, Mail, MessageCircle, ArrowUp, ExternalLink } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -28,11 +28,19 @@ const quickLinks = [
 ];
 
 const socialLinks = [
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Youtube, href: "#", label: "YouTube" },
+  { icon: Facebook, href: "https://facebook.com/oasisemaar", label: "Facebook" },
+  { icon: Instagram, href: "https://instagram.com/oasisemaar", label: "Instagram" },
+  { icon: Twitter, href: "https://twitter.com/OasisEmaar", label: "Twitter" },
+  { icon: Linkedin, href: "https://linkedin.com/company/oasisemaar", label: "LinkedIn" },
+  { icon: Youtube, href: "https://youtube.com/@oasisemaar", label: "YouTube" },
+];
+
+const trustedResources = [
+  { name: "Emaar Properties", url: "https://www.emaar.com" },
+  { name: "Dubai Land Department", url: "https://www.dubailand.gov.ae" },
+  { name: "RERA Dubai", url: "https://www.rpdubai.ae" },
+  { name: "Dubai REST", url: "https://dubairest.gov.ae" },
+  { name: "Dubai Tourism", url: "https://www.visitdubai.com" },
 ];
 
 export default function SiteFooter() {
@@ -41,7 +49,7 @@ export default function SiteFooter() {
   return (
     <footer className="bg-[#1A2332] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="mb-4">
@@ -49,7 +57,7 @@ export default function SiteFooter() {
               <span className="font-body text-sm tracking-[0.15em] text-white/50 ml-2">EMAAR</span>
             </div>
             <p className="text-white/50 text-sm leading-relaxed mb-2">
-              Authorized sales agent for Emaar Properties' The Oasis community in Dubai. We are an independent real estate brokerage — not Emaar Properties directly.
+              Authorized sales agent for Emaar Properties&apos; The Oasis community in Dubai. We are an independent real estate brokerage — not Emaar Properties directly.
             </p>
             <p className="text-white/50 text-sm leading-relaxed mb-6">
               All project information, specifications, and pricing are provided for marketing purposes and are subject to change by the developer. Images and renders are artistic impressions only.
@@ -60,6 +68,7 @@ export default function SiteFooter() {
                   key={social.label}
                   href={social.href}
                   target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={social.label}
                   className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#C8A45C]/20 transition-colors"
                 >
@@ -96,13 +105,36 @@ export default function SiteFooter() {
               <a href={`mailto:${EMAIL}`} className="flex items-center gap-3 text-white/50 hover:text-[#C8A45C] text-sm transition-colors">
                 <Mail className="w-4 h-4 flex-shrink-0" /> {EMAIL}
               </a>
-              <a href={WHATSAPP_LINK} target="_blank" className="flex items-center gap-3 text-white/50 hover:text-[#C8A45C] text-sm transition-colors">
+              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/50 hover:text-[#C8A45C] text-sm transition-colors">
                 <MessageCircle className="w-4 h-4 flex-shrink-0" /> WhatsApp
               </a>
-              <div className="flex items-start gap-3 text-white/50 text-sm">
+              <a
+                href="https://www.google.com/maps/place/Al+Quoz+St+-+Dubai/@25.1412,55.2252,15z"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 text-white/50 hover:text-[#C8A45C] text-sm transition-colors"
+              >
                 <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" /> {ADDRESS}
-              </div>
+              </a>
             </div>
+
+            {/* Trusted Resources */}
+            <h4 className="font-body font-semibold text-[#C8A45C] mb-3 mt-6 text-sm uppercase tracking-wider">Trusted Resources</h4>
+            <ul className="space-y-2">
+              {trustedResources.map((resource) => (
+                <li key={resource.name}>
+                  <a
+                    href={resource.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 text-white/40 hover:text-[#C8A45C] text-xs transition-colors"
+                  >
+                    <ExternalLink className="w-3 h-3 flex-shrink-0" />
+                    {resource.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Newsletter */}
@@ -138,9 +170,9 @@ export default function SiteFooter() {
             &copy; {new Date().getFullYear()} Oasis Emaar (Authorised Sales Agent). All rights reserved. We are an independent authorised real estate brokerage, NOT Emaar Properties PJSC. Emaar, The Oasis, Address, Palace, and related names are trademarks of Emaar Properties PJSC. All project information is subject to change by the developer. Artistic impressions only — actual products may differ.
           </p>
           <div className="flex items-center gap-4 text-xs text-white/30">
-            <a href="#" className="hover:text-[#C8A45C] transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-[#C8A45C] transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-[#C8A45C] transition-colors">Disclaimer</a>
+            <Link href="/privacy" className="hover:text-[#C8A45C] transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-[#C8A45C] transition-colors">Terms of Service</Link>
+            <Link href="/disclaimer" className="hover:text-[#C8A45C] transition-colors">Disclaimer</Link>
           </div>
         </div>
       </div>
