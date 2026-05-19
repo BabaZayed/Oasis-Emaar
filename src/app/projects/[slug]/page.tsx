@@ -63,5 +63,80 @@ export default async function ProjectPageRoute({ params }: PageProps) {
     notFound();
   }
 
-  return <ProjectDetailPage project={project} />;
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://oasisemaar.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Projects",
+        item: "https://oasisemaar.com/projects",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: project.name,
+        item: `https://oasisemaar.com/projects/${slug}`,
+      },
+    ],
+  };
+
+  const realEstateListingJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "RealEstateListing",
+    name: project.name,
+    description: project.description,
+    url: `https://oasisemaar.com/projects/${slug}`,
+    datePosted: project.status === "Off-Plan" ? "2024-01-01" : undefined,
+    availability: project.status === "Off-Plan" ? "PreOrder" : "InStock",
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "AED",
+      price: project.startingPrice,
+      availability: project.status === "Off-Plan" ? "https://schema.org/PreOrder" : "https://schema.org/InStock",
+      seller: {
+        "@type": "RealEstateAgent",
+        name: "Oasis Emaar — Authorized Sales Agent",
+        telephone: "+971526919169",
+      },
+    },
+    numberOfRooms: {
+      "@type": "QuantitativeValue",
+      value: parseInt(project.bedrooms),
+      unitCode: "C62",
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Dubai",
+      addressRegion: "Dubai",
+      addressCountry: "AE",
+      streetAddress: "The Oasis, Dubailand",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 25.1412,
+      longitude: 55.2252,
+    },
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(realEstateListingJsonLd) }}
+      />
+      <ProjectDetailPage project={project} />
+    </>
+  );
 }

@@ -272,6 +272,128 @@ const propertyListJsonLd = {
   ],
 };
 
+// ===== WebSite Schema with SearchAction (AEO) =====
+const webSiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Oasis Emaar — Authorized Sales Agent",
+  url: "https://oasisemaar.com",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: "https://oasisemaar.com/inventory?q={search_term_string}",
+    "query-input": "required name=search_term_string",
+  },
+  inLanguage: "en",
+  copyrightHolder: {
+    "@type": "Organization",
+    name: "Oasis Emaar",
+  },
+};
+
+// ===== Organization Schema (AEO) =====
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Oasis Emaar",
+  legalName: "Oasis Emaar Real Estate Brokerage",
+  description: "Authorized sales agent for The Oasis by Emaar Properties PJSC in Dubai, UAE. Independent licensed real estate brokerage offering expert guidance, exclusive inventory access, and personalized service.",
+  url: "https://oasisemaar.com",
+  logo: "https://oasisemaar.com/logo.svg",
+  email: "sales@oasisemaar.com",
+  telephone: "+971526919169",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Al Quoz Street 21",
+    addressLocality: "Dubai",
+    addressRegion: "Dubai",
+    addressCountry: "AE",
+  },
+  sameAs: [
+    "https://facebook.com/oasisemaar",
+    "https://instagram.com/oasisemaar",
+    "https://twitter.com/OasisEmaar",
+    "https://linkedin.com/company/oasisemaar",
+  ],
+  foundingLocation: {
+    "@type": "Place",
+    name: "Dubai, UAE",
+  },
+  knowsAbout: [
+    "Dubai Real Estate",
+    "Emaar Properties",
+    "The Oasis Community",
+    "Luxury Waterfront Villas",
+    "Off-Plan Property Sales",
+    "Dubai Property Investment",
+  ],
+};
+
+// ===== HowTo Schema: Buying Process (AEO) =====
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Buy Property at The Oasis by Emaar in Dubai",
+  description: "Step-by-step guide to purchasing a luxury waterfront villa, mansion, or branded residence at The Oasis by Emaar in Dubai through an authorized sales agent.",
+  totalTime: "P14D",
+  estimatedCost: {
+    "@type": "MonetaryAmount",
+    currency: "AED",
+    value: "9180000",
+    description: "Starting from AED 9.18M for Palmiera 3 four-bedroom villas",
+  },
+  tool: [
+    {
+      "@type": "HowToTool",
+      name: "Passport or Emirates ID",
+    },
+    {
+      "@type": "HowToTool",
+      name: "Bank details for payment transfers",
+    },
+  ],
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Contact an Authorized Agent",
+      text: "Reach out to Oasis Emaar, an authorized sales agent for The Oasis by Emaar. Call +971 52 691 9169, email sales@oasisemaar.com, or WhatsApp for immediate assistance. An authorized agent provides exclusive inventory access and expert guidance.",
+      url: "https://oasisemaar.com/contact",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Discuss Your Requirements and Budget",
+      text: "Share your preferences including budget range (AED 9.18M to AED 50M+), desired bedrooms (4-7 BR), property type (villa, mansion, or branded residence), and preferred handover timeline (Q4 2028 to Q2 2031).",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Select Your Preferred Cluster and Unit",
+      text: "Review available inventory across 9 exclusive clusters: Palmiera 3 (from AED 9.18M), Palmiera (from AED 10.5M), Palmeira Collective (from AED 11M), Address Villas Tierra (from AED 13.16M), Mareva (from AED 13.47M), Mareva 2 (from AED 13.83M), Palace Villas Ostra (from AED 13.9M), Mirage (from AED 15.8M), and Lavita (from AED 37M).",
+      url: "https://oasisemaar.com/availability",
+    },
+    {
+      "@type": "HowToStep",
+      position: 4,
+      name: "Pay the Booking Amount",
+      text: "Pay 10% of the property value as the booking amount to secure your unit. This can typically be done via bank transfer. Your authorized agent will provide the official Emaar booking documentation.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 5,
+      name: "Follow the Construction-Linked Payment Plan",
+      text: "Continue payments as per your chosen plan. Most clusters follow an 80/20 plan (10% booking, 70% during construction, 20% on handover). Mirage offers a 90/10 plan with only 10% on handover. Payments are milestone-linked during construction.",
+      url: "https://oasisemaar.com/payment-plan",
+    },
+    {
+      "@type": "HowToStep",
+      position: 6,
+      name: "Complete Handover and Registration",
+      text: "Upon completion, pay the final handover amount, complete property registration with the Dubai Land Department (DLD), and receive your Title Deed. Properties above AED 2M qualify for the UAE Golden Visa. Your agent assists with all documentation and DLD processes.",
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -334,6 +456,21 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(propertyListJsonLd) }}
+        />
+        {/* JSON-LD: WebSite Schema with SearchAction (AEO) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }}
+        />
+        {/* JSON-LD: Organization Schema (AEO) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        {/* JSON-LD: HowTo Schema — Buying Process (AEO) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
         />
       </head>
       <body
