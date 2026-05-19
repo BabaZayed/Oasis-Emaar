@@ -15,6 +15,25 @@ import { Building2, Bed, Maximize, DollarSign, Phone, Mail, User, Shield, CheckC
 import { useToast } from "@/hooks/use-toast";
 import Link from "next/link";
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://oasisemaar.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Sell Your Property",
+      item: "https://oasisemaar.com/sell",
+    },
+  ],
+};
+
 const propertyTypes = [
   { value: "villa", label: "Villa" },
   { value: "mansion", label: "Mansion" },
@@ -99,7 +118,12 @@ export default function SellPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <div className="min-h-screen flex flex-col">
       <SiteHeader />
       <main className="flex-1">
         {/* Hero Section */}
@@ -481,6 +505,7 @@ export default function SellPage() {
       </main>
       <SiteFooter />
       <WhatsAppButton />
-    </div>
+      </div>
+    </>
   );
 }

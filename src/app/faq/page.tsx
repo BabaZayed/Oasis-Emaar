@@ -40,6 +40,7 @@ export const metadata: Metadata = {
 const faqPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  dateModified: "2026-05-19",
   mainEntity: [
     {
       "@type": "Question",
@@ -124,6 +125,26 @@ const faqPageJsonLd = {
   ],
 };
 
+// BreadcrumbList JSON-LD Schema
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://oasisemaar.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "FAQ",
+      item: "https://oasisemaar.com/faq",
+    },
+  ],
+};
+
 // SpeakableSpecification for voice search on FAQ page
 const speakableJsonLd = {
   "@context": "https://schema.org",
@@ -146,6 +167,10 @@ export default function FAQPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <AEOFAQSection />
     </>
