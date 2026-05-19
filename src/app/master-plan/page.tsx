@@ -34,6 +34,33 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://oasisemaar.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Master Plan",
+      item: "https://oasisemaar.com/master-plan",
+    },
+  ],
+};
+
 export default function MasterPlanPage() {
-  return <MasterPlanPageClient />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <MasterPlanPageClient />
+    </>
+  );
 }

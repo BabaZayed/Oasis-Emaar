@@ -13,6 +13,25 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Bed, Maximize, MessageCircle, Phone, Search, SlidersHorizontal, X, Building2, ArrowRight, ShieldCheck, Crown, MapPin, Clock } from "lucide-react";
 import Link from "next/link";
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://oasisemaar.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Marketplace",
+      item: "https://oasisemaar.com/marketplace",
+    },
+  ],
+};
+
 interface SellerListing {
   id: string;
   propertyType: string;
@@ -187,7 +206,12 @@ export default function MarketplacePage() {
   }, [fetchListings]);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <div className="min-h-screen flex flex-col">
       <SiteHeader />
       <main className="flex-1">
         {/* Hero Section */}
@@ -409,6 +433,7 @@ export default function MarketplacePage() {
       </main>
       <SiteFooter />
       <WhatsAppButton />
-    </div>
+      </div>
+    </>
   );
 }

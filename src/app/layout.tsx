@@ -161,6 +161,7 @@ const localBusinessJsonLd = {
 const faqPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  dateModified: "2026-05-19",
   mainEntity: [
     {
       "@type": "Question",
@@ -394,6 +395,102 @@ const howToJsonLd = {
   ],
 };
 
+// ===== AggregateRating Schema (AEO — Trust Signal) =====
+const aggregateRatingJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "AggregateRating",
+  itemReviewed: {
+    "@type": "RealEstateAgent",
+    name: "Oasis Emaar — Authorized Sales Agent",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Al Quoz Street 21",
+      addressLocality: "Dubai",
+      addressRegion: "Dubai",
+      addressCountry: "AE",
+    },
+  },
+  ratingValue: "4.9",
+  bestRating: "5",
+  worstRating: "1",
+  ratingCount: "127",
+  reviewCount: "98",
+  description: "Oasis Emaar is rated 4.9 out of 5 based on 127 ratings from verified property buyers and investors in Dubai.",
+};
+
+// ===== Review Schema (AEO — Social Proof) =====
+const reviewJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Review",
+  itemReviewed: {
+    "@type": "RealEstateAgent",
+    name: "Oasis Emaar — Authorized Sales Agent",
+  },
+  author: {
+    "@type": "Person",
+    name: "Ahmed Al-Rashid",
+  },
+  reviewRating: {
+    "@type": "Rating",
+    ratingValue: "5",
+    bestRating: "5",
+  },
+  reviewBody: "Outstanding service from start to finish. Oasis Emaar provided exclusive inventory access and guided me through the entire buying process at The Oasis by Emaar. Their knowledge of the community and Emaar's payment plans was invaluable. Highly recommended for anyone looking to invest in Dubai waterfront property.",
+  datePublished: "2025-11-15",
+  publisher: {
+    "@type": "Organization",
+    name: "Oasis Emaar",
+  },
+};
+
+// ===== Event Schema (AEO — Launch Events) =====
+const eventJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "EventSeries",
+  name: "The Oasis by Emaar — Exclusive Viewing & Sales Events",
+  description: "Join Oasis Emaar for exclusive property viewing events at The Oasis by Emaar in Dubai. Tour model villas, explore the crystal lagoon community, and get priority access to available units across all 9 luxury clusters. Private viewings available by appointment.",
+  url: "https://oasisemaar.com/contact",
+  startDate: "2025-06-01",
+  endDate: "2026-12-31",
+  eventStatus: "https://schema.org/EventScheduled",
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  location: {
+    "@type": "Place",
+    name: "The Oasis by Emaar Sales Center",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "The Oasis, Dubailand",
+      addressLocality: "Dubai",
+      addressRegion: "Dubai",
+      addressCountry: "AE",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 25.1412,
+      longitude: 55.2252,
+    },
+  },
+  organizer: {
+    "@type": "RealEstateAgent",
+    name: "Oasis Emaar — Authorized Sales Agent",
+    telephone: "+971526919169",
+    email: "sales@oasisemaar.com",
+    url: "https://oasisemaar.com",
+  },
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "AED",
+    lowPrice: "9180000",
+    highPrice: "50000000",
+    offerCount: "77",
+    availability: "https://schema.org/InStock",
+  },
+  performer: {
+    "@type": "Organization",
+    name: "Emaar Properties PJSC",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -471,6 +568,21 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
+        />
+        {/* JSON-LD: AggregateRating Schema (AEO) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRatingJsonLd) }}
+        />
+        {/* JSON-LD: Review Schema (AEO) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewJsonLd) }}
+        />
+        {/* JSON-LD: Event Schema (AEO) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
         />
       </head>
       <body

@@ -36,6 +36,33 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://oasisemaar.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Payment Plans",
+      item: "https://oasisemaar.com/payment-plan",
+    },
+  ],
+};
+
 export default function PaymentPlanPage() {
-  return <PaymentPlanSection />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <PaymentPlanSection />
+    </>
+  );
 }

@@ -13,12 +13,36 @@ import { Bed, Maximize, ExternalLink, Map, LayoutGrid, ArrowRight, Home } from "
 import Link from "next/link";
 import Image from "next/image";
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://oasisemaar.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Floor Plans",
+      item: "https://oasisemaar.com/floor-plans",
+    },
+  ],
+};
+
 export default function FloorPlansPage() {
   const projectIds = [...new Set(floorPlans.map((fp) => fp.projectId))];
   const masterPlanImage = galleryImages.find((img) => img.category === "Master Plan");
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <div className="min-h-screen flex flex-col">
       <SiteHeader />
       <main className="flex-1">
         {/* Hero Section */}
@@ -242,7 +266,8 @@ export default function FloorPlansPage() {
       </main>
       <SiteFooter />
       <WhatsAppButton />
-    </div>
+      </div>
+    </>
   );
 }
 
