@@ -407,3 +407,141 @@ Homepage: 13 | Project pages: 27 (9x3) | FAQ page: 5
 
 Comprehensive master record covering all project details, credentials, file structure,
 AEO/AIO inventory, Meta Pixel + CAPI, lead management, inventory data, and deployment info.
+
+---
+
+## TASK 7: SEO White Hat Link Building & Internal Linking Improvements
+
+**Date:** 2026-05-19
+**Status:** All tasks completed, build passing, pushed to Vercel
+
+---
+
+### Task 1: Fix Header Phone Number Display
+
+**`src/components/site-header.tsx`**
+- Added explicit `flex-row` to phone link container
+- Added `whitespace-nowrap` to phone number span (replaces `sm:inline`)
+- Ensures phone number displays horizontally on all screen sizes
+
+### Task 2: Outbound Authority Links in About Section
+
+**`src/components/about-section.tsx`** — Major update
+- Added outbound authority links with `rel="noopener noreferrer"` and `target="_blank"`:
+  - Emaar Properties → https://www.emaar.com
+  - Address Hotels → https://www.addresshotels.com
+  - Palace Hotels → https://www.palacehotels.com
+- Added "Trusted Resources" section with 4 authoritative outbound links:
+  - Emaar Properties PJSC (developer)
+  - Dubai Land Department / DLD (government regulator)
+  - RERA — Real Estate Regulatory Agency (broker licensing)
+  - Dubai REST App (government property verification platform)
+- All external links include ExternalLink icon for visual clarity
+
+### Task 3: Internal Cross-Links in About Section
+
+**`src/components/about-section.tsx`** — "Explore The Oasis" grid
+- Added 8 contextual internal cross-links with descriptive anchor text:
+  - All Projects (9 exclusive clusters)
+  - Payment Plans (80/20 & 90/10 options)
+  - Check Availability (77 units in stock)
+  - FAQ (Common questions)
+  - Floor Plans (4 to 7 bedroom layouts)
+  - Gallery (Renders & visuals)
+  - Blog & Insights (Investment analysis)
+  - Contact Us (Speak to an agent)
+- Each link card includes ArrowRight icon with hover animation
+- Links use descriptive text for SEO-optimized anchor text
+
+### Task 4: Fix Social Media Links
+
+**`src/components/site-footer.tsx`**
+- Replaced all "#" social links with real URLs:
+  - Facebook: https://facebook.com/oasisemaar
+  - Instagram: https://instagram.com/oasisemaar
+  - Twitter: https://twitter.com/OasisEmaar
+  - LinkedIn: https://linkedin.com/company/oasisemaar
+  - YouTube: https://youtube.com/@oasisemaar
+- Added `rel="noopener noreferrer"` and `target="_blank"` to all social links
+
+### Task 5: Trusted Resources in Footer
+
+**`src/components/site-footer.tsx`**
+- Added "Trusted Resources" section under Contact column with 5 authoritative outbound links:
+  - Emaar Properties → https://www.emaar.com
+  - Dubai Land Department → https://www.dubailand.gov.ae
+  - RERA Dubai → https://www.rpdubai.ae
+  - Dubai REST → https://dubairest.gov.ae
+  - Dubai Tourism → https://www.visitdubai.com
+- Each link has ExternalLink icon and `rel="noopener noreferrer"`
+
+### Task 6: Legal Pages (Fix "#" Footer Links)
+
+Created 3 full legal pages replacing "#" links:
+
+**`src/app/privacy/page.tsx`** — NEW
+- Full Privacy Policy with 6 sections:
+  1. Information We Collect
+  2. How We Use Your Information
+  3. Cookies and Tracking Technologies (GA4, Meta Pixel)
+  4. Data Security
+  5. Your Rights (UAE DIFC & Federal Law references)
+  6. Contact Us
+- WebPage schema + BreadcrumbList schema
+- Canonical URL and metadata
+
+**`src/app/terms/page.tsx`** — NEW
+- Full Terms of Service with 7 sections:
+  1. Acceptance of Terms
+  2. Nature of Services (authorized agent disclaimer)
+  3. Property Information
+  4. Intellectual Property
+  5. Limitation of Liability
+  6. Governing Law (Dubai/UAE)
+  7. Contact
+- WebPage schema + BreadcrumbList schema
+
+**`src/app/disclaimer/page.tsx`** — NEW
+- Full Disclaimer with 6 sections:
+  1. Independent Authorised Brokerage
+  2. Property Information Accuracy
+  3. No Investment Advice
+  4. Third-Party Links
+  5. Regulatory Compliance (RERA, DLD references)
+  6. Limitation of Liability
+- WebPage schema + BreadcrumbList schema
+
+**Footer updated**: Privacy Policy → /privacy, Terms of Service → /terms, Disclaimer → /disclaimer
+
+### Task 7: Google Maps Embed in Contact Page
+
+**`src/components/contact-section.tsx`**
+- Replaced map placeholder with real Google Maps iframe embed
+- Added iframe with lazy loading, no-referrer policy, accessible title
+- Updated address link from "#" to real Google Maps URL
+
+### Task 8: Footer Layout Improvements
+
+**`src/components/site-footer.tsx`**
+- Changed from 4-column to 5-column layout (Brand, Quick Links, Contact, Resources, Newsletter)
+- Added Google Maps link to address
+- Added WhatsApp external link with proper rel attributes
+
+---
+
+### SEO White Hat Link Building Summary
+
+**Internal Links Added:** 8+ contextual cross-links in About section, all with descriptive anchor text
+**Outbound Authority Links Added:** 9 total (Emaar, Address Hotels, Palace, DLD, RERA, Dubai REST, Dubai Tourism + footer resources)
+**Social Links Fixed:** 5 (Facebook, Instagram, Twitter, LinkedIn, YouTube) — from "#" to real URLs
+**Legal Pages Created:** 3 (Privacy, Terms, Disclaimer) — eliminating dead "#" links
+**Google Maps:** Added embed + link in Contact page
+**Security:** All external links have `rel="noopener noreferrer"`
+
+### What This Achieves for SEO:
+1. **Link Equity Distribution** — Internal cross-links distribute PageRank across key pages
+2. **Authority Hub Signal** — Outbound links to Emaar, DLD, RERA signal topical authority to Google
+3. **Crawlability** — Legal pages and footer resources provide additional crawl paths
+4. **Trust Signals** — Social media links and government resource links build credibility
+5. **No Dead Links** — All "#" links eliminated (social, legal, address)
+6. **User Experience** — Real Google Maps embed improves engagement and time-on-page
