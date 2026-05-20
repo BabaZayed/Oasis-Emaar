@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import AEOFAQSection from "@/components/aeo-faq-section";
 
 export const metadata: Metadata = {
-  title: "FAQ - Frequently Asked Questions",
+  title: "FAQ - Frequently Asked Questions About The Oasis by Emaar",
   description:
-    "Get answers to frequently asked questions about The Oasis by Emaar. Learn about property types, payment plans, handover dates, freehold ownership, amenities, and how to schedule a viewing.",
+    "Get answers to frequently asked questions about The Oasis by Emaar. Learn about property types, payment plans, handover dates, freehold ownership, amenities, Golden Visa eligibility, and how to schedule a viewing with an authorized agent.",
   keywords: [
     "Oasis Emaar FAQ",
     "Dubai property FAQ",
@@ -14,25 +14,65 @@ export const metadata: Metadata = {
     "Oasis payment plan FAQ",
     "Dubai real estate questions",
     "Emaar property buying guide",
+    "The Oasis by Emaar FAQ",
+    "Dubai villa prices FAQ",
+    "Emaar payment plan questions",
+    "Dubai Golden Visa property",
+    "Oasis Emaar amenities FAQ",
+    "how to buy property in Dubai",
+    "Emaar off-plan FAQ",
+    "Dubai waterfront community questions",
+    "Oasis cluster comparison FAQ",
+    "Emaar authorized agent FAQ",
+    "Dubai real estate investment FAQ",
+    "Palmiera Lavita Mirage FAQ",
+    "The Oasis completion date",
+    "Dubai property registration FAQ",
+    "Emaar branded residences FAQ",
+    "what is The Oasis by Emaar",
+    "how much do Oasis villas cost",
+    "is The Oasis a good investment",
   ],
   openGraph: {
-    title: "FAQ | The Oasis by Emaar",
+    title: "FAQ | The Oasis by Emaar — Your Questions Answered",
     description:
-      "Get answers to frequently asked questions about The Oasis by Emaar — property types, payment plans, handover dates, and more.",
+      "Get answers to frequently asked questions about The Oasis by Emaar — property types, payment plans, handover dates, Golden Visa, freehold ownership, and more.",
     url: "https://oasisemaar.com/faq",
     siteName: "Oasis Emaar",
     type: "website",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "The Oasis by Emaar FAQ" }],
+    locale: "en_AE",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "The Oasis by Emaar FAQ - Frequently Asked Questions" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "FAQ | The Oasis by Emaar",
+    title: "FAQ | The Oasis by Emaar — Your Questions Answered",
     description:
-      "Get answers to frequently asked questions about The Oasis by Emaar.",
+      "Get answers to frequently asked questions about The Oasis by Emaar — property types, payment plans, handover dates, and more.",
     images: ["/og-image.jpg"],
+    creator: "@OasisEmaar",
+    site: "@OasisEmaar",
   },
   alternates: {
     canonical: "https://oasisemaar.com/faq",
+    languages: {
+      "en": "https://oasisemaar.com/faq",
+      "ar": "https://oasisemaar.com/ar",
+      "zh": "https://oasisemaar.com/zh",
+      "ru": "https://oasisemaar.com/ru",
+      "fr": "https://oasisemaar.com/fr",
+      "de": "https://oasisemaar.com/de",
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

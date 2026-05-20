@@ -37,6 +37,14 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Оазис Эмаар | Авторизованный агент — Роскошные виллы у воды в Дубае",
+    description: "Исследуйте Оазис Эмаар. Премиальный прибрежный комплекс, цены от 9.18 млн дирхам.",
+    images: ["/og-image.jpg"],
+    creator: "@OasisEmaar",
+    site: "@OasisEmaar",
+  },
   alternates: {
     canonical: "https://oasisemaar.com/ru",
     languages: {

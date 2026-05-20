@@ -2,8 +2,34 @@ import type { Metadata } from "next";
 import WebPageSchema from "@/components/web-page-schema";
 
 export const metadata: Metadata = {
-  title: "Disclaimer",
+  title: "Disclaimer | Oasis Emaar — The Oasis by Emaar",
   description: "Legal disclaimer for Oasis Emaar — important notices about property information, developer relationships, and investment advice related to The Oasis by Emaar.",
+  keywords: [
+    "Oasis Emaar disclaimer",
+    "Emaar property disclaimer",
+    "Dubai real estate disclaimer",
+    "investment disclaimer Dubai",
+    "property information accuracy",
+    "Emaar authorized agent disclaimer",
+    "Oasis Emaar legal notice",
+    "Dubai property investment risk",
+  ],
+  openGraph: {
+    title: "Disclaimer | Oasis Emaar",
+    description: "Important legal notices about property information, developer relationships, and investment advice.",
+    url: "https://oasisemaar.com/disclaimer",
+    siteName: "Oasis Emaar",
+    type: "website",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Oasis Emaar Disclaimer" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Disclaimer | Oasis Emaar",
+    description: "Important legal notices about Oasis Emaar property information and services.",
+    images: ["/og-image.jpg"],
+    creator: "@OasisEmaar",
+    site: "@OasisEmaar",
+  },
   alternates: { canonical: "https://oasisemaar.com/disclaimer" },
 };
 
