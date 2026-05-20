@@ -191,6 +191,7 @@ const localBusinessJsonLd = {
     "https://instagram.com/oasisemaar",
     "https://twitter.com/OasisEmaar",
     "https://linkedin.com/company/oasisemaar",
+    "https://youtube.com/@oasisemaar",
     "https://thegrandpolo.com",
     "https://theoasisemaar.com",
   ],
@@ -237,6 +238,7 @@ const organizationJsonLd = {
     "https://instagram.com/oasisemaar",
     "https://twitter.com/OasisEmaar",
     "https://linkedin.com/company/oasisemaar",
+    "https://youtube.com/@oasisemaar",
     "https://thegrandpolo.com",
     "https://theoasisemaar.com",
   ],
@@ -248,9 +250,17 @@ const organizationJsonLd = {
     "Dubai Real Estate",
     "Emaar Properties",
     "The Oasis Community",
+    "The Grand Polo Club & Resort",
     "Luxury Waterfront Villas",
     "Off-Plan Property Sales",
     "Dubai Property Investment",
+    "UAE Golden Visa",
+    "Dubai Off-Plan Properties",
+  ],
+  areaServed: [
+    { "@type": "City", name: "Dubai" },
+    { "@type": "Country", name: "United Arab Emirates" },
+    { "@type": "Place", name: "Dubailand" },
   ],
 };
 
