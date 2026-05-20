@@ -6,29 +6,10 @@ import { Button } from "@/components/ui/button";
 import { Facebook, Instagram, Twitter, Linkedin, Youtube, MapPin, Phone, Mail, MessageCircle, ArrowUp, ExternalLink, Loader2, CheckCircle } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
 import { trackLead } from "@/lib/meta-pixel";
-
-const quickLinks = [
-  { label: "Home", href: "/" },
-  { label: "Projects", href: "/projects" },
-  { label: "Inventory", href: "/inventory" },
-  { label: "Availability", href: "/availability" },
-  { label: "Listings", href: "/listings" },
-  { label: "Marketplace", href: "/marketplace" },
-  { label: "Sell Property", href: "/sell" },
-  { label: "Floor Plans", href: "/floor-plans" },
-  { label: "Payment Plan", href: "/payment-plan" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "Blog", href: "/blog" },
-  { label: "About", href: "/about" },
-  { label: "Premium Access", href: "/#premium-access" },
-  { label: "References", href: "/#references" },
-  { label: "Reviews", href: "/#feedback" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Contact", href: "/contact" },
-  { label: "Press Kit", href: "/press" },
-];
+import { detectLang, footerT, headerT, type LangCode } from "@/lib/i18n";
 
 const socialLinks = [
   { icon: Facebook, href: "https://facebook.com/oasisemaar", label: "Facebook" },
@@ -46,11 +27,24 @@ const trustedResources = [
   { name: "Dubai Tourism", url: "https://www.visitdubai.com" },
 ];
 
+const partnerProperties = [
+  { name: "Grand Polo Club & Resort by Emaar", url: "https://thegrandpolo.com", desc: "Polo-inspired luxury villas & resort community in Dubai" },
+];
+
+const alternateDomains = [
+  { domain: "theoasisemaar.com", note: "Alternate URL for this website" },
+];
+
 export default function SiteFooter() {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const { toast } = useToast();
+  const pathname = usePathname();
+  const lang: LangCode = detectLang(pathname);
+  const t = footerT[lang];
+  const headerNav = headerT[lang].nav;
+  const isRTL = lang === "ar";
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -75,8 +69,8 @@ export default function SiteFooter() {
         setEmail("");
         trackLead({ formType: "general", propertyInterest: "Newsletter" });
         toast({
-          title: "Subscribed!",
-          description: "You've been added to our newsletter. Stay tuned for exclusive updates.",
+          title: t.newsletterSuccess,
+          description: "",
         });
         setTimeout(() => setIsSuccess(false), 3000);
       } else {
@@ -98,9 +92,9 @@ export default function SiteFooter() {
   };
 
   return (
-    <footer className="bg-[#1A2332] text-white">
+    <footer className="bg-[#1A2332] text-white" dir={isRTL ? "rtl" : "ltr"}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-10">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="mb-4">
@@ -108,10 +102,10 @@ export default function SiteFooter() {
               <span className="font-body text-sm tracking-[0.15em] text-white/50 ml-2">EMAAR</span>
             </div>
             <p className="text-white/50 text-sm leading-relaxed mb-2">
-              Authorized sales agent for Emaar Properties&apos; The Oasis community in Dubai. We are an independent real estate brokerage — not Emaar Properties directly.
+              {t.brandDesc}
             </p>
             <p className="text-white/50 text-sm leading-relaxed mb-6">
-              All project information, specifications, and pricing are provided for marketing purposes and are subject to change by the developer. Images and renders are artistic impressions only.
+              {t.brandDisclaimer}
             </p>
             <div className="flex gap-3">
               {socialLinks.map((social) => (
@@ -131,24 +125,27 @@ export default function SiteFooter() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-body font-semibold text-[#C8A45C] mb-4 text-sm uppercase tracking-wider">Quick Links</h4>
+            <h4 className="font-body font-semibold text-[#C8A45C] mb-4 text-sm uppercase tracking-wider">{t.quickLinks}</h4>
             <ul className="space-y-2">
-              {quickLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-white/50 hover:text-[#C8A45C] text-sm transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              {headerNav.map((link, idx) => {
+                const navHref = headerT.en.nav[idx]?.href || link.href;
+                return (
+                  <li key={navHref}>
+                    <Link
+                      href={navHref}
+                      className="text-white/50 hover:text-[#C8A45C] text-sm transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="font-body font-semibold text-[#C8A45C] mb-4 text-sm uppercase tracking-wider">Contact</h4>
+            <h4 className="font-body font-semibold text-[#C8A45C] mb-4 text-sm uppercase tracking-wider">{t.contact}</h4>
             <div className="space-y-3">
               <a href={`tel:${PHONE_NUMBER.replace(/\s/g, "")}`} className="flex items-center gap-3 text-white/50 hover:text-[#C8A45C] text-sm transition-colors">
                 <Phone className="w-4 h-4 flex-shrink-0" /> {PHONE_NUMBER}
@@ -170,7 +167,7 @@ export default function SiteFooter() {
             </div>
 
             {/* Trusted Resources */}
-            <h4 className="font-body font-semibold text-[#C8A45C] mb-3 mt-6 text-sm uppercase tracking-wider">Trusted Resources</h4>
+            <h4 className="font-body font-semibold text-[#C8A45C] mb-3 mt-6 text-sm uppercase tracking-wider">{t.trustedResources}</h4>
             <ul className="space-y-2">
               {trustedResources.map((resource) => (
                 <li key={resource.name}>
@@ -190,41 +187,51 @@ export default function SiteFooter() {
 
           {/* Explore More Properties */}
           <div>
-            <h4 className="font-body font-semibold text-[#C8A45C] mb-4 text-sm uppercase tracking-wider">Explore More Properties</h4>
-            <a
-              href="https://thegrandpolo.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block mb-3"
-            >
-              <span className="flex items-center gap-1.5 text-white/70 hover:text-[#C8A45C] text-sm font-medium transition-colors">
-                <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
-                Grand Polo Club & Resort
-              </span>
-              <span className="text-white/40 text-xs block ml-5 group-hover:text-white/60 transition-colors">Equestrian-inspired luxury villas & townhouses by Emaar</span>
-            </a>
+            <h4 className="font-body font-semibold text-[#C8A45C] mb-4 text-sm uppercase tracking-wider">{t.exploreMore}</h4>
+            <ul className="space-y-3">
+              {partnerProperties.map((property) => (
+                <li key={property.name}>
+                  <a
+                    href={property.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block"
+                  >
+                    <span className="flex items-center gap-1.5 text-white/70 hover:text-[#C8A45C] text-sm font-medium transition-colors">
+                      <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
+                      {property.name}
+                    </span>
+                    <span className="text-white/40 text-xs block ml-5 group-hover:text-white/60 transition-colors">{property.desc}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            {/* Alternate Domain — SEO cross-domain signal */}
             <div className="mt-4 pt-3 border-t border-white/10">
               <p className="text-white/30 text-xs mb-1.5">Also accessible at:</p>
-              <a
-                href="https://theoasisemaar.com"
-                className="flex items-center gap-1.5 text-white/40 hover:text-[#C8A45C] text-xs transition-colors"
-              >
-                <ExternalLink className="w-3 h-3 flex-shrink-0" />
-                theoasisemaar.com
-              </a>
+              {alternateDomains.map((alt) => (
+                <a
+                  key={alt.domain}
+                  href={`https://${alt.domain}`}
+                  className="flex items-center gap-1.5 text-white/40 hover:text-[#C8A45C] text-xs transition-colors"
+                >
+                  <ExternalLink className="w-3 h-3 flex-shrink-0" />
+                  {alt.domain}
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Newsletter */}
           <div>
-            <h4 className="font-body font-semibold text-[#C8A45C] mb-4 text-sm uppercase tracking-wider">Newsletter</h4>
-            <p className="text-white/50 text-sm mb-4">Stay updated with The Oasis project news and exclusive offers.</p>
+            <h4 className="font-body font-semibold text-[#C8A45C] mb-4 text-sm uppercase tracking-wider">{t.newsletter}</h4>
+            <p className="text-white/50 text-sm mb-4">{t.newsletterDesc}</p>
             <form
               onSubmit={handleNewsletterSubmit}
               className="flex gap-2"
             >
               <Input
-                placeholder="Your email"
+                placeholder={t.newsletterPlaceholder}
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -243,12 +250,12 @@ export default function SiteFooter() {
                 ) : isSuccess ? (
                   <CheckCircle className="w-4 h-4" />
                 ) : (
-                  "Join"
+                  t.newsletterJoin
                 )}
               </Button>
             </form>
             {isSuccess && (
-              <p className="text-emerald-400 text-xs mt-2 font-body">You&apos;re subscribed! Check your inbox soon.</p>
+              <p className="text-emerald-400 text-xs mt-2 font-body">{t.newsletterSuccess}</p>
             )}
           </div>
         </div>
@@ -258,12 +265,12 @@ export default function SiteFooter() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-xs text-white/30">
-            &copy; {new Date().getFullYear()} Oasis Emaar (Authorised Sales Agent). All rights reserved. We are an independent authorised real estate brokerage, NOT Emaar Properties PJSC. Emaar, The Oasis, Address, Palace, and related names are trademarks of Emaar Properties PJSC. All project information is subject to change by the developer. Artistic impressions only — actual products may differ.
+            &copy; {new Date().getFullYear()} {t.copyright}
           </p>
           <div className="flex items-center gap-4 text-xs text-white/30">
-            <Link href="/privacy" className="hover:text-[#C8A45C] transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-[#C8A45C] transition-colors">Terms of Service</Link>
-            <Link href="/disclaimer" className="hover:text-[#C8A45C] transition-colors">Disclaimer</Link>
+            <Link href="/privacy" className="hover:text-[#C8A45C] transition-colors">{t.privacy}</Link>
+            <Link href="/terms" className="hover:text-[#C8A45C] transition-colors">{t.terms}</Link>
+            <Link href="/disclaimer" className="hover:text-[#C8A45C] transition-colors">{t.disclaimer}</Link>
           </div>
         </div>
       </div>

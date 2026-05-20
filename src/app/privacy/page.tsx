@@ -2,8 +2,36 @@ import type { Metadata } from "next";
 import WebPageSchema from "@/components/web-page-schema";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy",
+  title: "Privacy Policy | Oasis Emaar — The Oasis by Emaar",
   description: "Privacy Policy for Oasis Emaar — how we collect, use, and protect your personal information when you visit our website or contact us about The Oasis by Emaar properties.",
+  keywords: [
+    "Oasis Emaar privacy policy",
+    "privacy policy Dubai real estate",
+    "data protection Dubai",
+    "Emaar property privacy",
+    "personal information Dubai",
+    "UAE data protection law",
+    "GDPR Dubai property",
+    "cookie policy Oasis Emaar",
+    "Google Analytics privacy",
+    "Meta Pixel privacy",
+  ],
+  openGraph: {
+    title: "Privacy Policy | Oasis Emaar",
+    description: "How we collect, use, and protect your personal information when you visit our website.",
+    url: "https://oasisemaar.com/privacy",
+    siteName: "Oasis Emaar",
+    type: "website",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Oasis Emaar Privacy Policy" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | Oasis Emaar",
+    description: "How we collect, use, and protect your personal information.",
+    images: ["/og-image.jpg"],
+    creator: "@OasisEmaar",
+    site: "@OasisEmaar",
+  },
   alternates: { canonical: "https://oasisemaar.com/privacy" },
 };
 

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Accordion,
   AccordionItem,
@@ -22,9 +23,20 @@ import {
   Star,
   ArrowRight,
   CheckCircle,
+  Trees,
+  Store,
+  Crown,
+  ShieldCheck,
+  Bed,
+  Maximize,
+  Calendar,
+  Wallet,
 } from "lucide-react";
-import { WHATSAPP_LINK, PHONE_NUMBER, EMAIL } from "@/lib/data";
+import { WHATSAPP_LINK, PHONE_NUMBER, EMAIL, projects, formatPrice } from "@/lib/data";
+import Image from "next/image";
 import Link from "next/link";
+import SiteHeader from "@/components/site-header";
+import SiteFooter from "@/components/site-footer";
 
 // ─── Feature Data ───
 const features = [
@@ -113,6 +125,28 @@ const faqs = [
   },
 ];
 
+// ─── Community Facts (German) ───
+const communityFacts = [
+  { icon: Building2, label: "Gemeindefläche", value: "9,4M m²" },
+  { icon: Home, label: "Residenzen", value: "7.000+" },
+  { icon: Trees, label: "Grünflächen", value: "25%" },
+  { icon: Store, label: "Verkaufsfläche", value: "1,5M sqft" },
+  { icon: Waves, label: "Kristalllagune", value: "3,5 km" },
+  { icon: Crown, label: "Bauträger", value: "Emaar Properties PJSC" },
+  { icon: ShieldCheck, label: "Standort", value: "The Oasis, Dubailand" },
+  { icon: ShieldCheck, label: "Golden Visa", value: "Berechtigt" },
+];
+
+// ─── Gallery Images (German) ───
+const galleryImages = [
+  { src: "/images/gallery/gallery-exterior-1.png", alt: "Außenansicht von The Oasis" },
+  { src: "/images/gallery/gallery-exterior-2.png", alt: "Außenansicht der Anlage" },
+  { src: "/images/gallery/gallery-amenities-1.png", alt: "Annehmlichkeiten der Gemeinschaft" },
+  { src: "/images/gallery/gallery-interior-1.png", alt: "Villeninnenraum" },
+  { src: "/images/gallery/gallery-community-1.png", alt: "Wohngemeinschaft" },
+  { src: "/images/gallery/luxury-interior-living.png", alt: "Luxus-Wohnzimmer" },
+];
+
 // ─── Animation helpers ───
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -123,7 +157,9 @@ const fadeInUp = {
 
 export default function DePageClient() {
   return (
-    <main className="min-h-screen" style={{ fontFamily: "var(--font-body), sans-serif" }}>
+    <>
+      <SiteHeader />
+      <main lang="de" className="min-h-screen flex flex-col" style={{ fontFamily: "var(--font-body), sans-serif" }}>
       {/* ════════════════════════════════════════════
           SECTION 1: HERO
       ════════════════════════════════════════════ */}
@@ -231,9 +267,80 @@ export default function DePageClient() {
       </section>
 
       {/* ════════════════════════════════════════════
-          SECTION 2: KEY FEATURES (6 Cards)
+          SECTION 2: COMMUNITY FACTS
       ════════════════════════════════════════════ */}
-      <section className="py-20 sm:py-28 bg-[#F5F0E8]">
+      <section className="py-16 sm:py-20 bg-[#F5F0E8]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeInUp} className="text-center mb-12 sm:mb-16">
+            <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
+              Projektfakten
+            </span>
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
+              The Oasis auf einen Blick
+            </h2>
+            <p className="font-body text-gray-500 max-w-2xl mx-auto text-lg">
+              Schlüsselzahlen und Fakten über eine der ambitioniertesten Wasserfront-Gemeinschaften Dubais
+            </p>
+            <div className="section-divider max-w-xs mx-auto mt-6" />
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            {communityFacts.map((fact) => (
+              <motion.div
+                key={fact.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="bg-white rounded-xl p-5 sm:p-6 text-center shadow-sm hover:shadow-md transition-all duration-300 border border-transparent hover:border-[#C8A45C]/20 group"
+              >
+                <div className="w-12 h-12 rounded-lg bg-[#1A2332] flex items-center justify-center mx-auto mb-3 group-hover:bg-[#C8A45C] transition-colors duration-300">
+                  <fact.icon className="w-5 h-5 text-[#C8A45C] group-hover:text-[#1A2332] transition-colors duration-300" />
+                </div>
+                <p className="font-body text-xs text-gray-400 uppercase tracking-wider mb-1">
+                  {fact.label}
+                </p>
+                <p className={`font-heading text-base sm:text-lg font-bold ${
+                  fact.label === "Golden Visa" ? "text-emerald-600" : "text-[#1A2332]"
+                }`}>
+                  {fact.value}
+                </p>
+                {fact.label === "Golden Visa" && (
+                  <span className="inline-block mt-1 text-[10px] font-body font-medium text-emerald-600/70 bg-emerald-50 rounded-full px-2 py-0.5">
+                    Immobilien ab 2M AED
+                  </span>
+                )}
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Golden Visa Highlight */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mt-8 sm:mt-10 bg-[#1A2332] rounded-xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-4 sm:gap-6"
+          >
+            <div className="w-14 h-14 rounded-full bg-[#C8A45C]/20 flex items-center justify-center flex-shrink-0">
+              <ShieldCheck className="w-7 h-7 text-[#C8A45C]" />
+            </div>
+            <div className="text-center sm:text-left">
+              <h3 className="font-heading text-xl sm:text-2xl font-bold text-white mb-1">
+                Golden Visa der VAE Berechtigt
+              </h3>
+              <p className="font-body text-white/60 text-sm sm:text-base">
+                Alle Immobilien in The Oasis qualifizieren für das Golden-Visa-Programm der VAE bei Investitionen ab 2 Millionen AED. Sichern Sie sich Ihren Aufenthalt in den VAE mit Ihrem Traumhaus.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════
+          SECTION 3: KEY FEATURES (6 Cards)
+      ════════════════════════════════════════════ */}
+      <section className="py-20 sm:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeInUp} className="text-center mb-12 sm:mb-16">
             <span className="inline-block px-4 py-1.5 mb-4 text-xs font-semibold tracking-[0.2em] uppercase border border-[#C8A45C]/40 text-[#C8A45C] rounded-full bg-[#C8A45C]/5">
@@ -273,7 +380,102 @@ export default function DePageClient() {
       </section>
 
       {/* ════════════════════════════════════════════
-          SECTION 3: CLUSTERS OVERVIEW (9 Grid)
+          SECTION 4: PROJECTS PREVIEW (9 Cards with Images)
+      ════════════════════════════════════════════ */}
+      <section className="py-16 sm:py-24 bg-[#F5F0E8]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeInUp} className="text-center mb-12 sm:mb-16">
+            <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
+              9 Exklusive Cluster
+            </span>
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
+              Entdecken Sie die The Oasis Kollektion
+            </h2>
+            <p className="font-body text-gray-500 max-w-2xl mx-auto text-lg">
+              Neun unverwechselbare Cluster, jeder mit einer einzigartigen Perspektive auf Luxus-Wasserfront-Wohnen in Dubai
+            </p>
+            <div className="section-divider max-w-xs mx-auto mt-6" />
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {projects.map((project) => {
+              const statusColor =
+                project.status === "Ready" ? "bg-green-500" :
+                project.status === "Off-Plan" ? "bg-[#C8A45C]" :
+                "bg-orange-500";
+
+              return (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <Link href={`/projects/${project.slug}`} className="block">
+                    <Card className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 cursor-pointer h-full">
+                      <div className="relative h-56 sm:h-64 overflow-hidden">
+                        <Image
+                          src={project.imageUrl}
+                          alt={project.name}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-500" />
+                        <Badge className={`absolute top-4 left-4 ${statusColor} text-white text-xs font-semibold`}>
+                          {project.status}
+                        </Badge>
+                        <Badge className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white text-xs font-medium border-0">
+                          {project.clusterTag}
+                        </Badge>
+                        <div className="absolute bottom-4 left-4 right-4">
+                          <p className="text-white/80 text-sm font-medium">{project.tagline}</p>
+                        </div>
+                      </div>
+
+                      <CardContent className="p-5 sm:p-6">
+                        <h3 className="font-heading text-xl font-bold text-[#1A2332] mb-3">{project.name}</h3>
+
+                        <div className="grid grid-cols-2 gap-3 mb-4">
+                          <div className="flex items-center gap-2 text-sm text-gray-600">
+                            <Bed className="w-4 h-4 text-[#C8A45C]" />
+                            <span>{project.bedrooms} SZ</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-sm text-gray-600">
+                            <Maximize className="w-4 h-4 text-[#C8A45C]" />
+                            <span>{project.areaRange}</span>
+                          </div>
+                        </div>
+
+                        <div className="flex items-center gap-2 text-xs text-gray-400 mb-4">
+                          <Calendar className="w-3.5 h-3.5" />
+                          <span>Übergabe: {project.handover}</span>
+                          <span>·</span>
+                          <Wallet className="w-3.5 h-3.5" />
+                          <span>{project.paymentPlan} Zahlungsplan</span>
+                        </div>
+
+                        <div className="flex items-end justify-between pt-4 border-t border-gray-100">
+                          <div>
+                            <p className="font-body text-xs text-gray-400 uppercase tracking-wider">Preise ab</p>
+                            <p className="font-heading text-xl font-bold text-[#C8A45C]">{formatPrice(project.startingPrice)}</p>
+                          </div>
+                          <div className="w-10 h-10 rounded-lg bg-[#1A2332] flex items-center justify-center group-hover:bg-[#C8A45C] transition-colors duration-300">
+                            <ArrowRight className="w-5 h-5 text-[#C8A45C] group-hover:text-[#1A2332] transition-colors duration-300" />
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════
+          SECTION 5: CLUSTERS OVERVIEW (9 Grid)
       ════════════════════════════════════════════ */}
       <section className="py-20 sm:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -332,7 +534,212 @@ export default function DePageClient() {
       </section>
 
       {/* ════════════════════════════════════════════
-          SECTION 4: FAQ (Accordion)
+          SECTION 6: GALLERY PREVIEW
+      ════════════════════════════════════════════ */}
+      <section className="py-16 sm:py-24 bg-[#F5F0E8]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeInUp} className="text-center mb-12 sm:mb-16">
+            <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
+              Galerie
+            </span>
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
+              Entdecken Sie die Schönheit von The Oasis
+            </h2>
+            <p className="font-body text-gray-500 max-w-2xl mx-auto text-lg">
+              Erleben Sie The Oasis — von beeindruckenden Außenansichten bis zu raffinierten Innenräumen
+            </p>
+            <div className="section-divider max-w-xs mx-auto mt-6" />
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+            {galleryImages.map((img, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="relative group overflow-hidden rounded-xl aspect-[4/3]"
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-all duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center mt-8 sm:mt-10">
+            <Link href="/gallery">
+              <Button
+                variant="outline"
+                className="border-[#C8A45C] text-[#C8A45C] hover:bg-[#C8A45C]/10 px-8 py-5 text-base rounded-md gap-2"
+              >
+                Gesamte Galerie ansehen
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════
+          SECTION 7: PAYMENT PLAN
+      ════════════════════════════════════════════ */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeInUp} className="text-center mb-12 sm:mb-16">
+            <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
+              Zahlungspläne
+            </span>
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
+              Flexible Zahlungsbedingungen
+            </h2>
+            <p className="font-body text-gray-500 max-w-2xl mx-auto text-lg">
+              Wählen Sie einen praktischen Zahlungsplan, der an die Bauphasen gebunden ist
+            </p>
+            <div className="section-divider max-w-xs mx-auto mt-6" />
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 sm:gap-10 max-w-5xl mx-auto">
+            {/* 80/20 Plan */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <Card className="h-full border-0 shadow-lg overflow-hidden">
+                <div className="bg-[#1A2332] p-6 sm:p-8 text-center">
+                  <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white mb-2">
+                    Zahlungsplan 80/20
+                  </h3>
+                  <p className="font-body text-white/50 text-sm">Die meisten Cluster</p>
+                </div>
+                <CardContent className="p-6 sm:p-8">
+                  <div className="space-y-6">
+                    {/* 10% Booking */}
+                    <div className="flex items-center gap-4">
+                      <div className="w-16 h-16 rounded-xl bg-[#C8A45C]/10 flex items-center justify-center flex-shrink-0">
+                        <span className="font-heading text-xl font-bold text-[#C8A45C]">10%</span>
+                      </div>
+                      <div>
+                        <p className="font-heading font-semibold text-[#1A2332]">Bei Buchung</p>
+                        <p className="font-body text-sm text-gray-500">Erstzahlung zur Sicherung der Immobilie</p>
+                      </div>
+                    </div>
+                    {/* 70% Construction */}
+                    <div className="flex items-center gap-4">
+                      <div className="w-16 h-16 rounded-xl bg-[#C8A45C]/10 flex items-center justify-center flex-shrink-0">
+                        <span className="font-heading text-xl font-bold text-[#C8A45C]">70%</span>
+                      </div>
+                      <div>
+                        <p className="font-heading font-semibold text-[#1A2332]">Während der Bauzeit</p>
+                        <p className="font-body text-sm text-gray-500">Gebunden an Baufortschritt</p>
+                      </div>
+                    </div>
+                    {/* 20% Handover */}
+                    <div className="flex items-center gap-4">
+                      <div className="w-16 h-16 rounded-xl bg-emerald-50 flex items-center justify-center flex-shrink-0">
+                        <span className="font-heading text-xl font-bold text-emerald-600">20%</span>
+                      </div>
+                      <div>
+                        <p className="font-heading font-semibold text-[#1A2332]">Bei Übergabe</p>
+                        <p className="font-body text-sm text-gray-500">Schlusszahlung bei Schlüsselübergabe</p>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Progress Bar */}
+                  <div className="mt-6 h-3 bg-gray-100 rounded-full overflow-hidden flex">
+                    <div className="bg-[#C8A45C] w-[10%]" />
+                    <div className="bg-[#C8A45C]/70 w-[70%]" />
+                    <div className="bg-emerald-500 w-[20%]" />
+                  </div>
+                  <div className="flex justify-between mt-2 text-xs font-body text-gray-400">
+                    <span>10%</span>
+                    <span>80%</span>
+                    <span>100%</span>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* 90/10 Plan */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <Card className="h-full border-0 shadow-lg overflow-hidden relative">
+                <div className="absolute top-4 right-4 z-10">
+                  <Badge className="bg-emerald-600 text-white text-xs font-semibold border-0">
+                    Empfohlen
+                  </Badge>
+                </div>
+                <div className="bg-[#1A2332] p-6 sm:p-8 text-center">
+                  <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white mb-2">
+                    Zahlungsplan 90/10
+                  </h3>
+                  <p className="font-body text-white/50 text-sm">Cluster Mirage</p>
+                </div>
+                <CardContent className="p-6 sm:p-8">
+                  <div className="space-y-6">
+                    {/* 10% Booking */}
+                    <div className="flex items-center gap-4">
+                      <div className="w-16 h-16 rounded-xl bg-[#C8A45C]/10 flex items-center justify-center flex-shrink-0">
+                        <span className="font-heading text-xl font-bold text-[#C8A45C]">10%</span>
+                      </div>
+                      <div>
+                        <p className="font-heading font-semibold text-[#1A2332]">Bei Buchung</p>
+                        <p className="font-body text-sm text-gray-500">Erstzahlung zur Sicherung der Immobilie</p>
+                      </div>
+                    </div>
+                    {/* 80% Construction */}
+                    <div className="flex items-center gap-4">
+                      <div className="w-16 h-16 rounded-xl bg-[#C8A45C]/10 flex items-center justify-center flex-shrink-0">
+                        <span className="font-heading text-xl font-bold text-[#C8A45C]">80%</span>
+                      </div>
+                      <div>
+                        <p className="font-heading font-semibold text-[#1A2332]">Während der Bauzeit</p>
+                        <p className="font-body text-sm text-gray-500">Gebunden an Baufortschritt</p>
+                      </div>
+                    </div>
+                    {/* 10% Handover */}
+                    <div className="flex items-center gap-4">
+                      <div className="w-16 h-16 rounded-xl bg-emerald-50 flex items-center justify-center flex-shrink-0">
+                        <span className="font-heading text-xl font-bold text-emerald-600">10%</span>
+                      </div>
+                      <div>
+                        <p className="font-heading font-semibold text-[#1A2332]">Bei Übergabe</p>
+                        <p className="font-body text-sm text-gray-500">Minimale Schlusszahlung</p>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Progress Bar */}
+                  <div className="mt-6 h-3 bg-gray-100 rounded-full overflow-hidden flex">
+                    <div className="bg-[#C8A45C] w-[10%]" />
+                    <div className="bg-[#C8A45C]/70 w-[80%]" />
+                    <div className="bg-emerald-500 w-[10%]" />
+                  </div>
+                  <div className="flex justify-between mt-2 text-xs font-body text-gray-400">
+                    <span>10%</span>
+                    <span>90%</span>
+                    <span>100%</span>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════
+          SECTION 8: FAQ (Accordion)
       ════════════════════════════════════════════ */}
       <section className="py-20 sm:py-28 bg-[#F5F0E8]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -370,7 +777,7 @@ export default function DePageClient() {
       </section>
 
       {/* ════════════════════════════════════════════
-          SECTION 5: CTA
+          SECTION 9: CTA
       ════════════════════════════════════════════ */}
       <section className="py-20 sm:py-28 bg-[#1A2332] relative overflow-hidden">
         {/* Decorative elements */}
@@ -436,6 +843,8 @@ export default function DePageClient() {
           </motion.div>
         </div>
       </section>
-    </main>
+      </main>
+      <SiteFooter />
+    </>
   );
 }
