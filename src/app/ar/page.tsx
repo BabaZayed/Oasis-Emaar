@@ -37,6 +37,14 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "واحة إعمار | وكيل معتمد — فلل فاخرة على الواجهة البحرية في دبي",
+    description: "استكشف واحة إعمار مع وكيل مبيعات معتمد. فلل فاخرة وقصور تبدأ من 9.18 مليون درهم.",
+    images: ["/og-image.jpg"],
+    creator: "@OasisEmaar",
+    site: "@OasisEmaar",
+  },
   alternates: {
     canonical: "https://oasisemaar.com/ar",
     languages: {
