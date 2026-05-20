@@ -170,6 +170,7 @@ export const footerT: Record<LangCode, {
   newsletterJoin: string;
   newsletterSuccess: string;
   trustedResources: string;
+  exploreMore: string;
   brandDesc: string;
   brandDisclaimer: string;
   copyright: string;
@@ -186,6 +187,7 @@ export const footerT: Record<LangCode, {
     newsletterJoin: "Join",
     newsletterSuccess: "You're subscribed! Check your inbox soon.",
     trustedResources: "Trusted Resources",
+    exploreMore: "Explore More Properties",
     brandDesc: "Authorized sales agent for Emaar Properties' The Oasis community in Dubai. We are an independent real estate brokerage — not Emaar Properties directly.",
     brandDisclaimer: "All project information, specifications, and pricing are provided for marketing purposes and are subject to change by the developer. Images and renders are artistic impressions only.",
     copyright: "Oasis Emaar (Authorised Sales Agent). All rights reserved. We are an independent authorised real estate brokerage, NOT Emaar Properties PJSC. Emaar, The Oasis, Address, Palace, and related names are trademarks of Emaar Properties PJSC.",
@@ -202,6 +204,7 @@ export const footerT: Record<LangCode, {
     newsletterJoin: "اشترك",
     newsletterSuccess: "تم الاشتراك! تحقق من بريدك الوارد قريباً.",
     trustedResources: "موارد موثوقة",
+    exploreMore: "استكشف المزيد من العقارات",
     brandDesc: "وكيل مبيعات معتمد لمجتمع واحة إعمار في دبي. نحن وساطة عقارية مستقلة — لسنا إعمار بروبيرتيز مباشرة.",
     brandDisclaimer: "جميع معلومات المشروع والمواصفات والأسعار مقدمة لأغراض تسويقية وقابلة للتغيير من قبل المطور. الصور والرسوم هي انطباعات فنية فقط.",
     copyright: "واحة إعمار (وكيل مبيعات معتمد). جميع الحقوق محفوظة. نحن وساطة عقارية معتمدة مستقلة، لسنا إعمار بروبيرتيز. إعمار والواحة وأدرس وقصر وأسماء أخرى هي علامات تجارية لإعمار بروبيرتيز.",
@@ -218,6 +221,7 @@ export const footerT: Record<LangCode, {
     newsletterJoin: "订阅",
     newsletterSuccess: "订阅成功！请查看您的收件箱。",
     trustedResources: "权威资源",
+    exploreMore: "探索更多楼盘",
     brandDesc: "伊玛尔绿洲社区在迪拜的授权销售代理。我们是一家独立的房地产经纪公司——并非伊玛尔地产本身。",
     brandDisclaimer: "所有项目信息、规格和定价仅供营销参考，可能由开发商随时变更。图片和渲染图仅为艺术效果图。",
     copyright: "Oasis Emaar（授权销售代理）。保留所有权利。我们是独立的授权房地产经纪公司，非伊玛尔地产。伊玛尔、绿洲、Address、Palace及相关名称为伊玛尔地产的商标。",
@@ -234,6 +238,7 @@ export const footerT: Record<LangCode, {
     newsletterJoin: "Подписаться",
     newsletterSuccess: "Вы подписаны! Проверьте почту.",
     trustedResources: "Проверенные Ресурсы",
+    exploreMore: "Другие Проекты",
     brandDesc: "Авторизованный агент по продажам комплекса Оазис Эмаар в Дубае. Мы независимое лицензированное агентство недвижимости — не Emaar Properties напрямую.",
     brandDisclaimer: "Вся информация о проекте, спецификации и цены предоставлены в маркетинговых целях и могут быть изменены застройщиком. Изображения являются художественными впечатлениями.",
     copyright: "Оазис Эмаар (Авторизованный агент). Все права защищены. Мы независимое авторизованное агентство недвижимости, НЕ Emaar Properties PJSC. Emaar, The Oasis, Address, Palace и связанные названия являются товарными знаками Emaar Properties PJSC.",
@@ -250,6 +255,7 @@ export const footerT: Record<LangCode, {
     newsletterJoin: "S'inscrire",
     newsletterSuccess: "Vous êtes inscrit ! Vérifiez votre boîte de réception.",
     trustedResources: "Ressources de Confiance",
+    exploreMore: "Autres Projets",
     brandDesc: "Agent de vente autorisé pour la communauté The Oasis d'Emaar Properties à Dubaï. Nous sommes une agence immobilière indépendante — pas Emaar Properties directement.",
     brandDisclaimer: "Toutes les informations sur le projet, les spécifications et les prix sont fournies à des fins marketing et peuvent être modifiées par le promoteur. Les images sont des impressions artistiques uniquement.",
     copyright: "Oasis Emaar (Agent de Vente Autorisé). Tous droits réservés. Nous sommes une agence immobilière autorisée indépendante, PAS Emaar Properties PJSC. Emaar, The Oasis, Address, Palace et noms associés sont des marques d'Emaar Properties PJSC.",
@@ -266,6 +272,7 @@ export const footerT: Record<LangCode, {
     newsletterJoin: "Anmelden",
     newsletterSuccess: "Sie sind angemeldet! Prüfen Sie Ihren Posteingang.",
     trustedResources: "Vertrauenswürdige Quellen",
+    exploreMore: "Weitere Projekte",
     brandDesc: "Autorisierter Verkaufsagent für die The Oasis Gemeinde von Emaar Properties in Dubai. Wir sind ein unabhängiges Immobilienunternehmen — nicht Emaar Properties direkt.",
     brandDisclaimer: "Alle Projektinformationen, Spezifikationen und Preise dienen Marketingzwecken und können vom Bauträger geändert werden. Bilder und Renderings sind künstlerische Impressionen.",
     copyright: "Oasis Emaar (Autorisierter Verkaufsagent). Alle Rechte vorbehalten. Wir sind ein unabhängiges autorisiertes Immobilienunternehmen, NICHT Emaar Properties PJSC. Emaar, The Oasis, Address, Palace und verwandte Namen sind Marken der Emaar Properties PJSC.",

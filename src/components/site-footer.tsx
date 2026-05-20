@@ -27,6 +27,10 @@ const trustedResources = [
   { name: "Dubai Tourism", url: "https://www.visitdubai.com" },
 ];
 
+const partnerProperties = [
+  { name: "Grand Polo Club & Resort by Emaar", url: "https://thegrandpolo.com", desc: "Polo-inspired luxury villas & resort community in Dubai" },
+];
+
 export default function SiteFooter() {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -86,7 +90,7 @@ export default function SiteFooter() {
   return (
     <footer className="bg-[#1A2332] text-white" dir={isRTL ? "rtl" : "ltr"}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-10">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="mb-4">
@@ -171,6 +175,29 @@ export default function SiteFooter() {
                   >
                     <ExternalLink className="w-3 h-3 flex-shrink-0" />
                     {resource.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Explore More Properties */}
+          <div>
+            <h4 className="font-body font-semibold text-[#C8A45C] mb-4 text-sm uppercase tracking-wider">{t.exploreMore}</h4>
+            <ul className="space-y-3">
+              {partnerProperties.map((property) => (
+                <li key={property.name}>
+                  <a
+                    href={property.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block"
+                  >
+                    <span className="flex items-center gap-1.5 text-white/70 hover:text-[#C8A45C] text-sm font-medium transition-colors">
+                      <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
+                      {property.name}
+                    </span>
+                    <span className="text-white/40 text-xs block ml-5 group-hover:text-white/60 transition-colors">{property.desc}</span>
                   </a>
                 </li>
               ))}

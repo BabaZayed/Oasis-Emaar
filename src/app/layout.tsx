@@ -191,6 +191,8 @@ const localBusinessJsonLd = {
     "https://instagram.com/oasisemaar",
     "https://twitter.com/OasisEmaar",
     "https://linkedin.com/company/oasisemaar",
+    "https://thegrandpolo.com",
+    "https://theoasisemaar.com",
   ],
 };
 
@@ -235,6 +237,8 @@ const organizationJsonLd = {
     "https://instagram.com/oasisemaar",
     "https://twitter.com/OasisEmaar",
     "https://linkedin.com/company/oasisemaar",
+    "https://thegrandpolo.com",
+    "https://theoasisemaar.com",
   ],
   foundingLocation: {
     "@type": "Place",
