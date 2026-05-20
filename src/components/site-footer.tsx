@@ -188,6 +188,33 @@ export default function SiteFooter() {
             </ul>
           </div>
 
+          {/* Explore More Properties */}
+          <div>
+            <h4 className="font-body font-semibold text-[#C8A45C] mb-4 text-sm uppercase tracking-wider">Explore More Properties</h4>
+            <a
+              href="https://thegrandpolo.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block mb-3"
+            >
+              <span className="flex items-center gap-1.5 text-white/70 hover:text-[#C8A45C] text-sm font-medium transition-colors">
+                <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
+                Grand Polo Club & Resort
+              </span>
+              <span className="text-white/40 text-xs block ml-5 group-hover:text-white/60 transition-colors">Equestrian-inspired luxury villas & townhouses by Emaar</span>
+            </a>
+            <div className="mt-4 pt-3 border-t border-white/10">
+              <p className="text-white/30 text-xs mb-1.5">Also accessible at:</p>
+              <a
+                href="https://theoasisemaar.com"
+                className="flex items-center gap-1.5 text-white/40 hover:text-[#C8A45C] text-xs transition-colors"
+              >
+                <ExternalLink className="w-3 h-3 flex-shrink-0" />
+                theoasisemaar.com
+              </a>
+            </div>
+          </div>
+
           {/* Newsletter */}
           <div>
             <h4 className="font-body font-semibold text-[#C8A45C] mb-4 text-sm uppercase tracking-wider">Newsletter</h4>
