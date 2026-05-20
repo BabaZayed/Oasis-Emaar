@@ -37,6 +37,14 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "伊玛尔绿洲 | 授权代理 — 迪拜豪华水滨别墅",
+    description: "通过授权代理探索伊玛尔绿洲。迪拜高端水滨社区，起价918万迪拉姆。",
+    images: ["/og-image.jpg"],
+    creator: "@OasisEmaar",
+    site: "@OasisEmaar",
+  },
   alternates: {
     canonical: "https://oasisemaar.com/zh",
     languages: {
