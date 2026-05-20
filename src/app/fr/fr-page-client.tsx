@@ -25,6 +25,8 @@ import {
 } from "lucide-react";
 import { WHATSAPP_LINK, PHONE_NUMBER, EMAIL } from "@/lib/data";
 import Link from "next/link";
+import SiteHeader from "@/components/site-header";
+import SiteFooter from "@/components/site-footer";
 
 // ─── Feature Data ───
 const features = [
@@ -130,7 +132,9 @@ const staggerContainer = {
 
 export default function FrPageClient() {
   return (
-    <main className="min-h-screen" style={{ fontFamily: "var(--font-body), sans-serif" }}>
+    <>
+      <SiteHeader />
+      <main lang="fr" className="min-h-screen flex flex-col" style={{ fontFamily: "var(--font-body), sans-serif" }}>
       {/* ════════════════════════════════════════════
           SECTION 1: HERO
       ════════════════════════════════════════════ */}
@@ -443,6 +447,8 @@ export default function FrPageClient() {
           </motion.div>
         </div>
       </section>
-    </main>
+      </main>
+      <SiteFooter />
+    </>
   );
 }

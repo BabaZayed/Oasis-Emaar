@@ -1015,3 +1015,70 @@ Created 6 files — 2 per language (server component + client component). Each p
 - `npx next build` — Passed successfully (all routes including /ar, /zh, /ru generated as static)
 - Dev server running on port 3000
 - All 3 pages return HTTP 200
+
+---
+
+## TASK 2: Fix Language Landing Pages — Add SiteHeader & SiteFooter
+
+**Date:** 2026-05-21
+**Status:** All 5 pages fixed, lint clean, dev server running
+
+---
+
+### Problem
+
+When users navigated to language pages (/ar, /zh, /ru, /fr, /de), the SiteHeader and SiteFooter were missing. There was no way to navigate back to the main site or switch languages again. Each page had either a minimal "Simple Footer" with manual language links, or no footer at all.
+
+### Changes Made
+
+**`src/app/ar/ar-page-client.tsx`** — Arabic page
+- Added imports: `SiteHeader` from `@/components/site-header`, `SiteFooter` from `@/components/site-footer`
+- Wrapped return in `<>...</>` fragment
+- Added `<SiteHeader />` BEFORE the `<div dir="rtl" lang="ar">` wrapper (header stays LTR)
+- Removed the entire "Simple Footer" section (copyright + manual language links)
+- Added `<SiteFooter />` AFTER the closing `</div>` (footer stays LTR)
+- The `dir="rtl"` attribute remains only on the content wrapper, NOT on header/footer
+
+**`src/app/zh/zh-page-client.tsx`** — Chinese page
+- Added imports: `SiteHeader` and `SiteFooter`
+- Wrapped return in `<>...</>` fragment
+- Added `<SiteHeader />` before `<div lang="zh">`
+- Removed the entire "Simple Footer" section (copyright + manual language links)
+- Added `<SiteFooter />` after closing `</div>`
+
+**`src/app/ru/ru-page-client.tsx`** — Russian page
+- Added imports: `SiteHeader` and `SiteFooter`
+- Wrapped return in `<>...</>` fragment
+- Added `<SiteHeader />` before `<div lang="ru">`
+- Removed the entire "Simple Footer" section (copyright + manual language links)
+- Added `<SiteFooter />` after closing `</div>`
+
+**`src/app/fr/fr-page-client.tsx`** — French page
+- Added imports: `SiteHeader` and `SiteFooter`
+- Wrapped return in `<>...</>` fragment
+- Added `<SiteHeader />` before `<main lang="fr">`
+- Added `lang="fr"` attribute and `flex flex-col` class to the `<main>` element
+- Added `<SiteFooter />` after closing `</main>`
+
+**`src/app/de/de-page-client.tsx`** — German page
+- Added imports: `SiteHeader` and `SiteFooter`
+- Wrapped return in `<>...</>` fragment
+- Added `<SiteHeader />` before `<main lang="de">`
+- Added `lang="de"` attribute and `flex flex-col` class to the `<main>` element
+- Added `<SiteFooter />` after closing `</main>`
+
+### Key Design Decisions
+
+1. **SiteHeader/SiteFooter stay LTR** — Only the Arabic page's content wrapper has `dir="rtl"`. The shared header and footer remain in their default LTR layout for consistency with the language switcher and navigation.
+
+2. **Fragment wrapper** — All pages now use `<>...</>` as the root return element, with SiteHeader, content, and SiteFooter as siblings.
+
+3. **Removed "Simple Footer" sections** — The old manual footers in AR, ZH, and RU pages (which had copyright text + 2-3 language links) were completely removed and replaced by the proper SiteFooter component, which includes all navigation links, social links, newsletter signup, and the full language switcher.
+
+4. **Added `lang` attributes** — FR and DE pages now have `lang="fr"` and `lang="de"` on their main content elements for proper accessibility and SEO.
+
+### Verification
+
+- `bun run lint` — No errors or warnings
+- Dev server running on port 3000
+

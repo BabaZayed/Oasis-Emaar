@@ -30,6 +30,8 @@ import {
 import { WHATSAPP_LINK, PHONE_NUMBER, EMAIL } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
+import SiteHeader from "@/components/site-header";
+import SiteFooter from "@/components/site-footer";
 
 const features = [
   {
@@ -113,8 +115,10 @@ const faqs = [
 
 export default function ZhPageClient() {
   return (
-    <div lang="zh" className="min-h-screen flex flex-col">
-      {/* ===== HERO ===== */}
+    <>
+      <SiteHeader />
+      <div lang="zh" className="min-h-screen flex flex-col">
+        {/* ===== HERO ===== */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <Image
           src="/images/hero-oasis-real.png"
@@ -428,23 +432,8 @@ export default function ZhPageClient() {
         </section>
       </main>
 
-      {/* Simple Footer */}
-      <footer className="bg-[#0F1520] py-8 text-center">
-        <p className="font-body text-white/40 text-sm">
-          © {new Date().getFullYear()} 伊玛尔绿洲 — 授权销售代理。保留所有权利。
-        </p>
-        <div className="flex items-center justify-center gap-4 mt-4">
-          <Link href="/" className="font-body text-white/40 text-sm hover:text-[#C8A45C] transition-colors">
-            English
-          </Link>
-          <Link href="/ar" className="font-body text-white/40 text-sm hover:text-[#C8A45C] transition-colors">
-            العربية
-          </Link>
-          <Link href="/ru" className="font-body text-white/40 text-sm hover:text-[#C8A45C] transition-colors">
-            Русский
-          </Link>
-        </div>
-      </footer>
-    </div>
+      </div>
+      <SiteFooter />
+    </>
   );
 }
