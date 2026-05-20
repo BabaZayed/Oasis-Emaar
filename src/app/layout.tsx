@@ -6,6 +6,7 @@ import WhatsAppButton from "@/components/whatsapp-button";
 import SocialProof from "@/components/social-proof";
 import PWAInstallPrompt from "@/components/pwa-install-prompt";
 import UTMTracker from "@/components/utm-tracker";
+import LanguageDetector from "@/components/language-detector";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-heading",
@@ -301,6 +302,7 @@ export default function RootLayout({
         style={{ fontFamily: "var(--font-body), sans-serif" }}
       >
         <UTMTracker />
+        <LanguageDetector />
         {children}
         <WhatsAppButton />
         <SocialProof />

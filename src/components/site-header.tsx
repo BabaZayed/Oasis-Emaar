@@ -5,34 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Tag, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_LINK, PHONE_NUMBER, inventoryItems } from "@/lib/data";
+import { detectLang, langNames, langCodes, headerT, type LangCode } from "@/lib/i18n";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-const languages = [
-  { code: "en", label: "English", flag: "🇬🇧", href: "/" },
-  { code: "ar", label: "العربية", flag: "🇸🇦", href: "/ar" },
-  { code: "zh", label: "中文", flag: "🇨🇳", href: "/zh" },
-  { code: "ru", label: "Русский", flag: "🇷🇺", href: "/ru" },
-  { code: "fr", label: "Français", flag: "🇫🇷", href: "/fr" },
-  { code: "de", label: "Deutsch", flag: "🇩🇪", href: "/de" },
-];
-
-const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Inventory", href: "/inventory", badge: true },
-  { label: "Projects", href: "/projects" },
-  { label: "Marketplace", href: "/marketplace" },
-  { label: "Sell Property", href: "/sell" },
-  { label: "Floor Plans", href: "/floor-plans" },
-  { label: "Payment Plan", href: "/payment-plan" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "Blog", href: "/blog" },
-  { label: "About", href: "/about" },
-  { label: "Reviews", href: "/#feedback" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Listings", href: "/listings" },
-  { label: "Contact", href: "/contact" },
-];
 
 export default function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -41,7 +16,10 @@ export default function SiteHeader() {
   const langRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
-  const currentLang = languages.find(l => l.code !== "en" && pathname.startsWith(l.href)) || languages[0];
+  const currentLang: LangCode = detectLang(pathname);
+  const t = headerT[currentLang];
+  const isRTL = currentLang === "ar";
+  const availableCount = inventoryItems.filter((i) => i.status === "available").length;
 
   // Click outside to close language dropdown
   useEffect(() => {
@@ -62,6 +40,11 @@ export default function SiteHeader() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
+
   return (
     <>
       <header
@@ -70,33 +53,35 @@ export default function SiteHeader() {
             ? "bg-[#1A2332]/95 backdrop-blur-md shadow-lg"
             : "bg-transparent"
         }`}
+        dir={isRTL ? "rtl" : "ltr"}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2">
+            <Link href={currentLang === "en" ? "/" : `/${currentLang}`} className="flex items-center gap-2">
               <div className="flex flex-col">
                 <span className="font-heading text-xl sm:text-2xl font-bold tracking-wider text-[#C8A45C]">
                   OASIS
                 </span>
                 <span className="text-[10px] sm:text-xs tracking-[0.15em] text-white/70 -mt-1">
-                  EMAAR | AUTHORIZED AGENT
+                  {t.logoSubtitle}
                 </span>
               </div>
             </Link>
 
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-1">
-              {navLinks.map((link) => {
-                const isActive = pathname === link.href ||
-                  (link.href !== "/" && pathname.startsWith(link.href));
+              {t.nav.map((link, idx) => {
                 const isSellPage = link.href === "/sell";
-                const isBadge = "badge" in link && link.badge;
-                const availableCount = inventoryItems.filter((i) => i.status === "available").length;
+                const isInventory = link.href === "/inventory";
+                // Use the original English href for navigation
+                const navHref = headerT.en.nav[idx]?.href || link.href;
+                const isActive = pathname === navHref ||
+                  (navHref !== "/" && pathname.startsWith(navHref));
                 return (
                   <Link
-                    key={link.href}
-                    href={link.href}
+                    key={navHref}
+                    href={navHref}
                     className={`font-body px-3 py-2 text-sm transition-colors duration-200 rounded-md flex items-center gap-1.5 ${
                       isSellPage
                         ? "bg-emerald-600 text-white font-semibold hover:bg-emerald-700"
@@ -107,7 +92,7 @@ export default function SiteHeader() {
                   >
                     {isSellPage && <Tag className="w-3.5 h-3.5" />}
                     {link.label}
-                    {isBadge && (
+                    {isInventory && (
                       <span className="bg-[#C8A45C] text-[#1A2332] text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none">
                         {availableCount}
                       </span>
@@ -135,24 +120,24 @@ export default function SiteHeader() {
                 >
                   <Globe className="w-5 h-5" />
                   <span className="text-[10px] font-bold bg-[#C8A45C] text-[#1A2332] px-1 py-0.5 rounded leading-none">
-                    {currentLang.code.toUpperCase()}
+                    {currentLang.toUpperCase()}
                   </span>
                 </button>
                 {langOpen && (
-                  <div className="absolute right-0 top-full mt-2 w-48 bg-[#1A2332] border border-white/10 rounded-lg shadow-2xl overflow-hidden z-50">
-                    {languages.map((lang) => (
+                  <div className={`absolute ${isRTL ? 'left-0' : 'right-0'} top-full mt-2 w-48 bg-[#1A2332] border border-white/10 rounded-lg shadow-2xl overflow-hidden z-50`}>
+                    {langCodes.map((code) => (
                       <Link
-                        key={lang.code}
-                        href={lang.href}
+                        key={code}
+                        href={langNames[code].href}
                         onClick={() => setLangOpen(false)}
                         className={`flex items-center gap-3 px-4 py-3 text-sm transition-colors ${
-                          currentLang.code === lang.code
+                          currentLang === code
                             ? "text-[#C8A45C] bg-white/5"
                             : "text-white/80 hover:text-[#C8A45C] hover:bg-white/5"
                         }`}
                       >
-                        <span className="text-lg">{lang.flag}</span>
-                        <span>{lang.label}</span>
+                        <span className="text-lg">{langNames[code].flag}</span>
+                        <span>{langNames[code].label}</span>
                       </Link>
                     ))}
                   </div>
@@ -162,7 +147,7 @@ export default function SiteHeader() {
                 <Button
                   className="gold-gradient text-[#1A2332] font-semibold text-sm px-4 py-2 rounded-md hover:opacity-90 transition-opacity hidden sm:flex"
                 >
-                  Check Availability
+                  {t.checkAvailability}
                 </Button>
               </Link>
               <button
@@ -193,30 +178,26 @@ export default function SiteHeader() {
               className="absolute inset-0 bg-black/50"
               onClick={() => setMobileOpen(false)}
             />
-            <div className="absolute top-16 left-0 right-0 bg-[#1A2332] border-t border-white/10 shadow-2xl">
-              <nav className="max-w-7xl mx-auto px-4 py-4 flex flex-col">
-                {navLinks.map((link) => {
-                  const isActive = pathname === link.href ||
-                    (link.href !== "/" && pathname.startsWith(link.href));
+            <div className="absolute top-16 left-0 right-0 bg-[#1A2332] border-t border-white/10 shadow-2xl max-h-[80vh] overflow-y-auto">
+              <nav className="max-w-7xl mx-auto px-4 py-4 flex flex-col" dir={isRTL ? "rtl" : "ltr"}>
+                {t.nav.map((link, idx) => {
+                  const navHref = headerT.en.nav[idx]?.href || link.href;
                   const isSellPage = link.href === "/sell";
-                  const isBadge = "badge" in link && link.badge;
-                  const availableCount = inventoryItems.filter((i) => i.status === "available").length;
+                  const isInventory = link.href === "/inventory";
                   return (
                     <Link
-                      key={link.href}
-                      href={link.href}
+                      key={navHref}
+                      href={navHref}
                       onClick={() => setMobileOpen(false)}
                       className={`px-4 py-3 rounded-md transition-colors flex items-center gap-2 min-h-[44px] ${
                         isSellPage
                           ? "bg-emerald-600 text-white font-semibold"
-                          : isActive
-                            ? "text-[#C8A45C] bg-white/5"
-                            : "text-white/80 hover:text-[#C8A45C] hover:bg-white/5"
+                          : "text-white/80 hover:text-[#C8A45C] hover:bg-white/5"
                       }`}
                     >
                       {isSellPage && <Tag className="w-4 h-4" />}
                       {link.label}
-                      {isBadge && (
+                      {isInventory && (
                         <span className="bg-[#C8A45C] text-[#1A2332] text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none">
                           {availableCount}
                         </span>
@@ -232,30 +213,32 @@ export default function SiteHeader() {
                   >
                     WhatsApp: {PHONE_NUMBER}
                   </a>
-                  <Link href="/availability">
+                  <Link href="/availability" onClick={() => setMobileOpen(false)}>
                     <Button
                       className="w-full gold-gradient text-[#1A2332] font-semibold py-3 rounded-md"
                     >
-                      Check Availability
+                      {t.checkAvailability}
                     </Button>
                   </Link>
                   {/* Mobile Language Options */}
                   <div className="mt-3 pt-3 border-t border-white/10">
-                    <p className="text-xs text-white/50 mb-2 px-1">Language</p>
+                    <p className="text-xs text-white/50 mb-2 px-1">
+                      {currentLang === "ar" ? "اللغة" : currentLang === "zh" ? "语言" : currentLang === "ru" ? "Язык" : currentLang === "fr" ? "Langue" : currentLang === "de" ? "Sprache" : "Language"}
+                    </p>
                     <div className="grid grid-cols-2 gap-1">
-                      {languages.map((lang) => (
+                      {langCodes.map((code) => (
                         <Link
-                          key={lang.code}
-                          href={lang.href}
+                          key={code}
+                          href={langNames[code].href}
                           onClick={() => setMobileOpen(false)}
                           className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm min-h-[44px] transition-colors ${
-                            currentLang.code === lang.code
+                            currentLang === code
                               ? "text-[#C8A45C] bg-white/5"
                               : "text-white/80 hover:text-[#C8A45C] hover:bg-white/5"
                           }`}
                         >
-                          <span>{lang.flag}</span>
-                          <span>{lang.label}</span>
+                          <span>{langNames[code].flag}</span>
+                          <span>{langNames[code].label}</span>
                         </Link>
                       ))}
                     </div>
