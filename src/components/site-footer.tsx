@@ -31,6 +31,10 @@ const partnerProperties = [
   { name: "Grand Polo Club & Resort by Emaar", url: "https://thegrandpolo.com", desc: "Polo-inspired luxury villas & resort community in Dubai" },
 ];
 
+const alternateDomains = [
+  { domain: "theoasisemaar.com", note: "Alternate URL for this website" },
+];
+
 export default function SiteFooter() {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -202,6 +206,20 @@ export default function SiteFooter() {
                 </li>
               ))}
             </ul>
+            {/* Alternate Domain — SEO cross-domain signal */}
+            <div className="mt-4 pt-3 border-t border-white/10">
+              <p className="text-white/30 text-xs mb-1.5">Also accessible at:</p>
+              {alternateDomains.map((alt) => (
+                <a
+                  key={alt.domain}
+                  href={`https://${alt.domain}`}
+                  className="flex items-center gap-1.5 text-white/40 hover:text-[#C8A45C] text-xs transition-colors"
+                >
+                  <ExternalLink className="w-3 h-3 flex-shrink-0" />
+                  {alt.domain}
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Newsletter */}
