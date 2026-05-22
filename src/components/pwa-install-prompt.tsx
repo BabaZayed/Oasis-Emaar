@@ -89,12 +89,14 @@ export default function PWAInstallPrompt() {
   return (
     <AnimatePresence>
       {showBanner && deferredPrompt && (
-        <motion.div
+        <>
+          <div className="fixed inset-0 bg-black/20 z-40" onClick={handleDismiss} />
+          <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 60 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="fixed bottom-20 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-sm z-40"
+          className="fixed bottom-24 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-sm z-40"
         >
           <div className="bg-[#1A2332] border border-[#C8A45C]/30 rounded-xl shadow-2xl p-4 relative overflow-hidden">
             {/* Gold accent line at top */}
@@ -126,7 +128,7 @@ export default function PWAInstallPrompt() {
                   </button>
                   <button
                     onClick={handleDismiss}
-                    className="inline-flex items-center gap-1 text-gray-400 hover:text-gray-200 font-body text-xs transition-colors"
+                    className="inline-flex items-center gap-1 text-gray-400 hover:text-gray-200 font-body text-xs transition-colors min-h-[44px] min-w-[44px]"
                   >
                     <X className="w-3.5 h-3.5" />
                     Dismiss
@@ -136,6 +138,7 @@ export default function PWAInstallPrompt() {
             </div>
           </div>
         </motion.div>
+        </>
       )}
     </AnimatePresence>
   );

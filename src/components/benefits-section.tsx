@@ -48,7 +48,7 @@ export default function BenefitsSection() {
             <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mt-4 mb-5 text-[#F0EDE6]">
               Benefits of Living at The Oasis
             </h2>
-            <p className="font-body text-white/50 max-w-2xl mx-auto text-lg font-light">
+            <p className="font-body text-white/60 max-w-2xl mx-auto text-lg font-light">
               A community designed for those who seek the extraordinary in every aspect of life
             </p>
             <div className="luxury-divider mt-10">
@@ -70,7 +70,7 @@ export default function BenefitsSection() {
                   <benefit.icon className="w-7 h-7 text-[#C8A45C]" />
                 </div>
                 <h3 className="font-heading text-xl sm:text-2xl font-bold text-[#F0EDE6] mb-3 group-hover:text-[#C8A45C] transition-colors duration-500">{benefit.title}</h3>
-                <p className="font-body text-white/50 text-base leading-relaxed font-light">{benefit.description}</p>
+                <p className="font-body text-white/60 text-base leading-relaxed font-light">{benefit.description}</p>
               </div>
             </ScrollReveal>
           ))}

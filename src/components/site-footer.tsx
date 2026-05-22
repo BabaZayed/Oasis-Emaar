@@ -118,7 +118,7 @@ export default function SiteFooter() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="w-9 h-9 rounded-lg bg-white/[0.06] border border-white/[0.06] flex items-center justify-center hover:bg-[#C8A45C]/15 hover:border-[#C8A45C]/20 transition-all duration-300"
+                  className="w-11 h-11 rounded-lg bg-white/[0.06] border border-white/[0.06] flex items-center justify-center hover:bg-[#C8A45C]/15 hover:border-[#C8A45C]/20 transition-all duration-300"
                 >
                   <social.icon className="w-4 h-4 text-[#C8A45C]" />
                 </a>

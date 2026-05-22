@@ -84,7 +84,7 @@ export default function QuickInventorySection() {
         </ScrollReveal>
 
         {/* Summary Bar - Premium glass-morphism */}
-        <ScrollReveal delay={0.1}>
+        <ScrollReveal delay={0.1} cinematic>
         <div className="glass-bar p-5 sm:p-7 mb-8 sm:mb-10 flex flex-col sm:flex-row items-center justify-between gap-5">
           <div className="flex items-center gap-8 sm:gap-10">
             <div className="text-center sm:text-left">
@@ -161,7 +161,7 @@ export default function QuickInventorySection() {
                 </div>
 
                 {/* Property Cards Grid */}
-                <div className="p-5 sm:p-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-7">
+                <div className="p-5 sm:p-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
                   {displayItems.map((item) => (
                     <div
                       key={item.id}
