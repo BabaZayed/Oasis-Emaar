@@ -42,10 +42,10 @@ const premiumBenefits = [
 ];
 
 const budgetOptions = [
-  { value: "3m-5m", label: "AED 3M - 5M" },
-  { value: "5m-10m", label: "AED 5M - 10M" },
-  { value: "10m-20m", label: "AED 10M - 20M" },
-  { value: "20m+", label: "AED 20M+" },
+  { value: "9m-12m", label: "AED 9M - 12M" },
+  { value: "12m-20m", label: "AED 12M - 20M" },
+  { value: "20m-30m", label: "AED 20M - 30M" },
+  { value: "30m+", label: "AED 30M+" },
 ];
 
 const timelineOptions = [

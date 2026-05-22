@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, MapPin, Home, Building2, Ruler, Tag } from "lucide-react";
+import { ChevronDown, Home, Building2, Ruler, Waves } from "lucide-react";
 import { formatPrice } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,7 +11,7 @@ const stats = [
   { icon: Home, label: "Starting From", value: formatPrice(9180000) },
   { icon: Building2, label: "Residences", value: "7,000+" },
   { icon: Ruler, label: "Total Area", value: "9.4M sqm" },
-  { icon: MapPin, label: "Location", value: "20 min from Downtown" },
+  { icon: Waves, label: "Crystal Lagoon", value: "3.5 km" },
 ];
 
 export default function HeroSection() {
@@ -20,10 +20,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-    >
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <Image
         src="/images/hero-oasis-real.png"
@@ -33,21 +30,51 @@ export default function HeroSection() {
         priority
         quality={90}
       />
-      {/* Overlay */}
-      <div className="absolute inset-0 hero-overlay" />
 
-      {/* Decorative Elements */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#C8A45C]/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl" />
+      {/* Luxury Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0D1B2A]/70 via-[#0D1B2A]/40 to-[#0D1B2A]/90" />
+
+      {/* Water-inspired decorative particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(6)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full bg-[#C8A45C]/10 animate-water-particle"
+            style={{
+              width: `${8 + i * 4}px`,
+              height: `${8 + i * 4}px`,
+              left: `${15 + i * 14}%`,
+              bottom: `${10 + i * 8}%`,
+              animationDelay: `${i * 0.8}s`,
+              animationDuration: `${4 + i * 0.5}s`,
+            }}
+          />
+        ))}
+        {/* Gold dust particles */}
+        {[...Array(8)].map((_, i) => (
+          <div
+            key={`dust-${i}`}
+            className="absolute rounded-full bg-[#D4AF37]/20 animate-float"
+            style={{
+              width: `${3 + (i % 3) * 2}px`,
+              height: `${3 + (i % 3) * 2}px`,
+              left: `${5 + i * 11}%`,
+              top: `${20 + (i % 4) * 15}%`,
+              animationDelay: `${i * 0.5}s`,
+              animationDuration: `${3 + i * 0.3}s`,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Decorative blurs */}
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#C8A45C]/[0.03] rounded-full blur-[100px]" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-cyan-500/[0.03] rounded-full blur-[100px]" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <span className="inline-block px-4 py-1.5 mb-6 text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase border border-[#C8A45C]/40 text-[#C8A45C] rounded-full">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
+          <span className="inline-block px-5 py-2 mb-8 text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase border border-[#C8A45C]/30 text-[#C8A45C] rounded-full backdrop-blur-sm bg-white/[0.03]">
             Authorised Emaar Sales Agent
           </span>
         </motion.div>
@@ -55,85 +82,66 @@ export default function HeroSection() {
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight tracking-tight"
+          transition={{ duration: 1, delay: 0.2 }}
+          className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#F0EDE6] mb-4 sm:mb-6 leading-[0.95] tracking-tight"
         >
           The Oasis
-          <span className="block text-[#C8A45C]">Dubai</span>
+          <span className="block gold-text mt-1">by Emaar</span>
         </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="font-body text-lg sm:text-xl md:text-2xl text-white/70 max-w-3xl mx-auto mb-4 sm:mb-6 font-light"
-        >
-          9 Exclusive Clusters · Ultra-Luxury Waterfront Living
-        </motion.p>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="font-body text-sm sm:text-base text-white/50 max-w-2xl mx-auto mb-8 sm:mb-12"
+          transition={{ duration: 1, delay: 0.4 }}
+          className="font-body text-lg sm:text-xl md:text-2xl text-[#8A9BB5] max-w-3xl mx-auto mb-3 font-light"
         >
-          Adress Villas Tierra · Lavita · Mareva · Mirage · Palace Villas Ostra · Palmeira Collective · Palmiera
-          <br />
-          <span className="text-[#C8A45C]/80">Your Trusted Authorised Emaar Partner</span>
+          9 Exclusive Clusters · Ultra-Luxury Waterfront Living · Dubai
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="font-body text-sm sm:text-base text-[#8A9BB5]/70 max-w-2xl mx-auto mb-10 sm:mb-14"
+        >
+          Address Villas Tierra · Lavita · Mareva · Mirage · Palmiera · Palace Villas Ostra
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 sm:mb-16"
+          transition={{ duration: 1, delay: 0.6 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14 sm:mb-20"
         >
           <Link href="/projects" className="w-full sm:w-auto">
-            <Button
-              size="lg"
-              className="gold-gradient text-[#1A2332] font-bold px-8 py-6 text-base rounded-md hover:opacity-90 transition-opacity w-full sm:w-auto"
-            >
+            <Button size="lg" className="btn-gold px-10 py-7 text-base w-full sm:w-auto">
               Explore All 9 Clusters
             </Button>
           </Link>
           <Link href="/availability" className="w-full sm:w-auto">
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-[#C8A45C] text-[#C8A45C] hover:bg-[#C8A45C]/10 px-8 py-6 text-base rounded-md w-full sm:w-auto"
-            >
+            <Button size="lg" className="btn-outline-gold px-10 py-7 text-base w-full sm:w-auto bg-transparent">
               Check Availability
-            </Button>
-          </Link>
-          <Link href="/sell" className="w-full sm:w-auto">
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-emerald-400 text-emerald-400 hover:bg-emerald-400/10 px-8 py-6 text-base rounded-md w-full sm:w-auto gap-2"
-            >
-              <Tag className="w-5 h-5" />
-              List Your Property
             </Button>
           </Link>
         </motion.div>
 
-        {/* Stats */}
+        {/* Stats with glass-morphism */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto"
+          transition={{ duration: 1, delay: 0.9 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5 max-w-4xl mx-auto"
         >
-          {stats.map((stat) => (
+          {stats.map((stat, i) => (
             <div
               key={stat.label}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-4 sm:p-6"
+              className="glass-card p-5 sm:p-7 text-center card-luxury-hover"
             >
-              <stat.icon className="w-5 h-5 sm:w-6 sm:h-6 text-[#C8A45C] mx-auto mb-2" />
-              <p className="font-heading text-lg sm:text-xl md:text-2xl font-bold text-white">
+              <stat.icon className="w-5 h-5 sm:w-6 sm:h-6 text-[#C8A45C] mx-auto mb-3" />
+              <p className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-[#F0EDE6] mb-1">
                 {stat.value}
               </p>
-              <p className="font-body text-xs sm:text-sm text-white/50 uppercase tracking-wider">{stat.label}</p>
+              <p className="font-body text-xs sm:text-sm text-[#8A9BB5] uppercase tracking-[0.15em]">{stat.label}</p>
             </div>
           ))}
         </motion.div>
@@ -143,15 +151,12 @@ export default function HeroSection() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
+        transition={{ delay: 2 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 cursor-pointer"
         onClick={() => scrollTo("#projects")}
       >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-        >
-          <ChevronDown className="w-8 h-8 text-[#C8A45C]/60" />
+        <motion.div animate={{ y: [0, 10, 0] }} transition={{ repeat: Infinity, duration: 2 }}>
+          <ChevronDown className="w-8 h-8 text-[#C8A45C]/50" />
         </motion.div>
       </motion.div>
     </section>

@@ -90,7 +90,7 @@ export default async function ProjectPageRoute({ params }: PageProps) {
 
   // Unique GeoCoordinates per cluster (approximate positions within The Oasis)
   const clusterGeo: Record<string, { lat: number; lng: number }> = {
-    "adress-villas-tierra": { lat: 25.1398, lng: 55.2235 },
+    "address-villas-tierra": { lat: 25.1398, lng: 55.2235 },
     "lavita": { lat: 25.1445, lng: 55.2288 },
     "mareva-1": { lat: 25.1385, lng: 55.2268 },
     "mareva-2": { lat: 25.1378, lng: 55.2278 },

@@ -41,7 +41,7 @@ import Image from "next/image";
 
 // Cluster map URL mapping
 const clusterMapUrls: Record<string, string> = {
-  "adress-villas-tierra": "/images/maps/adress-villas-tierra-map.png",
+  "address-villas-tierra": "/images/maps/address-villas-tierra-map.png",
   "lavita": "/images/maps/lavita-map.png",
   "palmeira-collective": "/images/maps/palmeira-collective-map.png",
 };

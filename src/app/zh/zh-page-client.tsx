@@ -81,7 +81,7 @@ const clusters = [
   { name: "Mareva 2", price: "1,383万迪拉姆", beds: "4-6卧室", slug: "mareva-2" },
   { name: "Mirage", price: "1,580万迪拉姆", beds: "5-6卧室", slug: "mirage" },
   { name: "Lavita", price: "3,700万迪拉姆", beds: "6卧室", slug: "lavita" },
-  { name: "Address Villas Tierra", price: "1,316万迪拉姆", beds: "4-6卧室", slug: "adress-villas-tierra" },
+  { name: "Address Villas Tierra", price: "1,316万迪拉姆", beds: "4-6卧室", slug: "address-villas-tierra" },
   { name: "Palace Villas Ostra", price: "1,390万迪拉姆", beds: "4-6卧室", slug: "palace-villas-ostra" },
   { name: "Palmeira Collective", price: "1,100万迪拉姆", beds: "4卧室", slug: "palmeira-collective" },
 ];
