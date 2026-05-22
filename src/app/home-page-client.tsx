@@ -14,6 +14,7 @@ import Image from "next/image";
 import { projects, formatPrice } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { Bed, Maximize, ArrowRight, Building2, Trees, Store, Waves, MapPin, Crown, ShieldCheck, Users, Tag, Eye, BadgeCheck, Star } from "lucide-react";
+import ScrollReveal from "@/components/scroll-reveal";
 
 function ProjectPreviewCard({ project }: { project: typeof projects[0] }) {
   const statusColor =
@@ -103,22 +104,25 @@ export default function HomePageClient() {
         {/* Community Facts */}
         <section className="py-28 sm:py-36 bg-water-section water-wave-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center mb-20 sm:mb-24">
-              <span className="section-label">Project Facts</span>
-              <h2 className="section-heading text-4xl sm:text-5xl md:text-6xl text-[#F0EDE6] mt-4 mb-5">
-                The Oasis at a Glance
-              </h2>
-              <p className="font-body text-[#8A9BB5] max-w-2xl mx-auto text-lg font-light">
-                Key facts and figures about one of Dubai&apos;s most ambitious waterfront communities
-              </p>
-              <div className="luxury-divider mt-10">
-                <span className="diamond" />
+            <ScrollReveal>
+              <div className="text-center mb-20 sm:mb-24">
+                <span className="section-label">Project Facts</span>
+                <h2 className="section-heading text-4xl sm:text-5xl md:text-6xl text-[#F0EDE6] mt-4 mb-5">
+                  The Oasis at a Glance
+                </h2>
+                <p className="font-body text-[#8A9BB5] max-w-2xl mx-auto text-lg font-light">
+                  Key facts and figures about one of Dubai&apos;s most ambitious waterfront communities
+                </p>
+                <div className="luxury-divider mt-10">
+                  <span className="diamond" />
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-5 sm:gap-7">
+            <ScrollReveal delay={0.2} cinematic>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 stagger-children">
               {facts.map((fact) => (
-                <div key={fact.label} className="glass-card-premium p-7 sm:p-9 text-center card-premium-hover group">
+                <div key={fact.label} className="glass-card-premium p-8 sm:p-10 text-center card-premium-hover group">
                   <div className="w-14 h-14 rounded-xl bg-[#C8A45C]/8 border border-[#C8A45C]/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-[#C8A45C]/15 group-hover:border-[#C8A45C]/20 transition-all duration-500">
                     <fact.icon className="w-6 h-6 text-[#C8A45C] group-hover:scale-110 transition-transform duration-500" />
                   </div>
@@ -134,8 +138,10 @@ export default function HomePageClient() {
                 </div>
               ))}
             </div>
+            </ScrollReveal>
 
             {/* Golden Visa Banner */}
+            <ScrollReveal delay={0.4}>
             <div className="mt-14 glass-card-premium p-10 sm:p-12 flex flex-col sm:flex-row items-center gap-6 sm:gap-8 animate-luxury-glow">
               <div className="w-16 h-16 rounded-full bg-[#C8A45C]/15 flex items-center justify-center flex-shrink-0 border border-[#C8A45C]/10">
                 <ShieldCheck className="w-8 h-8 text-[#C8A45C]" />
@@ -149,30 +155,37 @@ export default function HomePageClient() {
                 </p>
               </div>
             </div>
+            </ScrollReveal>
           </div>
         </section>
 
         {/* Projects Preview - Show all 9 clusters */}
         <section id="projects" className="py-28 sm:py-36 bg-cream-section">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-20 sm:mb-24">
-              <span className="section-label">9 Exclusive Clusters</span>
-              <h2 className="section-heading text-4xl sm:text-5xl md:text-6xl text-[#0D1B2A] mt-4 mb-5">
-                Discover The Oasis Collection
-              </h2>
-              <p className="font-body text-gray-500 max-w-2xl mx-auto text-lg font-light">
-                Nine distinctive clusters, each offering a unique perspective on luxury waterfront living
-              </p>
-              <div className="luxury-divider mt-10">
-                <span className="diamond" />
+            <ScrollReveal>
+              <div className="text-center mb-20 sm:mb-24">
+                <span className="section-label">9 Exclusive Clusters</span>
+                <h2 className="section-heading text-4xl sm:text-5xl md:text-6xl text-[#0D1B2A] mt-4 mb-5">
+                  Discover The Oasis Collection
+                </h2>
+                <p className="font-body text-gray-500 max-w-2xl mx-auto text-lg font-light">
+                  Nine distinctive clusters, each offering a unique perspective on luxury waterfront living
+                </p>
+                <div className="luxury-divider mt-10">
+                  <span className="diamond" />
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 sm:gap-8">
-              {projects.map((project) => (
-                <ProjectPreviewCard key={project.id} project={project} />
+            <ScrollReveal delay={0.15} cinematic>
+              <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-10 sm:gap-12">
+              {projects.map((project, i) => (
+                <ScrollReveal key={project.id} delay={i * 0.08} duration={0.7}>
+                  <ProjectPreviewCard project={project} />
+                </ScrollReveal>
               ))}
             </div>
+            </ScrollReveal>
           </div>
         </section>
 
@@ -191,20 +204,23 @@ export default function HomePageClient() {
         {/* Seller Marketplace Section - refined and subtle */}
         <section className="py-24 sm:py-32 bg-cream-section">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <span className="section-label">Seller Marketplace</span>
-              <h2 className="section-heading text-4xl sm:text-5xl md:text-6xl text-[#0D1B2A] mt-4 mb-5">
-                List Your Property for Sale
-              </h2>
-              <p className="font-body text-gray-500 max-w-2xl mx-auto text-lg font-light">
-                Are you a current owner at The Oasis? List your property on our marketplace and reach thousands of verified buyers actively looking to invest.
-              </p>
-              <div className="luxury-divider mt-10">
-                <span className="diamond" />
+            <ScrollReveal>
+              <div className="text-center mb-16">
+                <span className="section-label">Seller Marketplace</span>
+                <h2 className="section-heading text-4xl sm:text-5xl md:text-6xl text-[#0D1B2A] mt-4 mb-5">
+                  List Your Property for Sale
+                </h2>
+                <p className="font-body text-gray-500 max-w-2xl mx-auto text-lg font-light">
+                  Are you a current owner at The Oasis? List your property on our marketplace and reach thousands of verified buyers actively looking to invest.
+                </p>
+                <div className="luxury-divider mt-10">
+                  <span className="diamond" />
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <ScrollReveal delay={0.2} cinematic>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
               {[
                 { icon: Users, title: "Reach Thousands of Buyers", desc: "Your property is showcased to our verified network of investors and homebuyers actively seeking Oasis properties." },
                 { icon: Star, title: "Free Listing, No Hidden Fees", desc: "List your property completely free with zero commissions or hidden charges. You only deal directly with buyers." },
@@ -213,7 +229,7 @@ export default function HomePageClient() {
               ].map((item) => (
                 <div
                   key={item.title}
-                  className="glass-card-light p-7 hover:shadow-lg card-premium-hover group text-center"
+                  className="glass-card-light p-8 hover:shadow-lg card-premium-hover group text-center"
                 >
                   <div className="w-12 h-12 rounded-lg border border-[#C8A45C]/20 bg-[#C8A45C]/5 flex items-center justify-center mx-auto mb-5 group-hover:bg-[#C8A45C] group-hover:border-[#C8A45C] transition-all duration-500">
                     <item.icon className="w-5 h-5 text-[#C8A45C] group-hover:text-[#0D1B2A] transition-colors duration-500" />
@@ -223,8 +239,10 @@ export default function HomePageClient() {
                 </div>
               ))}
             </div>
+            </ScrollReveal>
 
             {/* Dual CTA */}
+            <ScrollReveal delay={0.3}>
             <div className="bg-[#0D1B2A] rounded-2xl p-10 sm:p-14 flex flex-col lg:flex-row items-center gap-8 lg:gap-12 border border-[#C8A45C]/10 relative overflow-hidden">
               {/* Subtle decorative glow */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#C8A45C]/[0.03] rounded-full blur-[80px]" />
@@ -256,6 +274,7 @@ export default function HomePageClient() {
                 </Link>
               </div>
             </div>
+            </ScrollReveal>
           </div>
         </section>
 
@@ -265,6 +284,7 @@ export default function HomePageClient() {
           <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#C8A45C]/[0.04] rounded-full blur-[120px]" />
           <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-cyan-500/[0.04] rounded-full blur-[120px]" />
 
+          <ScrollReveal cinematic>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <span className="section-label">Start Your Journey</span>
             <h2 className="section-heading text-4xl sm:text-5xl md:text-6xl text-[#F0EDE6] mt-4 mb-6 hero-text-shadow">
@@ -286,6 +306,7 @@ export default function HomePageClient() {
               </Link>
             </div>
           </div>
+          </ScrollReveal>
         </section>
       </main>
       <SiteFooter />

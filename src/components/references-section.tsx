@@ -3,6 +3,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Star, Quote, Building2, Award, Handshake, Users } from "lucide-react";
+import ScrollReveal from "@/components/scroll-reveal";
 
 const references = [
   {
@@ -77,6 +78,7 @@ export default function ReferencesSection() {
     <section id="references" className="py-20 sm:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
+        <ScrollReveal>
         <div className="text-center mb-12 sm:mb-16">
           <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
             Trusted By Experts
@@ -89,13 +91,14 @@ export default function ReferencesSection() {
           </p>
           <div className="section-divider max-w-xs mx-auto mt-6" />
         </div>
+        </ScrollReveal>
 
         {/* Testimonial Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
           {references.map((ref, index) => (
+            <ScrollReveal key={index} delay={index * 0.1}>
             <div
-              key={index}
-              className="bg-[#F5F0E8] rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
+              className="bg-[#F5F0E8] rounded-xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
             >
               {/* Quote Icon */}
               <Quote className="w-8 h-8 text-[#C8A45C]/40 mb-4" />
@@ -127,6 +130,7 @@ export default function ReferencesSection() {
                 </Badge>
               </div>
             </div>
+            </ScrollReveal>
           ))}
         </div>
 
