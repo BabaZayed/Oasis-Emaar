@@ -92,19 +92,19 @@ export default function SiteFooter() {
   };
 
   return (
-    <footer className="bg-[#1A2332] text-white" dir={isRTL ? "rtl" : "ltr"}>
+    <footer className="bg-[#0D1B2A] text-white border-t border-[#C8A45C]/10" dir={isRTL ? "rtl" : "ltr"}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-10">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="mb-4">
-              <span className="font-heading text-2xl font-bold tracking-wider text-[#C8A45C]">OASIS</span>
+              <span className="font-heading text-2xl font-bold tracking-wider gold-text">OASIS</span>
               <span className="font-body text-sm tracking-[0.15em] text-white/50 ml-2">EMAAR</span>
             </div>
-            <p className="text-white/50 text-sm leading-relaxed mb-2">
+            <p className="text-[#8A9BB5] text-sm leading-relaxed mb-2">
               {t.brandDesc}
             </p>
-            <p className="text-white/50 text-sm leading-relaxed mb-6">
+            <p className="text-[#8A9BB5] text-sm leading-relaxed mb-6">
               {t.brandDisclaimer}
             </p>
             <div className="flex gap-3">
@@ -278,7 +278,7 @@ export default function SiteFooter() {
       {/* Back to Top */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-24 right-6 w-10 h-10 rounded-full bg-[#1A2332] text-[#C8A45C] shadow-lg flex items-center justify-center hover:bg-[#2A3A52] transition-colors z-40"
+        className="fixed bottom-28 right-6 w-10 h-10 rounded-full bg-[#0D1B2A] text-[#C8A45C] shadow-lg flex items-center justify-center hover:bg-[#1B2D45] transition-colors z-40"
         aria-label="Back to top"
       >
         <ArrowUp className="w-5 h-5" />

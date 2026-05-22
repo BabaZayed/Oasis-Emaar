@@ -25,7 +25,7 @@ const clusterOptions = [
   { value: "mareva-1", label: "Mareva" },
   { value: "palmeira-collective", label: "Palmeira Collective" },
   { value: "lavita", label: "Lavita" },
-  { value: "adress-villas-tierra", label: "Adress Villas Tierra" },
+  { value: "address-villas-tierra", label: "Address Villas Tierra" },
   { value: "mirage", label: "Mirage" },
   { value: "palace-villas-ostra", label: "Palace Villas Ostra" },
   { value: "palmiera", label: "Palmiera" },

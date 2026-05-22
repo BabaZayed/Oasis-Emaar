@@ -81,7 +81,7 @@ const clusters = [
   { name: "ماريفا 2", price: "13.83 مليون درهم", beds: "4-6 غرف نوم", slug: "mareva-2" },
   { name: "ميراج", price: "15.8 مليون درهم", beds: "5-6 غرف نوم", slug: "mirage" },
   { name: "لافيتا", price: "37 مليون درهم", beds: "6 غرف نوم", slug: "lavita" },
-  { name: "فلل أدرس تييرا", price: "13.16 مليون درهم", beds: "4-6 غرف نوم", slug: "adress-villas-tierra" },
+  { name: "فلل أدرس تييرا", price: "13.16 مليون درهم", beds: "4-6 غرف نوم", slug: "address-villas-tierra" },
   { name: "فلل قصر أوسترا", price: "13.9 مليون درهم", beds: "4-6 غرف نوم", slug: "palace-villas-ostra" },
   { name: "بالميرا الجماعية", price: "11 مليون درهم", beds: "4 غرف نوم", slug: "palmeira-collective" },
 ];

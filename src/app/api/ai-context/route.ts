@@ -80,13 +80,13 @@ const aiContext = {
     },
     {
       name: "Address Villas Tierra",
-      slug: "adress-villas-tierra",
+      slug: "address-villas-tierra",
       type: "4-6 bedroom Address-branded villas",
       startingPrice: "AED 13.16M",
       handover: "June 2029",
       paymentPlan: "80/20",
       highlights: "Address Hotels & Resorts branded, hotel-level concierge",
-      url: "https://oasisemaar.com/projects/adress-villas-tierra",
+      url: "https://oasisemaar.com/projects/address-villas-tierra",
     },
     {
       name: "Mareva",

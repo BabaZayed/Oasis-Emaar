@@ -12,10 +12,10 @@ import { useToast } from "@/hooks/use-toast";
 import { trackLead, trackContact } from "@/lib/meta-pixel";
 
 const budgetOptions = [
-  { value: "3m-5m", label: "AED 3M - 5M" },
-  { value: "5m-10m", label: "AED 5M - 10M" },
-  { value: "10m-20m", label: "AED 10M - 20M" },
-  { value: "20m+", label: "AED 20M+" },
+  { value: "9m-12m", label: "AED 9M - 12M" },
+  { value: "12m-20m", label: "AED 12M - 20M" },
+  { value: "20m-30m", label: "AED 20M - 30M" },
+  { value: "30m+", label: "AED 30M+" },
 ];
 
 const timelineOptions = [
@@ -264,11 +264,15 @@ export default function ContactSection() {
                           <SelectValue placeholder="Select a project" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="oasis-villas">The Oasis Villas</SelectItem>
-                          <SelectItem value="oasis-mansions">The Oasis Mansions</SelectItem>
-                          <SelectItem value="oasis-creek">Oasis Creek Townhouses</SelectItem>
-                          <SelectItem value="oasis-lagoon">Oasis Lagoon Residences</SelectItem>
-                          <SelectItem value="oasis-heights">Oasis Heights Penthouses</SelectItem>
+                          <SelectItem value="palmiera-3">Palmiera 3</SelectItem>
+                          <SelectItem value="palmiera">Palmiera</SelectItem>
+                          <SelectItem value="palmeira-collective">Palmeira Collective</SelectItem>
+                          <SelectItem value="mareva">Mareva</SelectItem>
+                          <SelectItem value="mareva-2">Mareva 2</SelectItem>
+                          <SelectItem value="mirage">Mirage</SelectItem>
+                          <SelectItem value="address-villas-tierra">Address Villas Tierra</SelectItem>
+                          <SelectItem value="palace-villas-ostra">Palace Villas Ostra</SelectItem>
+                          <SelectItem value="lavita">Lavita</SelectItem>
                           <SelectItem value="general">General Inquiry</SelectItem>
                         </SelectContent>
                       </Select>

@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     "Mareva villas",
     "Palmiera 3 villas",
     "Palmeira Collective",
-    "Adress Villas Tierra",
+    "Address Villas Tierra",
     "buy property Dubai",
     "Dubai freehold property",
     "UAE Golden Visa property",
@@ -140,7 +140,7 @@ const propertyListJsonLd = {
   name: "The Oasis by Emaar — Available Properties (Authorised Agent)",
   numberOfItems: 9,
   itemListElement: [
-    { "@type": "ListItem", position: 1, item: { "@type": "RealEstateListing", name: "Adress Villas Tierra", description: "4-6 bedroom Address-branded villas from AED 13.16M", url: "https://oasisemaar.com/projects/adress-villas-tierra" } },
+    { "@type": "ListItem", position: 1, item: { "@type": "RealEstateListing", name: "Address Villas Tierra", description: "4-6 bedroom Address-branded villas from AED 13.16M", url: "https://oasisemaar.com/projects/address-villas-tierra" } },
     { "@type": "ListItem", position: 2, item: { "@type": "RealEstateListing", name: "Lavita", description: "6-7 bedroom ultra-luxury waterfront mansions from AED 37M", url: "https://oasisemaar.com/projects/lavita" } },
     { "@type": "ListItem", position: 3, item: { "@type": "RealEstateListing", name: "Mareva", description: "4-6 bedroom waterfront villas from AED 13.47M", url: "https://oasisemaar.com/projects/mareva-1" } },
     { "@type": "ListItem", position: 4, item: { "@type": "RealEstateListing", name: "Mareva 2", description: "4-6 bedroom next-phase villas from AED 13.83M", url: "https://oasisemaar.com/projects/mareva-2" } },

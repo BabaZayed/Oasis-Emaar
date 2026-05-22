@@ -94,12 +94,12 @@ export interface GalleryImage {
 // ======== PROJECTS (9 Clusters) ========
 export const projects: Project[] = [
   {
-    id: "adress-villas-tierra",
-    name: "Adress Villas Tierra",
-    slug: "adress-villas-tierra",
+    id: "address-villas-tierra",
+    name: "Address Villas Tierra",
+    slug: "address-villas-tierra",
     type: "branded-villa",
     tagline: "Branded Luxury by Address Hotels & Resorts",
-    description: "Adress Villas Tierra represents the pinnacle of branded living within The Oasis by Emaar. These 4 to 6-bedroom luxury villas are fully furnished and managed by Address Hotels & Resorts, bringing the signature hospitality experience into your private residence. Each villa features interiors designed by the Address brand, with premium finishes, private pools, landscaped gardens, and expansive living spaces that seamlessly blend indoor and outdoor waterfront living. The villas are strategically positioned to maximise lagoon and waterway views, offering residents an unparalleled resort-style lifestyle within a gated, secure community.",
+    description: "Address Villas Tierra represents the pinnacle of branded living within The Oasis by Emaar. These 4 to 6-bedroom luxury villas are fully furnished and managed by Address Hotels & Resorts, bringing the signature hospitality experience into your private residence. Each villa features interiors designed by the Address brand, with premium finishes, private pools, landscaped gardens, and expansive living spaces that seamlessly blend indoor and outdoor waterfront living. The villas are strategically positioned to maximise lagoon and waterway views, offering residents an unparalleled resort-style lifestyle within a gated, secure community.",
     bedrooms: "4, 5 & 6",
     startingPrice: 13160000,
     areaRange: "7,269 - 12,777 sqft",
@@ -110,7 +110,7 @@ export const projects: Project[] = [
     features: ["Address Hotels Furnishing", "Private Swimming Pool", "Landscaped Garden", "Maid's Room", "Covered Parking", "Basement Level", "Rooftop Terrace", "Smart Home Technology"],
     amenities: ["Crystal Lagoon & Beach", "Address Hotel Services", "Private Beach Club", "Swimming Pools", "Fitness Centre & Spa", "Fine Dining", "Kids' Play Areas", "Walking Trails", "24/7 Security"],
     imageGradient: "from-emerald-700 via-teal-600 to-cyan-500",
-    imageUrl: "/images/projects/adress-villas-tierra.png",
+    imageUrl: "/images/projects/address-villas-tierra.png",
     clusterTag: "Branded Residences",
     driveFolderId: "11cxYBTJ9dYWHMFMef-KwF1BlKPc_Xbxy",
     driveFolderUrl: "https://drive.google.com/drive/folders/11cxYBTJ9dYWHMFMef-KwF1BlKPc_Xbxy",
@@ -559,9 +559,9 @@ export const inventoryItems: InventoryItem[] = [
 
 // ======== FLOOR PLANS ========
 export const floorPlans: FloorPlan[] = [
-  { id: "fp-avt-1", projectId: "adress-villas-tierra", name: "Type A - 4 Bedroom Villa", bedrooms: 4, areaSqft: 7269, plotSqft: 8500, imageGradient: "from-emerald-100 to-teal-50", imageUrl: "/images/floorplans/adress-villas-tierra-fp-1.png" },
-  { id: "fp-avt-2", projectId: "adress-villas-tierra", name: "Type B - 5 Bedroom Villa", bedrooms: 5, areaSqft: 9500, plotSqft: 11000, imageGradient: "from-teal-100 to-cyan-50", imageUrl: "/images/floorplans/adress-villas-tierra-fp-2.png" },
-  { id: "fp-avt-3", projectId: "adress-villas-tierra", name: "Type C - 6 Bedroom Villa", bedrooms: 6, areaSqft: 12777, plotSqft: 15000, imageGradient: "from-cyan-100 to-sky-50", imageUrl: "/images/floorplans/adress-villas-tierra-fp-3.png" },
+  { id: "fp-avt-1", projectId: "address-villas-tierra", name: "Type A - 4 Bedroom Villa", bedrooms: 4, areaSqft: 7269, plotSqft: 8500, imageGradient: "from-emerald-100 to-teal-50", imageUrl: "/images/floorplans/address-villas-tierra-fp-1.png" },
+  { id: "fp-avt-2", projectId: "address-villas-tierra", name: "Type B - 5 Bedroom Villa", bedrooms: 5, areaSqft: 9500, plotSqft: 11000, imageGradient: "from-teal-100 to-cyan-50", imageUrl: "/images/floorplans/address-villas-tierra-fp-2.png" },
+  { id: "fp-avt-3", projectId: "address-villas-tierra", name: "Type C - 6 Bedroom Villa", bedrooms: 6, areaSqft: 12777, plotSqft: 15000, imageGradient: "from-cyan-100 to-sky-50", imageUrl: "/images/floorplans/address-villas-tierra-fp-3.png" },
   { id: "fp-lav-1", projectId: "lavita", name: "OP Lavita-V-27 - Type S1A", bedrooms: 6, areaSqft: 20096, plotSqft: 22275, imageGradient: "from-amber-100 to-yellow-50", imageUrl: "/images/inventory/lavita-v27-floorplan.png" },
   { id: "fp-lav-2", projectId: "lavita", name: "OP Lavita-V-47 - Type S1A", bedrooms: 6, areaSqft: 20096, plotSqft: 23824, imageGradient: "from-yellow-100 to-orange-50", imageUrl: "/images/inventory/lavita-v47-floorplan.png" },
   { id: "fp-mar1-1", projectId: "mareva-1", name: "4 Bedroom Villa", bedrooms: 4, areaSqft: 7254, plotSqft: 8800, imageGradient: "from-violet-100 to-purple-50" },
@@ -594,7 +594,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: "What clusters are available at The Oasis?",
-    answer: "The Oasis features nine distinctive clusters: Adress Villas Tierra (branded by Address Hotels, 4-6BR), Lavita (ultra-luxury 6-7BR mansions), Mareva (4-6BR villas), Mareva 2 (next-phase 4-6BR villas), Mirage (premium 5-6BR villas), Palace Villas Ostra (Palace-branded 4-6BR villas), Palmeira Collective (limited edition 4BR villas — only 38 units), Palmiera (contemporary 4BR villas), and Palmiera 3 (4BR villas). Each cluster offers a unique lifestyle and price point. Contact us for detailed comparisons and personalised recommendations."
+    answer: "The Oasis features nine distinctive clusters: Address Villas Tierra (branded by Address Hotels, 4-6BR), Lavita (ultra-luxury 6-7BR mansions), Mareva (4-6BR villas), Mareva 2 (next-phase 4-6BR villas), Mirage (premium 5-6BR villas), Palace Villas Ostra (Palace-branded 4-6BR villas), Palmeira Collective (limited edition 4BR villas — only 38 units), Palmiera (contemporary 4BR villas), and Palmiera 3 (4BR villas). Each cluster offers a unique lifestyle and price point. Contact us for detailed comparisons and personalised recommendations."
   },
   {
     question: "What payment plans are available?",
@@ -602,7 +602,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: "When are the expected handover dates?",
-    answer: "Handover dates vary by cluster: Palmiera 3 is expected earliest (Q4 2028), followed by Palmiera, Lavita, and Palmeira Collective (Q1-Q2 2029). Adress Villas Tierra is expected in June 2029, Palace Villas Ostra in September 2029, and Mirage in Q4 2029. The Mareva clusters have later handover dates (Q1-Q2 2031). Register your interest with us to receive the latest construction updates and timeline information."
+    answer: "Handover dates vary by cluster: Palmiera 3 is expected earliest (Q4 2028), followed by Palmiera, Lavita, and Palmeira Collective (Q1-Q2 2029). Address Villas Tierra is expected in June 2029, Palace Villas Ostra in September 2029, and Mirage in Q4 2029. The Mareva clusters have later handover dates (Q1-Q2 2031). Register your interest with us to receive the latest construction updates and timeline information."
   },
   {
     question: "Is The Oasis freehold for foreign buyers?",
@@ -610,7 +610,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: "What amenities does The Oasis community offer?",
-    answer: "The Oasis offers world-class amenities including crystal lagoons and private beaches, 25% green spaces with parks and jogging tracks, 1.5 million sqft of retail space with luxury brands, diverse dining options, sports facilities, water sports centres, children's play areas, cycling tracks, community centres, spa and wellness facilities, and 24/7 security with smart home technology. Branded clusters like Adress Villas Tierra and Palace Villas Ostra also offer hotel-level concierge and hospitality services."
+    answer: "The Oasis offers world-class amenities including crystal lagoons and private beaches, 25% green spaces with parks and jogging tracks, 1.5 million sqft of retail space with luxury brands, diverse dining options, sports facilities, water sports centres, children's play areas, cycling tracks, community centres, spa and wellness facilities, and 24/7 security with smart home technology. Branded clusters like Address Villas Tierra and Palace Villas Ostra also offer hotel-level concierge and hospitality services."
   },
   {
     question: "How do I schedule a viewing or register interest?",
@@ -631,7 +631,7 @@ export const galleryImages: GalleryImage[] = [
   { id: "g4", category: "Exterior", alt: "Mirage Villa with Water View", gradient: "from-blue-500 to-indigo-300", imageUrl: "/images/gallery/mirage-render-2.png" },
   { id: "g5", category: "Exterior", alt: "Palmeira Collective Bespoke Villa", gradient: "from-teal-500 to-emerald-300", imageUrl: "/images/gallery/palmeira-collective-render-1.png" },
   { id: "g6", category: "Exterior", alt: "Palmeira Collective Garden View", gradient: "from-emerald-500 to-green-300", imageUrl: "/images/gallery/palmeira-collective-render-2.png" },
-  { id: "g7", category: "Exterior", alt: "Adress Villas Tierra Branded Residence", gradient: "from-emerald-500 to-teal-300", imageUrl: "/images/gallery/adress-villas-tierra-factsheet-1.png" },
+  { id: "g7", category: "Exterior", alt: "Address Villas Tierra Branded Residence", gradient: "from-emerald-500 to-teal-300", imageUrl: "/images/gallery/address-villas-tierra-factsheet-1.png" },
   { id: "g8", category: "Exterior", alt: "Palace Villas Ostra", gradient: "from-rose-500 to-pink-300", imageUrl: "/images/gallery/palace-villas-ostra-factsheet-1.png" },
   { id: "g9", category: "Exterior", alt: "Lavita Mansion Pool and Garden", gradient: "from-yellow-500 to-amber-300", imageUrl: "/images/gallery/lavita-render-3.png" },
   { id: "g10", category: "Exterior", alt: "Mirage Villa Architecture", gradient: "from-indigo-500 to-blue-300", imageUrl: "/images/gallery/mirage-render-3.png" },
@@ -659,7 +659,7 @@ export const galleryImages: GalleryImage[] = [
   { id: "g31", category: "Community", alt: "Green parks and jogging tracks", gradient: "from-green-500 to-emerald-300", imageUrl: "/images/gallery/gallery-community-2.png" },
   { id: "g32", category: "Amenities", alt: "Children's play area and waterpark", gradient: "from-violet-400 to-purple-200", imageUrl: "/images/gallery/gallery-amenities-3.png" },
   // AI-generated property renders from brochure processing
-  { id: "g33", category: "Exterior", alt: "Adress Villas Tierra — Branded Luxury by Address Hotels", gradient: "from-emerald-500 to-teal-300", imageUrl: "/images/gallery/adress-villas-tierra-render.png" },
+  { id: "g33", category: "Exterior", alt: "Address Villas Tierra — Branded Luxury by Address Hotels", gradient: "from-emerald-500 to-teal-300", imageUrl: "/images/gallery/address-villas-tierra-render.png" },
   { id: "g34", category: "Exterior", alt: "Lavita Ultra-Luxury Waterfront Mansion", gradient: "from-amber-600 to-yellow-300", imageUrl: "/images/gallery/lavita-mansion-exterior.png" },
   { id: "g35", category: "Exterior", alt: "Mareva Elegant Waterfront Villa", gradient: "from-violet-500 to-purple-300", imageUrl: "/images/gallery/mareva-villa-exterior.png" },
   { id: "g36", category: "Exterior", alt: "Mirage Premium Villa — The Pinnacle", gradient: "from-sky-600 to-blue-300", imageUrl: "/images/gallery/mirage-villa-premium.png" },

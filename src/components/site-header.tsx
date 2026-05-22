@@ -40,17 +40,19 @@ export default function SiteHeader() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change
-  useEffect(() => {
+  // Close mobile menu on route change (adjust state during render per React guidelines)
+  const [prevPath, setPrevPath] = useState(pathname);
+  if (prevPath !== pathname) {
+    setPrevPath(pathname);
     setMobileOpen(false);
-  }, [pathname]);
+  }
 
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-[#1A2332]/95 backdrop-blur-md shadow-lg"
+            ? "bg-[#0D1B2A]/95 backdrop-blur-lg shadow-lg border-b border-[#C8A45C]/10"
             : "bg-transparent"
         }`}
         dir={isRTL ? "rtl" : "ltr"}
@@ -60,7 +62,7 @@ export default function SiteHeader() {
             {/* Logo */}
             <Link href={currentLang === "en" ? "/" : `/${currentLang}`} className="flex items-center gap-2">
               <div className="flex flex-col">
-                <span className="font-heading text-xl sm:text-2xl font-bold tracking-wider text-[#C8A45C]">
+                <span className="font-heading text-xl sm:text-2xl font-bold tracking-wider gold-text">
                   OASIS
                 </span>
                 <span className="text-[10px] sm:text-xs tracking-[0.15em] text-white/70 -mt-1">
@@ -84,7 +86,7 @@ export default function SiteHeader() {
                     href={navHref}
                     className={`font-body px-3 py-2 text-sm transition-colors duration-200 rounded-md flex items-center gap-1.5 ${
                       isSellPage
-                        ? "bg-emerald-600 text-white font-semibold hover:bg-emerald-700"
+                        ? "btn-gold text-[#0D1B2A] font-semibold hover:opacity-90"
                         : isActive
                           ? "text-[#C8A45C]"
                           : "text-white/80 hover:text-[#C8A45C]"
@@ -191,7 +193,7 @@ export default function SiteHeader() {
                       onClick={() => setMobileOpen(false)}
                       className={`px-4 py-3 rounded-md transition-colors flex items-center gap-2 min-h-[44px] ${
                         isSellPage
-                          ? "bg-emerald-600 text-white font-semibold"
+                          ? "btn-gold text-[#0D1B2A] font-semibold"
                           : "text-white/80 hover:text-[#C8A45C] hover:bg-white/5"
                       }`}
                     >

@@ -44,10 +44,15 @@
   --color-gold: #C8A45C;
   --color-gold-light: #D4AF37;
   --color-gold-dark: #A8893D;
+  --color-gold-warm: #E8C547;
   --color-navy: #1A2332;
   --color-navy-light: #2A3A52;
   --color-cream: #F5F0E8;
   --color-cream-dark: #E8E0D0;
+  --color-deep-navy: #0D1B2A;
+  --color-rich-navy: #1B2D45;
+  --color-text-light: #F0EDE6;
+  --color-text-muted: #8A9BB5;
 }
 
 :root {
@@ -122,6 +127,8 @@
   }
 }
 
+/* ── Animations ── */
+
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
@@ -132,6 +139,31 @@
   50% { box-shadow: 0 0 0 12px rgba(200, 164, 92, 0); }
 }
 
+/* Premium shimmer animation for gold elements */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Water ripple effect for hero */
+@keyframes water-ripple {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* Elegant fade-up for sections */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Gold particle float */
+@keyframes gold-float {
+  0% { transform: translateY(0) scale(1); opacity: 0.6; }
+  50% { transform: translateY(-40px) scale(0.8); opacity: 0.3; }
+  100% { transform: translateY(-80px) scale(0.4); opacity: 0; }
+}
+
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
@@ -140,19 +172,247 @@
   animation: pulse-gold 2s ease-in-out infinite;
 }
 
-.gold-gradient {
-  background: linear-gradient(135deg, #C8A45C 0%, #D4AF37 50%, #E8C547 100%);
+.animate-shimmer {
+  animation: shimmer 3s ease-in-out infinite;
 }
 
-.navy-gradient {
-  background: linear-gradient(135deg, #1A2332 0%, #2A3A52 100%);
+.animate-fade-up {
+  animation: fade-up 0.8s ease-out forwards;
+}
+
+/* ── Utility Classes ── */
+
+.gold-text {
+  background: linear-gradient(135deg, #C8A45C 0%, #D4AF37 50%, #E8C547 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gold-shimmer {
+  background: linear-gradient(90deg, #C8A45C 0%, #E8C547 25%, #C8A45C 50%, #D4AF37 75%, #C8A45C 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.placeholder-apartment {
+  background: linear-gradient(135deg, #1B2D45 0%, #2A3A52 50%, #1B2D45 100%);
+}
+
+.luxury-card {
+  background: rgba(27, 45, 69, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(200, 164, 92, 0.15);
+  border-radius: 12px;
+}
+
+.luxury-card-light {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(200, 164, 92, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(13, 27, 42, 0.08);
 }
 
 .hero-overlay {
-  background: linear-gradient(135deg, rgba(26,35,50,0.85) 0%, rgba(26,35,50,0.6) 50%, rgba(200,164,92,0.15) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(13, 27, 42, 0.7) 0%,
+    rgba(13, 27, 42, 0.4) 40%,
+    rgba(13, 27, 42, 0.6) 70%,
+    rgba(13, 27, 42, 0.9) 100%
+  );
 }
 
 .section-divider {
   background: linear-gradient(90deg, transparent 0%, #C8A45C 50%, transparent 100%);
   height: 1px;
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #C8A45C 0%, #D4AF37 50%, #E8C547 100%);
+}
+
+.navy-gradient {
+  background: linear-gradient(135deg, #0D1B2A 0%, #1B2D45 100%);
+}
+
+.water-gradient {
+  background: linear-gradient(135deg, #0D1B2A 0%, #1B3A5C 50%, #0D1B2A 100%);
+}
+
+/* ── Custom Scrollbar for luxury feel ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0D1B2A;
+}
+::-webkit-scrollbar-thumb {
+  background: #C8A45C;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* ── Water Particle Animation ── */
+@keyframes water-particle {
+  0% { transform: translateY(0) scale(1); opacity: 0.3; }
+  50% { transform: translateY(-60px) scale(0.6); opacity: 0.15; }
+  100% { transform: translateY(-120px) scale(0.2); opacity: 0; }
+}
+
+.animate-water-particle {
+  animation: water-particle 4s ease-in-out infinite;
+}
+
+/* ── Luxury Glow Effect ── */
+@keyframes luxury-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(200, 164, 92, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(200, 164, 92, 0.25); }
+}
+
+.animate-luxury-glow {
+  animation: luxury-glow 3s ease-in-out infinite;
+}
+
+/* ── Premium Glass Card ── */
+.glass-card {
+  background: rgba(27, 45, 69, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(200, 164, 92, 0.12);
+  border-radius: 16px;
+}
+
+.glass-card-light {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(200, 164, 92, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(13, 27, 42, 0.06);
+}
+
+/* ── Premium Section Styling ── */
+.section-label {
+  font-family: var(--font-body), 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #C8A45C;
+}
+
+.section-heading {
+  font-family: var(--font-heading), 'Cormorant Garamond', serif;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+}
+
+/* ── Premium CTA Button ── */
+.btn-gold {
+  background: linear-gradient(135deg, #C8A45C 0%, #D4AF37 50%, #E8C547 100%);
+  color: #0D1B2A;
+  font-weight: 700;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(200, 164, 92, 0.3);
+}
+
+.btn-gold:hover {
+  opacity: 0.9;
+  box-shadow: 0 6px 25px rgba(200, 164, 92, 0.45);
+  transform: translateY(-1px);
+}
+
+.btn-outline-gold {
+  border: 1px solid rgba(200, 164, 92, 0.4);
+  color: #C8A45C;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.btn-outline-gold:hover {
+  background: rgba(200, 164, 92, 0.08);
+  border-color: rgba(200, 164, 92, 0.6);
+}
+
+/* ── Water Gradient Backgrounds ── */
+.bg-water-dark {
+  background: linear-gradient(180deg, #0D1B2A 0%, #132B45 50%, #0D1B2A 100%);
+}
+
+.bg-water-section {
+  background: linear-gradient(180deg, #0D1B2A 0%, #1B2D45 50%, #0D1B2A 100%);
+}
+
+.bg-cream-section {
+  background: linear-gradient(180deg, #F5F0E8 0%, #EDE7DC 50%, #F5F0E8 100%);
+}
+
+/* ── Gold Divider with Glow ── */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #C8A45C 50%, transparent 100%);
+  max-width: 200px;
+}
+
+.gold-divider-glow {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #C8A45C 30%, #E8C547 50%, #C8A45C 70%, transparent 100%);
+  box-shadow: 0 0 8px rgba(200, 164, 92, 0.3);
+  max-width: 200px;
+}
+
+/* ── Premium Card Hover ── */
+.card-luxury-hover {
+  transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.card-luxury-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(13, 27, 42, 0.15);
+}
+
+/* ── Image Overlay ── */
+.image-overlay-luxury {
+  background: linear-gradient(180deg, 
+    rgba(13, 27, 42, 0) 0%, 
+    rgba(13, 27, 42, 0.2) 50%, 
+    rgba(13, 27, 42, 0.85) 100%
+  );
+}
+
+/* ── Decorative Water Lines ── */
+.water-line {
+  position: relative;
+}
+
+.water-line::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #C8A45C, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.water-line:hover::after {
+  opacity: 1;
+}
+
+/* ── Custom Selection Color ── */
+::selection {
+  background: rgba(200, 164, 92, 0.3);
+  color: #F0EDE6;
+}
+
+/* ── Body on dark sections ── */
+.bg-deep-navy {
+  background-color: #0D1B2A;
 }
