@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Bed, Maximize, ArrowRight, ChevronDown, ChevronUp, Home, Eye } from "lucide-react";
 import Link from "next/link";
 import PropertyDetailModal from "@/components/property-detail-modal";
+import ScrollReveal from "@/components/scroll-reveal";
 
 // Cluster display order and info
 const clusterOrder = [
@@ -62,9 +63,10 @@ export default function QuickInventorySection() {
   const MAX_COLLAPSED = 3;
 
   return (
-    <section className="py-16 sm:py-24 bg-white">
+    <section className="py-20 sm:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
+        <ScrollReveal>
         <div className="text-center mb-10 sm:mb-14">
           <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
             Available Now
@@ -79,8 +81,10 @@ export default function QuickInventorySection() {
             <span className="diamond" />
           </div>
         </div>
+        </ScrollReveal>
 
         {/* Summary Bar - Premium glass-morphism */}
+        <ScrollReveal delay={0.1}>
         <div className="glass-bar p-5 sm:p-7 mb-8 sm:mb-10 flex flex-col sm:flex-row items-center justify-between gap-5">
           <div className="flex items-center gap-8 sm:gap-10">
             <div className="text-center sm:text-left">
@@ -100,8 +104,10 @@ export default function QuickInventorySection() {
             </Button>
           </Link>
         </div>
+        </ScrollReveal>
 
         {/* Bedroom Filter Buttons */}
+        <ScrollReveal delay={0.15}>
         <div className="flex items-center gap-2 sm:gap-3 mb-8 sm:mb-10 overflow-x-auto pb-2">
           <span className="font-body text-sm text-gray-500 flex-shrink-0 hidden sm:inline">Filter:</span>
           {(["all", 4, 5, 6] as BedroomFilter[]).map((br) => (
@@ -121,9 +127,10 @@ export default function QuickInventorySection() {
             {filtered.length} properties
           </span>
         </div>
+        </ScrollReveal>
 
         {/* Cluster Groups */}
-        <div className="space-y-7">
+        <div className="space-y-8">
           {clusterOrder.map(({ projectId, label }) => {
             const items = grouped.get(projectId);
             if (!items || items.length === 0) return null;
@@ -154,11 +161,11 @@ export default function QuickInventorySection() {
                 </div>
 
                 {/* Property Cards Grid */}
-                <div className="p-4 sm:p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                <div className="p-5 sm:p-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-7">
                   {displayItems.map((item) => (
                     <div
                       key={item.id}
-                      className="bg-[#F5F0E8]/80 rounded-xl p-4 sm:p-5 hover:shadow-md transition-all duration-300 border border-transparent hover:border-[#C8A45C]/20 group"
+                      className="bg-[#F5F0E8]/80 rounded-xl p-5 sm:p-6 hover:shadow-md transition-all duration-300 border border-transparent hover:border-[#C8A45C]/20 group"
                     >
                       <div className="flex items-start justify-between gap-2 mb-3">
                         <h4 className="font-heading font-semibold text-[#1A2332] text-sm leading-tight truncate">

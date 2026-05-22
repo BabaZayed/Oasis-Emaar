@@ -140,7 +140,7 @@ export default function FeedbackSection() {
   };
 
   return (
-    <section id="feedback" className="py-20 sm:py-28 bg-[#F5F0E8]">
+    <section id="feedback" className="py-28 sm:py-36 bg-[#F5F0E8]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
