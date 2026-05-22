@@ -281,7 +281,7 @@ export default function PaywallSection() {
                             value={formData.name}
                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                             required
-                            className="premium-paywall-input"
+                            className="premium-paywall-input min-h-[48px]"
                           />
                         </div>
                         <div>
@@ -293,7 +293,7 @@ export default function PaywallSection() {
                             value={formData.phone}
                             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                             required
-                            className="premium-paywall-input"
+                            className="premium-paywall-input min-h-[48px]"
                           />
                         </div>
                       </div>
@@ -306,14 +306,14 @@ export default function PaywallSection() {
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           required
-                          className="premium-paywall-input"
+                          className="premium-paywall-input min-h-[48px]"
                         />
                       </div>
                       <div className="grid sm:grid-cols-2 gap-5">
                         <div>
                           <Label htmlFor="pw-budget" className="font-body text-xs font-semibold text-[#1A2332]/70 uppercase tracking-wider mb-2 block">Budget Range *</Label>
                           <Select value={formData.budget} onValueChange={(v) => setFormData({ ...formData, budget: v })} required>
-                            <SelectTrigger className="premium-paywall-input mt-0">
+                            <SelectTrigger className="premium-paywall-input mt-0 min-h-[48px]">
                               <SelectValue placeholder="Select budget" />
                             </SelectTrigger>
                             <SelectContent>
@@ -326,7 +326,7 @@ export default function PaywallSection() {
                         <div>
                           <Label htmlFor="pw-timeline" className="font-body text-xs font-semibold text-[#1A2332]/70 uppercase tracking-wider mb-2 block">Purchase Timeline *</Label>
                           <Select value={formData.timeline} onValueChange={(v) => setFormData({ ...formData, timeline: v })} required>
-                            <SelectTrigger className="premium-paywall-input mt-0">
+                            <SelectTrigger className="premium-paywall-input mt-0 min-h-[48px]">
                               <SelectValue placeholder="When are you buying?" />
                             </SelectTrigger>
                             <SelectContent>
@@ -345,13 +345,13 @@ export default function PaywallSection() {
                             placeholder="e.g. Emirati, British, Indian"
                             value={formData.nationality}
                             onChange={(e) => setFormData({ ...formData, nationality: e.target.value })}
-                            className="premium-paywall-input"
+                            className="premium-paywall-input min-h-[48px]"
                           />
                         </div>
                         <div>
                           <Label htmlFor="pw-interest" className="font-body text-xs font-semibold text-[#1A2332]/70 uppercase tracking-wider mb-2 block">Property Interest</Label>
                           <Select value={formData.propertyInterest} onValueChange={(v) => setFormData({ ...formData, propertyInterest: v })}>
-                            <SelectTrigger className="premium-paywall-input mt-0">
+                            <SelectTrigger className="premium-paywall-input mt-0 min-h-[48px]">
                               <SelectValue placeholder="Select property type" />
                             </SelectTrigger>
                             <SelectContent>

@@ -132,7 +132,7 @@ export default function SiteHeader() {
               <div ref={langRef} className="relative hidden sm:block">
                 <button
                   onClick={() => setLangOpen(!langOpen)}
-                  className="flex items-center gap-1 p-2 text-white/80 hover:text-[#C8A45C] transition-colors rounded-md hover:bg-white/5"
+                  className="flex items-center gap-1 p-2 min-w-[44px] min-h-[44px] text-white/80 hover:text-[#C8A45C] transition-colors rounded-md hover:bg-white/5"
                   aria-label="Switch language"
                 >
                   <Globe className="w-5 h-5" />
@@ -169,7 +169,7 @@ export default function SiteHeader() {
               </Link>
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="lg:hidden p-2 text-white hover:text-[#C8A45C] transition-colors"
+                className="lg:hidden p-2.5 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-lg text-white hover:text-[#C8A45C] transition-colors"
               >
                 {mobileOpen ? (
                   <X className="w-6 h-6" />
@@ -232,7 +232,7 @@ export default function SiteHeader() {
                     <a
                       href={WHATSAPP_LINK}
                       target="_blank"
-                      className="flex items-center gap-2 text-green-400 mb-4 py-2"
+                      className="flex items-center gap-2 text-green-400 mb-4 py-2 min-h-[44px]"
                     >
                       WhatsApp: {PHONE_NUMBER}
                     </a>

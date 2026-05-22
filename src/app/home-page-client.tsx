@@ -102,7 +102,7 @@ export default function HomePageClient() {
         <QuickInventorySection />
 
         {/* Community Facts */}
-        <section className="py-28 sm:py-36 bg-water-section water-wave-bg">
+        <section className="py-20 sm:py-28 lg:py-36 bg-water-section water-wave-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <ScrollReveal>
               <div className="text-center mb-20 sm:mb-24">
@@ -120,18 +120,18 @@ export default function HomePageClient() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.2} cinematic>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 stagger-children">
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 stagger-children">
               {facts.map((fact) => (
                 <div key={fact.label} className="glass-card-premium p-8 sm:p-10 text-center card-premium-hover group">
                   <div className="w-14 h-14 rounded-xl bg-[#C8A45C]/8 border border-[#C8A45C]/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-[#C8A45C]/15 group-hover:border-[#C8A45C]/20 transition-all duration-500">
                     <fact.icon className="w-6 h-6 text-[#C8A45C] group-hover:scale-110 transition-transform duration-500" />
                   </div>
-                  <p className="font-body text-[10px] text-[#8A9BB5] uppercase tracking-[0.2em] mb-2">{fact.label}</p>
+                  <p className="font-body text-[11px] text-[#9BB0C8] uppercase tracking-[0.2em] mb-2">{fact.label}</p>
                   <p className={`font-heading text-xl sm:text-2xl font-bold ${fact.label === "Golden Visa" ? "text-emerald-400" : "text-[#F0EDE6]"}`}>
                     {fact.value}
                   </p>
                   {fact.label === "Golden Visa" && (
-                    <span className="inline-block mt-1.5 text-[10px] font-body font-medium text-emerald-400/70 bg-emerald-500/10 rounded-full px-2.5 py-0.5">
+                    <span className="inline-block mt-1.5 text-[10px] font-body font-medium text-emerald-400 bg-emerald-500/15 rounded-full px-2.5 py-0.5">
                       AED 2M+ Properties
                     </span>
                   )}
@@ -141,7 +141,7 @@ export default function HomePageClient() {
             </ScrollReveal>
 
             {/* Golden Visa Banner */}
-            <ScrollReveal delay={0.4}>
+            <ScrollReveal delay={0.4} cinematic>
             <div className="mt-14 glass-card-premium p-10 sm:p-12 flex flex-col sm:flex-row items-center gap-6 sm:gap-8 animate-luxury-glow">
               <div className="w-16 h-16 rounded-full bg-[#C8A45C]/15 flex items-center justify-center flex-shrink-0 border border-[#C8A45C]/10">
                 <ShieldCheck className="w-8 h-8 text-[#C8A45C]" />
@@ -160,7 +160,7 @@ export default function HomePageClient() {
         </section>
 
         {/* Projects Preview - Show all 9 clusters */}
-        <section id="projects" className="py-28 sm:py-36 bg-cream-section">
+        <section id="projects" className="py-20 sm:py-28 lg:py-36 bg-cream-section">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ScrollReveal>
               <div className="text-center mb-20 sm:mb-24">
@@ -178,7 +178,7 @@ export default function HomePageClient() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.15} cinematic>
-              <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-10 sm:gap-12">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
               {projects.map((project, i) => (
                 <ScrollReveal key={project.id} delay={i * 0.08} duration={0.7}>
                   <ProjectPreviewCard project={project} />
@@ -204,7 +204,7 @@ export default function HomePageClient() {
         {/* Seller Marketplace Section - refined and subtle */}
         <section className="py-24 sm:py-32 bg-cream-section">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <ScrollReveal>
+            <ScrollReveal cinematic>
               <div className="text-center mb-16">
                 <span className="section-label">Seller Marketplace</span>
                 <h2 className="section-heading text-4xl sm:text-5xl md:text-6xl text-[#0D1B2A] mt-4 mb-5">
@@ -220,7 +220,7 @@ export default function HomePageClient() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.2} cinematic>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-12">
               {[
                 { icon: Users, title: "Reach Thousands of Buyers", desc: "Your property is showcased to our verified network of investors and homebuyers actively seeking Oasis properties." },
                 { icon: Star, title: "Free Listing, No Hidden Fees", desc: "List your property completely free with zero commissions or hidden charges. You only deal directly with buyers." },
@@ -279,7 +279,7 @@ export default function HomePageClient() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-28 sm:py-36 bg-water-dark text-white relative overflow-hidden water-wave-bg">
+        <section className="py-20 sm:py-28 lg:py-36 bg-water-dark text-white relative overflow-hidden water-wave-bg">
           {/* Decorative elements */}
           <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#C8A45C]/[0.04] rounded-full blur-[120px]" />
           <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-cyan-500/[0.04] rounded-full blur-[120px]" />

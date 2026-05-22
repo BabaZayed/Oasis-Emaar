@@ -142,7 +142,7 @@ export default function ContactSection() {
                       <info.icon className="w-5 h-5 text-[#C8A45C]" />
                     </div>
                     <div>
-                      <p className="font-body text-[10px] text-white/40 uppercase tracking-[0.2em] mb-0.5">{info.label}</p>
+                      <p className="font-body text-[10px] text-white/55 uppercase tracking-[0.2em] mb-0.5">{info.label}</p>
                       <p className="text-white/90 group-hover:text-[#C8A45C] transition-colors duration-300">{info.value}</p>
                     </div>
                   </a>

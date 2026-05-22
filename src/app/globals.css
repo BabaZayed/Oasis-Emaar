@@ -97,6 +97,7 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body), 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.7;
   }
   html {
     scroll-behavior: smooth;
