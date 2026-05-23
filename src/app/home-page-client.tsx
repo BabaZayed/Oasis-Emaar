@@ -31,6 +31,7 @@ function ProjectPreviewCard({ project }: { project: typeof projects[0] }) {
             alt={project.name}
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-110"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
           <div className="absolute inset-0 image-overlay-luxury" />
           <div className="absolute top-4 left-4 flex items-center gap-2">
@@ -93,7 +94,7 @@ const facts = [
 
 export default function HomePageClient() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col overflow-x-hidden max-w-[100vw]">
       <SiteHeader />
       <main className="flex-1">
         <HeroSection />
@@ -281,8 +282,8 @@ export default function HomePageClient() {
         {/* CTA Section */}
         <section className="py-20 sm:py-28 lg:py-36 bg-water-dark text-white relative overflow-hidden water-wave-bg">
           {/* Decorative elements */}
-          <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#C8A45C]/[0.04] rounded-full blur-[120px]" />
-          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-cyan-500/[0.04] rounded-full blur-[120px]" />
+          <div className="absolute top-0 left-1/4 w-[min(500px,70vw)] h-[min(500px,70vw)] bg-[#C8A45C]/[0.04] rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 right-1/4 w-[min(400px,60vw)] h-[min(400px,60vw)] bg-cyan-500/[0.04] rounded-full blur-[120px]" />
 
           <ScrollReveal cinematic>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
