@@ -130,7 +130,7 @@ export default function PaywallSection() {
     return (
       <section id="paywall" className="py-28 sm:py-36 bg-gradient-to-br from-[#1A2332] via-[#2A3A52] to-[#1A2332] text-white relative overflow-hidden">
         {/* Decorative ambient glow */}
-        <div className="absolute top-0 left-1/3 w-[600px] h-[600px] bg-[#C8A45C]/[0.03] rounded-full blur-[120px]" />
+        <div className="absolute top-0 left-1/3 w-[min(600px,80vw)] h-[min(600px,80vw)] bg-[#C8A45C]/[0.03] rounded-full blur-[120px]" />
         
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <ScrollReveal cinematic>
@@ -168,8 +168,8 @@ export default function PaywallSection() {
   return (
     <section id="paywall" className="py-28 sm:py-36 bg-gradient-to-br from-[#0D1B2A] via-[#1B2D45] to-[#0D1B2A] text-white relative overflow-hidden water-wave-bg">
       {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#C8A45C]/[0.04] rounded-full blur-[120px]" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-cyan-500/[0.03] rounded-full blur-[120px]" />
+      <div className="absolute top-0 right-0 w-[min(500px,70vw)] h-[min(500px,70vw)] bg-[#C8A45C]/[0.04] rounded-full blur-[120px]" />
+      <div className="absolute bottom-0 left-0 w-[min(400px,60vw)] h-[min(400px,60vw)] bg-cyan-500/[0.03] rounded-full blur-[120px]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}

@@ -39,12 +39,13 @@ export default function HeroSection() {
         style={{ scale: bgScale, y: bgY }}
       >
         <Image
-          src="/images/hero-oasis-real.png"
+          src="/images/hero-oasis-real.jpg"
           alt="The Oasis by Emaar - Luxury Waterfront Community"
           fill
           className="object-cover"
           priority
-          quality={90}
+          quality={75}
+          sizes="100vw"
         />
       </motion.div>
 
@@ -105,10 +106,10 @@ export default function HeroSection() {
         ))}
       </div>
 
-      {/* Decorative blurs - enhanced */}
-      <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-[#C8A45C]/[0.04] rounded-full blur-[120px]" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyan-500/[0.04] rounded-full blur-[120px]" />
-      <div className="absolute top-1/2 left-1/3 w-[300px] h-[300px] bg-[#C8A45C]/[0.02] rounded-full blur-[80px]" />
+      {/* Decorative blurs - enhanced, constrained to viewport */}
+      <div className="absolute top-1/4 right-0 w-[min(600px,80vw)] h-[min(600px,80vw)] bg-[#C8A45C]/[0.04] rounded-full blur-[120px]" />
+      <div className="absolute bottom-0 left-0 w-[min(500px,70vw)] h-[min(500px,70vw)] bg-cyan-500/[0.04] rounded-full blur-[120px]" />
+      <div className="absolute top-1/2 left-1/3 w-[min(300px,50vw)] h-[min(300px,50vw)] bg-[#C8A45C]/[0.02] rounded-full blur-[80px]" />
 
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
