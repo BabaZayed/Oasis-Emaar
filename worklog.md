@@ -108,3 +108,22 @@ Stage Summary:
 - Missing sitemap pages added (5 pages)
 - Git history cleaned of 133MB+ video files
 - All changes deployed to GitHub (commit a438996)
+---
+Task ID: 1
+Agent: Main Agent
+Task: Fix ERR_TOO_MANY_REDIRECTS on oasisemaar.com
+
+Work Log:
+- Analyzed user screenshot showing ERR_TOO_MANY_REDIRECTS on oasisemaar.com
+- Tested redirect chain with curl - discovered infinite loop between Vercel and middleware
+- Root cause: Vercel primary domain is www.oasisemaar.com, but middleware was redirecting www.oasisemaar.com → oasisemaar.com, creating a loop
+- Fixed middleware.ts to remove www.oasisemaar.com from redirect list
+- Middleware now only redirects theoasisemaar.com variants → www.oasisemaar.com
+- Pushed fix to GitHub (commit 071794f)
+- Verified all redirect chains work correctly after deployment
+
+Stage Summary:
+- Redirect loop FIXED - site loads correctly now
+- www.oasisemaar.com serves directly (HTTP 200)
+- oasisemaar.com redirects to www.oasisemaar.com (single 308 redirect)
+- theoasisemaar.com redirects to www.oasisemaar.com (single 301 redirect)
