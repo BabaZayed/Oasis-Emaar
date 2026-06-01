@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Star, Quote, Building2, Award, Handshake, Users } from "lucide-react";
 import ScrollReveal from "@/components/scroll-reveal";
+import { useDict } from "@/lib/use-dict";
 
 const references = [
   {
@@ -74,6 +75,8 @@ function Shield(props: React.SVGProps<SVGSVGElement> & { className?: string }) {
 }
 
 export default function ReferencesSection() {
+  const t = useDict();
+
   return (
     <section id="references" className="py-20 sm:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,13 +84,13 @@ export default function ReferencesSection() {
         <ScrollReveal>
         <div className="text-center mb-12 sm:mb-16">
           <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
-            Trusted By Experts
+            {t.references.label}
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
-            Industry References
+            {t.references.title}
           </h2>
           <p className="font-body text-gray-500 max-w-2xl mx-auto text-lg">
-            Hear from top real estate professionals, investors, and consultants who trust The Oasis by Emaar as a premier investment and lifestyle destination.
+            {t.references.subtitle}
           </p>
           <div className="section-divider max-w-xs mx-auto mt-6" />
         </div>
@@ -137,16 +140,16 @@ export default function ReferencesSection() {
         {/* Trusted By / Partner Logos */}
         <div className="border-t border-gray-200 pt-12">
           <p className="font-body text-center text-sm font-semibold tracking-[0.2em] uppercase text-gray-400 mb-8">
-            Recognized & Licensed
+            {t.references.partnersLabel}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12">
-            {partnerLogos.map((partner) => (
+            {partnerLogos.map((partner, i) => (
               <div
                 key={partner.name}
                 className="flex flex-col items-center gap-2 text-gray-400 hover:text-[#C8A45C] transition-colors group"
               >
                 <partner.icon className="w-8 h-8 group-hover:scale-110 transition-transform" />
-                <span className="text-xs font-medium text-center">{partner.name}</span>
+                <span className="text-xs font-medium text-center">{t.references.partners[i]}</span>
               </div>
             ))}
           </div>

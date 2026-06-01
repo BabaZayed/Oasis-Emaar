@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Lock, CheckCircle, Crown, Eye, Download, Star, Shield, AlertTriangle, ArrowRight, Sparkles } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import ScrollReveal from "@/components/scroll-reveal";
+import { useDict } from "@/lib/use-dict";
 
 function checkRegistered(): boolean {
   if (typeof window === "undefined") return false;
@@ -58,6 +59,7 @@ const timelineOptions = [
 ];
 
 export default function PaywallSection() {
+  const t = useDict();
   const [formData, setFormData] = useState({
     name: "", email: "", phone: "", budget: "", timeline: "", nationality: "", propertyInterest: "", honeypot: "",
   });
@@ -97,28 +99,28 @@ export default function PaywallSection() {
         toast({
           title: "Premium Access Unlocked!",
           description: data.qualified
-            ? "A senior consultant will contact you within 2 hours with exclusive options."
-            : "You now have access to all exclusive listings. Our team will be in touch within 24 hours.",
+            ? t.common.consultantWillContact
+            : t.common.teamWillContact,
         });
         setTimeout(() => setIsRegistered(true), 2000);
       } else if (res.status === 429) {
         toast({
-          title: "Too Many Attempts",
-          description: "Please wait a minute before trying again.",
+          title: t.common.tooManyAttempts,
+          description: t.common.pleaseWait,
           variant: "destructive",
         });
       } else {
         toast({
-          title: "Already Registered",
-          description: data.message || "We already have your details. Our team will contact you soon!",
+          title: t.common.alreadyRegistered,
+          description: data.message || t.common.weHaveYourDetails,
         });
         localStorage.setItem("oasis_registered", "true");
         setIsRegistered(true);
       }
     } catch {
       toast({
-        title: "Connection Error",
-        description: "Please try again or contact us on WhatsApp.",
+        title: t.common.error,
+        description: t.common.pleaseTryAgainOrWhatsApp,
         variant: "destructive",
       });
     } finally {
@@ -274,7 +276,7 @@ export default function PaywallSection() {
 
                       <div className="grid sm:grid-cols-2 gap-5">
                         <div>
-                          <Label htmlFor="pw-name" className="font-body text-xs font-semibold text-[#1A2332]/70 uppercase tracking-wider mb-2 block">Full Name *</Label>
+                          <Label htmlFor="pw-name" className="font-body text-xs font-semibold text-[#1A2332]/70 uppercase tracking-wider mb-2 block">{t.common.fullName} *</Label>
                           <Input
                             id="pw-name"
                             placeholder="Your full name"
@@ -285,7 +287,7 @@ export default function PaywallSection() {
                           />
                         </div>
                         <div>
-                          <Label htmlFor="pw-phone" className="font-body text-xs font-semibold text-[#1A2332]/70 uppercase tracking-wider mb-2 block">Phone / WhatsApp *</Label>
+                          <Label htmlFor="pw-phone" className="font-body text-xs font-semibold text-[#1A2332]/70 uppercase tracking-wider mb-2 block">{t.common.phoneWhatsApp} *</Label>
                           <Input
                             id="pw-phone"
                             type="tel"
@@ -298,7 +300,7 @@ export default function PaywallSection() {
                         </div>
                       </div>
                       <div>
-                        <Label htmlFor="pw-email" className="font-body text-xs font-semibold text-[#1A2332]/70 uppercase tracking-wider mb-2 block">Email Address *</Label>
+                        <Label htmlFor="pw-email" className="font-body text-xs font-semibold text-[#1A2332]/70 uppercase tracking-wider mb-2 block">{t.common.emailAddress} *</Label>
                         <Input
                           id="pw-email"
                           type="email"
@@ -311,10 +313,10 @@ export default function PaywallSection() {
                       </div>
                       <div className="grid sm:grid-cols-2 gap-5">
                         <div>
-                          <Label htmlFor="pw-budget" className="font-body text-xs font-semibold text-[#1A2332]/70 uppercase tracking-wider mb-2 block">Budget Range *</Label>
+                          <Label htmlFor="pw-budget" className="font-body text-xs font-semibold text-[#1A2332]/70 uppercase tracking-wider mb-2 block">{t.contact.budgetRange} *</Label>
                           <Select value={formData.budget} onValueChange={(v) => setFormData({ ...formData, budget: v })} required>
                             <SelectTrigger className="premium-paywall-input mt-0 min-h-[48px]">
-                              <SelectValue placeholder="Select budget" />
+                              <SelectValue placeholder={t.contact.selectBudget} />
                             </SelectTrigger>
                             <SelectContent>
                               {budgetOptions.map((opt) => (
@@ -324,10 +326,10 @@ export default function PaywallSection() {
                           </Select>
                         </div>
                         <div>
-                          <Label htmlFor="pw-timeline" className="font-body text-xs font-semibold text-[#1A2332]/70 uppercase tracking-wider mb-2 block">Purchase Timeline *</Label>
+                          <Label htmlFor="pw-timeline" className="font-body text-xs font-semibold text-[#1A2332]/70 uppercase tracking-wider mb-2 block">{t.contact.purchaseTimeline} *</Label>
                           <Select value={formData.timeline} onValueChange={(v) => setFormData({ ...formData, timeline: v })} required>
                             <SelectTrigger className="premium-paywall-input mt-0 min-h-[48px]">
-                              <SelectValue placeholder="When are you buying?" />
+                              <SelectValue placeholder={t.contact.whenPlanning} />
                             </SelectTrigger>
                             <SelectContent>
                               {timelineOptions.map((opt) => (
@@ -349,7 +351,7 @@ export default function PaywallSection() {
                           />
                         </div>
                         <div>
-                          <Label htmlFor="pw-interest" className="font-body text-xs font-semibold text-[#1A2332]/70 uppercase tracking-wider mb-2 block">Property Interest</Label>
+                          <Label htmlFor="pw-interest" className="font-body text-xs font-semibold text-[#1A2332]/70 uppercase tracking-wider mb-2 block">{t.common.interestedIn}</Label>
                           <Select value={formData.propertyInterest} onValueChange={(v) => setFormData({ ...formData, propertyInterest: v })}>
                             <SelectTrigger className="premium-paywall-input mt-0 min-h-[48px]">
                               <SelectValue placeholder="Select property type" />
@@ -372,7 +374,7 @@ export default function PaywallSection() {
                         className="w-full btn-gold-glow text-[#0D1B2A] font-bold py-5 rounded-xl text-base tracking-wide mt-2"
                       >
                         {loading ? (
-                          "Processing..."
+                          t.common.submitting
                         ) : (
                           <>
                             <Lock className="w-4 h-4 mr-2" />
@@ -383,7 +385,7 @@ export default function PaywallSection() {
                       </Button>
                       <p className="text-xs text-gray-400 text-center mt-3 flex items-center justify-center gap-1.5">
                         <Shield className="w-3.5 h-3.5" />
-                        Your information is encrypted and secure. We never share your data.
+                        {t.common.yourInfoSecure}
                       </p>
                     </form>
                   </div>

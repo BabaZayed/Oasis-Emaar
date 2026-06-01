@@ -9,7 +9,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
 import { trackLead } from "@/lib/meta-pixel";
-import { detectLang, footerT, headerT, type LangCode } from "@/lib/i18n";
+import { detectLang, footerT, headerT, langHref, type LangCode } from "@/lib/i18n";
 
 const socialLinks = [
   { icon: Facebook, href: "https://facebook.com/oasisemaar", label: "Facebook" },
@@ -130,11 +130,11 @@ export default function SiteFooter() {
             <h4 className="font-body font-semibold text-[#C8A45C] mb-5 text-sm uppercase tracking-[0.2em]">{t.quickLinks}</h4>
             <ul className="space-y-2.5">
               {headerNav.map((link, idx) => {
-                const navHref = headerT.en.nav[idx]?.href || link.href;
+                const englishHref = headerT.en.nav[idx]?.href || link.href;
                 return (
-                  <li key={navHref}>
+                  <li key={englishHref}>
                     <Link
-                      href={navHref}
+                      href={langHref(lang, englishHref)}
                       className="text-white/50 hover:text-[#C8A45C] text-sm transition-colors duration-300 font-light"
                     >
                       {link.label}
@@ -270,9 +270,9 @@ export default function SiteFooter() {
             &copy; {new Date().getFullYear()} {t.copyright}
           </p>
           <div className="flex items-center gap-5 text-xs text-white/30">
-            <Link href="/privacy" className="hover:text-[#C8A45C] transition-colors duration-300 font-light">{t.privacy}</Link>
-            <Link href="/terms" className="hover:text-[#C8A45C] transition-colors duration-300 font-light">{t.terms}</Link>
-            <Link href="/disclaimer" className="hover:text-[#C8A45C] transition-colors duration-300 font-light">{t.disclaimer}</Link>
+            <Link href={langHref(lang, "/privacy")} className="hover:text-[#C8A45C] transition-colors duration-300 font-light">{t.privacy}</Link>
+            <Link href={langHref(lang, "/terms")} className="hover:text-[#C8A45C] transition-colors duration-300 font-light">{t.terms}</Link>
+            <Link href={langHref(lang, "/disclaimer")} className="hover:text-[#C8A45C] transition-colors duration-300 font-light">{t.disclaimer}</Link>
           </div>
         </div>
       </div>

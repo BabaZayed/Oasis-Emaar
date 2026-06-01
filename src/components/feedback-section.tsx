@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Star, ThumbsUp, MessageSquare, CheckCircle, User, Shield } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useDict } from "@/lib/use-dict";
 
 interface FeedbackItem {
   id: string;
@@ -79,6 +80,7 @@ const ratingSummary = {
 };
 
 export default function FeedbackSection() {
+  const t = useDict();
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({ name: "", rating: 0, property: "", comment: "", honeypot: "" });
   const [hoverRating, setHoverRating] = useState(0);
@@ -114,8 +116,8 @@ export default function FeedbackSection() {
       if (data.success || res.status === 200) {
         setSubmitted(true);
         toast({
-          title: "Thank You!",
-          description: "Your feedback has been submitted and will appear after review.",
+          title: t.feedback.thankYou,
+          description: t.feedback.feedbackSubmitted,
         });
         setTimeout(() => {
           setSubmitted(false);
@@ -123,12 +125,12 @@ export default function FeedbackSection() {
           setFormData({ name: "", rating: 0, property: "", comment: "", honeypot: "" });
         }, 3000);
       } else if (res.status === 429) {
-        toast({ title: "Too Many Attempts", description: "Please wait before submitting again.", variant: "destructive" });
+        toast({ title: t.common.tooManyAttempts, description: t.common.pleaseWait, variant: "destructive" });
       }
     } catch {
       // Still show success to not disrupt UX for feedback
       setSubmitted(true);
-      toast({ title: "Thank You!", description: "Your feedback has been submitted." });
+      toast({ title: t.feedback.thankYou, description: t.feedback.feedbackSubmitted });
       setTimeout(() => {
         setSubmitted(false);
         setShowForm(false);
@@ -145,13 +147,13 @@ export default function FeedbackSection() {
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
           <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
-            Community Voices
+            {t.feedback.label}
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
-            Buyer Feedback & Reviews
+            {t.feedback.title}
           </h2>
           <p className="font-body text-gray-500 max-w-2xl mx-auto text-lg">
-            Hear from real buyers and investors about their experience with The Oasis by Emaar
+            {t.feedback.subtitle}
           </p>
           <div className="section-divider max-w-xs mx-auto mt-6" />
         </div>
@@ -170,7 +172,7 @@ export default function FeedbackSection() {
                 ))}
               </div>
               <p className="text-sm text-gray-500 mt-1">
-                Based on {ratingSummary.total} reviews
+                {t.feedback.basedOn} {ratingSummary.total} {t.feedback.reviews}
               </p>
             </div>
 
@@ -209,7 +211,7 @@ export default function FeedbackSection() {
                         <p className="font-bold text-[#1A2332] text-sm">{feedback.name}</p>
                         {feedback.verified && (
                           <span className="flex items-center gap-1 text-[10px] text-green-600 bg-green-50 px-2 py-0.5 rounded-full">
-                            <CheckCircle className="w-3 h-3" /> Verified Buyer
+                            <CheckCircle className="w-3 h-3" /> {t.feedback.verifiedBuyer}
                           </span>
                         )}
                       </div>
@@ -233,10 +235,10 @@ export default function FeedbackSection() {
                 <p className="text-gray-600 text-sm leading-relaxed">{feedback.comment}</p>
                 <div className="flex items-center gap-4 mt-3 pt-3 border-t border-gray-100">
                   <button className="flex items-center gap-1 text-xs text-gray-400 hover:text-[#C8A45C] transition-colors">
-                    <ThumbsUp className="w-3.5 h-3.5" /> Helpful
+                    <ThumbsUp className="w-3.5 h-3.5" /> {t.feedback.helpful}
                   </button>
                   <button className="flex items-center gap-1 text-xs text-gray-400 hover:text-[#C8A45C] transition-colors">
-                    <MessageSquare className="w-3.5 h-3.5" /> Reply
+                    <MessageSquare className="w-3.5 h-3.5" /> {t.feedback.reply}
                   </button>
                 </div>
               </div>
@@ -252,17 +254,17 @@ export default function FeedbackSection() {
               size="lg"
               className="gold-gradient text-[#1A2332] font-bold px-8 py-6 rounded-md hover:opacity-90"
             >
-              <MessageSquare className="w-5 h-5 mr-2" /> Share Your Experience
+              <MessageSquare className="w-5 h-5 mr-2" /> {t.feedback.shareExperience}
             </Button>
           ) : (
             <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-md p-6 sm:p-8 text-left">
-              <h3 className="font-heading text-xl font-bold text-[#1A2332] mb-6 text-center">Share Your Feedback</h3>
+              <h3 className="font-heading text-xl font-bold text-[#1A2332] mb-6 text-center">{t.feedback.shareFeedback}</h3>
 
               {submitted ? (
                 <div className="py-8 text-center">
                   <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                  <h4 className="font-heading text-xl font-bold text-[#1A2332] mb-2">Thank You!</h4>
-                  <p className="text-gray-500">Your feedback has been submitted and will appear after review.</p>
+                  <h4 className="font-heading text-xl font-bold text-[#1A2332] mb-2">{t.feedback.thankYou}</h4>
+                  <p className="text-gray-500">{t.feedback.feedbackSubmitted}</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
@@ -280,7 +282,7 @@ export default function FeedbackSection() {
 
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="fb-name">Your Name</Label>
+                      <Label htmlFor="fb-name">{t.feedback.yourName}</Label>
                       <Input
                         id="fb-name"
                         placeholder="e.g. Omar K."
@@ -291,7 +293,7 @@ export default function FeedbackSection() {
                       />
                     </div>
                     <div>
-                      <Label htmlFor="fb-property">Property</Label>
+                      <Label htmlFor="fb-property">{t.feedback.property}</Label>
                       <Input
                         id="fb-property"
                         placeholder="e.g. The Oasis Villas"
@@ -304,7 +306,7 @@ export default function FeedbackSection() {
                   </div>
 
                   <div>
-                    <Label>Your Rating</Label>
+                    <Label>{t.feedback.yourRating}</Label>
                     <div className="flex items-center gap-2 mt-2">
                       {Array.from({ length: 5 }).map((_, i) => (
                         <button
@@ -326,17 +328,17 @@ export default function FeedbackSection() {
                       ))}
                       {formData.rating > 0 && (
                         <span className="text-sm text-gray-500 ml-2">
-                          {formData.rating} out of 5
+                          {formData.rating} {t.feedback.outOf5}
                         </span>
                       )}
                     </div>
                   </div>
 
                   <div>
-                    <Label htmlFor="fb-comment">Your Feedback</Label>
+                    <Label htmlFor="fb-comment">{t.feedback.yourFeedback}</Label>
                     <Textarea
                       id="fb-comment"
-                      placeholder="Share your experience with The Oasis..."
+                      placeholder={t.feedback.feedbackPlaceholder}
                       value={formData.comment}
                       onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
                       required
@@ -351,7 +353,7 @@ export default function FeedbackSection() {
                       className="flex-1 gold-gradient text-[#1A2332] font-bold py-3 rounded-md hover:opacity-90"
                       disabled={formData.rating === 0 || loading}
                     >
-                      {loading ? "Submitting..." : "Submit Feedback"}
+                      {loading ? t.common.submitting : t.feedback.submitFeedback}
                     </Button>
                     <Button
                       type="button"
@@ -359,7 +361,7 @@ export default function FeedbackSection() {
                       onClick={() => setShowForm(false)}
                       className="flex-1 border-gray-300 text-gray-600 py-3 rounded-md"
                     >
-                      Cancel
+                      {t.common.cancel}
                     </Button>
                   </div>
                 </form>

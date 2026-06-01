@@ -7,10 +7,12 @@ import { Button } from "@/components/ui/button";
 import { Bed, Maximize, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { useDict } from "@/lib/use-dict";
+import { useDict, useLang } from "@/lib/use-dict";
+import { langHref } from "@/lib/i18n";
 
 function ProjectCard({ project }: { project: Project }) {
   const t = useDict();
+  const lang = useLang();
   const statusColor =
     project.status === "Ready" ? "bg-green-500" :
     project.status === "Off-Plan" ? "bg-[#C8A45C]" :
@@ -63,7 +65,7 @@ function ProjectCard({ project }: { project: Project }) {
             <p className="font-body text-xs text-gray-400 uppercase tracking-wider">{t.common.startingFrom}</p>
             <p className="font-heading text-xl font-bold text-[#C8A45C]">{formatPrice(project.startingPrice)}</p>
           </div>
-          <Link href={`/projects/${project.slug}`}>
+          <Link href={langHref(lang, `/projects/${project.slug}`)}>
             <Button className="bg-[#1A2332] text-white hover:bg-[#2A3A52] text-sm rounded-md">
               {t.projects.details} <ArrowRight className="w-4 h-4 ml-1" />
             </Button>

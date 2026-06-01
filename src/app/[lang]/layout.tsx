@@ -9,6 +9,7 @@ import UTMTracker from "@/components/utm-tracker";
 import { SITE_URL, SITE_NAME, SITE_PHONE, SITE_EMAIL } from "@/lib/site-config";
 import { langCodes, type LangCode } from "@/lib/i18n";
 import { getDictionary } from "@/dictionaries";
+import LanguageDetector from "@/components/language-detector";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-heading",
@@ -135,6 +136,7 @@ export default async function LangLayout({
         style={{ fontFamily: "var(--font-body), sans-serif", backgroundColor: "#0D1B2A" }}
       >
         <UTMTracker />
+        <LanguageDetector />
         {children}
         <WhatsAppButton />
         <SocialProof />

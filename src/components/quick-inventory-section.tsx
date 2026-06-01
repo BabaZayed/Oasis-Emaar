@@ -8,6 +8,9 @@ import { Bed, Maximize, ArrowRight, ChevronDown, ChevronUp, Home, Eye } from "lu
 import Link from "next/link";
 import PropertyDetailModal from "@/components/property-detail-modal";
 import ScrollReveal from "@/components/scroll-reveal";
+import { useDict } from "@/lib/use-dict";
+import { useLang } from "@/lib/use-dict";
+import { langHref } from "@/lib/i18n";
 
 // Cluster display order and info
 const clusterOrder = [
@@ -25,6 +28,9 @@ export default function QuickInventorySection() {
   const [expandedClusters, setExpandedClusters] = useState<Set<string>>(new Set());
 
   const [detailItem, setDetailItem] = useState<InventoryItem | null>(null);
+
+  const t = useDict();
+  const lang = useLang();
 
   const filtered = useMemo(() => {
     return inventoryItems.filter((item) => {
@@ -69,13 +75,13 @@ export default function QuickInventorySection() {
         <ScrollReveal>
         <div className="text-center mb-10 sm:mb-14">
           <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
-            Available Now
+            {t.quickInventory.label}
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
-            Current Inventory
+            {t.quickInventory.title}
           </h2>
           <p className="font-body text-gray-500 max-w-2xl mx-auto font-light">
-            Browse real-time availability across all clusters at The Oasis. All prices direct from Emaar.
+            {t.quickInventory.subtitle}
           </p>
           <div className="luxury-divider mt-8">
             <span className="diamond" />
@@ -89,17 +95,17 @@ export default function QuickInventorySection() {
           <div className="flex items-center gap-8 sm:gap-10">
             <div className="text-center sm:text-left">
               <p className="font-heading text-3xl sm:text-4xl font-bold text-[#C8A45C]">{totalAvailable}</p>
-              <p className="font-body text-[10px] text-white/50 uppercase tracking-[0.2em] mt-1">Properties Available</p>
+              <p className="font-body text-[10px] text-white/50 uppercase tracking-[0.2em] mt-1">{t.quickInventory.propertiesAvailable}</p>
             </div>
             <div className="hidden sm:block w-px h-12 bg-white/15" />
             <div className="text-center sm:text-left">
-              <p className="font-heading text-xl sm:text-2xl font-bold text-white">Starting from {formatPrice(lowestPrice)}</p>
-              <p className="font-body text-[10px] text-white/50 uppercase tracking-[0.2em] mt-1">AED</p>
+              <p className="font-heading text-xl sm:text-2xl font-bold text-white">{t.quickInventory.startingFrom} {formatPrice(lowestPrice)}</p>
+              <p className="font-body text-[10px] text-white/50 uppercase tracking-[0.2em] mt-1">{t.common.aed}</p>
             </div>
           </div>
-          <Link href="/inventory">
+          <Link href={langHref(lang, "/inventory")}>
             <Button className="btn-gold-glow text-[#1A2332] font-bold px-7 py-3.5 rounded-lg text-sm sm:text-base w-full sm:w-auto gap-2">
-              Browse All {totalAvailable} Properties
+              {t.quickInventory.viewFullInventory}
               <ArrowRight className="w-4 h-4" />
             </Button>
           </Link>
@@ -109,7 +115,7 @@ export default function QuickInventorySection() {
         {/* Bedroom Filter Buttons */}
         <ScrollReveal delay={0.15}>
         <div className="flex items-center gap-2 sm:gap-3 mb-8 sm:mb-10 overflow-x-auto pb-2">
-          <span className="font-body text-sm text-gray-500 flex-shrink-0 hidden sm:inline">Filter:</span>
+          <span className="font-body text-sm text-gray-500 flex-shrink-0 hidden sm:inline">{t.quickInventory.filter}</span>
           {(["all", 4, 5, 6] as BedroomFilter[]).map((br) => (
             <button
               key={br}
@@ -120,11 +126,11 @@ export default function QuickInventorySection() {
                   : "bg-[#F5F0E8] text-[#1A2332] hover:bg-[#1A2332]/10"
               }`}
             >
-              {br === "all" ? "All" : `${br} BR`}
+              {br === "all" ? t.quickInventory.all : `${br} BR`}
             </button>
           ))}
           <span className="font-body text-sm text-gray-400 ml-auto flex-shrink-0">
-            {filtered.length} properties
+            {filtered.length} {t.common.properties}
           </span>
         </div>
         </ScrollReveal>
@@ -156,7 +162,7 @@ export default function QuickInventorySection() {
                     </div>
                   </div>
                   <Badge className="bg-[#C8A45C] text-[#1A2332] font-bold text-sm px-3 py-1">
-                    {items.length} {items.length === 1 ? "unit" : "units"}
+                    {items.length} {items.length === 1 ? t.common.unit : t.common.units}
                   </Badge>
                 </div>
 
@@ -173,14 +179,14 @@ export default function QuickInventorySection() {
                         </h4>
                         {item.isPremium && (
                           <span className="flex-shrink-0 text-[10px] bg-[#1A2332] text-[#C8A45C] font-bold px-2 py-0.5 rounded tracking-wider">
-                            PREMIUM
+                            {t.common.premium}
                           </span>
                         )}
                       </div>
                       <div className="flex items-center gap-3 text-xs text-gray-500 mb-3">
                         <span className="flex items-center gap-1">
                           <Bed className="w-3.5 h-3.5 text-[#C8A45C]" />
-                          {item.bedrooms} Bed
+                          {item.bedrooms} {t.common.bed}
                         </span>
                         <span className="flex items-center gap-1">
                           <Maximize className="w-3.5 h-3.5 text-[#C8A45C]" />
@@ -188,7 +194,7 @@ export default function QuickInventorySection() {
                         </span>
                         {item.plotSqft && (
                           <span className="hidden sm:inline text-gray-400">
-                            Plot: {formatSqft(item.plotSqft)}
+                            {t.common.plot}: {formatSqft(item.plotSqft)}
                           </span>
                         )}
                       </div>
@@ -201,7 +207,7 @@ export default function QuickInventorySection() {
                           size="sm"
                           className="bg-[#1A2332] text-white hover:bg-[#2A3A52] text-xs rounded-lg min-h-[36px] transition-all duration-300"
                         >
-                          <Eye className="w-3 h-3 mr-1" /> View Details
+                          <Eye className="w-3 h-3 mr-1" /> {t.quickInventory.viewDetails}
                         </Button>
                       </div>
                     </div>
@@ -217,11 +223,11 @@ export default function QuickInventorySection() {
                     >
                       {isExpanded ? (
                         <>
-                          Show Less <ChevronUp className="w-4 h-4" />
+                          {t.quickInventory.showLess} <ChevronUp className="w-4 h-4" />
                         </>
                       ) : (
                         <>
-                          Show All {items.length} Units <ChevronDown className="w-4 h-4" />
+                          {items.length} {t.quickInventory.showAllUnits} <ChevronDown className="w-4 h-4" />
                         </>
                       )}
                     </button>
@@ -234,12 +240,12 @@ export default function QuickInventorySection() {
 
         {/* Bottom CTA */}
         <div className="mt-12 sm:mt-16 text-center">
-          <Link href="/inventory">
+          <Link href={langHref(lang, "/inventory")}>
             <Button
               size="lg"
               className="bg-[#1A2332] text-[#C8A45C] hover:bg-[#2A3A52] font-bold px-10 py-6 text-base rounded-lg gap-2 w-full sm:w-auto transition-all duration-300"
             >
-              View Full Inventory
+              {t.quickInventory.viewFullInventory}
               <ArrowRight className="w-5 h-5" />
             </Button>
           </Link>
