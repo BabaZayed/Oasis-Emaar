@@ -99,8 +99,8 @@ Work Log:
 - Changed middleware redirect target from www.oasisemaar.com to oasisemaar.com (bare domain)
 - Added trailingSlash: false to next.config.ts
 - Added missing pages to sitemap: /press, /link-to-us, /privacy, /terms, /disclaimer
-- Removed large files from git history (grand-polo-content with 133MB+ videos)
-- Added .gitignore entries for grand-polo-content/, upload/, agent-ctx/
+- Removed large files from git history
+- Added .gitignore entries for upload/, agent-ctx/
 - Force pushed clean history to GitHub
 
 Stage Summary:
