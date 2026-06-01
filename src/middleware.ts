@@ -4,27 +4,28 @@ import type { NextRequest } from "next/server";
 /**
  * Middleware: 301 Redirect for alternate domains
  *
- * When theoasisemaar.com or www.oasisemaar.com is accessed,
- * this middleware intercepts all requests and redirects them with a
- * 301 (permanent) status to the equivalent path on the canonical domain
- * (oasisemaar.com — non-www).
+ * Redirects theoasisemaar.com and www.theoasisemaar.com to the
+ * canonical domain (www.oasisemaar.com) with a 301 (permanent) status.
  *
- * This consolidates SEO authority onto the canonical domain while ensuring
- * users who type alternate domains still reach the correct content.
- * Path preservation: theoasisemaar.com/about → oasisemaar.com/about
+ * IMPORTANT: We do NOT redirect www.oasisemaar.com → oasisemaar.com here
+ * because Vercel's primary domain is configured as www.oasisemaar.com.
+ * Vercel automatically handles the www↔non-www redirect based on the
+ * primary domain setting. Adding a conflicting redirect here would
+ * create an infinite redirect loop.
+ *
+ * Path preservation: theoasisemaar.com/about → www.oasisemaar.com/about
  */
 export function middleware(request: NextRequest) {
   const host = request.headers.get("host") || "";
   const url = request.nextUrl;
 
-  // Redirect theoasisemaar.com and www variants → oasisemaar.com (301 Permanent)
-  // All traffic should consolidate on the bare domain (no www)
+  // Only redirect theoasisemaar.com variants → www.oasisemaar.com
+  // Do NOT redirect www.oasisemaar.com — Vercel handles that as the primary domain
   if (
     host === "theoasisemaar.com" ||
-    host === "www.theoasisemaar.com" ||
-    host === "www.oasisemaar.com"
+    host === "www.theoasisemaar.com"
   ) {
-    const destination = new URL(url.pathname + url.search, "https://oasisemaar.com");
+    const destination = new URL(url.pathname + url.search, "https://www.oasisemaar.com");
     return NextResponse.redirect(destination, 301);
   }
 
