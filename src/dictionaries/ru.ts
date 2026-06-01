@@ -155,11 +155,12 @@ const ru: Dictionary = {
 
   // ─── References Section ───
   references: {
-    label: "Доверие экспертов",
-    title: "Отраслевые рекомендации",
-    subtitle: "Мнения ведущих специалистов по недвижимости, инвесторов и консультантов, которые доверяют The Oasis от Emaar как premier-направлению для инвестиций и жизни.",
-    partnersLabel: "Признано и лицензировано",
-    partners: ["Emaar Properties", "Dubai Land Department", "Лицензия RERA", "Dubai Tourism", "Глобальные инвесторы"],
+    label: "Почему нам доверяют",
+    title: "Ваш надёжный партнёр по The Oasis",
+    subtitle: "Как авторизованный агент Emaar, мы предоставляем прямой доступ к официальным ценам, актуальному наличию и экспертным консультациям по The Oasis от Emaar.",
+    cta: "Поговорите с нашей командой",
+    partnersLabel: "Recognized & Licensed",
+    partners: ["Emaar Properties", "Dubai Land Department", "RERA Licensed", "Dubai Tourism", "Global Investors"],
   },
 
   // ─── Feedback Section ───
@@ -264,7 +265,7 @@ const ru: Dictionary = {
     ],
     noMatch: "Нет объектов, соответствующих вашим фильтрам.",
     clusterOptions: [
-      "Palmiera 3", "Mareva 2", "Mareva", "Palmeira Collective",
+      "Palmiera 3", "Mareva 2", "Mareva", "Palmiera Collective",
       "Lavita", "Address Villas Tierra", "Mirage", "Palace Villas Ostra", "Palmiera",
     ],
   },

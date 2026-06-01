@@ -69,14 +69,14 @@ const aiContext = {
       url: "https://oasisemaar.com/projects/palmiera",
     },
     {
-      name: "Palmeira Collective",
-      slug: "palmeira-collective",
+      name: "Palmiera Collective",
+      slug: "palmiera-collective",
       type: "4-bedroom bespoke villas",
       startingPrice: "AED 11M",
       handover: "Q1-Q2 2029",
       paymentPlan: "80/20",
       highlights: "Ultra-exclusive limited edition — only 38 units",
-      url: "https://oasisemaar.com/projects/palmeira-collective",
+      url: "https://oasisemaar.com/projects/palmiera-collective",
     },
     {
       name: "Address Villas Tierra",
@@ -152,7 +152,7 @@ const aiContext = {
     standard: {
       name: "80/20 Plan",
       description: "10% on booking, 70% during construction, 20% on handover",
-      applicableClusters: ["Palmiera", "Palmiera 3", "Palmeira Collective", "Address Villas Tierra", "Mareva", "Mareva 2", "Palace Villas Ostra", "Lavita"],
+      applicableClusters: ["Palmiera", "Palmiera 3", "Palmiera Collective", "Address Villas Tierra", "Mareva", "Mareva 2", "Palace Villas Ostra", "Lavita"],
     },
     mirage: {
       name: "90/10 Plan",

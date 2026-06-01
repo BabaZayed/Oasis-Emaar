@@ -17,7 +17,7 @@ const clusterOrder = [
   { projectId: "palmiera-3", label: "Palmiera 3" },
   { projectId: "mareva-2", label: "Mareva 2" },
   { projectId: "mareva-1", label: "Mareva" },
-  { projectId: "palmeira-collective", label: "Palmeira Collective" },
+  { projectId: "palmiera-collective", label: "Palmiera Collective" },
   { projectId: "lavita", label: "Lavita" },
 ];
 

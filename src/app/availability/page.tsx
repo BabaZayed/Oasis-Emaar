@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Check Availability | The Oasis by Emaar",
     description:
-      "Browse real-time availability of 77+ luxury properties across 9 clusters at The Oasis by Emaar, Dubai. Starting from AED 9.2M.",
+      "Browse real-time availability of 77+ luxury properties across 9 clusters at The Oasis by Emaar, Dubai. Starting from AED 9.18M.",
     url: "https://oasisemaar.com/availability",
     siteName: "Oasis Emaar",
     type: "website",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Check Availability | The Oasis by Emaar",
     description:
-      "Browse real-time availability of 77+ luxury properties across 9 clusters. Starting from AED 9.2M.",
+      "Browse real-time availability of 77+ luxury properties across 9 clusters. Starting from AED 9.18M.",
     images: ["/og-image.jpg"],
   },
   alternates: {

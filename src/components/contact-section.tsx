@@ -273,7 +273,7 @@ export default function ContactSection({ lang }: { lang?: import("@/lib/i18n").L
                         <SelectContent>
                           <SelectItem value="palmiera-3">Palmiera 3</SelectItem>
                           <SelectItem value="palmiera">Palmiera</SelectItem>
-                          <SelectItem value="palmeira-collective">Palmeira Collective</SelectItem>
+                          <SelectItem value="palmiera-collective">Palmiera Collective</SelectItem>
                           <SelectItem value="mareva">Mareva</SelectItem>
                           <SelectItem value="mareva-2">Mareva 2</SelectItem>
                           <SelectItem value="mirage">Mirage</SelectItem>

@@ -96,7 +96,7 @@ export default async function ProjectPageRoute({ params }: PageProps) {
     "mareva-2": { lat: 25.1378, lng: 55.2278 },
     "mirage": { lat: 25.1432, lng: 55.2225 },
     "palace-villas-ostra": { lat: 25.1405, lng: 55.2242 },
-    "palmeira-collective": { lat: 25.1425, lng: 55.2262 },
+    "palmiera-collective": { lat: 25.1425, lng: 55.2262 },
     "palmiera": { lat: 25.1418, lng: 55.2255 },
     "palmiera-3": { lat: 25.1402, lng: 55.2272 },
   };

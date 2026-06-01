@@ -309,7 +309,7 @@ Qualified lead threshold: 40+ points
 |---------|------|------|---------------|----------|----------|---------|
 | Palmiera 3 | palmiera-3 | Villa | AED 9.18M | 4BR | Q4 2028 | 80/20 |
 | Palmiera | palmiera | Villa | AED 10.5M | 4BR | Q1-Q2 2029 | 80/20 |
-| Palmeira Collective | palmeira-collective | Villa | AED 11M | 4BR | Q1-Q2 2029 | 80/20 |
+| Palmiera Collective | palmiera-collective | Villa | AED 11M | 4BR | Q1-Q2 2029 | 80/20 |
 | Address Villas Tierra | adress-villas-tierra | Branded Villa | AED 13.16M | 4-6BR | Jun 2029 | 80/20 |
 | Mareva | mareva-1 | Villa | AED 13.47M | 4-6BR | Q1-Q2 2031 | 80/20 |
 | Mareva 2 | mareva-2 | Villa | AED 13.83M | 4-6BR | Q1-Q2 2031 | 80/20 |
@@ -395,7 +395,7 @@ Qualified lead threshold: 40+ points
 4. **Meta Pixel**: Takes ~30 minutes to detect in Events Manager after deployment
 5. **CAPI**: Requires both NEXT_PUBLIC_META_PIXEL_ID and META_CONVERSIONS_API_TOKEN env vars
 6. **Google Sheets**: Requires GOOGLE_SHEETS_WEBHOOK_URL env var
-7. **Cluster maps**: Only 3 clusters have specific map images (adress-villas-tierra, lavita, palmeira-collective); others use masterplan fallback
+7. **Cluster maps**: Only 3 clusters have specific map images (adress-villas-tierra, lavita, palmiera-collective); others use masterplan fallback
 8. **Lavita inventory**: Only 2 units (V-27 and V-47), both 6BR mansions at AED 46.97M - 47.70M
 
 ---

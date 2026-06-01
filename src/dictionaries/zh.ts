@@ -146,11 +146,12 @@ const zh: Dictionary = {
   },
 
   references: {
-    label: "专家信赖",
-    title: "行业推荐",
-    subtitle: "聆听信赖 The Oasis by Emaar 作为顶级投资和生活目的地的房地产专业人士、投资者和顾问的声音。",
-    partnersLabel: "认证与授权",
-    partners: ["Emaar Properties", "迪拜土地局", "RERA 授权", "迪拜旅游局", "全球投资者"],
+    label: "为何信赖我们",
+    title: "您信赖的 Oasis 合作伙伴",
+    subtitle: "作为 Emaar 授权销售代理，我们提供官方定价、实时库存和专业指导的直接渠道，助您了解 The Oasis by Emaar。",
+    cta: "与我们的团队交流",
+    partnersLabel: "Recognized & Licensed",
+    partners: ["Emaar Properties", "Dubai Land Department", "RERA Licensed", "Dubai Tourism", "Global Investors"],
   },
 
   feedback: {
@@ -241,7 +242,7 @@ const zh: Dictionary = {
     priceRange: "价格范围",
     priceRanges: ["1500万迪拉姆以下", "1500万-2000万迪拉姆", "2000万-2500万迪拉姆", "2500万-3000万迪拉姆", "3000万迪拉姆以上"],
     noMatch: "没有符合您筛选条件的房源。",
-    clusterOptions: ["Palmiera 3", "Mareva 2", "Mareva", "Palmeira Collective", "Lavita", "Address Villas Tierra", "Mirage", "Palace Villas Ostra", "Palmiera"],
+    clusterOptions: ["Palmiera 3", "Mareva 2", "Mareva", "Palmiera Collective", "Lavita", "Address Villas Tierra", "Mirage", "Palace Villas Ostra", "Palmiera"],
   },
 
   projects: {

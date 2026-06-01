@@ -215,6 +215,7 @@ export const footerT: Record<LangCode, {
   privacy: string;
   terms: string;
   disclaimer: string;
+  reraDisclaimer: string;
 }> = {
   en: {
     quickLinks: "Quick Links",
@@ -232,6 +233,7 @@ export const footerT: Record<LangCode, {
     privacy: "Privacy Policy",
     terms: "Terms of Service",
     disclaimer: "Disclaimer",
+    reraDisclaimer: "Licensed by the Real Estate Regulatory Agency, Dubai Land Department. All information is subject to change and should be verified with the developer.",
   },
   ar: {
     quickLinks: "روابط سريعة",
@@ -249,6 +251,7 @@ export const footerT: Record<LangCode, {
     privacy: "سياسة الخصوصية",
     terms: "شروط الخدمة",
     disclaimer: "إخلاء المسؤولية",
+    reraDisclaimer: "مرخص من هيئة تنظيم العقارات، دائرة الأراضي والأملاك في دبي. جميع المعلومات عرضة للتغيير ويجب التحقق منها مع المطور.",
   },
   zh: {
     quickLinks: "快速链接",
@@ -266,6 +269,7 @@ export const footerT: Record<LangCode, {
     privacy: "隐私政策",
     terms: "服务条款",
     disclaimer: "免责声明",
+    reraDisclaimer: "由迪拜土地局房地产监管机构颁发执照。所有信息可能会变更，请与开发商核实。",
   },
   ru: {
     quickLinks: "Быстрые Ссылки",
@@ -283,6 +287,7 @@ export const footerT: Record<LangCode, {
     privacy: "Политика конфиденциальности",
     terms: "Условия использования",
     disclaimer: "Отказ от ответственности",
+    reraDisclaimer: "Лицензировано Агентством по регулированию недвижимости, Департамент земли Дубая. Вся информация может быть изменена и должна быть подтверждена застройщиком.",
   },
   fr: {
     quickLinks: "Liens Rapides",
@@ -300,6 +305,7 @@ export const footerT: Record<LangCode, {
     privacy: "Politique de Confidentialité",
     terms: "Conditions d'Utilisation",
     disclaimer: "Avertissement",
+    reraDisclaimer: "Licencié par l'Agence de Régulation Immobilière, Département des Terres de Dubaï. Toutes les informations sont sujettes à modification et doivent être vérifiées auprès du promoteur.",
   },
   de: {
     quickLinks: "Schnelllinks",
@@ -317,5 +323,6 @@ export const footerT: Record<LangCode, {
     privacy: "Datenschutz",
     terms: "Nutzungsbedingungen",
     disclaimer: "Haftungsausschluss",
+    reraDisclaimer: "Lizenziert von der Immobilienregulierungsbehörde, Dubai Land Department. Alle Informationen können sich ändern und sollten beim Bauträger überprüft werden.",
   },
 };

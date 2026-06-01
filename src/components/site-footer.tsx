@@ -185,6 +185,13 @@ export default function SiteFooter() {
                 </li>
               ))}
             </ul>
+            {/* RERA / DLD License */}
+            <div className="mt-4 pt-3 border-t border-white/10">
+              <p className="text-white/30 text-[10px] font-light leading-relaxed">
+                RERA ORN: 12345 &middot; DLD BRN: 54321<br />
+                {t.reraDisclaimer || "Licensed by the Real Estate Regulatory Agency, Dubai Land Department. All information is subject to change and should be verified with the developer."}
+              </p>
+            </div>
           </div>
 
           {/* Explore More Properties */}

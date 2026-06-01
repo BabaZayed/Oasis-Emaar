@@ -3,7 +3,7 @@
  * Change domain in ONE place and it propagates everywhere
  */
 
-export const SITE_URL = "https://oasisemaar.com";
+export const SITE_URL = "https://www.oasisemaar.com";
 export const SITE_NAME = "Oasis Emaar — Authorized Agent";
 export const SITE_PHONE = "+971526919169";
 export const SITE_EMAIL = "sales@oasisemaar.com";

@@ -151,11 +151,12 @@ const de: Dictionary = {
 
   // ─── References Section ───
   references: {
-    label: "Von Experten vertraut",
-    title: "Branchenreferenzen",
-    subtitle: "Hören Sie von führenden Immobilienfachleuten, Investoren und Beratern, die The Oasis by Emaar als erstklassiges Investitions- und Lebensstilziel vertrauen.",
-    partnersLabel: "Anerkannt & lizenziert",
-    partners: ["Emaar Properties", "Dubai Land Department", "RERA-lizenziert", "Dubai Tourism", "Globale Investoren"],
+    label: "Warum uns vertrauen",
+    title: "Ihr vertrauenswürdiger Oasis-Partner",
+    subtitle: "Als autorisierter Emaar-Vertriebsagent bieten wir direkten Zugang zu offiziellen Preisen, Echtzeit-Bestand und fachkundiger Beratung für The Oasis by Emaar.",
+    cta: "Sprechen Sie mit unserem Team",
+    partnersLabel: "Recognized & Licensed",
+    partners: ["Emaar Properties", "Dubai Land Department", "RERA Licensed", "Dubai Tourism", "Global Investors"],
   },
 
   // ─── Feedback Section ───
@@ -260,7 +261,7 @@ const de: Dictionary = {
     ],
     noMatch: "Keine Immobilien entsprechen Ihren Filtern.",
     clusterOptions: [
-      "Palmiera 3", "Mareva 2", "Mareva", "Palmeira Collective",
+      "Palmiera 3", "Mareva 2", "Mareva", "Palmiera Collective",
       "Lavita", "Address Villas Tierra", "Mirage", "Palace Villas Ostra", "Palmiera",
     ],
   },

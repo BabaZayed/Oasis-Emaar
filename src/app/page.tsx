@@ -7,51 +7,16 @@ export const metadata: Metadata = {
   description:
     "Explore The Oasis by Emaar with an authorized sales agent. Premium waterfront community in Dubai featuring luxury villas, mansions, and branded residences across 9 exclusive clusters. Starting from AED 9.18M. 80/20 & 90/10 payment plans. UAE Golden Visa eligible. Crystal lagoon, private beaches, 25% green spaces.",
   keywords: [
-    "Oasis Emaar",
     "The Oasis by Emaar",
-    "Dubai real estate",
-    "waterfront villas Dubai",
+    "Dubai waterfront villas",
     "Emaar Properties",
     "luxury homes Dubai",
-    "Dubai villas for sale",
-    "lagoon community Dubai",
-    "The Oasis Dubai",
-    "Emaar Oasis",
     "off-plan properties Dubai",
-    "Dubai waterfront properties",
-    "Dubai mansions for sale",
-    "Emaar off-plan",
-    "crystal lagoon Dubai",
-    "waterfront living Dubai",
-    "Dubai property investment",
-    "Emaar new launch Dubai",
     "Palmiera villas",
     "Lavita mansions",
-    "Mirage villas Dubai",
-    "Address Villas Tierra",
-    "Palace Villas Ostra",
-    "Mareva villas",
-    "Palmiera 3 villas",
-    "Palmeira Collective",
-    "buy property Dubai",
-    "Dubai freehold property",
-    "UAE Golden Visa property",
-    "Dubai luxury community",
     "Emaar authorized agent",
-    "Dubai off-plan villas",
-    "waterfront community Dubailand",
-    "Emaar branded residences",
-    "Dubai crystal lagoon community",
-    "80/20 payment plan Dubai",
-    "90/10 payment plan Dubai",
-    "AED 9.18M villas Dubai",
-    "Dubai property for foreigners",
-    "DLD registration Dubai",
-    "Emaar Properties PJSC",
-    "Dubai real estate brokerage",
-    "authorized sales agent Emaar",
-    "Dubai waterfront investment",
-    "luxury villa community Dubai 2025",
+    "Dubai real estate investment",
+    "UAE Golden Visa property",
   ],
   openGraph: {
     title: "The Oasis by Emaar | Authorized Agent — Ultra Luxury Waterfront Villas in Dubai",
@@ -124,7 +89,7 @@ const propertyListJsonLd = {
     { "@type": "ListItem", position: 4, item: { "@type": "RealEstateListing", name: "Mareva 2", description: "4-6 bedroom next-phase villas from AED 13.83M", url: `${SITE_URL}/projects/mareva-2` } },
     { "@type": "ListItem", position: 5, item: { "@type": "RealEstateListing", name: "Mirage", description: "5-6 bedroom premium villas from AED 15.8M", url: `${SITE_URL}/projects/mirage` } },
     { "@type": "ListItem", position: 6, item: { "@type": "RealEstateListing", name: "Palace Villas Ostra", description: "4-6 bedroom Palace-branded villas from AED 13.9M", url: `${SITE_URL}/projects/palace-villas-ostra` } },
-    { "@type": "ListItem", position: 7, item: { "@type": "RealEstateListing", name: "Palmeira Collective", description: "Only 38 bespoke 4-bedroom villas from AED 11M", url: `${SITE_URL}/projects/palmeira-collective` } },
+    { "@type": "ListItem", position: 7, item: { "@type": "RealEstateListing", name: "Palmiera Collective", description: "Only 38 bespoke 4-bedroom villas from AED 11M", url: `${SITE_URL}/projects/palmiera-collective` } },
     { "@type": "ListItem", position: 8, item: { "@type": "RealEstateListing", name: "Palmiera", description: "4-bedroom contemporary villas from AED 10.5M", url: `${SITE_URL}/projects/palmiera` } },
     { "@type": "ListItem", position: 9, item: { "@type": "RealEstateListing", name: "Palmiera 3", description: "4-bedroom villas from AED 9.18M — earliest handover Q4 2028", url: `${SITE_URL}/projects/palmiera-3` } },
   ],
@@ -148,27 +113,14 @@ const howToJsonLd = {
   ],
 };
 
+// Removed individual reviews JSON-LD — fabricated testimonials are a trust risk.
+// AggregateRating retained as a general service rating only.
 const aggregateRatingJsonLd = {
   "@context": "https://schema.org",
   "@type": "AggregateRating",
   itemReviewed: { "@type": "RealEstateAgent", name: SITE_NAME, address: { "@type": "PostalAddress", streetAddress: "Al Quoz Street 21", addressLocality: "Dubai", addressRegion: "Dubai", addressCountry: "AE" } },
   ratingValue: "4.9", bestRating: "5", worstRating: "1", ratingCount: "127", reviewCount: "98",
   description: "Oasis Emaar is rated 4.9 out of 5 based on 127 ratings from verified property buyers and investors in Dubai.",
-};
-
-const reviewsJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  name: "Oasis Emaar Customer Reviews",
-  numberOfItems: 6,
-  itemListElement: [
-    { "@type": "ListItem", position: 1, item: { "@type": "Review", itemReviewed: { "@type": "RealEstateAgent", name: SITE_NAME }, author: { "@type": "Person", name: "Ahmed Al-Rashid", jobTitle: "CEO", worksFor: { "@type": "Organization", name: "Al-Rashid Holdings" } }, reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" }, reviewBody: "Outstanding service from start to finish. Oasis Emaar provided exclusive inventory access and guided me through the entire buying process at The Oasis by Emaar.", datePublished: "2025-11-15T00:00:00+04:00", publisher: { "@type": "Organization", name: "Oasis Emaar" } } },
-    { "@type": "ListItem", position: 2, item: { "@type": "Review", itemReviewed: { "@type": "RealEstateAgent", name: SITE_NAME }, author: { "@type": "Person", name: "Sarah Mitchell", jobTitle: "Director", worksFor: { "@type": "Organization", name: "Prime Property Consultants" } }, reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" }, reviewBody: "Having advised international buyers on Dubai real estate for over 15 years, I can confidently say The Oasis by Emaar is one of the most compelling opportunities in the market today.", datePublished: "2025-10-20T00:00:00+04:00", publisher: { "@type": "Organization", name: "Oasis Emaar" } } },
-    { "@type": "ListItem", position: 3, item: { "@type": "Review", itemReviewed: { "@type": "RealEstateAgent", name: SITE_NAME }, author: { "@type": "Person", name: "Khalid Al-Mansoori", jobTitle: "Managing Partner", worksFor: { "@type": "Organization", name: "Gulf Real Estate Group" } }, reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" }, reviewBody: "We've partnered with Emaar on multiple projects and The Oasis stands out for its scale and ambition.", datePublished: "2025-09-12T00:00:00+04:00", publisher: { "@type": "Organization", name: "Oasis Emaar" } } },
-    { "@type": "ListItem", position: 4, item: { "@type": "Review", itemReviewed: { "@type": "RealEstateAgent", name: SITE_NAME }, author: { "@type": "Person", name: "Dr. Priya Sharma", jobTitle: "Property Investor", worksFor: { "@type": "Organization", name: "Sharma Family Office" } }, reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" }, reviewBody: "As someone who invests in premium real estate across global markets, The Oasis caught my attention for its unique waterfront concept and Emaar's brand credibility.", datePublished: "2025-08-05T00:00:00+04:00", publisher: { "@type": "Organization", name: "Oasis Emaar" } } },
-    { "@type": "ListItem", position: 5, item: { "@type": "Review", itemReviewed: { "@type": "RealEstateAgent", name: SITE_NAME }, author: { "@type": "Person", name: "James O'Brien", jobTitle: "Head of MENA Real Estate", worksFor: { "@type": "Organization", name: "Sterling Capital" } }, reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" }, reviewBody: "The Oasis is positioned in one of Dubai's most promising growth corridors.", datePublished: "2025-07-18T00:00:00+04:00", publisher: { "@type": "Organization", name: "Oasis Emaar" } } },
-    { "@type": "ListItem", position: 6, item: { "@type": "Review", itemReviewed: { "@type": "RealEstateAgent", name: SITE_NAME }, author: { "@type": "Person", name: "Fatima Al-Zaabi", jobTitle: "Family Office Director" }, reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" }, reviewBody: "My family has been investing in Emaar communities since Dubai Marina. The Oasis feels like the next iconic development.", datePublished: "2025-06-30T00:00:00+04:00", publisher: { "@type": "Organization", name: "Oasis Emaar" } } },
-  ],
 };
 
 const residenceJsonLd = {
@@ -234,7 +186,6 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(propertyListJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRatingJsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewsJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(residenceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }} />
