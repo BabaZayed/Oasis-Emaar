@@ -51,4 +51,9 @@ prompt
 
 server.log
 # Skills directory
-/skills/
+/skills/# Grand Polo content (large files)
+grand-polo-content/
+# Uploads (not for deployment)
+upload/
+# Agent context
+agent-ctx/
