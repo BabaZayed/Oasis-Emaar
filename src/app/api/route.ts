@@ -1,5 +1,18 @@
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  return NextResponse.json({ message: "Hello, world!" });
+  return NextResponse.json(
+    {
+      status: "ok",
+      service: "Oasis Emaar Website",
+      timestamp: new Date().toISOString(),
+    },
+    {
+      status: 200,
+      headers: {
+        "Cache-Control": "no-store",
+        "X-Robots-Tag": "noindex, nofollow",
+      },
+    }
+  );
 }

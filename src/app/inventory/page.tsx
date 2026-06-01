@@ -5,7 +5,7 @@ import WebPageSchema from "@/components/web-page-schema";
 export const metadata: Metadata = {
   title: "Inventory - Available Properties for Sale",
   description:
-    "Browse available properties at The Oasis by Emaar. Villas, mansions, townhouses, apartments, and penthouses with pricing, floor plans, and availability status. Starting from AED 3.2M.",
+    "Browse available properties at The Oasis by Emaar. Villas, mansions, and branded residences with pricing, floor plans, and availability status. Starting from AED 9.18M.",
   keywords: [
     "Oasis Emaar inventory",
     "Dubai property for sale",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Inventory | The Oasis by Emaar",
     description:
-      "Browse available properties at The Oasis by Emaar. Villas, mansions, townhouses, apartments, and penthouses starting from AED 3.2M.",
+      "Browse available properties at The Oasis by Emaar. Villas, mansions, and branded residences starting from AED 9.18M.",
     url: "https://oasisemaar.com/inventory",
     siteName: "Oasis Emaar",
     type: "website",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Inventory | The Oasis by Emaar",
     description:
-      "Browse available properties at The Oasis by Emaar. Starting from AED 3.2M.",
+      "Browse available properties at The Oasis by Emaar. Starting from AED 9.18M.",
     images: ["/og-image.jpg"],
   },
   alternates: {

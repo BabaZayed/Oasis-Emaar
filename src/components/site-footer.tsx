@@ -14,7 +14,7 @@ import { detectLang, footerT, headerT, type LangCode } from "@/lib/i18n";
 const socialLinks = [
   { icon: Facebook, href: "https://facebook.com/oasisemaar", label: "Facebook" },
   { icon: Instagram, href: "https://instagram.com/oasisemaar", label: "Instagram" },
-  { icon: Twitter, href: "https://twitter.com/OasisEmaar", label: "Twitter" },
+  { icon: Twitter, href: "https://x.com/OasisEmaar", label: "X (Twitter)" },
   { icon: Linkedin, href: "https://linkedin.com/company/oasisemaar", label: "LinkedIn" },
   { icon: Youtube, href: "https://youtube.com/@oasisemaar", label: "YouTube" },
 ];

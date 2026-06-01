@@ -5,7 +5,7 @@ import WebPageSchema from "@/components/web-page-schema";
 export const metadata: Metadata = {
   title: "Projects - Luxury Villas, Mansions & Residences",
   description:
-    "Explore all five distinctive communities at The Oasis by Emaar — waterfront villas, ultra-luxury mansions, creek-side townhouses, lagoon-front apartments, and sky-high penthouses in Dubai.",
+    "Explore all nine exclusive clusters at The Oasis by Emaar — waterfront villas, ultra-luxury mansions, and branded residences in Dubai.",
   keywords: [
     "Oasis Emaar projects",
     "Dubai villas",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Projects | The Oasis by Emaar",
     description:
-      "Explore all five distinctive communities at The Oasis by Emaar — waterfront villas, ultra-luxury mansions, creek-side townhouses, lagoon-front apartments, and sky-high penthouses in Dubai.",
+      "Explore all nine exclusive clusters at The Oasis by Emaar — waterfront villas, ultra-luxury mansions, and branded residences in Dubai.",
     url: "https://oasisemaar.com/projects",
     siteName: "Oasis Emaar",
     type: "website",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Projects | The Oasis by Emaar",
     description:
-      "Explore all five distinctive communities at The Oasis by Emaar — waterfront villas, ultra-luxury mansions, creek-side townhouses, lagoon-front apartments, and sky-high penthouses in Dubai.",
+      "Explore all nine exclusive clusters at The Oasis by Emaar — waterfront villas, ultra-luxury mansions, and branded residences in Dubai.",
     images: ["/og-image.jpg"],
   },
   alternates: {

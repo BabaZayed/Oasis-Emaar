@@ -30,7 +30,7 @@ const aiContext = {
     sameAs: [
       "https://facebook.com/oasisemaar",
       "https://instagram.com/oasisemaar",
-      "https://twitter.com/OasisEmaar",
+      "https://x.com/OasisEmaar",
       "https://linkedin.com/company/oasisemaar",
     ],
   },
@@ -234,7 +234,7 @@ export async function GET() {
     headers: {
       "Content-Type": "application/json",
       "Cache-Control": "public, max-age=3600",
-      "X-Robots-Tag": "all",
+      "X-Robots-Tag": "noindex, nofollow",
     },
   });
 }

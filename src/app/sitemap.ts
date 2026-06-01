@@ -108,12 +108,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily",
       priority: 0.7,
     },
-    {
-      url: `${BASE_URL}/feed.xml`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.4,
-    },
+    // feed.xml is not a web page — excluded from HTML sitemap (available via RSS auto-discovery in <head>)
     // Additional pages that exist but were missing from sitemap
     {
       url: `${BASE_URL}/press`,

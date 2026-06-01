@@ -5,7 +5,7 @@ import WebPageSchema from "@/components/web-page-schema";
 export const metadata: Metadata = {
   title: "Payment Plan - Flexible Payment Options",
   description:
-    "Learn about flexible payment plans at The Oasis by Emaar. 10% on booking, 40% during construction, and 50% on handover. Post-handover payment options available for select units.",
+    "Learn about flexible payment plans at The Oasis by Emaar. 80/20 plan: 10% on booking, 70% during construction, 20% on handover. 90/10 plan (Mirage): just 10% on handover. Post-handover options available for select units.",
   keywords: [
     "Oasis Emaar payment plan",
     "Dubai property payment plan",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Payment Plan | The Oasis by Emaar",
     description:
-      "Flexible payment plans at The Oasis by Emaar. 10% on booking, 40% during construction, 50% on handover. Post-handover options available.",
+      "Flexible payment plans at The Oasis by Emaar. 80/20 plan: 10% booking, 70% construction, 20% handover. 90/10 plan (Mirage): just 10% on handover.",
     url: "https://oasisemaar.com/payment-plan",
     siteName: "Oasis Emaar",
     type: "website",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Payment Plan | The Oasis by Emaar",
     description:
-      "Flexible payment plans at The Oasis by Emaar. 10% on booking, 40% during construction, 50% on handover.",
+      "Flexible payment plans at The Oasis by Emaar. 80/20 plan (10% booking, 70% construction, 20% handover) and 90/10 plan.",
     images: ["/og-image.jpg"],
   },
   alternates: {
