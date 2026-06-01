@@ -70,3 +70,20 @@
 - Lint passed with no errors
 - Dev server compiles successfully
 - Pushed to GitHub: `BabaZayed/Oasis-Emaar` main branch
+---
+Task ID: 1
+Agent: Main Agent
+Task: Fix Google Search Console datetime issues, white border on page, and mobile performance
+
+Work Log:
+- Analyzed GSC screenshot showing 2 active issues: datePublished missing timezone + invalid datetime value (in mainEntity)
+- Fixed all datetime values across 7 files to use ISO 8601 with UAE timezone (+04:00)
+- Fixed white border/edge by setting html/body background to #0D1B2A and using overflow-x: clip
+- Optimized mobile performance by reducing particles, blur sizes, backdrop-filters, and adding content-visibility
+- Resolved git rebase conflicts and pushed to GitHub
+
+Stage Summary:
+- All JSON-LD datetime values now use +04:00 timezone (FAQPage, WebPage, Reviews, Events, QAPage, Blog, Projects)
+- White border fixed with deep navy background + overflow-x: clip + hidden scrollbar
+- Mobile performance optimized: 4 particles (was 12), ripples/orbs desktop-only, smaller blur on mobile, content-visibility:auto for below-fold
+- Build passes, pushed to GitHub (commit f090813)
