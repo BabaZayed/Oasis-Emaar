@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "The Oasis by Emaar | Autorisierter Agent — Luxus-Wasserfront-Villen in Dubai",
     description:
       "Entdecken Sie The Oasis by Emaar mit einem autorisierten Verkaufsagenten. Premium-Wasserfront-Gemeinschaft in Dubai mit Luxus-Villen, Anwesen und Marken-Residenzen. Ab 9,18M AED.",
-    url: "https://oasisemaar.com/de/",
+    url: "https://oasisemaar.com/de",
     siteName: "Oasis Emaar — Autorisierter Agent",
     type: "website",
     locale: "de_AE",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://oasisemaar.com/de/",
+    canonical: "https://oasisemaar.com/de",
     languages: {
       en: "https://oasisemaar.com",
       ar: "https://oasisemaar.com/ar",
@@ -70,7 +70,7 @@ const realEstateAgentJsonLd = {
   name: "Oasis Emaar — Autorisierter Verkaufsagent",
   description:
     "Autorisierter Verkaufsagent für The Oasis by Emaar Properties in Dubai. Luxus-Wasserfront-Villen, Anwesen und Marken-Residenzen ab 9,18M AED.",
-  url: "https://oasisemaar.com/de/",
+  url: "https://oasisemaar.com/de",
   logo: "https://oasisemaar.com/logo.svg",
   telephone: "+971526919169",
   email: "sales@oasisemaar.com",
@@ -184,7 +184,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 2,
       name: "Deutsche Seite",
-      item: "https://oasisemaar.com/de/",
+      item: "https://oasisemaar.com/de",
     },
   ],
 };
@@ -196,7 +196,7 @@ const webPageJsonLd = {
   name: "The Oasis by Emaar | Autorisierter Agent — Luxus-Wasserfront-Villen in Dubai",
   description:
     "Entdecken Sie The Oasis by Emaar mit einem autorisierten Verkaufsagenten. Premium-Wasserfront-Gemeinschaft in Dubai mit Luxus-Villen, Anwesen und Marken-Residenzen. Ab 9,18M AED.",
-  url: "https://oasisemaar.com/de/",
+  url: "https://oasisemaar.com/de",
   inLanguage: "de",
   author: {
     "@type": "Organization",

@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "L'Oasis by Emaar | Agent Autorisé — Villas de Luxe en Bord de Mer à Dubaï",
     description:
       "Découvrez L'Oasis by Emaar avec un agent autorisé. Communauté premium en bord de mer à Dubaï avec villas de luxe, mansions et résidences de marque. À partir de 9,18M AED.",
-    url: "https://oasisemaar.com/fr/",
+    url: "https://oasisemaar.com/fr",
     siteName: "Oasis Emaar — Agent Autorisé",
     type: "website",
     locale: "fr_AE",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://oasisemaar.com/fr/",
+    canonical: "https://oasisemaar.com/fr",
     languages: {
       en: "https://oasisemaar.com",
       ar: "https://oasisemaar.com/ar",
@@ -70,7 +70,7 @@ const realEstateAgentJsonLd = {
   name: "Oasis Emaar — Agent de Vente Autorisé",
   description:
     "Agent de vente autorisé pour L'Oasis by Emaar Properties à Dubaï. Villas de luxe en bord de mer, mansions et résidences de marque à partir de 9,18M AED.",
-  url: "https://oasisemaar.com/fr/",
+  url: "https://oasisemaar.com/fr",
   logo: "https://oasisemaar.com/logo.svg",
   telephone: "+971526919169",
   email: "sales@oasisemaar.com",
@@ -184,7 +184,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 2,
       name: "Page en Français",
-      item: "https://oasisemaar.com/fr/",
+      item: "https://oasisemaar.com/fr",
     },
   ],
 };
@@ -196,7 +196,7 @@ const webPageJsonLd = {
   name: "L'Oasis by Emaar | Agent Autorisé — Villas de Luxe en Bord de Mer à Dubaï",
   description:
     "Découvrez L'Oasis by Emaar avec un agent autorisé. Communauté premium en bord de mer à Dubaï avec villas de luxe, mansions et résidences de marque. À partir de 9,18M AED.",
-  url: "https://oasisemaar.com/fr/",
+  url: "https://oasisemaar.com/fr",
   inLanguage: "fr",
   author: {
     "@type": "Organization",

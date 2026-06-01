@@ -114,6 +114,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.4,
     },
+    // Additional pages that exist but were missing from sitemap
+    {
+      url: `${BASE_URL}/press`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.5,
+      images: [`${BASE_URL}/og-image.jpg`],
+    },
+    {
+      url: `${BASE_URL}/link-to-us`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/privacy`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.2,
+    },
+    {
+      url: `${BASE_URL}/terms`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.2,
+    },
+    {
+      url: `${BASE_URL}/disclaimer`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.2,
+    },
     // Multilingual landing pages
     { url: `${BASE_URL}/ar`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
     { url: `${BASE_URL}/zh`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
