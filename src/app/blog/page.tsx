@@ -67,7 +67,7 @@ const blogCollectionJsonLd = {
     name: "Oasis Emaar — Authorized Sales Agent",
     logo: { "@type": "ImageObject", url: "https://oasisemaar.com/logo.svg" },
   },
-  dateModified: "2026-05-19",
+  dateModified: "2026-05-19T00:00:00+04:00",
 };
 
 export default function BlogPage() {

@@ -109,7 +109,7 @@ export default async function ProjectPageRoute({ params }: PageProps) {
     name: project.name,
     description: project.description,
     url: `https://oasisemaar.com/projects/${slug}`,
-    datePosted: project.status === "Off-Plan" ? "2024-01-01" : undefined,
+    datePosted: project.status === "Off-Plan" ? "2024-01-01T00:00:00+04:00" : undefined,
     availability: project.status === "Off-Plan" ? "PreOrder" : "InStock",
     image: {
       "@type": "ImageObject",
@@ -187,7 +187,7 @@ export default async function ProjectPageRoute({ params }: PageProps) {
               name: `${project.name} at The Oasis by Emaar — Official Video Tour`,
               description: `Watch the official video tour of ${project.name} at The Oasis by Emaar in Dubai. ${project.tagline}. Starting from AED ${(project.startingPrice / 1000000).toFixed(2)}M.`,
               thumbnailUrl: `https://oasisemaar.com${project.imageUrl}`,
-              uploadDate: "2024-06-01",
+              uploadDate: "2024-06-01T00:00:00+04:00",
               contentUrl: `https://drive.google.com/file/d/${project.subfolders.video}/view`,
               embedUrl: `https://drive.google.com/file/d/${project.subfolders.video}/preview`,
               duration: "PT5M",

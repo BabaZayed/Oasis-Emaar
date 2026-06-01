@@ -35,7 +35,7 @@ export const blogPosts: BlogPost[] = [
       "off-plan investment dubai",
     ],
     author: "Oasis Emaar Research Team",
-    date: "2025-01-15",
+    date: "2025-01-15T00:00:00+04:00",
     readTime: "9 min read",
     image: "/images/blog/oasis-investment-2025.jpg",
     content: `
@@ -86,7 +86,7 @@ export const blogPosts: BlogPost[] = [
       "best community dubai 2025",
     ],
     author: "Oasis Emaar Research Team",
-    date: "2025-01-20",
+    date: "2025-01-20T00:00:00+04:00",
     readTime: "11 min read",
     image: "/images/blog/oasis-vs-dubai-hills.jpg",
     content: `
@@ -137,7 +137,7 @@ export const blogPosts: BlogPost[] = [
       "dubai property payment plan",
     ],
     author: "Oasis Emaar Research Team",
-    date: "2025-02-01",
+    date: "2025-02-01T00:00:00+04:00",
     readTime: "8 min read",
     image: "/images/blog/emaar-payment-plans.jpg",
     content: `
@@ -186,7 +186,7 @@ export const blogPosts: BlogPost[] = [
       "palm jumeirah comparison",
     ],
     author: "Oasis Emaar Research Team",
-    date: "2025-02-10",
+    date: "2025-02-10T00:00:00+04:00",
     readTime: "10 min read",
     image: "/images/blog/dubai-waterfront-communities.jpg",
     content: `
@@ -237,7 +237,7 @@ export const blogPosts: BlogPost[] = [
       "dubai real estate guide",
     ],
     author: "Oasis Emaar Research Team",
-    date: "2025-02-20",
+    date: "2025-02-20T00:00:00+04:00",
     readTime: "10 min read",
     image: "/images/blog/buy-off-plan-dubai.jpg",
     content: `
@@ -294,7 +294,7 @@ export const blogPosts: BlogPost[] = [
       "palmiera mareva mirage clusters",
     ],
     author: "Oasis Emaar Research Team",
-    date: "2025-03-01",
+    date: "2025-03-01T00:00:00+04:00",
     readTime: "12 min read",
     image: "/images/blog/oasis-master-plan-clusters.jpg",
     content: `
@@ -353,7 +353,7 @@ export const blogPosts: BlogPost[] = [
       "emaar golden visa",
     ],
     author: "Oasis Emaar Research Team",
-    date: "2025-02-25",
+    date: "2025-02-25T00:00:00+04:00",
     readTime: "12 min read",
     image: "/images/blog/dubai-golden-visa-property-investment-guide.jpg",
     content: `
@@ -412,7 +412,7 @@ export const blogPosts: BlogPost[] = [
       "emaar mirage review",
     ],
     author: "Oasis Emaar Research Team",
-    date: "2025-03-01",
+    date: "2025-03-01T00:00:00+04:00",
     readTime: "11 min read",
     image: "/images/blog/emaar-mirage-villas-oasis-deep-dive.jpg",
     content: `
@@ -471,7 +471,7 @@ export const blogPosts: BlogPost[] = [
       "dubai villa market prediction",
     ],
     author: "Oasis Emaar Research Team",
-    date: "2025-03-05",
+    date: "2025-03-05T00:00:00+04:00",
     readTime: "13 min read",
     image: "/images/blog/dubai-real-estate-market-forecast-2025-2030.jpg",
     content: `
@@ -532,7 +532,7 @@ export const blogPosts: BlogPost[] = [
       "waterfront community guide",
     ],
     author: "Oasis Emaar Research Team",
-    date: "2025-03-10",
+    date: "2025-03-10T00:00:00+04:00",
     readTime: "11 min read",
     image: "/images/blog/crystal-lagoon-communities-dubai-guide.jpg",
     content: `
@@ -589,7 +589,7 @@ export const blogPosts: BlogPost[] = [
       "property investment vs renting",
     ],
     author: "Oasis Emaar Research Team",
-    date: "2025-03-15",
+    date: "2025-03-15T00:00:00+04:00",
     readTime: "12 min read",
     image: "/images/blog/buying-vs-renting-dubai-2025.jpg",
     content: `

@@ -14,7 +14,7 @@ export default function WebPageSchema({
   name,
   description,
   url,
-  dateModified = "2026-05-19",
+  dateModified = "2026-05-19T00:00:00+04:00",
   breadcrumbItems,
 }: WebPageSchemaProps) {
   const webPageJsonLd = {

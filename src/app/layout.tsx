@@ -345,8 +345,8 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${cormorant.variable} ${inter.variable} antialiased bg-background text-foreground`}
-        style={{ fontFamily: "var(--font-body), sans-serif" }}
+        className={`${cormorant.variable} ${inter.variable} antialiased text-foreground`}
+        style={{ fontFamily: "var(--font-body), sans-serif", backgroundColor: "#0D1B2A" }}
       >
         <UTMTracker />
         <LanguageDetector />
