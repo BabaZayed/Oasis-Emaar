@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site-config";
 import GallerySection from "@/components/gallery-section";
 import WebPageSchema from "@/components/web-page-schema";
 
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     title: "Gallery | The Oasis by Emaar",
     description:
       "Take a visual tour of The Oasis by Emaar. Browse exterior renders, interior designs, community amenities, and master plan visuals.",
-    url: "https://oasisemaar.com/gallery",
+    url: `${SITE_URL}/gallery`,
     siteName: "Oasis Emaar",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "The Oasis by Emaar Gallery" }],
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://oasisemaar.com/gallery",
+    canonical: `${SITE_URL}/gallery`,
   },
 };
 
@@ -45,13 +46,13 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://oasisemaar.com",
+      item: `${SITE_URL}`,
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Gallery",
-      item: "https://oasisemaar.com/gallery",
+      item: `${SITE_URL}/gallery`,
     },
   ],
 };
@@ -62,32 +63,32 @@ const imageGalleryJsonLd = {
   "@type": "ImageGallery",
   name: "The Oasis by Emaar — Property Gallery",
   description: "Visual tour of The Oasis by Emaar luxury waterfront community in Dubai. Exterior renders, interior designs, community amenities, and master plan visuals.",
-  url: "https://oasisemaar.com/gallery",
+  url: `${SITE_URL}/gallery`,
   image: [
     {
       "@type": "ImageObject",
-      contentUrl: "https://oasisemaar.com/images/gallery-oasis-exterior.jpg",
+      contentUrl: `${SITE_URL}/images/gallery-oasis-exterior.jpg`,
       name: "The Oasis by Emaar — Exterior View",
       description: "Aerial view of The Oasis waterfront community showing crystal lagoons and luxury villas",
       copyrightHolder: { "@type": "Organization", name: "Emaar Properties PJSC" },
     },
     {
       "@type": "ImageObject",
-      contentUrl: "https://oasisemaar.com/images/gallery-oasis-interior.jpg",
+      contentUrl: `${SITE_URL}/images/gallery-oasis-interior.jpg`,
       name: "The Oasis by Emaar — Interior Design",
       description: "Luxury interior design of a waterfront villa at The Oasis by Emaar",
       copyrightHolder: { "@type": "Organization", name: "Emaar Properties PJSC" },
     },
     {
       "@type": "ImageObject",
-      contentUrl: "https://oasisemaar.com/images/gallery-oasis-lagoon.jpg",
+      contentUrl: `${SITE_URL}/images/gallery-oasis-lagoon.jpg`,
       name: "The Oasis by Emaar — Crystal Lagoon",
       description: "3.5km crystal lagoon at The Oasis by Emaar community in Dubai",
       copyrightHolder: { "@type": "Organization", name: "Emaar Properties PJSC" },
     },
     {
       "@type": "ImageObject",
-      contentUrl: "https://oasisemaar.com/images/gallery-oasis-amenities.jpg",
+      contentUrl: `${SITE_URL}/images/gallery-oasis-amenities.jpg`,
       name: "The Oasis by Emaar — Community Amenities",
       description: "World-class amenities at The Oasis including beaches, parks, and sports facilities",
       copyrightHolder: { "@type": "Organization", name: "Emaar Properties PJSC" },
@@ -101,8 +102,8 @@ export default function GalleryPage() {
       <WebPageSchema
         name="Gallery — The Oasis by Emaar"
         description="Explore The Oasis by Emaar through our curated gallery of renders, interiors, amenities, and community visuals."
-        url="https://oasisemaar.com/gallery"
-        breadcrumbItems={[{name:"Home",url:"https://oasisemaar.com"},{name:"Gallery",url:"https://oasisemaar.com/gallery"}]}
+        url={`${SITE_URL}/gallery`}
+        breadcrumbItems={[{name:"Home",url:`${SITE_URL}`},{name:"Gallery",url:`${SITE_URL}/gallery`}]}
       />
       <script
         type="application/ld+json"

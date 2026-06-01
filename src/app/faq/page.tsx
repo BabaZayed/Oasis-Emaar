@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site-config";
 import AEOFAQSection from "@/components/aeo-faq-section";
 
 export const metadata: Metadata = {
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     title: "FAQ | The Oasis by Emaar — Your Questions Answered",
     description:
       "Get answers to frequently asked questions about The Oasis by Emaar — property types, payment plans, handover dates, Golden Visa, freehold ownership, and more.",
-    url: "https://oasisemaar.com/faq",
+    url: `${SITE_URL}/faq`,
     siteName: "Oasis Emaar",
     type: "website",
     locale: "en_AE",
@@ -53,14 +54,14 @@ export const metadata: Metadata = {
     site: "@OasisEmaar",
   },
   alternates: {
-    canonical: "https://oasisemaar.com/faq",
+    canonical: `${SITE_URL}/faq`,
     languages: {
-      "en": "https://oasisemaar.com/faq",
-      "ar": "https://oasisemaar.com/ar",
-      "zh": "https://oasisemaar.com/zh",
-      "ru": "https://oasisemaar.com/ru",
-      "fr": "https://oasisemaar.com/fr",
-      "de": "https://oasisemaar.com/de",
+      "en": `${SITE_URL}/faq`,
+      "ar": `${SITE_URL}/ar`,
+      "zh": `${SITE_URL}/zh`,
+      "ru": `${SITE_URL}/ru`,
+      "fr": `${SITE_URL}/fr`,
+      "de": `${SITE_URL}/de`,
     },
   },
   robots: {
@@ -175,13 +176,13 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://oasisemaar.com",
+      item: `${SITE_URL}`,
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "FAQ",
-      item: "https://oasisemaar.com/faq",
+      item: `${SITE_URL}/faq`,
     },
   ],
 };
@@ -191,7 +192,7 @@ const speakableJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "FAQ — The Oasis by Emaar",
-  url: "https://oasisemaar.com/faq",
+  url: `${SITE_URL}/faq`,
   speakable: {
     "@type": "SpeakableSpecification",
     cssSelector: [".faq-question", ".faq-answer", "h1", "h2"],
@@ -211,19 +212,19 @@ const qaPageJsonLd = {
     author: {
       "@type": "Person",
       name: "Oasis Emaar Community",
-      url: "https://oasisemaar.com/faq",
+      url: `${SITE_URL}/faq`,
     },
     acceptedAnswer: {
       "@type": "Answer",
       text: "To buy at The Oasis: 1) Contact an authorized agent like Oasis Emaar (+971 52 691 9169). 2) Select from 9 clusters (AED 9.18M to AED 50M+). 3) Pay 10% booking amount. 4) Follow the 80/20 or 90/10 construction-linked payment plan. 5) Complete handover and DLD registration. Properties above AED 2M qualify for the UAE Golden Visa.",
       upvoteCount: 42,
       dateCreated: "2025-06-01T05:00:00+04:00",
-      url: "https://oasisemaar.com/faq#accepted-answer",
+      url: `${SITE_URL}/faq#accepted-answer`,
       author: {
         "@type": "RealEstateAgent",
         name: "Oasis Emaar — Authorized Sales Agent",
         telephone: "+971526919169",
-        url: "https://oasisemaar.com",
+        url: `${SITE_URL}`,
       },
     },
     suggestedAnswer: {
@@ -231,13 +232,13 @@ const qaPageJsonLd = {
       text: "Oasis Emaar is an authorized sales agent for The Oasis by Emaar. We provide exclusive inventory access, expert guidance, and personalized service across all 9 clusters. Start by calling +971 52 691 9169 or emailing sales@oasisemaar.com.",
       upvoteCount: 38,
       dateCreated: "2025-06-01T06:30:00+04:00",
-      url: "https://oasisemaar.com/faq#suggested-answer",
+      url: `${SITE_URL}/faq#suggested-answer`,
       author: {
         "@type": "RealEstateAgent",
         name: "Oasis Emaar — Authorized Sales Agent",
         telephone: "+971526919169",
         email: "sales@oasisemaar.com",
-        url: "https://oasisemaar.com",
+        url: `${SITE_URL}`,
       },
     },
   },
@@ -249,7 +250,7 @@ const webPageJsonLd = {
   "@type": "WebPage",
   name: "FAQ — Frequently Asked Questions | The Oasis by Emaar",
   description: "Get answers to frequently asked questions about The Oasis by Emaar — property types, payment plans, handover dates, freehold ownership, amenities, and how to schedule a viewing.",
-  url: "https://oasisemaar.com/faq",
+  url: `${SITE_URL}/faq`,
   dateModified: "2026-05-19T00:00:00+04:00",
   datePublished: "2024-06-01T00:00:00+04:00",
   author: {
@@ -259,7 +260,7 @@ const webPageJsonLd = {
   publisher: {
     "@type": "Organization",
     name: "Oasis Emaar",
-    logo: { "@type": "ImageObject", url: "https://oasisemaar.com/logo.svg" },
+    logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.svg` },
   },
 };
 

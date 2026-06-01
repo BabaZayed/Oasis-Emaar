@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site-config";
 import WebPageSchema from "@/components/web-page-schema";
 import PressKitClient from "./press-kit-client";
 
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     title: "Press & Media Kit | Oasis Emaar",
     description:
       "Official press kit — logos, brand assets, embeddable widgets, and media-ready facts about The Oasis by Emaar.",
-    url: "https://oasisemaar.com/press",
+    url: `${SITE_URL}/press`,
     siteName: "Oasis Emaar",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Oasis Emaar Press Kit" }],
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     description: "Official press kit — logos, brand assets, embeddable widgets, and media facts.",
     images: ["/og-image.jpg"],
   },
-  alternates: { canonical: "https://oasisemaar.com/press" },
+  alternates: { canonical: `${SITE_URL}/press` },
 };
 
 export default function PressPage() {
@@ -38,10 +39,10 @@ export default function PressPage() {
       <WebPageSchema
         name="Press & Media Kit — Oasis Emaar"
         description="Official press kit for Oasis Emaar, authorised sales agent for The Oasis by Emaar Properties in Dubai."
-        url="https://oasisemaar.com/press"
+        url={`${SITE_URL}/press`}
         breadcrumbItems={[
-          { name: "Home", url: "https://oasisemaar.com" },
-          { name: "Press Kit", url: "https://oasisemaar.com/press" },
+          { name: "Home", url: `${SITE_URL}` },
+          { name: "Press Kit", url: `${SITE_URL}/press` },
         ]}
       />
       <PressKitClient />

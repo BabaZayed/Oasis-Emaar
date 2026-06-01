@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site-config";
 import MasterPlanPageClient from "./master-plan-page-client";
 import WebPageSchema from "@/components/web-page-schema";
 
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     title: "Master Plan | The Oasis by Emaar",
     description:
       "Explore the master plan of The Oasis by Emaar — a 9.4 million sqm waterfront community in Dubai.",
-    url: "https://oasisemaar.com/master-plan",
+    url: `${SITE_URL}/master-plan`,
     siteName: "Oasis Emaar",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "The Oasis by Emaar Master Plan" }],
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://oasisemaar.com/master-plan",
+    canonical: `${SITE_URL}/master-plan`,
   },
 };
 
@@ -43,13 +44,13 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://oasisemaar.com",
+      item: `${SITE_URL}`,
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Master Plan",
-      item: "https://oasisemaar.com/master-plan",
+      item: `${SITE_URL}/master-plan`,
     },
   ],
 };
@@ -60,8 +61,8 @@ export default function MasterPlanPage() {
       <WebPageSchema
         name="Master Plan — The Oasis by Emaar"
         description="Explore the master plan of The Oasis by Emaar — a 9.4 million sqm waterfront community with 9 clusters, crystal lagoons, and world-class amenities."
-        url="https://oasisemaar.com/master-plan"
-        breadcrumbItems={[{name:"Home",url:"https://oasisemaar.com"},{name:"Master Plan",url:"https://oasisemaar.com/master-plan"}]}
+        url={`${SITE_URL}/master-plan`}
+        breadcrumbItems={[{name:"Home",url:`${SITE_URL}`},{name:"Master Plan",url:`${SITE_URL}/master-plan`}]}
       />
       <script
         type="application/ld+json"

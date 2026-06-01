@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { SITE_URL } from "@/lib/site-config";
 import FloorPlansClient from "./floor-plans-client";
 import WebPageSchema from "@/components/web-page-schema";
 
@@ -24,12 +25,12 @@ export const metadata: Metadata = {
     title: "Floor Plans - The Oasis by Emaar | All Cluster Layouts",
     description:
       "Explore detailed floor plans for all 9 clusters at The Oasis by Emaar in Dubai. View layouts for 4-7 bedroom villas, mansions, and branded residences with specifications and downloadable PDFs.",
-    url: "https://oasisemaar.com/floor-plans",
+    url: `${SITE_URL}/floor-plans`,
     siteName: "The Oasis by Emaar",
     type: "website",
     images: [
       {
-        url: "https://oasisemaar.com/og-floor-plans.jpg",
+        url: `${SITE_URL}/og-floor-plans.jpg`,
         width: 1200,
         height: 630,
         alt: "Floor Plans - The Oasis by Emaar",
@@ -41,10 +42,10 @@ export const metadata: Metadata = {
     title: "Floor Plans - The Oasis by Emaar | All Cluster Layouts",
     description:
       "Explore detailed floor plans for all 9 clusters at The Oasis by Emaar in Dubai. View layouts for 4-7 bedroom villas, mansions, and branded residences.",
-    images: ["https://oasisemaar.com/og-floor-plans.jpg"],
+    images: [`${SITE_URL}/og-floor-plans.jpg`],
   },
   alternates: {
-    canonical: "https://oasisemaar.com/floor-plans",
+    canonical: `${SITE_URL}/floor-plans`,
   },
 };
 
@@ -56,13 +57,13 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://oasisemaar.com",
+      item: `${SITE_URL}`,
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Floor Plans",
-      item: "https://oasisemaar.com/floor-plans",
+      item: `${SITE_URL}/floor-plans`,
     },
   ],
 };
@@ -73,7 +74,7 @@ const floorPlanJsonLd = {
   name: "The Oasis by Emaar — Residence Floor Plans",
   description:
     "Detailed floor plans for all 9 clusters at The Oasis by Emaar including 4-7 bedroom villas, mansions, and branded residences.",
-  url: "https://oasisemaar.com/floor-plans",
+  url: `${SITE_URL}/floor-plans`,
   numberOfRooms: {
     "@type": "QuantitativeValue",
     minValue: 4,
@@ -92,8 +93,8 @@ export default function FloorPlansPage() {
       <WebPageSchema
         name="Floor Plans — The Oasis by Emaar"
         description="View floor plans for all 9 clusters at The Oasis by Emaar. Browse villa layouts, sizes, and configurations."
-        url="https://oasisemaar.com/floor-plans"
-        breadcrumbItems={[{name:"Home",url:"https://oasisemaar.com"},{name:"Floor Plans",url:"https://oasisemaar.com/floor-plans"}]}
+        url={`${SITE_URL}/floor-plans`}
+        breadcrumbItems={[{name:"Home",url:`${SITE_URL}`},{name:"Floor Plans",url:`${SITE_URL}/floor-plans`}]}
       />
       <script
         type="application/ld+json"

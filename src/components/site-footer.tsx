@@ -188,8 +188,7 @@ export default function SiteFooter() {
             {/* RERA / DLD License */}
             <div className="mt-4 pt-3 border-t border-white/10">
               <p className="text-white/30 text-[10px] font-light leading-relaxed">
-                RERA ORN: 12345 &middot; DLD BRN: 54321<br />
-                {t.reraDisclaimer || "Licensed by the Real Estate Regulatory Agency, Dubai Land Department. All information is subject to change and should be verified with the developer."}
+                {t.reraDisclaimer || "Licensed by the Real Estate Regulatory Agency (RERA), Dubai Land Department. All information is subject to change and should be verified with the developer."}
               </p>
             </div>
           </div>
@@ -255,9 +254,9 @@ export default function SiteFooter() {
                 className="btn-gold-glow text-[#1A2332] font-semibold px-5 py-2.5 rounded-lg w-full disabled:opacity-50"
               >
                 {isSubmitting ? (
-                  <Loader2 className="w-4 h-4 animate-spin" />
+                  <span className="flex items-center gap-2"><Loader2 className="w-4 h-4 animate-spin" /> <span className="sr-only">Submitting...</span></span>
                 ) : isSuccess ? (
-                  <CheckCircle className="w-4 h-4" />
+                  <span className="flex items-center gap-2"><CheckCircle className="w-4 h-4" /> <span className="sr-only">Subscribed!</span></span>
                 ) : (
                   t.newsletterJoin
                 )}

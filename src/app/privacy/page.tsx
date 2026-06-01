@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site-config";
 import WebPageSchema from "@/components/web-page-schema";
 
 export const metadata: Metadata = {
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Privacy Policy | Oasis Emaar",
     description: "How we collect, use, and protect your personal information when you visit our website.",
-    url: "https://oasisemaar.com/privacy",
+    url: `${SITE_URL}/privacy`,
     siteName: "Oasis Emaar",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Oasis Emaar Privacy Policy" }],
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
     creator: "@OasisEmaar",
     site: "@OasisEmaar",
   },
-  alternates: { canonical: "https://oasisemaar.com/privacy" },
+  alternates: { canonical: `${SITE_URL}/privacy` },
 };
 
 export default function PrivacyPage() {
@@ -41,10 +42,10 @@ export default function PrivacyPage() {
       <WebPageSchema
         name="Privacy Policy — Oasis Emaar"
         description="How we collect, use, and protect your personal information."
-        url="https://oasisemaar.com/privacy"
+        url={`${SITE_URL}/privacy`}
         breadcrumbItems={[
-          { name: "Home", url: "https://oasisemaar.com" },
-          { name: "Privacy Policy", url: "https://oasisemaar.com/privacy" },
+          { name: "Home", url: `${SITE_URL}` },
+          { name: "Privacy Policy", url: `${SITE_URL}/privacy` },
         ]}
       />
       <div className="min-h-screen bg-white pt-28 pb-20">

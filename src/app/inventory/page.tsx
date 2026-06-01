@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site-config";
 import InventorySection from "@/components/inventory-section";
 import WebPageSchema from "@/components/web-page-schema";
 
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     title: "Inventory | The Oasis by Emaar",
     description:
       "Browse available properties at The Oasis by Emaar. Villas, mansions, and branded residences starting from AED 9.18M.",
-    url: "https://oasisemaar.com/inventory",
+    url: `${SITE_URL}/inventory`,
     siteName: "Oasis Emaar",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "The Oasis by Emaar Inventory" }],
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://oasisemaar.com/inventory",
+    canonical: `${SITE_URL}/inventory`,
   },
 };
 
@@ -45,13 +46,13 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://oasisemaar.com",
+      item: `${SITE_URL}`,
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Inventory",
-      item: "https://oasisemaar.com/inventory",
+      item: `${SITE_URL}/inventory`,
     },
   ],
 };
@@ -62,10 +63,10 @@ const productCollectionJsonLd = {
   "@type": "CollectionPage",
   name: "The Oasis by Emaar — Property Inventory",
   description: "Browse available luxury villas, mansions, and branded residences at The Oasis by Emaar in Dubai. Real-time pricing and availability across 9 exclusive clusters.",
-  url: "https://oasisemaar.com/inventory",
+  url: `${SITE_URL}/inventory`,
   mainEntity: {
     "@type": "ItemList",
-    numberOfItems: 77,
+    numberOfItems: 87,
     itemListElement: [
       {
         "@type": "ListItem",
@@ -127,9 +128,9 @@ export default function InventoryPage() {
     <>
       <WebPageSchema
         name="Available Inventory — The Oasis by Emaar"
-        description="Browse available properties at The Oasis by Emaar. 76 villas and mansions across 9 clusters starting from AED 9.18M."
-        url="https://oasisemaar.com/inventory"
-        breadcrumbItems={[{name:"Home",url:"https://oasisemaar.com"},{name:"Inventory",url:"https://oasisemaar.com/inventory"}]}
+        description="Browse available properties at The Oasis by Emaar. 87 units across 9 clusters starting from AED 9.18M."
+        url={`${SITE_URL}/inventory`}
+        breadcrumbItems={[{name:"Home",url:`${SITE_URL}`},{name:"Inventory",url:`${SITE_URL}/inventory`}]}
       />
       <script
         type="application/ld+json"

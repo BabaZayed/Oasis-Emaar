@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site-config";
 import LinkToUsClient from "./link-to-us-client";
 
 export const metadata: Metadata = {
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     title: "Link to Oasis Emaar | Embed Widgets & Badges",
     description:
       "Add Oasis Emaar widgets, badges, and links to your website. Copy-paste HTML snippets for real estate directories, blogs, and partner sites.",
-    url: "https://oasisemaar.com/link-to-us",
+    url: `${SITE_URL}/link-to-us`,
     siteName: "Oasis Emaar",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Link to Oasis Emaar - Widgets & Badges" }],
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     creator: "@OasisEmaar",
     site: "@OasisEmaar",
   },
-  alternates: { canonical: "https://oasisemaar.com/link-to-us" },
+  alternates: { canonical: `${SITE_URL}/link-to-us` },
 };
 
 function BreadcrumbListSchema() {
@@ -46,13 +47,13 @@ function BreadcrumbListSchema() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://oasisemaar.com",
+        item: `${SITE_URL}`,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Link to Us",
-        item: "https://oasisemaar.com/link-to-us",
+        item: `${SITE_URL}/link-to-us`,
       },
     ],
   };

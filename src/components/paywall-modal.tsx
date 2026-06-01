@@ -65,10 +65,10 @@ export function PaywallModal({
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2 text-[#1A2332]">
               <CheckCircle className="w-5 h-5 text-green-500" />
-              Premium Access Granted
+              Registration Complete
             </DialogTitle>
             <DialogDescription>
-              You have access to all premium listings including {itemName}.
+              Our property consultant will contact you with details about {itemName} and other exclusive options.
             </DialogDescription>
           </DialogHeader>
           <div className="py-4">
@@ -90,10 +90,10 @@ export function PaywallModal({
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2 text-[#1A2332]">
             <Lock className="w-5 h-5 text-[#C8A45C]" />
-            Unlock Premium Listing
+Register for Full Details
           </DialogTitle>
           <DialogDescription>
-            Register to view full details for <strong>{itemName}</strong> and access all premium listings.
+            Provide your details to receive pricing, floor plans, and availability for <strong>{itemName}</strong>. Our consultant will contact you with exclusive options.
           </DialogDescription>
         </DialogHeader>
 
@@ -151,10 +151,10 @@ export function PaywallModal({
               />
             </div>
             <Button type="submit" className="w-full gold-gradient text-[#1A2332] font-bold py-3 rounded-md">
-              Unlock Access
+              Get Details
             </Button>
             <p className="text-xs text-gray-400 text-center">
-              By registering, you agree to receive communications about The Oasis properties.
+              By registering, you agree to receive property details and communications about The Oasis by Emaar.
             </p>
           </form>
         )}

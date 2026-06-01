@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site-config";
 import WebPageSchema from "@/components/web-page-schema";
 
 export const metadata: Metadata = {
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Terms of Service | Oasis Emaar",
     description: "Terms and conditions governing your use of our website and services related to The Oasis by Emaar properties.",
-    url: "https://oasisemaar.com/terms",
+    url: `${SITE_URL}/terms`,
     siteName: "Oasis Emaar",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Oasis Emaar Terms of Service" }],
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     creator: "@OasisEmaar",
     site: "@OasisEmaar",
   },
-  alternates: { canonical: "https://oasisemaar.com/terms" },
+  alternates: { canonical: `${SITE_URL}/terms` },
 };
 
 export default function TermsPage() {
@@ -39,10 +40,10 @@ export default function TermsPage() {
       <WebPageSchema
         name="Terms of Service — Oasis Emaar"
         description="Terms and conditions governing your use of our website and services."
-        url="https://oasisemaar.com/terms"
+        url={`${SITE_URL}/terms`}
         breadcrumbItems={[
-          { name: "Home", url: "https://oasisemaar.com" },
-          { name: "Terms of Service", url: "https://oasisemaar.com/terms" },
+          { name: "Home", url: `${SITE_URL}` },
+          { name: "Terms of Service", url: `${SITE_URL}/terms` },
         ]}
       />
       <div className="min-h-screen bg-white pt-28 pb-20">

@@ -8,15 +8,14 @@ export const metadata: Metadata = {
     "Explore The Oasis by Emaar with an authorized sales agent. Premium waterfront community in Dubai featuring luxury villas, mansions, and branded residences across 9 exclusive clusters. Starting from AED 9.18M. 80/20 & 90/10 payment plans. UAE Golden Visa eligible. Crystal lagoon, private beaches, 25% green spaces.",
   keywords: [
     "The Oasis by Emaar",
+    "Oasis Emaar",
     "Dubai waterfront villas",
-    "Emaar Properties",
-    "luxury homes Dubai",
-    "off-plan properties Dubai",
+    "luxury villas Dubai",
+    "Emaar off-plan 2026",
     "Palmiera villas",
-    "Lavita mansions",
-    "Emaar authorized agent",
-    "Dubai real estate investment",
+    "Lavita mansions Dubai",
     "UAE Golden Visa property",
+    "Emaar authorized agent",
   ],
   openGraph: {
     title: "The Oasis by Emaar | Authorized Agent — Ultra Luxury Waterfront Villas in Dubai",
@@ -113,19 +112,12 @@ const howToJsonLd = {
   ],
 };
 
-// Removed individual reviews JSON-LD — fabricated testimonials are a trust risk.
-// AggregateRating retained as a general service rating only.
-const aggregateRatingJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "AggregateRating",
-  itemReviewed: { "@type": "RealEstateAgent", name: SITE_NAME, address: { "@type": "PostalAddress", streetAddress: "Al Quoz Street 21", addressLocality: "Dubai", addressRegion: "Dubai", addressCountry: "AE" } },
-  ratingValue: "4.9", bestRating: "5", worstRating: "1", ratingCount: "127", reviewCount: "98",
-  description: "Oasis Emaar is rated 4.9 out of 5 based on 127 ratings from verified property buyers and investors in Dubai.",
-};
+// Removed AggregateRating JSON-LD — fabricated ratings are a trust risk and violate Google's structured data policies.
+// Only display ratings when backed by verified, genuine reviews.
 
 const residenceJsonLd = {
   "@context": "https://schema.org",
-  "@type": ["Residence", "ApartmentComplex"],
+  "@type": ["Residence", "ResidentialCommunity"],
   name: "The Oasis by Emaar",
   description: "The Oasis by Emaar is a premium waterfront community in Dubai spanning 9.4 million square metres with over 7,000 residential units including luxury villas, mansions, and branded residences across 9 exclusive clusters.",
   url: SITE_URL,
@@ -175,7 +167,7 @@ const eventJsonLd = {
   eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
   location: { "@type": "Place", name: "The Oasis by Emaar Sales Center", address: { "@type": "PostalAddress", streetAddress: "The Oasis, Dubailand", addressLocality: "Dubai", addressRegion: "Dubai", addressCountry: "AE" }, geo: { "@type": "GeoCoordinates", latitude: 25.1412, longitude: 55.2252 } },
   organizer: { "@type": "RealEstateAgent", name: SITE_NAME, telephone: SITE_PHONE, email: SITE_EMAIL, url: SITE_URL },
-  offers: { "@type": "AggregateOffer", priceCurrency: "AED", lowPrice: "9180000", highPrice: "50000000", offerCount: "77", availability: "https://schema.org/InStock" },
+  offers: { "@type": "AggregateOffer", priceCurrency: "AED", lowPrice: "9180000", highPrice: "50000000", offerCount: "87", availability: "https://schema.org/InStock" },
   performer: { "@type": "Organization", name: "Emaar Properties PJSC" },
 };
 
@@ -185,7 +177,7 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(propertyListJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRatingJsonLd) }} />
+
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(residenceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }} />

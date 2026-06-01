@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { SITE_URL } from "@/lib/site-config";
 import { projects } from "@/lib/data";
 import ProjectDetailPage from "@/components/project-detail-page";
 
@@ -32,7 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: `${project.name} | The Oasis by Emaar`,
       description: project.description,
-      url: `https://oasisemaar.com/projects/${slug}`,
+      url: `${SITE_URL}/projects/${slug}`,
       siteName: "Oasis Emaar",
       type: "website",
       images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: project.name }],
@@ -44,7 +45,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: ["/og-image.jpg"],
     },
     alternates: {
-      canonical: `https://oasisemaar.com/projects/${slug}`,
+      canonical: `${SITE_URL}/projects/${slug}`,
     },
   };
 }
@@ -71,19 +72,19 @@ export default async function ProjectPageRoute({ params }: PageProps) {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://oasisemaar.com",
+        item: `${SITE_URL}`,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Projects",
-        item: "https://oasisemaar.com/projects",
+        item: `${SITE_URL}/projects`,
       },
       {
         "@type": "ListItem",
         position: 3,
         name: project.name,
-        item: `https://oasisemaar.com/projects/${slug}`,
+        item: `${SITE_URL}/projects/${slug}`,
       },
     ],
   };
@@ -108,12 +109,12 @@ export default async function ProjectPageRoute({ params }: PageProps) {
     "@type": "RealEstateListing",
     name: project.name,
     description: project.description,
-    url: `https://oasisemaar.com/projects/${slug}`,
+    url: `${SITE_URL}/projects/${slug}`,
     datePosted: project.status === "Off-Plan" ? "2024-01-01T00:00:00+04:00" : undefined,
     availability: project.status === "Off-Plan" ? "PreOrder" : "InStock",
     image: {
       "@type": "ImageObject",
-      url: `https://oasisemaar.com${project.imageUrl}`,
+      url: `${SITE_URL}${project.imageUrl}`,
       description: `${project.name} at The Oasis by Emaar — ${project.tagline}`,
     },
     offers: {
@@ -186,7 +187,7 @@ export default async function ProjectPageRoute({ params }: PageProps) {
               "@type": "VideoObject",
               name: `${project.name} at The Oasis by Emaar — Official Video Tour`,
               description: `Watch the official video tour of ${project.name} at The Oasis by Emaar in Dubai. ${project.tagline}. Starting from AED ${(project.startingPrice / 1000000).toFixed(2)}M.`,
-              thumbnailUrl: `https://oasisemaar.com${project.imageUrl}`,
+              thumbnailUrl: `${SITE_URL}${project.imageUrl}`,
               uploadDate: "2024-06-01T00:00:00+04:00",
               contentUrl: `https://drive.google.com/file/d/${project.subfolders.video}/view`,
               embedUrl: `https://drive.google.com/file/d/${project.subfolders.video}/preview`,
@@ -196,7 +197,7 @@ export default async function ProjectPageRoute({ params }: PageProps) {
                 name: "Emaar Properties PJSC",
                 logo: {
                   "@type": "ImageObject",
-                  url: "https://oasisemaar.com/logo.svg",
+                  url: `${SITE_URL}/logo.svg`,
                 },
               },
             }),

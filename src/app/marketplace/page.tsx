@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { SITE_URL } from "@/lib/site-config";
 import MarketplaceClient from "./marketplace-client";
 import WebPageSchema from "@/components/web-page-schema";
 
@@ -22,12 +23,12 @@ export const metadata: Metadata = {
     title: "Resale Marketplace | The Oasis by Emaar - Verified Properties",
     description:
       "Browse verified resale properties at The Oasis by Emaar in Dubai. Villas, mansions, and branded residences listed by current owners. 100% freehold, Golden Visa eligible.",
-    url: "https://oasisemaar.com/marketplace",
+    url: `${SITE_URL}/marketplace`,
     siteName: "The Oasis by Emaar",
     type: "website",
     images: [
       {
-        url: "https://oasisemaar.com/og-marketplace.jpg",
+        url: `${SITE_URL}/og-marketplace.jpg`,
         width: 1200,
         height: 630,
         alt: "Resale Marketplace - The Oasis by Emaar",
@@ -39,10 +40,10 @@ export const metadata: Metadata = {
     title: "Resale Marketplace | The Oasis by Emaar - Verified Properties",
     description:
       "Browse verified resale properties at The Oasis by Emaar in Dubai. Villas, mansions, and branded residences listed by current owners.",
-    images: ["https://oasisemaar.com/og-marketplace.jpg"],
+    images: [`${SITE_URL}/og-marketplace.jpg`],
   },
   alternates: {
-    canonical: "https://oasisemaar.com/marketplace",
+    canonical: `${SITE_URL}/marketplace`,
   },
 };
 
@@ -54,13 +55,13 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://oasisemaar.com",
+      item: `${SITE_URL}`,
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Marketplace",
-      item: "https://oasisemaar.com/marketplace",
+      item: `${SITE_URL}/marketplace`,
     },
   ],
 };
@@ -71,7 +72,7 @@ const itemListJsonLd = {
   name: "The Oasis by Emaar — Resale Marketplace",
   description:
     "Verified resale properties at The Oasis by Emaar in Dubai including villas, mansions, and branded residences.",
-  url: "https://oasisemaar.com/marketplace",
+  url: `${SITE_URL}/marketplace`,
   numberOfItems: 0,
   itemListElement: [],
 };
@@ -82,8 +83,8 @@ export default function MarketplacePage() {
       <WebPageSchema
         name="Buyer Marketplace — The Oasis by Emaar"
         description="Browse verified resale listings at The Oasis by Emaar. Find villas and mansions from current owners."
-        url="https://oasisemaar.com/marketplace"
-        breadcrumbItems={[{name:"Home",url:"https://oasisemaar.com"},{name:"Marketplace",url:"https://oasisemaar.com/marketplace"}]}
+        url={`${SITE_URL}/marketplace`}
+        breadcrumbItems={[{name:"Home",url:`${SITE_URL}`},{name:"Marketplace",url:`${SITE_URL}/marketplace`}]}
       />
       <script
         type="application/ld+json"

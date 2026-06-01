@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { SITE_URL } from "@/lib/site-config";
 import AvailabilityPageClient from "./availability-page-client";
 import WebPageSchema from "@/components/web-page-schema";
 
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     title: "Check Availability | The Oasis by Emaar",
     description:
       "Browse real-time availability of 77+ luxury properties across 9 clusters at The Oasis by Emaar, Dubai. Starting from AED 9.18M.",
-    url: "https://oasisemaar.com/availability",
+    url: `${SITE_URL}/availability`,
     siteName: "Oasis Emaar",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "The Oasis by Emaar Availability" }],
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://oasisemaar.com/availability",
+    canonical: `${SITE_URL}/availability`,
   },
 };
 
@@ -47,13 +48,13 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://oasisemaar.com",
+      item: `${SITE_URL}`,
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Check Availability",
-      item: "https://oasisemaar.com/availability",
+      item: `${SITE_URL}/availability`,
     },
   ],
 };
@@ -64,8 +65,8 @@ export default function AvailabilityPage() {
       <WebPageSchema
         name="Check Availability — The Oasis by Emaar"
         description="Check real-time availability at The Oasis by Emaar. Filter by cluster, bedrooms, and budget."
-        url="https://oasisemaar.com/availability"
-        breadcrumbItems={[{name:"Home",url:"https://oasisemaar.com"},{name:"Availability",url:"https://oasisemaar.com/availability"}]}
+        url={`${SITE_URL}/availability`}
+        breadcrumbItems={[{name:"Home",url:`${SITE_URL}`},{name:"Availability",url:`${SITE_URL}/availability`}]}
       />
       <script
         type="application/ld+json"

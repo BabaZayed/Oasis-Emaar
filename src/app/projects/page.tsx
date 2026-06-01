@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site-config";
 import ProjectsSection from "@/components/projects-section";
 import WebPageSchema from "@/components/web-page-schema";
 
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     title: "Projects | The Oasis by Emaar",
     description:
       "Explore all nine exclusive clusters at The Oasis by Emaar — waterfront villas, ultra-luxury mansions, and branded residences in Dubai.",
-    url: "https://oasisemaar.com/projects",
+    url: `${SITE_URL}/projects`,
     siteName: "Oasis Emaar",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "The Oasis by Emaar Projects" }],
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://oasisemaar.com/projects",
+    canonical: `${SITE_URL}/projects`,
   },
 };
 
@@ -47,13 +48,13 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://oasisemaar.com",
+      item: `${SITE_URL}`,
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Projects",
-      item: "https://oasisemaar.com/projects",
+      item: `${SITE_URL}/projects`,
     },
   ],
 };
@@ -64,8 +65,8 @@ export default function ProjectsPage() {
       <WebPageSchema
         name="All Projects — The Oasis by Emaar"
         description="Explore all 9 exclusive clusters at The Oasis by Emaar — from Palmiera 3 villas starting at AED 9.18M to Lavita mansions from AED 37M."
-        url="https://oasisemaar.com/projects"
-        breadcrumbItems={[{name:"Home",url:"https://oasisemaar.com"},{name:"Projects",url:"https://oasisemaar.com/projects"}]}
+        url={`${SITE_URL}/projects`}
+        breadcrumbItems={[{name:"Home",url:`${SITE_URL}`},{name:"Projects",url:`${SITE_URL}/projects`}]}
       />
       <script
         type="application/ld+json"

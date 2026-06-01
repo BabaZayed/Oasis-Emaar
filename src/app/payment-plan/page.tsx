@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site-config";
 import PaymentPlanSection from "@/components/payment-plan-section";
 import WebPageSchema from "@/components/web-page-schema";
 
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     title: "Payment Plan | The Oasis by Emaar",
     description:
       "Flexible payment plans at The Oasis by Emaar. 80/20 plan: 10% booking, 70% construction, 20% handover. 90/10 plan (Mirage): just 10% on handover.",
-    url: "https://oasisemaar.com/payment-plan",
+    url: `${SITE_URL}/payment-plan`,
     siteName: "Oasis Emaar",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "The Oasis by Emaar Payment Plan" }],
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://oasisemaar.com/payment-plan",
+    canonical: `${SITE_URL}/payment-plan`,
   },
 };
 
@@ -45,13 +46,13 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://oasisemaar.com",
+      item: `${SITE_URL}`,
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Payment Plans",
-      item: "https://oasisemaar.com/payment-plan",
+      item: `${SITE_URL}/payment-plan`,
     },
   ],
 };
@@ -62,8 +63,8 @@ export default function PaymentPlanPage() {
       <WebPageSchema
         name="Payment Plans — The Oasis by Emaar"
         description="Understand payment plans at The Oasis by Emaar — 80/20 and 90/10 options with milestone-linked installments."
-        url="https://oasisemaar.com/payment-plan"
-        breadcrumbItems={[{name:"Home",url:"https://oasisemaar.com"},{name:"Payment Plans",url:"https://oasisemaar.com/payment-plan"}]}
+        url={`${SITE_URL}/payment-plan`}
+        breadcrumbItems={[{name:"Home",url:`${SITE_URL}`},{name:"Payment Plans",url:`${SITE_URL}/payment-plan`}]}
       />
       <script
         type="application/ld+json"

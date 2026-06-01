@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { SITE_URL } from "@/lib/site-config";
 import ListingsPageClient from "./listings-page-client";
 import WebPageSchema from "@/components/web-page-schema";
 
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     title: "Property Listings | The Oasis by Emaar",
     description:
       "View and verify 77 luxury property listings across 9 clusters at The Oasis by Emaar, Dubai.",
-    url: "https://oasisemaar.com/listings",
+    url: `${SITE_URL}/listings`,
     siteName: "Oasis Emaar",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "The Oasis by Emaar Property Listings" }],
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://oasisemaar.com/listings",
+    canonical: `${SITE_URL}/listings`,
   },
 };
 
@@ -42,13 +43,13 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://oasisemaar.com",
+      item: `${SITE_URL}`,
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Property Listings",
-      item: "https://oasisemaar.com/listings",
+      item: `${SITE_URL}/listings`,
     },
   ],
 };
@@ -59,8 +60,8 @@ export default function ListingsPage() {
       <WebPageSchema
         name="Property Listings — The Oasis by Emaar"
         description="Browse all property listings at The Oasis by Emaar — available villas, mansions, and branded residences."
-        url="https://oasisemaar.com/listings"
-        breadcrumbItems={[{name:"Home",url:"https://oasisemaar.com"},{name:"Listings",url:"https://oasisemaar.com/listings"}]}
+        url={`${SITE_URL}/listings`}
+        breadcrumbItems={[{name:"Home",url:`${SITE_URL}`},{name:"Listings",url:`${SITE_URL}/listings`}]}
       />
       <script
         type="application/ld+json"

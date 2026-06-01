@@ -34,7 +34,7 @@ const trustSignals = [
   },
   {
     icon: TrendingUp,
-    title: "9 Clusters, 77+ Units Available",
+    title: "9 Clusters, 87+ Units Available",
     description:
       "Comprehensive coverage across all nine exclusive clusters at The Oasis — from Palmiera 3 entry-level villas to Lavita ultra-luxury mansions. Live inventory with real-time availability.",
   },

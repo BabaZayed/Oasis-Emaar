@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site-config";
 import ContactSection from "@/components/contact-section";
 import WebPageSchema from "@/components/web-page-schema";
 
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     title: "Contact | The Oasis by Emaar",
     description:
       "Contact The Oasis by Emaar sales team. Schedule a viewing or register your interest in luxury waterfront properties in Dubai.",
-    url: "https://oasisemaar.com/contact",
+    url: `${SITE_URL}/contact`,
     siteName: "Oasis Emaar",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Contact The Oasis by Emaar" }],
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://oasisemaar.com/contact",
+    canonical: `${SITE_URL}/contact`,
   },
 };
 
@@ -45,13 +46,13 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://oasisemaar.com",
+      item: `${SITE_URL}`,
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Contact",
-      item: "https://oasisemaar.com/contact",
+      item: `${SITE_URL}/contact`,
     },
   ],
 };
@@ -62,8 +63,8 @@ export default function ContactPage() {
       <WebPageSchema
         name="Contact Us — The Oasis by Emaar"
         description="Contact Oasis Emaar, authorized sales agent for The Oasis by Emaar Properties. Call +971 52 691 9169, email sales@oasisemaar.com, or visit our Dubai office."
-        url="https://oasisemaar.com/contact"
-        breadcrumbItems={[{name:"Home",url:"https://oasisemaar.com"},{name:"Contact",url:"https://oasisemaar.com/contact"}]}
+        url={`${SITE_URL}/contact`}
+        breadcrumbItems={[{name:"Home",url:`${SITE_URL}`},{name:"Contact",url:`${SITE_URL}/contact`}]}
       />
       <script
         type="application/ld+json"

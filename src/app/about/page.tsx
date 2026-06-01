@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site-config";
 import AboutSection from "@/components/about-section";
 import WebPageSchema from "@/components/web-page-schema";
 
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     title: "About | The Oasis by Emaar",
     description:
       "Learn about The Oasis by Emaar Properties — a 9.4 million sqm waterfront community with over 7,000 residences by Dubai's most trusted developer.",
-    url: "https://oasisemaar.com/about",
+    url: `${SITE_URL}/about`,
     siteName: "Oasis Emaar",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "About The Oasis by Emaar" }],
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://oasisemaar.com/about",
+    canonical: `${SITE_URL}/about`,
   },
 };
 
@@ -45,13 +46,13 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://oasisemaar.com",
+      item: `${SITE_URL}`,
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "About",
-      item: "https://oasisemaar.com/about",
+      item: `${SITE_URL}/about`,
     },
   ],
 };
@@ -62,10 +63,10 @@ export default function AboutPage() {
       <WebPageSchema
         name="About — The Oasis by Emaar"
         description="Learn about The Oasis by Emaar Properties — a 9.4 million sqm waterfront community with over 7,000 residences by Dubai's most trusted developer."
-        url="https://oasisemaar.com/about"
+        url={`${SITE_URL}/about`}
         breadcrumbItems={[
-          { name: "Home", url: "https://oasisemaar.com" },
-          { name: "About", url: "https://oasisemaar.com/about" },
+          { name: "Home", url: `${SITE_URL}` },
+          { name: "About", url: `${SITE_URL}/about` },
         ]}
       />
       <script

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site-config";
 import WebPageSchema from "@/components/web-page-schema";
 
 export const metadata: Metadata = {
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Disclaimer | Oasis Emaar",
     description: "Important legal notices about property information, developer relationships, and investment advice.",
-    url: "https://oasisemaar.com/disclaimer",
+    url: `${SITE_URL}/disclaimer`,
     siteName: "Oasis Emaar",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Oasis Emaar Disclaimer" }],
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     creator: "@OasisEmaar",
     site: "@OasisEmaar",
   },
-  alternates: { canonical: "https://oasisemaar.com/disclaimer" },
+  alternates: { canonical: `${SITE_URL}/disclaimer` },
 };
 
 export default function DisclaimerPage() {
@@ -39,10 +40,10 @@ export default function DisclaimerPage() {
       <WebPageSchema
         name="Disclaimer — Oasis Emaar"
         description="Important legal notices about property information and investment advice."
-        url="https://oasisemaar.com/disclaimer"
+        url={`${SITE_URL}/disclaimer`}
         breadcrumbItems={[
-          { name: "Home", url: "https://oasisemaar.com" },
-          { name: "Disclaimer", url: "https://oasisemaar.com/disclaimer" },
+          { name: "Home", url: `${SITE_URL}` },
+          { name: "Disclaimer", url: `${SITE_URL}/disclaimer` },
         ]}
       />
       <div className="min-h-screen bg-white pt-28 pb-20">
