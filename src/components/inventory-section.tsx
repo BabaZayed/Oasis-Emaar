@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { inventoryItems, projects, formatPrice, formatSqft, type InventoryItem, type PropertyStatus } from "@/lib/data";
+import { useDict } from "@/lib/use-dict";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -11,11 +12,11 @@ import { Bed, Maximize, Lock, Search, SlidersHorizontal, X, LayoutGrid, List, Ey
 import PropertyDetailModal from "@/components/property-detail-modal";
 import Image from "next/image";
 
-const statusMap: Record<PropertyStatus, { label: string; color: string }> = {
-  available: { label: "Available", color: "bg-green-500" },
-  reserved: { label: "Reserved", color: "bg-orange-500" },
-  sold: { label: "Sold", color: "bg-red-500" },
-  "launching-soon": { label: "Launching Soon", color: "bg-blue-500" },
+const statusMap: Record<PropertyStatus, { labelKey: keyof Pick<import("@/dictionaries").Dictionary["common"], "available" | "reserved" | "sold" | "launchingSoon">; color: string }> = {
+  available: { labelKey: "available", color: "bg-green-500" },
+  reserved: { labelKey: "reserved", color: "bg-orange-500" },
+  sold: { labelKey: "sold", color: "bg-red-500" },
+  "launching-soon": { labelKey: "launchingSoon", color: "bg-blue-500" },
 };
 
 const clusterOptions = [
@@ -41,6 +42,7 @@ const priceRanges = [
 ];
 
 function PropertyCardGrid({ item, onViewDetails }: { item: InventoryItem; onViewDetails: (item: InventoryItem) => void }) {
+  const t = useDict();
   const project = projects.find((p) => p.id === item.projectId);
   const statusInfo = statusMap[item.status];
 
@@ -59,11 +61,11 @@ function PropertyCardGrid({ item, onViewDetails }: { item: InventoryItem; onView
         )}
         <div className="absolute inset-0 bg-black/20" />
         <Badge className={`absolute top-3 left-3 ${statusInfo.color} text-white text-xs`}>
-          {statusInfo.label}
+          {t.common[statusInfo.labelKey]}
         </Badge>
         {item.isPremium && (
           <Badge className="absolute top-3 right-3 bg-[#1A2332] text-[#C8A45C] text-xs flex items-center gap-1">
-            <Lock className="w-3 h-3" /> Premium
+            <Lock className="w-3 h-3" /> {t.common.premium}
           </Badge>
         )}
       </div>
@@ -76,7 +78,7 @@ function PropertyCardGrid({ item, onViewDetails }: { item: InventoryItem; onView
 
         <div className="flex items-center gap-4 mb-4 text-sm text-gray-500">
           <span className="flex items-center gap-1">
-            <Bed className="w-4 h-4 text-[#C8A45C]" /> {item.bedrooms} Bed
+            <Bed className="w-4 h-4 text-[#C8A45C]" /> {item.bedrooms} {t.common.bed}
           </span>
           <span className="flex items-center gap-1">
             <Maximize className="w-4 h-4 text-[#C8A45C]" /> {formatSqft(item.areaSqft)}
@@ -85,7 +87,7 @@ function PropertyCardGrid({ item, onViewDetails }: { item: InventoryItem; onView
 
         <div className="flex items-end justify-between pt-3 border-t border-gray-100">
           <div>
-            <p className="text-xs text-gray-400">Price</p>
+            <p className="text-xs text-gray-400">{t.common.price}</p>
             <p className="font-heading text-lg font-bold text-[#C8A45C]">{formatPrice(item.price)}</p>
           </div>
           <Button
@@ -93,7 +95,7 @@ function PropertyCardGrid({ item, onViewDetails }: { item: InventoryItem; onView
             size="sm"
             className="bg-[#1A2332] text-white hover:bg-[#2A3A52] text-xs rounded-md min-h-[44px]"
           >
-            <Eye className="w-3 h-3 mr-1" /> View Details
+            <Eye className="w-3 h-3 mr-1" /> {t.common.viewDetails}
           </Button>
         </div>
       </CardContent>
@@ -102,6 +104,7 @@ function PropertyCardGrid({ item, onViewDetails }: { item: InventoryItem; onView
 }
 
 function PropertyCardList({ item, onViewDetails }: { item: InventoryItem; onViewDetails: (item: InventoryItem) => void }) {
+  const t = useDict();
   const project = projects.find((p) => p.id === item.projectId);
   const statusInfo = statusMap[item.status];
 
@@ -131,7 +134,7 @@ function PropertyCardList({ item, onViewDetails }: { item: InventoryItem; onView
             <h4 className="font-heading font-bold text-[#1A2332] text-sm leading-tight truncate">{item.name}</h4>
           </div>
           <Badge className={`${statusInfo.color} text-white text-[10px] flex-shrink-0`}>
-            {statusInfo.label}
+            {t.common[statusInfo.labelKey]}
           </Badge>
         </div>
 
@@ -156,14 +159,15 @@ function PropertyCardList({ item, onViewDetails }: { item: InventoryItem; onView
           size="sm"
           className="bg-[#1A2332] text-white hover:bg-[#2A3A52] text-xs rounded-md min-h-[36px] min-w-[80px]"
         >
-          <Eye className="w-3 h-3 mr-1" /> View Details
+          <Eye className="w-3 h-3 mr-1" /> {t.common.viewDetails}
         </Button>
       </div>
     </div>
   );
 }
 
-export default function InventorySection() {
+export default function InventorySection({ lang }: { lang?: import("@/lib/i18n").LangCode }) {
+  const t = useDict();
   const [search, setSearch] = useState("");
   const [clusterFilter, setClusterFilter] = useState<string>("all");
   const [typeFilter, setTypeFilter] = useState<string>("all");
@@ -220,13 +224,13 @@ export default function InventorySection() {
         {/* Section Header */}
         <div className="text-center mb-8 sm:mb-12">
           <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
-            Property Listings
+            {t.inventory.label}
           </span>
           <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
-            Available Inventory
+            {t.inventory.title}
           </h1>
           <p className="font-body text-gray-500 max-w-2xl mx-auto text-sm sm:text-base">
-            Browse our curated selection of available properties at The Oasis. Premium listings require registration to view full details.
+            {t.inventory.subtitle}
           </p>
           <div className="section-divider max-w-xs mx-auto mt-6" />
         </div>
@@ -237,7 +241,7 @@ export default function InventorySection() {
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
               <Input
-                placeholder="Search properties..."
+                placeholder={t.inventory.searchPlaceholder}
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 className="pl-10 h-11 bg-white"
@@ -272,68 +276,68 @@ export default function InventorySection() {
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2 text-[#1A2332]">
               <SlidersHorizontal className="w-5 h-5" />
-              <span className="font-semibold">Filters</span>
+              <span className="font-semibold">{t.common.filters}</span>
               {hasActiveFilters && (
-                <Badge className="bg-[#C8A45C] text-[#1A2332] text-[10px]">Active</Badge>
+                <Badge className="bg-[#C8A45C] text-[#1A2332] text-[10px]">{t.inventory.active}</Badge>
               )}
             </div>
             {hasActiveFilters && (
               <button onClick={clearFilters} className="text-xs text-[#C8A45C] hover:text-[#1A2332] font-semibold min-h-[44px] flex items-center">
-                <X className="w-3 h-3 mr-1" /> Clear All
+                <X className="w-3 h-3 mr-1" /> {t.common.clearAll}
               </button>
             )}
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
             <Select value={clusterFilter} onValueChange={setClusterFilter}>
               <SelectTrigger className="h-11">
-                <SelectValue placeholder="Cluster" />
+                <SelectValue placeholder={t.inventory.cluster} />
               </SelectTrigger>
               <SelectContent>
-                {clusterOptions.map((opt) => (
-                  <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
+                {clusterOptions.map((opt, idx) => (
+                  <SelectItem key={opt.value} value={opt.value}>{idx === 0 ? t.common.allClusters : t.inventory.clusterOptions[idx - 1] || opt.label}</SelectItem>
                 ))}
               </SelectContent>
             </Select>
             <Select value={typeFilter} onValueChange={setTypeFilter}>
               <SelectTrigger className="h-11">
-                <SelectValue placeholder="Property Type" />
+                <SelectValue placeholder={t.inventory.propertyType} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All Types</SelectItem>
-                <SelectItem value="villa">Villas</SelectItem>
-                <SelectItem value="mansion">Mansions</SelectItem>
-                <SelectItem value="branded-villa">Branded Villas</SelectItem>
+                <SelectItem value="all">{t.common.allTypes}</SelectItem>
+                <SelectItem value="villa">{t.common.villas}</SelectItem>
+                <SelectItem value="mansion">{t.common.mansions}</SelectItem>
+                <SelectItem value="branded-villa">{t.common.brandedVillas}</SelectItem>
               </SelectContent>
             </Select>
             <Select value={statusFilter} onValueChange={setStatusFilter}>
               <SelectTrigger className="h-11">
-                <SelectValue placeholder="Status" />
+                <SelectValue placeholder={t.common.status} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All Status</SelectItem>
-                <SelectItem value="available">Available</SelectItem>
-                <SelectItem value="reserved">Reserved</SelectItem>
-                <SelectItem value="sold">Sold</SelectItem>
+                <SelectItem value="all">{t.common.allStatus}</SelectItem>
+                <SelectItem value="available">{t.common.available}</SelectItem>
+                <SelectItem value="reserved">{t.common.reserved}</SelectItem>
+                <SelectItem value="sold">{t.common.sold}</SelectItem>
               </SelectContent>
             </Select>
             <Select value={priceRange} onValueChange={setPriceRange}>
               <SelectTrigger className="h-11">
-                <SelectValue placeholder="Price Range" />
+                <SelectValue placeholder={t.inventory.priceRange} />
               </SelectTrigger>
               <SelectContent>
-                {priceRanges.map((opt) => (
-                  <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
+                {priceRanges.map((opt, idx) => (
+                  <SelectItem key={opt.value} value={opt.value}>{idx === 0 ? t.common.anyPrice : t.inventory.priceRanges[idx - 1] || opt.label}</SelectItem>
                 ))}
               </SelectContent>
             </Select>
             <Select value={sortBy} onValueChange={setSortBy}>
               <SelectTrigger className="h-11">
-                <SelectValue placeholder="Sort By" />
+                <SelectValue placeholder={t.common.sort} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="price-asc">Price: Low to High</SelectItem>
-                <SelectItem value="price-desc">Price: High to Low</SelectItem>
-                <SelectItem value="area-desc">Largest Area</SelectItem>
+                <SelectItem value="price-asc">{t.common.priceLowHigh}</SelectItem>
+                <SelectItem value="price-desc">{t.common.priceHighLow}</SelectItem>
+                <SelectItem value="area-desc">{t.common.largestArea}</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -342,7 +346,7 @@ export default function InventorySection() {
         {/* Results Count + Mobile View Toggle */}
         <div className="flex items-center justify-between mb-4 sm:mb-6">
           <p className="text-sm text-gray-500">
-            Showing <span className="font-semibold text-[#1A2332]">{filtered.length}</span> of {inventoryItems.length} properties
+            {t.common.showing} <span className="font-semibold text-[#1A2332]">{filtered.length}</span> {t.common.of} {inventoryItems.length} {t.common.properties}
           </p>
           {/* Mobile view toggle */}
           <div className="flex sm:hidden items-center gap-1 bg-white rounded-md border border-[#1A2332]/10 p-1">
@@ -378,13 +382,13 @@ export default function InventorySection() {
 
         {filtered.length === 0 && (
           <div className="text-center py-16">
-            <p className="text-gray-400 text-lg">No properties match your filters.</p>
+            <p className="text-gray-400 text-lg">{t.inventory.noMatch}</p>
             <Button
               variant="outline"
               className="mt-4 min-h-[44px]"
               onClick={clearFilters}
             >
-              <X className="w-4 h-4 mr-2" /> Clear Filters
+              <X className="w-4 h-4 mr-2" /> {t.common.clearFilters}
             </Button>
           </div>
         )}

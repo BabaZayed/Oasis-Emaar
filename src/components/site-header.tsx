@@ -5,7 +5,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Tag, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_LINK, PHONE_NUMBER, inventoryItems } from "@/lib/data";
-import { detectLang, langNames, langCodes, headerT, type LangCode } from "@/lib/i18n";
+import {
+  detectLang,
+  langNames,
+  langCodes,
+  headerT,
+  langHref,
+  getPagePath,
+  type LangCode,
+} from "@/lib/i18n";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -20,6 +28,7 @@ export default function SiteHeader() {
   const t = headerT[currentLang];
   const isRTL = currentLang === "ar";
   const availableCount = inventoryItems.filter((i) => i.status === "available").length;
+  const currentPagePath = getPagePath(pathname);
 
   // Click outside to close language dropdown
   useEffect(() => {
@@ -40,7 +49,7 @@ export default function SiteHeader() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change (adjust state during render per React guidelines)
+  // Close mobile menu on route change
   const [prevPath, setPrevPath] = useState(pathname);
   if (prevPath !== pathname) {
     setPrevPath(pathname);
@@ -89,15 +98,15 @@ export default function SiteHeader() {
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-1">
               {t.nav.map((link, idx) => {
-                const isSellPage = link.href === "/sell";
-                const isInventory = link.href === "/inventory";
-                // Use the original English href for navigation
-                const navHref = headerT.en.nav[idx]?.href || link.href;
-                const isActive = pathname === navHref ||
-                  (navHref !== "/" && pathname.startsWith(navHref));
+                const englishHref = headerT.en.nav[idx]?.href || link.href;
+                const navHref = langHref(currentLang, englishHref);
+                const isSellPage = englishHref === "/sell";
+                const isInventory = englishHref === "/inventory";
+                const isActive = currentPagePath === englishHref ||
+                  (englishHref !== "/" && !englishHref.startsWith("/#") && currentPagePath.startsWith(englishHref));
                 return (
                   <Link
-                    key={navHref}
+                    key={englishHref}
                     href={navHref}
                     className={`font-body px-3 py-2 text-sm transition-all duration-300 rounded-md flex items-center gap-1.5 ${
                       isSellPage
@@ -128,7 +137,7 @@ export default function SiteHeader() {
                 <Phone className="w-4 h-4 flex-shrink-0" />
                 <span className="whitespace-nowrap">{PHONE_NUMBER}</span>
               </a>
-              {/* Language Switcher */}
+              {/* Language Switcher - ALWAYS VISIBLE */}
               <div ref={langRef} className="relative hidden sm:block">
                 <button
                   onClick={() => setLangOpen(!langOpen)}
@@ -142,25 +151,29 @@ export default function SiteHeader() {
                 </button>
                 {langOpen && (
                   <div className={`absolute ${isRTL ? 'left-0' : 'right-0'} top-full mt-2 w-48 bg-[#1A2332]/95 backdrop-blur-xl border border-white/10 rounded-lg shadow-2xl overflow-hidden z-50`}>
-                    {langCodes.map((code) => (
-                      <Link
-                        key={code}
-                        href={langNames[code].href}
-                        onClick={() => setLangOpen(false)}
-                        className={`flex items-center gap-3 px-4 py-3 text-sm transition-colors ${
-                          currentLang === code
-                            ? "text-[#C8A45C] bg-white/5"
-                            : "text-white/80 hover:text-[#C8A45C] hover:bg-white/5"
-                        }`}
-                      >
-                        <span className="text-lg">{langNames[code].flag}</span>
-                        <span>{langNames[code].label}</span>
-                      </Link>
-                    ))}
+                    {langCodes.map((code) => {
+                      // Link to the same page in the selected language
+                      const switchHref = langHref(code, currentPagePath);
+                      return (
+                        <Link
+                          key={code}
+                          href={switchHref}
+                          onClick={() => setLangOpen(false)}
+                          className={`flex items-center gap-3 px-4 py-3 text-sm transition-colors ${
+                            currentLang === code
+                              ? "text-[#C8A45C] bg-white/5"
+                              : "text-white/80 hover:text-[#C8A45C] hover:bg-white/5"
+                          }`}
+                        >
+                          <span className="text-lg">{langNames[code].flag}</span>
+                          <span>{langNames[code].label}</span>
+                        </Link>
+                      );
+                    })}
                   </div>
                 )}
               </div>
-              <Link href="/availability">
+              <Link href={langHref(currentLang, "/availability")}>
                 <Button
                   className="btn-gold-glow text-[#1A2332] font-semibold text-sm px-5 py-2.5 rounded-md hidden sm:flex items-center gap-2"
                 >
@@ -182,7 +195,7 @@ export default function SiteHeader() {
         </div>
       </header>
 
-      {/* Mobile Menu - Smoother animations, premium feel */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <>
@@ -204,12 +217,13 @@ export default function SiteHeader() {
               <div className="bg-[#1A2332]/98 backdrop-blur-xl border-t border-[#C8A45C]/15 shadow-2xl max-h-[85vh] overflow-y-auto luxury-scroll">
                 <nav className="max-w-7xl mx-auto px-4 py-6 flex flex-col" dir={isRTL ? "rtl" : "ltr"}>
                   {t.nav.map((link, idx) => {
-                    const navHref = headerT.en.nav[idx]?.href || link.href;
-                    const isSellPage = link.href === "/sell";
-                    const isInventory = link.href === "/inventory";
+                    const englishHref = headerT.en.nav[idx]?.href || link.href;
+                    const navHref = langHref(currentLang, englishHref);
+                    const isSellPage = englishHref === "/sell";
+                    const isInventory = englishHref === "/inventory";
                     return (
                       <Link
-                        key={navHref}
+                        key={englishHref}
                         href={navHref}
                         onClick={() => setMobileOpen(false)}
                         className={`px-4 py-3.5 rounded-lg transition-all duration-300 flex items-center gap-2 min-h-[44px] ${
@@ -236,34 +250,37 @@ export default function SiteHeader() {
                     >
                       WhatsApp: {PHONE_NUMBER}
                     </a>
-                    <Link href="/availability" onClick={() => setMobileOpen(false)}>
+                    <Link href={langHref(currentLang, "/availability")} onClick={() => setMobileOpen(false)}>
                       <Button
                         className="w-full btn-gold-glow text-[#1A2332] font-semibold py-3.5 rounded-lg text-base"
                       >
                         {t.checkAvailability}
                       </Button>
                     </Link>
-                    {/* Mobile Language Options */}
+                    {/* Mobile Language Options - ALWAYS VISIBLE */}
                     <div className="mt-4 pt-4 border-t border-white/10">
                       <p className="text-xs text-white/50 mb-3 px-1 tracking-wider uppercase">
                         {currentLang === "ar" ? "اللغة" : currentLang === "zh" ? "语言" : currentLang === "ru" ? "Язык" : currentLang === "fr" ? "Langue" : currentLang === "de" ? "Sprache" : "Language"}
                       </p>
                       <div className="grid grid-cols-2 gap-1.5">
-                        {langCodes.map((code) => (
-                          <Link
-                            key={code}
-                            href={langNames[code].href}
-                            onClick={() => setMobileOpen(false)}
-                            className={`flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm min-h-[44px] transition-all duration-300 ${
-                              currentLang === code
-                                ? "text-[#C8A45C] bg-white/5 border border-[#C8A45C]/20"
-                                : "text-white/80 hover:text-[#C8A45C] hover:bg-white/5"
-                            }`}
-                          >
-                            <span>{langNames[code].flag}</span>
-                            <span>{langNames[code].label}</span>
-                          </Link>
-                        ))}
+                        {langCodes.map((code) => {
+                          const switchHref = langHref(code, currentPagePath);
+                          return (
+                            <Link
+                              key={code}
+                              href={switchHref}
+                              onClick={() => setMobileOpen(false)}
+                              className={`flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm min-h-[44px] transition-all duration-300 ${
+                                currentLang === code
+                                  ? "text-[#C8A45C] bg-white/5 border border-[#C8A45C]/20"
+                                  : "text-white/80 hover:text-[#C8A45C] hover:bg-white/5"
+                              }`}
+                            >
+                              <span>{langNames[code].flag}</span>
+                              <span>{langNames[code].label}</span>
+                            </Link>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>

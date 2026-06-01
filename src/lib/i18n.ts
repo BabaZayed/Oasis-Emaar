@@ -25,6 +25,44 @@ export function detectLang(pathname: string): LangCode {
   return "en";
 }
 
+/**
+ * Build a language-aware URL for navigation.
+ * - For English: returns the path as-is (e.g., "/inventory")
+ * - For other languages: prepends the language code (e.g., "/ar/inventory")
+ * - Handles homepage correctly: "/" for English, "/ar" for Arabic, etc.
+ */
+export function langHref(lang: LangCode, path: string): string {
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
+  if (lang === "en") return cleanPath;
+  // Homepage case
+  if (cleanPath === "/") return `/${lang}`;
+  // Anchor case (e.g., "/#feedback")
+  if (cleanPath.startsWith("/#")) return `/${lang}${cleanPath}`;
+  return `/${lang}${cleanPath}`;
+}
+
+/**
+ * Extract the page path from a language-prefixed URL.
+ * E.g., "/ar/inventory" → "/inventory", "/inventory" → "/inventory"
+ */
+export function stripLangPrefix(pathname: string): string {
+  for (const code of langCodes) {
+    if (code !== "en" && pathname.startsWith(`/${code}`)) {
+      const rest = pathname.slice(`/${code}`.length);
+      return rest || "/";
+    }
+  }
+  return pathname;
+}
+
+/**
+ * Get the current page path without the language prefix.
+ * Useful for building language switcher links that stay on the same page.
+ */
+export function getPagePath(pathname: string): string {
+  return stripLangPrefix(pathname);
+}
+
 // ─── Header Translations ───
 export const headerT: Record<LangCode, {
   nav: { label: string; href: string }[];

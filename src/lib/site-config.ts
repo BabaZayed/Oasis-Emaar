@@ -27,9 +27,8 @@ export function getHreflangAlternates(path: string = "") {
     if (lang === "x-default" || lang === "en") {
       result[lang] = `${base}${cleanPath}`;
     } else {
-      // Language pages are standalone landing pages at /ar, /de, etc.
-      // They don't have translated sub-pages, so point to the language root
-      result[lang] = base;
+      // Non-English languages: prepend language code to the path
+      result[lang] = `${base}${cleanPath}`;
     }
   }
   return result;

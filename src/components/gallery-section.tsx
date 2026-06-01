@@ -6,10 +6,12 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import Image from "next/image";
 import { ZoomIn } from "lucide-react";
+import { useDict } from "@/lib/use-dict";
 
 const categories = ["All", "Exterior", "Interior", "Amenities", "Community", "Master Plan"] as const;
 
-export default function GallerySection() {
+export default function GallerySection({ lang }: { lang?: import("@/lib/i18n").LangCode }) {
+  const t = useDict();
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
 
@@ -23,27 +25,27 @@ export default function GallerySection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
           <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
-            Visual Tour
+            {t.gallery.label}
           </span>
           <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
-            Gallery
+            {t.gallery.title}
           </h1>
           <p className="font-body text-gray-500 max-w-2xl mx-auto">
-            Experience The Oasis through our curated gallery of renders and community visuals
+            {t.gallery.subtitle}
           </p>
           <div className="section-divider max-w-xs mx-auto mt-6" />
         </div>
 
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-2 mb-8">
-          {categories.map((cat) => (
+          {t.gallery.categories.map((cat, i) => (
             <Button
               key={cat}
-              variant={activeCategory === cat ? "default" : "outline"}
+              variant={activeCategory === categories[i] ? "default" : "outline"}
               size="sm"
-              onClick={() => setActiveCategory(cat)}
+              onClick={() => setActiveCategory(categories[i])}
               className={
-                activeCategory === cat
+                activeCategory === categories[i]
                   ? "bg-[#1A2332] text-white rounded-md"
                   : "border-gray-300 text-gray-600 hover:border-[#C8A45C] hover:text-[#C8A45C] rounded-md"
               }

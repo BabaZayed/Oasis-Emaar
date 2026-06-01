@@ -71,7 +71,7 @@ function SortIndicator({ field, currentField, dir }: { field: SortField; current
   );
 }
 
-export default function ListingsPageClient() {
+export default function ListingsPageClient({ lang }: { lang?: import("@/lib/i18n").LangCode }) {
   const [verifiedIds, setVerifiedIds] = useState<Set<string>>(() => getVerifiedIds());
   const [searchQuery, setSearchQuery] = useState("");
   const [filterStatus, setFilterStatus] = useState<string>("all");

@@ -24,7 +24,7 @@ const propertyTypes = [
   { value: "branded-villa", label: "Branded Villa" },
 ];
 
-export default function SellClient() {
+export default function SellClient({ lang }: { lang?: import("@/lib/i18n").LangCode }) {
   const [formData, setFormData] = useState({
     propertyType: "",
     villaNumber: "",

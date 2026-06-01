@@ -38,15 +38,16 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { trackLead } from "@/lib/meta-pixel";
+import { useDict } from "@/lib/use-dict";
 
 type SortOption = "price-asc" | "price-desc" | "area" | "newest";
 
-function StatusBadge({ status }: { status: string }) {
+function StatusBadge({ status, t }: { status: string; t: ReturnType<typeof useDict> }) {
   if (status === "available") {
     return (
       <Badge className="bg-emerald-500/10 text-emerald-600 border-emerald-500/20 text-xs font-semibold">
         <CheckCircle className="w-3 h-3 mr-1" />
-        Available
+        {t.common.available}
       </Badge>
     );
   }
@@ -54,19 +55,20 @@ function StatusBadge({ status }: { status: string }) {
     return (
       <Badge className="bg-amber-500/10 text-amber-600 border-amber-500/20 text-xs font-semibold">
         <Clock className="w-3 h-3 mr-1" />
-        Reserved
+        {t.common.reserved}
       </Badge>
     );
   }
   return (
     <Badge className="bg-red-500/10 text-red-600 border-red-500/20 text-xs font-semibold">
       <XCircle className="w-3 h-3 mr-1" />
-      Sold
+      {t.common.sold}
     </Badge>
   );
 }
 
-export default function AvailabilityPageClient() {
+export default function AvailabilityPageClient({ lang }: { lang?: import("@/lib/i18n").LangCode }) {
+  const t = useDict();
   const [selectedCluster, setSelectedCluster] = useState<string>("all");
   const [selectedBedrooms, setSelectedBedrooms] = useState<string>("all");
   const [selectedStatus, setSelectedStatus] = useState<string>("all");
@@ -186,10 +188,10 @@ export default function AvailabilityPageClient() {
         setFormEmail("");
         setFormInterest("");
       } else {
-        setFormError(data.error || "Something went wrong. Please try again.");
+        setFormError(data.error || t.common.somethingWentWrong);
       }
     } catch {
-      setFormError("Network error. Please try again.");
+      setFormError(t.common.networkError);
     } finally {
       setFormSubmitting(false);
     }
@@ -207,11 +209,11 @@ export default function AvailabilityPageClient() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center max-w-3xl mx-auto">
               <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
-                Real-Time Inventory
+                {t.availability.label}
               </span>
               <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-white mt-4 mb-6">
-                Check Availability at{" "}
-                <span className="text-[#C8A45C]">The Oasis</span>
+                {t.availability.title}{" "}
+                <span className="text-[#C8A45C]">{t.availability.titleHighlight}</span>
               </h1>
               <p className="font-body text-white/60 text-lg max-w-2xl mx-auto">
                 Browse real-time availability of luxury villas, mansions, and
@@ -236,7 +238,7 @@ export default function AvailabilityPageClient() {
                     {availableCount}
                   </p>
                   <p className="font-body text-xs text-gray-500 uppercase tracking-wider">
-                    Available Properties
+                    {t.availability.stats[0]}
                   </p>
                 </div>
               </div>
@@ -249,7 +251,7 @@ export default function AvailabilityPageClient() {
                     {totalCount}
                   </p>
                   <p className="font-body text-xs text-gray-500 uppercase tracking-wider">
-                    Total Properties
+                    {t.availability.stats[1]}
                   </p>
                 </div>
               </div>
@@ -262,7 +264,7 @@ export default function AvailabilityPageClient() {
                     {formatPrice(startingPrice)}
                   </p>
                   <p className="font-body text-xs text-gray-500 uppercase tracking-wider">
-                    Starting Price
+                    {t.availability.stats[2]}
                   </p>
                 </div>
               </div>
@@ -284,7 +286,7 @@ export default function AvailabilityPageClient() {
                 onClick={() => setShowFilters(!showFilters)}
               >
                 <SlidersHorizontal className="w-4 h-4 mr-2" />
-                {showFilters ? "Hide" : "Show"} Filters
+                {showFilters ? t.availability.hide : t.availability.show} {t.common.filter}
               </Button>
             </div>
 
@@ -293,10 +295,10 @@ export default function AvailabilityPageClient() {
                 {/* Cluster */}
                 <Select value={selectedCluster} onValueChange={setSelectedCluster}>
                   <SelectTrigger className="w-full">
-                    <SelectValue placeholder="All Clusters" />
+                    <SelectValue placeholder={t.common.allClusters} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="all">All Clusters</SelectItem>
+                    <SelectItem value="all">{t.common.allClusters}</SelectItem>
                     {clustersInInventory.map((c) => (
                       <SelectItem key={c.id} value={c.id}>
                         {c.name}
@@ -308,24 +310,24 @@ export default function AvailabilityPageClient() {
                 {/* Bedrooms */}
                 <Select value={selectedBedrooms} onValueChange={setSelectedBedrooms}>
                   <SelectTrigger className="w-full">
-                    <SelectValue placeholder="All Bedrooms" />
+                    <SelectValue placeholder={t.common.allTypes} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="all">All Bedrooms</SelectItem>
-                    <SelectItem value="4">4 Bedroom</SelectItem>
-                    <SelectItem value="5">5 Bedroom</SelectItem>
-                    <SelectItem value="6">6 Bedroom</SelectItem>
-                    <SelectItem value="7">7 Bedroom</SelectItem>
+                    <SelectItem value="all">{t.availability.bedroomOptions[0].replace(" Bedroom", "")}</SelectItem>
+                    <SelectItem value="4">{t.availability.bedroomOptions[0]}</SelectItem>
+                    <SelectItem value="5">{t.availability.bedroomOptions[1]}</SelectItem>
+                    <SelectItem value="6">{t.availability.bedroomOptions[2]}</SelectItem>
+                    <SelectItem value="7">{t.availability.bedroomOptions[3]}</SelectItem>
                   </SelectContent>
                 </Select>
 
                 {/* Price Range */}
                 <Select value={priceRange} onValueChange={setPriceRange}>
                   <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Any Price" />
+                    <SelectValue placeholder={t.common.anyPrice} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="all">Any Price</SelectItem>
+                    <SelectItem value="all">{t.common.anyPrice}</SelectItem>
                     <SelectItem value="0-15000000">Under AED 15M</SelectItem>
                     <SelectItem value="15000000-20000000">AED 15M - 20M</SelectItem>
                     <SelectItem value="20000000-30000000">AED 20M - 30M</SelectItem>
@@ -337,26 +339,26 @@ export default function AvailabilityPageClient() {
                 {/* Status */}
                 <Select value={selectedStatus} onValueChange={setSelectedStatus}>
                   <SelectTrigger className="w-full">
-                    <SelectValue placeholder="All Status" />
+                    <SelectValue placeholder={t.common.allStatus} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="all">All Status</SelectItem>
-                    <SelectItem value="available">Available</SelectItem>
-                    <SelectItem value="reserved">Reserved</SelectItem>
-                    <SelectItem value="sold">Sold</SelectItem>
+                    <SelectItem value="all">{t.common.allStatus}</SelectItem>
+                    <SelectItem value="available">{t.common.available}</SelectItem>
+                    <SelectItem value="reserved">{t.common.reserved}</SelectItem>
+                    <SelectItem value="sold">{t.common.sold}</SelectItem>
                   </SelectContent>
                 </Select>
 
                 {/* Sort */}
                 <Select value={sortBy} onValueChange={(v) => setSortBy(v as SortOption)}>
                   <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Sort By" />
+                    <SelectValue placeholder={t.common.sort} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="price-asc">Price: Low to High</SelectItem>
-                    <SelectItem value="price-desc">Price: High to Low</SelectItem>
-                    <SelectItem value="area">Largest Area</SelectItem>
-                    <SelectItem value="newest">Newest First</SelectItem>
+                    <SelectItem value="price-asc">{t.common.priceLowHigh}</SelectItem>
+                    <SelectItem value="price-desc">{t.common.priceHighLow}</SelectItem>
+                    <SelectItem value="area">{t.common.largestArea}</SelectItem>
+                    <SelectItem value="newest">{t.common.newestFirst}</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -399,10 +401,10 @@ export default function AvailabilityPageClient() {
               <div className="text-center py-16">
                 <Home className="w-16 h-16 text-gray-300 mx-auto mb-4" />
                 <h3 className="font-heading text-2xl font-bold text-[#1A2332] mb-2">
-                  No Properties Found
+                  {t.availability.noPropertiesTitle}
                 </h3>
                 <p className="font-body text-gray-500">
-                  Try adjusting your filters to see more results.
+                  {t.availability.noPropertiesDesc}
                 </p>
                 <Button
                   className="mt-4 gold-gradient text-[#1A2332] font-semibold"
@@ -413,7 +415,7 @@ export default function AvailabilityPageClient() {
                     setPriceRange("all");
                   }}
                 >
-                  Clear All Filters
+                  {t.availability.clearAllFilters}
                 </Button>
               </div>
             ) : (
@@ -464,7 +466,7 @@ export default function AvailabilityPageClient() {
                                   Premium
                                 </Badge>
                               )}
-                              <StatusBadge status={item.status} />
+                              <StatusBadge status={item.status} t={t} />
                             </div>
 
                             <CardContent className="p-4 flex-1 flex flex-col">
@@ -475,7 +477,7 @@ export default function AvailabilityPageClient() {
                               <div className="space-y-2 mb-4 flex-1">
                                 <div className="flex items-center gap-2 text-sm text-gray-600">
                                   <Bed className="w-4 h-4 text-[#C8A45C]" />
-                                  <span>{item.bedrooms} Bedroom</span>
+                                  <span>{item.bedrooms} {t.availability.bedroom}</span>
                                 </div>
                                 <div className="flex items-center gap-2 text-sm text-gray-600">
                                   <Maximize className="w-4 h-4 text-[#C8A45C]" />
@@ -514,10 +516,10 @@ export default function AvailabilityPageClient() {
                                   disabled={item.status === "sold"}
                                 >
                                   {item.status === "available"
-                                    ? "Request Details"
+                                    ? t.common.requestDetails
                                     : item.status === "reserved"
-                                      ? "Join Waitlist"
-                                      : "Sold"}
+                                      ? t.common.joinWaitlist
+                                      : t.common.sold}
                                   {item.status !== "sold" && (
                                     <ArrowRight className="w-4 h-4 ml-2" />
                                   )}
@@ -542,13 +544,13 @@ export default function AvailabilityPageClient() {
               {/* Left: Info */}
               <div>
                 <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
-                  Get in Touch
+                  {t.availability.contactTitle}
                 </span>
                 <h2 className="font-heading text-3xl sm:text-4xl font-bold mt-3 mb-6">
-                  Interested in a Property?
+                  {t.availability.contactSubtitle}
                 </h2>
                 <p className="font-body text-white/60 text-lg mb-8">
-                  As an authorised Emaar sales agent, we provide exclusive access
+                  {t.availability.contactDesc}
                   to pricing, floor plans, and priority reservations across all
                   9 clusters at The Oasis.
                 </p>
@@ -563,7 +565,7 @@ export default function AvailabilityPageClient() {
                     </div>
                     <div>
                       <p className="font-body text-xs text-white/40 uppercase tracking-wider">
-                        Call Us
+                        {t.common.callUs}
                       </p>
                       <p className="font-body text-base">{PHONE_NUMBER}</p>
                     </div>
@@ -596,7 +598,7 @@ export default function AvailabilityPageClient() {
                         WhatsApp
                       </p>
                       <p className="font-body text-base">
-                        Chat with us instantly
+                        {t.common.chatWithUs}
                       </p>
                     </div>
                   </a>
@@ -629,7 +631,7 @@ export default function AvailabilityPageClient() {
                             htmlFor="name"
                             className="font-body text-sm text-white/70"
                           >
-                            Full Name *
+                            {t.common.fullName} *
                           </Label>
                           <Input
                             id="name"
@@ -645,7 +647,7 @@ export default function AvailabilityPageClient() {
                             htmlFor="phone"
                             className="font-body text-sm text-white/70"
                           >
-                            Phone Number *
+                            {t.common.phoneNumber} *
                           </Label>
                           <Input
                             id="phone"
@@ -662,7 +664,7 @@ export default function AvailabilityPageClient() {
                             htmlFor="email"
                             className="font-body text-sm text-white/70"
                           >
-                            Email Address *
+                            {t.common.emailAddress} *
                           </Label>
                           <Input
                             id="email"
@@ -679,14 +681,14 @@ export default function AvailabilityPageClient() {
                             htmlFor="interest"
                             className="font-body text-sm text-white/70"
                           >
-                            Interested In
+                            {t.common.interestedIn}
                           </Label>
                           <Select
                             value={formInterest}
                             onValueChange={setFormInterest}
                           >
                             <SelectTrigger className="mt-1 bg-white/10 border-white/20 text-white">
-                              <SelectValue placeholder="Select a cluster..." />
+                              <SelectValue placeholder={t.availability.selectCluster} />
                             </SelectTrigger>
                             <SelectContent>
                               {projects.map((p) => (
@@ -713,8 +715,8 @@ export default function AvailabilityPageClient() {
                           className="w-full gold-gradient text-[#1A2332] font-bold py-3 rounded-md hover:opacity-90 transition-opacity"
                         >
                           {formSubmitting
-                            ? "Submitting..."
-                            : "Request Details"}
+                            ? t.common.submitting
+                            : t.common.requestDetails}
                           {!formSubmitting && (
                             <ArrowRight className="w-4 h-4 ml-2" />
                           )}

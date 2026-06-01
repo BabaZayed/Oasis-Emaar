@@ -4,6 +4,7 @@ import { Building2, Award, Users, TrendingUp, Shield, Leaf, Handshake, Star, Ext
 import { Button } from "@/components/ui/button";
 import { AGENCY_DISCLAIMER } from "@/lib/data";
 import Link from "next/link";
+import { useDict } from "@/lib/use-dict";
 
 const stats = [
   { icon: Award, value: "9", label: "Exclusive Clusters" },
@@ -58,19 +59,20 @@ const authoritativeResources = [
   },
 ];
 
-export default function AboutSection() {
+export default function AboutSection({ lang }: { lang?: import("@/lib/i18n").LangCode }) {
+  const t = useDict();
   return (
     <section id="about" className="py-20 sm:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
           <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
-            About Us
+            {t.about.label}
           </span>
           <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
-            Your Authorised Emaar Agent
+            {t.about.title}
           </h1>
           <p className="font-body text-gray-500 max-w-2xl mx-auto">
-            We are an independent authorised real estate brokerage specialising in The Oasis by Emaar — your trusted partner for navigating all 9 clusters of Dubai&apos;s most prestigious waterfront community
+            {t.about.description}
           </p>
           <div className="section-divider max-w-xs mx-auto mt-6" />
         </div>
@@ -79,7 +81,7 @@ export default function AboutSection() {
         <div className="max-w-4xl mx-auto mb-16">
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
-              <h3 className="font-heading text-2xl font-bold text-[#1A2332] mb-4">Why Choose Us</h3>
+              <h3 className="font-heading text-2xl font-bold text-[#1A2332] mb-4">{t.about.whyChooseTitle}</h3>
               <p className="font-body text-gray-600 leading-relaxed mb-4">
                 The Oasis by Emaar is a master-planned waterfront community that represents the next chapter in Dubai&apos;s evolution as a global destination for luxury living. Spanning over 9.4 million square metres, this visionary development is home to more than 7,000 residences across nine distinctive clusters, each surrounded by crystal-clear lagoons, water canals, and lush green parks.
               </p>
@@ -125,9 +127,9 @@ export default function AboutSection() {
               </p>
             </div>
             <div className="bg-gradient-to-br from-[#1A2332] to-[#2A3A52] rounded-xl p-8 sm:p-10 text-white h-full flex flex-col justify-center">
-              <h4 className="font-heading text-xl font-bold text-[#C8A45C] mb-6">The Oasis by Emaar</h4>
+              <h4 className="font-heading text-xl font-bold text-[#C8A45C] mb-6">{t.about.oasisCardTitle}</h4>
               <p className="font-body text-white/70 leading-relaxed mb-6">
-                One of Emaar&apos;s most ambitious projects, The Oasis is a 100-million-sq-ft waterfront community featuring nine clusters of villas and mansions, crystal lagoons, private beaches, and world-class amenities — all just 20 minutes from Downtown Dubai.
+                {t.about.oasisCardDesc}
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {stats.map((stat) => (
@@ -145,19 +147,19 @@ export default function AboutSection() {
         {/* Why Choose Us */}
         <div>
           <h3 className="font-heading text-2xl font-bold text-center text-[#1A2332] mb-8">
-            Why Choose The Oasis
+            {t.about.whyChooseSubtitle}
           </h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {reasons.map((reason) => (
+            {reasons.map((reason, idx) => (
               <div
-                key={reason.title}
+                key={idx}
                 className="bg-[#F5F0E8] rounded-xl p-6 hover:shadow-lg transition-shadow duration-300"
               >
                 <div className="w-12 h-12 rounded-lg gold-gradient flex items-center justify-center mb-4">
                   <reason.icon className="w-6 h-6 text-[#1A2332]" />
                 </div>
-                <h4 className="font-heading font-bold text-[#1A2332] mb-2">{reason.title}</h4>
-                <p className="font-body text-sm text-gray-600 leading-relaxed">{reason.description}</p>
+                <h4 className="font-heading font-bold text-[#1A2332] mb-2">{t.about.reasons[idx]?.title || reason.title}</h4>
+                <p className="font-body text-sm text-gray-600 leading-relaxed">{t.about.reasons[idx]?.desc || reason.description}</p>
               </div>
             ))}
           </div>
@@ -166,119 +168,58 @@ export default function AboutSection() {
         {/* Internal Cross-Links — Explore The Oasis */}
         <div className="mt-16 bg-[#F5F0E8] rounded-xl p-8 sm:p-10">
           <h3 className="font-heading text-2xl font-bold text-[#1A2332] mb-2 text-center">
-            Explore The Oasis
+            {t.about.exploreTitle}
           </h3>
           <p className="font-body text-gray-500 text-center mb-8 max-w-2xl mx-auto">
-            Discover everything you need to know about The Oasis by Emaar — from project details and floor plans to payment options and investment insights.
+            {t.about.exploreSubtitle}
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <Link
-              href="/projects"
-              className="flex items-center justify-between bg-white rounded-lg p-4 hover:shadow-md transition-shadow group"
-            >
-              <div>
-                <p className="font-heading font-bold text-[#1A2332] text-sm">All Projects</p>
-                <p className="text-xs text-gray-500">9 exclusive clusters</p>
-              </div>
-              <ArrowRight className="w-4 h-4 text-[#C8A45C] group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              href="/payment-plan"
-              className="flex items-center justify-between bg-white rounded-lg p-4 hover:shadow-md transition-shadow group"
-            >
-              <div>
-                <p className="font-heading font-bold text-[#1A2332] text-sm">Payment Plans</p>
-                <p className="text-xs text-gray-500">80/20 & 90/10 options</p>
-              </div>
-              <ArrowRight className="w-4 h-4 text-[#C8A45C] group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              href="/availability"
-              className="flex items-center justify-between bg-white rounded-lg p-4 hover:shadow-md transition-shadow group"
-            >
-              <div>
-                <p className="font-heading font-bold text-[#1A2332] text-sm">Check Availability</p>
-                <p className="text-xs text-gray-500">77 units in stock</p>
-              </div>
-              <ArrowRight className="w-4 h-4 text-[#C8A45C] group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              href="/faq"
-              className="flex items-center justify-between bg-white rounded-lg p-4 hover:shadow-md transition-shadow group"
-            >
-              <div>
-                <p className="font-heading font-bold text-[#1A2332] text-sm">FAQ</p>
-                <p className="text-xs text-gray-500">Common questions</p>
-              </div>
-              <ArrowRight className="w-4 h-4 text-[#C8A45C] group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              href="/floor-plans"
-              className="flex items-center justify-between bg-white rounded-lg p-4 hover:shadow-md transition-shadow group"
-            >
-              <div>
-                <p className="font-heading font-bold text-[#1A2332] text-sm">Floor Plans</p>
-                <p className="text-xs text-gray-500">4 to 7 bedroom layouts</p>
-              </div>
-              <ArrowRight className="w-4 h-4 text-[#C8A45C] group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              href="/gallery"
-              className="flex items-center justify-between bg-white rounded-lg p-4 hover:shadow-md transition-shadow group"
-            >
-              <div>
-                <p className="font-heading font-bold text-[#1A2332] text-sm">Gallery</p>
-                <p className="text-xs text-gray-500">Renders & visuals</p>
-              </div>
-              <ArrowRight className="w-4 h-4 text-[#C8A45C] group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              href="/blog"
-              className="flex items-center justify-between bg-white rounded-lg p-4 hover:shadow-md transition-shadow group"
-            >
-              <div>
-                <p className="font-heading font-bold text-[#1A2332] text-sm">Blog & Insights</p>
-                <p className="text-xs text-gray-500">Investment analysis</p>
-              </div>
-              <ArrowRight className="w-4 h-4 text-[#C8A45C] group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              href="/contact"
-              className="flex items-center justify-between bg-white rounded-lg p-4 hover:shadow-md transition-shadow group"
-            >
-              <div>
-                <p className="font-heading font-bold text-[#1A2332] text-sm">Contact Us</p>
-                <p className="text-xs text-gray-500">Speak to an agent</p>
-              </div>
-              <ArrowRight className="w-4 h-4 text-[#C8A45C] group-hover:translate-x-1 transition-transform" />
-            </Link>
+            {t.about.exploreLinks.map((link, idx) => {
+              const paths = ["/projects", "/payment-plan", "/availability", "/faq", "/floor-plans", "/gallery", "/blog", "/contact"];
+              return (
+                <Link
+                  key={idx}
+                  href={paths[idx]}
+                  className="flex items-center justify-between bg-white rounded-lg p-4 hover:shadow-md transition-shadow group"
+                >
+                  <div>
+                    <p className="font-heading font-bold text-[#1A2332] text-sm">{link.title}</p>
+                    <p className="text-xs text-gray-500">{link.desc}</p>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-[#C8A45C] group-hover:translate-x-1 transition-transform" />
+                </Link>
+              );
+            })}
           </div>
         </div>
 
         {/* Authoritative Resources — Outbound Links */}
         <div className="mt-12">
           <h3 className="font-heading text-xl font-bold text-[#1A2332] mb-2 text-center">
-            Trusted Resources
+            {t.about.resourcesTitle}
           </h3>
           <p className="font-body text-gray-500 text-sm text-center mb-6 max-w-xl mx-auto">
-            Verify, research, and stay informed with these official Dubai real estate resources.
+            {t.about.resourcesSubtitle}
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {authoritativeResources.map((resource) => (
-              <a
-                key={resource.name}
-                href={resource.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-start gap-3 bg-gray-50 rounded-lg p-4 hover:bg-gray-100 transition-colors group"
-              >
-                <ExternalLink className="w-4 h-4 text-[#C8A45C] mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="font-heading font-bold text-[#1A2332] text-sm group-hover:text-[#C8A45C] transition-colors">{resource.name}</p>
-                  <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">{resource.description}</p>
-                </div>
-              </a>
-            ))}
+            {t.about.resources.map((resource, idx) => {
+              const urls = ["https://www.emaar.com", "https://www.dubailand.gov.ae", "https://www.rpdubai.ae", "https://dubairest.gov.ae"];
+              return (
+                <a
+                  key={idx}
+                  href={urls[idx]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 bg-gray-50 rounded-lg p-4 hover:bg-gray-100 transition-colors group"
+                >
+                  <ExternalLink className="w-4 h-4 text-[#C8A45C] mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="font-heading font-bold text-[#1A2332] text-sm group-hover:text-[#C8A45C] transition-colors">{resource.name}</p>
+                    <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">{resource.desc}</p>
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </div>
 
@@ -293,7 +234,7 @@ export default function AboutSection() {
             size="lg"
             className="gold-gradient text-[#1A2332] font-bold px-8 py-6 rounded-md hover:opacity-90"
           >
-            Schedule a Viewing
+            {t.about.scheduleViewing}
           </Button>
         </div>
       </div>

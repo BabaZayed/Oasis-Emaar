@@ -12,8 +12,10 @@ import { Button } from "@/components/ui/button";
 import { Bed, Maximize, ExternalLink, Map, LayoutGrid, ArrowRight, Home } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useDict } from "@/lib/use-dict";
 
-export default function FloorPlansClient() {
+export default function FloorPlansClient({ lang }: { lang?: import("@/lib/i18n").LangCode }) {
+  const t = useDict();
   const projectIds = [...new Set(floorPlans.map((fp) => fp.projectId))];
   const masterPlanImage = galleryImages.find((img) => img.category === "Master Plan");
 
@@ -29,13 +31,13 @@ export default function FloorPlansClient() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center max-w-3xl mx-auto">
               <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
-                Residence Layouts
+                {t.floorPlans.label}
               </span>
               <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-white mt-4 mb-6">
-                Floor Plans
+                {t.floorPlans.title}
               </h1>
               <p className="font-body text-white/60 text-lg max-w-2xl mx-auto">
-                Explore detailed floor plans for all residence types across the 9 clusters at The Oasis by Emaar. View layouts, specifications, and download from Google Drive.
+                {t.floorPlans.subtitle}
               </p>
               <div className="section-divider max-w-xs mx-auto mt-8" />
             </div>
@@ -51,7 +53,7 @@ export default function FloorPlansClient() {
                   value="all"
                   className="data-[state=active]:bg-[#1A2332] data-[state=active]:text-white px-4 py-2 rounded-md text-sm"
                 >
-                  All Clusters
+                  {t.common.allClusters}
                 </TabsTrigger>
                 {projectIds.map((pid) => {
                   const proj = projects.find((p) => p.id === pid);
@@ -102,13 +104,13 @@ export default function FloorPlansClient() {
                                   className="border-[#C8A45C] text-[#C8A45C] hover:bg-[#C8A45C]/10 rounded-md text-sm"
                                 >
                                   <ExternalLink className="w-4 h-4 mr-2" />
-                                  View Floor Plans on Google Drive
+                                  {t.floorPlans.viewFloorPlans}
                                 </Button>
                               </a>
                             )}
                             <Link href={`/projects/${proj.slug}`}>
                               <Button className="bg-[#1A2332] text-white hover:bg-[#2A3A52] rounded-md text-sm">
-                                View Project <ArrowRight className="w-4 h-4 ml-1" />
+                                {t.floorPlans.viewProject} <ArrowRight className="w-4 h-4 ml-1" />
                               </Button>
                             </Link>
                           </div>
@@ -149,7 +151,7 @@ export default function FloorPlansClient() {
                           </div>
                           <h3 className="font-heading text-2xl font-bold text-[#1A2332]">{proj.name}</h3>
                           <p className="font-body text-gray-500 text-sm mt-1">
-                            Starting from {formatPrice(proj.startingPrice)} · {proj.bedrooms} Bed · {proj.areaRange}
+                            Starting from {formatPrice(proj.startingPrice)} · {proj.bedrooms} {t.common.bed} · {proj.areaRange}
                           </p>
                         </div>
                         {floorPlanDriveUrl && (
@@ -159,7 +161,7 @@ export default function FloorPlansClient() {
                               className="border-[#C8A45C] text-[#C8A45C] hover:bg-[#C8A45C]/10 rounded-md text-sm"
                             >
                               <ExternalLink className="w-4 h-4 mr-2" />
-                              View Floor Plans on Google Drive
+                              {t.floorPlans.viewFloorPlans}
                             </Button>
                           </a>
                         )}
@@ -197,42 +199,42 @@ export default function FloorPlansClient() {
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1A2332]/80 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="font-heading text-2xl font-bold text-white mb-1">The Oasis Master Plan</h3>
-                  <p className="font-body text-white/70 text-sm">9.4 million sqm waterfront community by Emaar</p>
+                  <h3 className="font-heading text-2xl font-bold text-white mb-1">{t.floorPlans.masterPlanTitle}</h3>
+                  <p className="font-body text-white/70 text-sm">{t.floorPlans.masterPlanSubtitle}</p>
                 </div>
               </div>
               <div>
                 <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
-                  Community Layout
+                  {t.floorPlans.communityLayout}
                 </span>
                 <h3 className="font-heading text-2xl sm:text-3xl font-bold text-[#1A2332] mt-2 mb-4">
-                  Explore the Full Master Plan
+                  {t.floorPlans.exploreMasterPlan}
                 </h3>
                 <p className="font-body text-gray-500 leading-relaxed mb-6">
-                  View the complete community layout showing all 9 clusters, lagoons, parks, retail areas, and road networks across the 9.4 million sqm development.
+                  {t.floorPlans.exploreMasterPlanDesc}
                 </p>
                 <div className="grid grid-cols-2 gap-3 mb-6">
                   <div className="bg-white rounded-xl p-3 text-center shadow-sm">
                     <p className="font-heading text-xl font-bold text-[#C8A45C]">9</p>
-                    <p className="font-body text-xs text-gray-400 uppercase tracking-wider">Clusters</p>
+                    <p className="font-body text-xs text-gray-400 uppercase tracking-wider">{t.floorPlans.stats[0]}</p>
                   </div>
                   <div className="bg-white rounded-xl p-3 text-center shadow-sm">
                     <p className="font-heading text-xl font-bold text-[#C8A45C]">7,000+</p>
-                    <p className="font-body text-xs text-gray-400 uppercase tracking-wider">Residences</p>
+                    <p className="font-body text-xs text-gray-400 uppercase tracking-wider">{t.floorPlans.stats[1]}</p>
                   </div>
                   <div className="bg-white rounded-xl p-3 text-center shadow-sm">
                     <p className="font-heading text-xl font-bold text-[#C8A45C]">3.5km</p>
-                    <p className="font-body text-xs text-gray-400 uppercase tracking-wider">Waterways</p>
+                    <p className="font-body text-xs text-gray-400 uppercase tracking-wider">{t.floorPlans.stats[2]}</p>
                   </div>
                   <div className="bg-white rounded-xl p-3 text-center shadow-sm">
                     <p className="font-heading text-xl font-bold text-[#C8A45C]">25%</p>
-                    <p className="font-body text-xs text-gray-400 uppercase tracking-wider">Green Space</p>
+                    <p className="font-body text-xs text-gray-400 uppercase tracking-wider">{t.floorPlans.stats[3]}</p>
                   </div>
                 </div>
                 <Link href="/master-plan">
                   <Button className="gold-gradient text-[#1A2332] font-bold px-6 py-3 rounded-md hover:opacity-90">
                     <Map className="w-4 h-4 mr-2" />
-                    View Full Master Plan
+                    {t.floorPlans.viewFullMasterPlan}
                   </Button>
                 </Link>
               </div>
@@ -255,6 +257,7 @@ function FloorPlanCard({
   project: typeof projects[0];
   driveUrl: string | null;
 }) {
+  const t = useDict();
   const hasRealImage = !!plan.imageUrl;
   
   return (
@@ -282,14 +285,14 @@ function FloorPlanCard({
               <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center mx-auto mb-3 shadow-lg">
                 <LayoutGrid className="w-6 h-6 text-[#C8A45C]" />
               </div>
-              <p className="font-heading text-lg font-bold text-white drop-shadow-md">View Floor Plans</p>
+              <p className="font-heading text-lg font-bold text-white drop-shadow-md">{t.floorPlans.floorPlanCard}</p>
               <p className="font-body text-xs text-white/70 mt-1">{plan.name}</p>
             </div>
           </div>
         )}
         {hasRealImage && (
           <div className="absolute top-3 left-3">
-            <Badge className="bg-emerald-600 text-white text-xs font-semibold">Real Floor Plan</Badge>
+            <Badge className="bg-emerald-600 text-white text-xs font-semibold">{t.floorPlans.realFloorPlan}</Badge>
           </div>
         )}
         <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 flex items-center justify-center">
@@ -300,14 +303,14 @@ function FloorPlanCard({
         <h4 className="font-heading font-bold text-[#1A2332] mb-3">{plan.name}</h4>
         <div className="flex items-center gap-4 mb-4 text-sm text-gray-500">
           <span className="flex items-center gap-1">
-            <Bed className="w-4 h-4 text-[#C8A45C]" /> {plan.bedrooms} Bed
+            <Bed className="w-4 h-4 text-[#C8A45C]" /> {plan.bedrooms} {t.common.bed}
           </span>
           <span className="flex items-center gap-1">
             <Maximize className="w-4 h-4 text-[#C8A45C]" /> {formatSqft(plan.areaSqft)}
           </span>
         </div>
         {plan.plotSqft && (
-          <p className="text-sm text-gray-400 mb-4">Plot: {formatSqft(plan.plotSqft)}</p>
+          <p className="text-sm text-gray-400 mb-4">{t.common.plot}: {formatSqft(plan.plotSqft)}</p>
         )}
         <div className="flex gap-3">
           {driveUrl ? (
@@ -317,7 +320,7 @@ function FloorPlanCard({
                 className="w-full border-[#C8A45C] text-[#C8A45C] hover:bg-[#C8A45C]/10 rounded-md text-sm"
               >
                 <ExternalLink className="w-4 h-4 mr-2" />
-                Open in Google Drive
+                {t.floorPlans.openInDrive}
               </Button>
             </a>
           ) : (
@@ -325,12 +328,12 @@ function FloorPlanCard({
               variant="outline"
               className="flex-1 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white rounded-md text-sm"
             >
-              Coming Soon
+              {t.common.comingSoon}
             </Button>
           )}
           <Link href={`/projects/${project.slug}`} className="flex-1">
             <Button className="w-full bg-[#1A2332] text-white hover:bg-[#2A3A52] rounded-md text-sm">
-              View Project
+              {t.floorPlans.viewProject}
             </Button>
           </Link>
         </div>

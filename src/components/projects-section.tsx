@@ -7,8 +7,10 @@ import { Button } from "@/components/ui/button";
 import { Bed, Maximize, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useDict } from "@/lib/use-dict";
 
 function ProjectCard({ project }: { project: Project }) {
+  const t = useDict();
   const statusColor =
     project.status === "Ready" ? "bg-green-500" :
     project.status === "Off-Plan" ? "bg-[#C8A45C]" :
@@ -42,7 +44,7 @@ function ProjectCard({ project }: { project: Project }) {
         <div className="grid grid-cols-2 gap-3 mb-4">
           <div className="flex items-center gap-2 text-sm text-gray-600">
             <Bed className="w-4 h-4 text-[#C8A45C]" />
-            <span>{project.bedrooms} Bed</span>
+            <span>{project.bedrooms} {t.common.bed}</span>
           </div>
           <div className="flex items-center gap-2 text-sm text-gray-600">
             <Maximize className="w-4 h-4 text-[#C8A45C]" />
@@ -51,19 +53,19 @@ function ProjectCard({ project }: { project: Project }) {
         </div>
 
         <div className="flex items-center gap-2 text-xs text-gray-400 mb-4">
-          <span>Handover: {project.handover}</span>
+          <span>{t.projects.handover} {project.handover}</span>
           <span>·</span>
-          <span>{project.paymentPlan} Plan</span>
+          <span>{project.paymentPlan} {t.projects.plan}</span>
         </div>
 
         <div className="flex items-end justify-between pt-4 border-t border-gray-100">
           <div>
-            <p className="font-body text-xs text-gray-400 uppercase tracking-wider">Starting from</p>
+            <p className="font-body text-xs text-gray-400 uppercase tracking-wider">{t.common.startingFrom}</p>
             <p className="font-heading text-xl font-bold text-[#C8A45C]">{formatPrice(project.startingPrice)}</p>
           </div>
           <Link href={`/projects/${project.slug}`}>
             <Button className="bg-[#1A2332] text-white hover:bg-[#2A3A52] text-sm rounded-md">
-              Details <ArrowRight className="w-4 h-4 ml-1" />
+              {t.projects.details} <ArrowRight className="w-4 h-4 ml-1" />
             </Button>
           </Link>
         </div>
@@ -72,20 +74,21 @@ function ProjectCard({ project }: { project: Project }) {
   );
 }
 
-export default function ProjectsSection() {
+export default function ProjectsSection({ lang }: { lang?: import("@/lib/i18n").LangCode }) {
+  const t = useDict();
   return (
     <section id="projects" className="py-20 sm:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
           <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
-            9 Exclusive Clusters
+            {t.projects.label}
           </span>
           <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
-            Discover The Oasis Collection
+            {t.projects.title}
           </h1>
           <p className="font-body text-gray-500 max-w-2xl mx-auto text-lg">
-            Nine distinctive clusters, each offering a unique perspective on luxury waterfront living in Dubai
+            {t.projects.subtitle}
           </p>
           <div className="section-divider max-w-xs mx-auto mt-6" />
         </div>

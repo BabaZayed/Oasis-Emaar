@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { HelpCircle, MessageCircleQuestion, Phone, Mail } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { useDict } from "@/lib/use-dict";
 
 // AEO-optimized FAQs: concise, direct answers that AI engines prefer
 const aeoFaqs = [
@@ -87,20 +88,21 @@ const peopleAlsoAsk = [
   },
 ];
 
-export default function AEOFAQSection() {
+export default function AEOFAQSection({ lang }: { lang?: import("@/lib/i18n").LangCode }) {
+  const t = useDict();
   return (
     <div className="min-h-screen flex flex-col">
       <section className="py-16 sm:py-20 bg-gradient-to-b from-[#F5F0E8] to-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <Badge variant="outline" className="mb-4 border-[#C8A45C] text-[#C8A45C] text-xs font-semibold tracking-wider uppercase">
-              Common Questions
+              {t.faq.label}
             </Badge>
             <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-2 mb-4">
-              Frequently Asked Questions
+              {t.faq.title}
             </h1>
             <p className="font-body text-gray-500 max-w-2xl mx-auto text-lg">
-              Everything you need to know about The Oasis by Emaar
+              {t.faq.subtitle}
             </p>
             <div className="section-divider max-w-xs mx-auto mt-6" />
           </div>
@@ -127,14 +129,14 @@ export default function AEOFAQSection() {
             <div className="flex items-center justify-center gap-2 mb-3">
               <MessageCircleQuestion className="w-5 h-5 text-[#C8A45C]" />
               <Badge variant="outline" className="border-[#C8A45C] text-[#C8A45C] text-xs font-semibold tracking-wider uppercase">
-                People Also Ask
+                {t.faq.paaLabel}
               </Badge>
             </div>
             <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-[#1A2332] mt-2 mb-3">
-              Common Questions About Dubai Real Estate
+              {t.faq.paaTitle}
             </h2>
             <p className="font-body text-gray-500 max-w-xl mx-auto">
-              Answers to questions people frequently ask about buying property in Dubai
+              {t.faq.paaSubtitle}
             </p>
             <div className="section-divider max-w-xs mx-auto mt-6" />
           </div>
@@ -163,10 +165,10 @@ export default function AEOFAQSection() {
       <section className="py-16 sm:py-20 bg-[#1A2332]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-heading text-2xl sm:text-3xl font-bold text-white mb-4">
-            Still Have Questions?
+            {t.faq.stillHaveQuestions}
           </h2>
           <p className="font-body text-white/60 mb-8 max-w-xl mx-auto">
-            Our authorized sales agents are here to help with personalized answers about The Oasis by Emaar.
+            {t.faq.stillHaveQuestionsDesc}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="https://wa.me/971526919169" target="_blank" rel="noopener noreferrer">
@@ -175,7 +177,7 @@ export default function AEOFAQSection() {
                 className="bg-[#C8A45C] hover:bg-[#B8954C] text-[#1A2332] font-bold px-8 py-6 text-base rounded-md gap-2 w-full sm:w-auto"
               >
                 <Phone className="w-5 h-5" />
-                WhatsApp Us
+                {t.common.whatsappUs}
               </Button>
             </a>
             <a href="mailto:sales@oasisemaar.com">
@@ -185,7 +187,7 @@ export default function AEOFAQSection() {
                 className="border-[#C8A45C] text-[#C8A45C] hover:bg-[#C8A45C]/10 px-8 py-6 text-base rounded-md gap-2 w-full sm:w-auto"
               >
                 <Mail className="w-5 h-5" />
-                Email Us
+                {t.common.emailUs}
               </Button>
             </a>
           </div>

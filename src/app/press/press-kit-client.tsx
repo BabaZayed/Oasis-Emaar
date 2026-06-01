@@ -80,7 +80,7 @@ const mediaContacts = [
   { label: "WhatsApp", value: "Chat with us", href: "https://wa.me/971526919169" },
 ];
 
-export default function PressKitClient() {
+export default function PressKitClient({ lang }: { lang?: import("@/lib/i18n").LangCode }) {
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
 
   const handleCopy = async (code: string, index: number) => {

@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useDict } from "@/lib/use-dict";
 
 const communityFacts = [
   { icon: Building2, label: "Total Area", value: masterPlanFacts.totalArea },
@@ -40,7 +41,8 @@ const communityFacts = [
   { icon: Globe, label: "Handover Range", value: masterPlanFacts.handoverRange },
 ];
 
-export default function MasterPlanPageClient() {
+export default function MasterPlanPageClient({ lang }: { lang?: import("@/lib/i18n").LangCode }) {
+  const t = useDict();
   const masterPlanImage = galleryImages.find((img) => img.category === "Master Plan");
 
   return (
@@ -55,13 +57,13 @@ export default function MasterPlanPageClient() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center max-w-3xl mx-auto">
               <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
-                Community Layout
+                {t.masterPlan.label}
               </span>
               <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-white mt-4 mb-6">
-                The Oasis Master Plan
+                {t.masterPlan.title}
               </h1>
               <p className="font-body text-white/60 text-lg max-w-2xl mx-auto">
-                A 9.4 million sqm waterfront community by Emaar, featuring 9 exclusive clusters of luxury villas, mansions, and branded residences in Dubailand, Dubai.
+                {t.masterPlan.subtitle}
               </p>
               <div className="section-divider max-w-xs mx-auto mt-8" />
             </div>
@@ -107,28 +109,28 @@ export default function MasterPlanPageClient() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12 sm:mb-16">
               <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
-                At a Glance
+                {t.masterPlan.atAGlance}
               </span>
               <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
-                Community Facts
+                {t.masterPlan.factsLabel}
               </h2>
               <p className="font-body text-gray-500 max-w-2xl mx-auto text-lg">
-                Key facts and figures about The Oasis by Emaar — one of Dubai&apos;s most ambitious waterfront developments
+                {t.masterPlan.factsSubtitle}
               </p>
               <div className="section-divider max-w-xs mx-auto mt-6" />
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-              {communityFacts.map((fact) => (
+              {communityFacts.map((fact, idx) => (
                 <div
-                  key={fact.label}
+                  key={idx}
                   className="bg-white rounded-xl p-5 sm:p-6 text-center shadow-sm hover:shadow-md transition-all duration-300 border border-transparent hover:border-[#C8A45C]/20 group"
                 >
                   <div className="w-12 h-12 rounded-lg bg-[#1A2332] flex items-center justify-center mx-auto mb-3 group-hover:bg-[#C8A45C] transition-colors duration-300">
                     <fact.icon className="w-5 h-5 text-[#C8A45C] group-hover:text-[#1A2332] transition-colors duration-300" />
                   </div>
                   <p className="font-body text-xs text-gray-400 uppercase tracking-wider mb-1">
-                    {fact.label}
+                    {t.masterPlan.factLabels[idx] || fact.label}
                   </p>
                   <p className="font-heading text-base sm:text-lg font-bold text-[#1A2332]">
                     {fact.value}
@@ -144,10 +146,10 @@ export default function MasterPlanPageClient() {
               </div>
               <div className="text-center sm:text-left">
                 <h3 className="font-heading text-xl sm:text-2xl font-bold text-white mb-1">
-                  Price Range: {masterPlanFacts.priceRange}
+                {t.masterPlan.priceRangeLabel}: {masterPlanFacts.priceRange}
                 </h3>
                 <p className="font-body text-white/60 text-sm sm:text-base">
-                  From accessible luxury to ultra-exclusive mansions — with flexible {masterPlanFacts.handoverRange} payment plans and Golden Visa eligibility.
+                {t.masterPlan.priceRangeDesc}
                 </p>
               </div>
             </div>
@@ -159,13 +161,13 @@ export default function MasterPlanPageClient() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12 sm:mb-16">
               <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
-                9 Exclusive Clusters
+                {t.masterPlan.clustersLabel}
               </span>
               <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2332] mt-3 mb-4">
-                Explore Each Cluster
+                {t.masterPlan.clustersTitle}
               </h2>
               <p className="font-body text-gray-500 max-w-2xl mx-auto text-lg">
-                Nine distinctive clusters, each offering a unique perspective on luxury waterfront living
+                {t.masterPlan.clustersSubtitle}
               </p>
               <div className="section-divider max-w-xs mx-auto mt-6" />
             </div>
@@ -192,13 +194,13 @@ export default function MasterPlanPageClient() {
                     <CardContent className="p-5">
                       <h3 className="font-heading text-lg font-bold text-[#1A2332] mb-2">{project.name}</h3>
                       <div className="flex items-center gap-3 text-sm text-gray-500 mb-3">
-                        <span>{project.bedrooms} Bed</span>
+                        <span>{project.bedrooms} {t.common.bed}</span>
                         <span>·</span>
                         <span>{project.areaRange}</span>
                       </div>
                       <div className="flex items-end justify-between pt-3 border-t border-gray-100">
                         <div>
-                          <p className="text-xs text-gray-400 uppercase tracking-wider">Starting from</p>
+                          <p className="text-xs text-gray-400 uppercase tracking-wider">{t.common.startingFrom}</p>
                           <p className="font-heading text-lg font-bold text-[#C8A45C]">{formatPrice(project.startingPrice)}</p>
                         </div>
                         <div className="w-8 h-8 rounded-lg bg-[#1A2332] flex items-center justify-center group-hover:bg-[#C8A45C] transition-colors duration-300">
@@ -218,13 +220,13 @@ export default function MasterPlanPageClient() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
-                Documents
+                {t.masterPlan.documentsLabel}
               </span>
               <h2 className="font-heading text-3xl sm:text-4xl font-bold text-[#1A2332] mt-3 mb-4">
-                Master Plan Resources
+                {t.masterPlan.documentsTitle}
               </h2>
               <p className="font-body text-gray-500 max-w-2xl mx-auto">
-                Access the official master plan documents, maps, and brochures from our Google Drive
+                {t.masterPlan.documentsSubtitle}
               </p>
               <div className="section-divider max-w-xs mx-auto mt-6" />
             </div>
@@ -247,7 +249,7 @@ export default function MasterPlanPageClient() {
                             className="flex items-center gap-2 text-sm text-[#1A2332] hover:text-[#C8A45C] transition-colors"
                           >
                             <ExternalLink className="w-4 h-4" />
-                            View Maps
+                            {t.masterPlan.viewMaps}
                           </a>
                         )}
                         {project.subfolders.moodboard && (
@@ -258,7 +260,7 @@ export default function MasterPlanPageClient() {
                             className="flex items-center gap-2 text-sm text-[#1A2332] hover:text-[#C8A45C] transition-colors"
                           >
                             <ExternalLink className="w-4 h-4" />
-                            View Moodboard
+                            {t.masterPlan.viewMoodboard}
                           </a>
                         )}
                         {project.subfolders.brochure && (
@@ -269,7 +271,7 @@ export default function MasterPlanPageClient() {
                             className="flex items-center gap-2 text-sm text-[#1A2332] hover:text-[#C8A45C] transition-colors"
                           >
                             <ExternalLink className="w-4 h-4" />
-                            View Brochure
+                            {t.masterPlan.viewBrochure}
                           </a>
                         )}
                       </div>
@@ -284,13 +286,13 @@ export default function MasterPlanPageClient() {
         <section className="py-20 sm:py-28 bg-[#1A2332] text-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span className="font-body text-sm font-semibold tracking-[0.2em] uppercase text-[#C8A45C]">
-              Get Started
+              {t.masterPlan.ctaLabel}
             </span>
             <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mt-3 mb-6">
-              Ready to Find Your Dream Home?
+              {t.masterPlan.ctaTitle}
             </h2>
             <p className="font-body text-white/60 max-w-2xl mx-auto mb-10 text-lg">
-              As an authorised Emaar sales agent, we offer exclusive access, expert guidance, and personalised service across all 9 clusters at The Oasis.
+              {t.masterPlan.ctaSubtitle}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/availability">
@@ -298,7 +300,7 @@ export default function MasterPlanPageClient() {
                   size="lg"
                   className="gold-gradient text-[#1A2332] font-bold px-8 py-6 rounded-md hover:opacity-90 w-full sm:w-auto"
                 >
-                  Check Availability
+                  {t.common.checkAvailability}
                 </Button>
               </Link>
               <Link href="/floor-plans">
@@ -307,7 +309,7 @@ export default function MasterPlanPageClient() {
                   variant="outline"
                   className="border-[#C8A45C] text-[#C8A45C] hover:bg-[#C8A45C]/10 px-8 py-6 rounded-md w-full sm:w-auto"
                 >
-                  View Floor Plans
+                  {t.masterPlan.viewFloorPlans}
                 </Button>
               </Link>
             </div>

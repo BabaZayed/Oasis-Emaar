@@ -152,7 +152,7 @@ function ListingSkeleton() {
   );
 }
 
-export default function MarketplaceClient() {
+export default function MarketplaceClient({ lang }: { lang?: import("@/lib/i18n").LangCode }) {
   const [listings, setListings] = useState<SellerListing[]>([]);
   const [loading, setLoading] = useState(true);
   const [propertyType, setPropertyType] = useState<string>("all");

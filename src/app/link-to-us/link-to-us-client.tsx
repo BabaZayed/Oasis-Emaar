@@ -134,7 +134,7 @@ const CITATIONS = {
   Chicago: `Oasis Emaar. "The Oasis by Emaar — Authorized Sales Agent." Oasis Emaar. Accessed [date]. https://oasisemaar.com.`,
 };
 
-export default function LinkToUsClient() {
+export default function LinkToUsClient({ lang }: { lang?: import("@/lib/i18n").LangCode }) {
   return (
     <div className="min-h-screen bg-white pt-28 pb-20">
       {/* Hero */}

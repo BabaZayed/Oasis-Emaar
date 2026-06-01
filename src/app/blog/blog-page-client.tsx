@@ -23,7 +23,7 @@ const fadeInUp = {
   visible: { opacity: 1, y: 0 },
 };
 
-export default function BlogPageClient() {
+export default function BlogPageClient({ lang }: { lang?: import("@/lib/i18n").LangCode }) {
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState("");
 

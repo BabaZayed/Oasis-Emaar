@@ -92,7 +92,7 @@ const facts = [
   { icon: ShieldCheck, label: "Golden Visa", value: "Eligible" },
 ];
 
-export default function HomePageClient() {
+export default function HomePageClient({ lang }: { lang?: import("@/lib/i18n").LangCode }) {
   return (
     <div className="min-h-screen flex flex-col overflow-x-hidden max-w-[100vw]">
       <SiteHeader />
