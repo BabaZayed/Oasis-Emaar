@@ -192,7 +192,6 @@ const localBusinessJsonLd = {
     "https://twitter.com/OasisEmaar",
     "https://linkedin.com/company/oasisemaar",
     "https://youtube.com/@oasisemaar",
-    "https://thegrandpolo.com",
     "https://theoasisemaar.com",
   ],
 };
@@ -239,7 +238,6 @@ const organizationJsonLd = {
     "https://twitter.com/OasisEmaar",
     "https://linkedin.com/company/oasisemaar",
     "https://youtube.com/@oasisemaar",
-    "https://thegrandpolo.com",
     "https://theoasisemaar.com",
   ],
   foundingLocation: {
@@ -250,7 +248,6 @@ const organizationJsonLd = {
     "Dubai Real Estate",
     "Emaar Properties",
     "The Oasis Community",
-    "The Grand Polo Club & Resort",
     "Luxury Waterfront Villas",
     "Off-Plan Property Sales",
     "Dubai Property Investment",

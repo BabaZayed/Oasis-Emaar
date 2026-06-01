@@ -27,8 +27,7 @@ const trustedResources = [
   { name: "Dubai Tourism", url: "https://www.visitdubai.com" },
 ];
 
-const partnerProperties = [
-  { name: "Grand Polo Club & Resort by Emaar", url: "https://thegrandpolo.com", desc: "Polo-inspired luxury villas & resort community in Dubai" },
+const partnerProperties: { name: string; url: string; desc: string }[] = [
 ];
 
 const alternateDomains = [
