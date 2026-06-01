@@ -127,3 +127,53 @@ Stage Summary:
 - www.oasisemaar.com serves directly (HTTP 200)
 - oasisemaar.com redirects to www.oasisemaar.com (single 308 redirect)
 - theoasisemaar.com redirects to www.oasisemaar.com (single 301 redirect)
+---
+Task ID: 2
+Agent: Main Agent
+Task: Full site audit — fix all errors and future-proof
+
+Work Log:
+- Ran comprehensive SEO audit across all 28 pages
+- Ran code/security/resilience audit across all source files
+- Built project successfully to verify no build errors
+- Identified 25+ issues across SEO, code, security, and resilience categories
+- Fixed all critical and high-priority issues
+
+Critical Fixes Applied:
+1. Fixed wrong price AED 3.2M → AED 9.18M in inventory/page.tsx (3 locations)
+2. Fixed wrong price and property types in home page webPageJsonLd
+3. Fixed "five distinctive communities" → "nine exclusive clusters" in projects/page.tsx (3 locations)
+4. Fixed incorrect payment plan 40%/50% → correct 80/20 and 90/10 in payment-plan/page.tsx
+5. Removed hardcoded hreflang from layout.tsx that duplicated/conflicted with metadata-generated hreflang
+6. Added metadata (with noindex) to not-found.tsx
+
+Resilience Fixes:
+7. Added error.tsx - branded error boundary with retry button
+8. Added loading.tsx - luxury spinner for page transitions
+9. Added robots.ts - proper /robots.txt generation with sitemap reference
+
+SEO Fixes:
+10. Created centralized site-config.ts for consistent SITE_URL
+11. Added x-default hreflang via LANGUAGES constant
+12. Removed duplicate FAQPage JSON-LD from home page (kept only on /faq)
+13. Removed duplicate "Address Villas Tierra" keyword from home page
+14. Removed theoasisemaar.com from Schema.org sameAs arrays
+15. Fixed placeholder Google verification code (empty string instead of YOUR_...)
+16. Removed feed.xml from sitemap (not a web page)
+17. Fixed web-page-schema.tsx future dateModified → dynamic current date
+
+Config Fixes:
+18. Removed invalid "qualities" array from next.config.ts images config
+19. Updated Twitter URLs from twitter.com → x.com across all files
+20. Secured /api/ai-context with noindex, nofollow headers
+21. Replaced useless root API route with proper health check endpoint
+22. Updated not-found.tsx styling to match dark theme
+
+Stage Summary:
+- 16 files changed, 248 insertions, 135 deletions
+- Build succeeds with 0 errors
+- All pages verified returning HTTP 200
+- robots.txt properly generated at /robots.txt
+- hreflang tags no longer duplicated
+- Structured data cleaned up (no more duplicate FAQPage on home)
+- Commit: 32bd281 pushed to GitHub main
