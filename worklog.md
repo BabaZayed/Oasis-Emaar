@@ -87,3 +87,24 @@ Stage Summary:
 - White border fixed with deep navy background + overflow-x: clip + hidden scrollbar
 - Mobile performance optimized: 4 particles (was 12), ripples/orbs desktop-only, smaller blur on mobile, content-visibility:auto for below-fold
 - Build passes, pushed to GitHub (commit f090813)
+---
+Task ID: 2
+Agent: Main Agent
+Task: Fix Google Search Console page indexing issues
+
+Work Log:
+- Analyzed GSC screenshot showing 5 indexing issues: Page with redirect (22), Not found 404 (7), Alternate page with canonical (1), Discovered not indexed (13), Crawled not indexed (6)
+- Fixed trailing slashes in /fr/ and /de/ canonical URLs and JSON-LD schemas
+- Added www.oasisemaar.com → oasisemaar.com redirect in middleware
+- Changed middleware redirect target from www.oasisemaar.com to oasisemaar.com (bare domain)
+- Added trailingSlash: false to next.config.ts
+- Added missing pages to sitemap: /press, /link-to-us, /privacy, /terms, /disclaimer
+- Removed large files from git history (grand-polo-content with 133MB+ videos)
+- Added .gitignore entries for grand-polo-content/, upload/, agent-ctx/
+- Force pushed clean history to GitHub
+
+Stage Summary:
+- Page with redirect fix: trailing slash consistency + www→bare domain redirect
+- Missing sitemap pages added (5 pages)
+- Git history cleaned of 133MB+ video files
+- All changes deployed to GitHub (commit a438996)
