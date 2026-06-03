@@ -307,7 +307,7 @@ Qualified lead threshold: 40+ points
 
 | Project | Slug | Type | Starting Price | Bedrooms | Handover | Payment |
 |---------|------|------|---------------|----------|----------|---------|
-| Palmiera 3 | palmiera-3 | Villa | AED 9.18M | 4BR | Q4 2028 | 80/20 |
+| Palmiera 3 | palmiera-3 | Villa | AED 9.2M | 4BR | Q4 2028 | 80/20 |
 | Palmiera | palmiera | Villa | AED 10.5M | 4BR | Q1-Q2 2029 | 80/20 |
 | Palmiera Collective | palmiera-collective | Villa | AED 11M | 4BR | Q1-Q2 2029 | 80/20 |
 | Address Villas Tierra | adress-villas-tierra | Branded Villa | AED 13.16M | 4-6BR | Jun 2029 | 80/20 |

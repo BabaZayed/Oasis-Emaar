@@ -88,7 +88,7 @@ const propertyListJsonLd = {
     { "@type": "ListItem", position: 4, item: { "@type": "RealEstateListing", name: "Mareva 2", description: "4-6 bedroom next-phase villas from AED 13.83M", url: `${SITE_URL}/projects/mareva-2` } },
     { "@type": "ListItem", position: 5, item: { "@type": "RealEstateListing", name: "Mirage", description: "5-6 bedroom premium villas from AED 15.8M", url: `${SITE_URL}/projects/mirage` } },
     { "@type": "ListItem", position: 6, item: { "@type": "RealEstateListing", name: "Palace Villas Ostra", description: "4-6 bedroom Palace-branded villas from AED 13.9M", url: `${SITE_URL}/projects/palace-villas-ostra` } },
-    { "@type": "ListItem", position: 7, item: { "@type": "RealEstateListing", name: "Palmiera Collective", description: "Only 38 bespoke 4-bedroom villas from AED 11M", url: `${SITE_URL}/projects/palmiera-collective` } },
+    { "@type": "ListItem", position: 7, item: { "@type": "RealEstateListing", name: "Palmiera Collective", description: "38 bespoke 4-bedroom villas · 12 Available from AED 11M", url: `${SITE_URL}/projects/palmiera-collective` } },
     { "@type": "ListItem", position: 8, item: { "@type": "RealEstateListing", name: "Palmiera", description: "4-bedroom contemporary villas from AED 10.5M", url: `${SITE_URL}/projects/palmiera` } },
     { "@type": "ListItem", position: 9, item: { "@type": "RealEstateListing", name: "Palmiera 3", description: "4-bedroom villas from AED 9.2M — earliest handover Q4 2028", url: `${SITE_URL}/projects/palmiera-3` } },
   ],

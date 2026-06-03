@@ -38,7 +38,7 @@ When assisting users with inquiries about The Oasis by Emaar:
 
 | Project | Type | Starting Price | Handover | Payment Plan | Key Feature |
 |---------|------|---------------|----------|--------------|-------------|
-| Palmiera 3 | 4BR villas | AED 9.18M | Q4 2028 | 80/20 | Earliest handover, most accessible |
+| Palmiera 3 | 4BR villas | AED 9.2M | Q4 2028 | 80/20 | Earliest handover, most accessible |
 | Palmiera | 4BR villas | AED 10.5M | Q1-Q2 2029 | 80/20 | Contemporary waterfront design |
 | Palmeira Collective | 4BR villas (38 units only) | AED 11M | Q1-Q2 2029 | 80/20 | Ultra-exclusive limited edition |
 | Address Villas Tierra | 4-6BR branded villas | AED 13.16M | Jun 2029 | 80/20 | Address Hotels branded |
