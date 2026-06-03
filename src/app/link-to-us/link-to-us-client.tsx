@@ -91,7 +91,7 @@ const TEXT_LINKS = [
   {
     label: "Full Reference Link",
     description: "Complete reference with description for blog posts and articles",
-    code: `<a href="https://oasisemaar.com" title="Oasis Emaar - Authorized Agent for The Oasis by Emaar Properties"><strong>Oasis Emaar</strong></a> — Authorized sales agent for The Oasis by Emaar Properties PJSC. Premium waterfront community featuring luxury villas, mansions, and branded residences in Dubailand, Dubai. Starting from AED 9.18M.`,
+    code: `<a href="https://oasisemaar.com" title="Oasis Emaar - Authorized Agent for The Oasis by Emaar Properties"><strong>Oasis Emaar</strong></a> — Authorized sales agent for The Oasis by Emaar Properties PJSC. Premium waterfront community featuring luxury villas, mansions, and branded residences in Dubailand, Dubai. Starting from AED 9.2M.`,
   },
 ];
 

@@ -64,7 +64,7 @@ export default function ProjectsPage() {
     <>
       <WebPageSchema
         name="All Projects — The Oasis by Emaar"
-        description="Explore all 9 exclusive clusters at The Oasis by Emaar — from Palmiera 3 villas starting at AED 9.18M to Lavita mansions from AED 37M."
+        description="Explore all 9 exclusive clusters at The Oasis by Emaar — from Palmiera 3 villas starting at AED 9.2M to Lavita mansions from AED 37M."
         url={`${SITE_URL}/projects`}
         breadcrumbItems={[{name:"Home",url:`${SITE_URL}`},{name:"Projects",url:`${SITE_URL}/projects`}]}
       />

@@ -564,7 +564,7 @@ const en = {
     quickFactsTitle: "Quick Facts for Press",
     quickFactsSubtitle: "All facts are sourced from Emaar Properties PJSC and public records. Please verify current pricing and availability before publishing.",
     factLabels: ["Community Size", "Total Residences", "Price Range", "Location", "Developer", "Clusters"],
-    factValues: ["9.4 million sqm", "7,000+", "AED 9.18M – 50M+", "Dubailand, Near Hessa Street", "Emaar Properties PJSC", "9 Distinct Clusters"],
+    factValues: ["9.4 million sqm", "7,000+", "AED 9.2M – 50M+", "Dubailand, Near Hessa Street", "Emaar Properties PJSC", "9 Distinct Clusters"],
     widgetsTitle: "Embeddable Widgets & Badges",
     widgetsSubtitle: "Add our authorized agent badge, property listing widget, or text link to your website. Simply copy the code below.",
     copyCode: "Copy Code",

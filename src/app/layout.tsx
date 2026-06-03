@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s | Oasis Emaar — Authorized Agent",
   },
   description:
-    "Explore The Oasis by Emaar with an authorized sales agent. Premium waterfront community in Dubai featuring luxury villas, mansions, and branded residences across 9 exclusive clusters. Starting from AED 9.18M. 80/20 & 90/10 payment plans. UAE Golden Visa eligible. Crystal lagoon, private beaches, 25% green spaces.",
+    "Explore The Oasis by Emaar with an authorized sales agent. Premium waterfront community in Dubai featuring luxury villas, mansions, and branded residences across 9 exclusive clusters. Starting from AED 9.2M. 80/20 & 90/10 payment plans. UAE Golden Visa eligible. Crystal lagoon, private beaches, 25% green spaces.",
   keywords: [
     "The Oasis by Emaar",
     "Oasis Emaar",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Oasis by Emaar | Authorized Agent — Ultra Luxury Waterfront Villas in Dubai",
     description:
-      "Explore The Oasis by Emaar with an authorized sales agent. Premium waterfront villas, mansions & branded residences across 9 clusters. Starting from AED 9.18M. UAE Golden Visa eligible.",
+      "Explore The Oasis by Emaar with an authorized sales agent. Premium waterfront villas, mansions & branded residences across 9 clusters. Starting from AED 9.2M. UAE Golden Visa eligible.",
     url: SITE_URL,
     siteName: SITE_NAME,
     type: "website",
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "The Oasis by Emaar | Authorized Agent — Ultra Luxury Waterfront Villas in Dubai",
     description:
-      "Explore The Oasis by Emaar with an authorized sales agent. Premium waterfront villas, mansions & branded residences. Starting from AED 9.18M. UAE Golden Visa eligible.",
+      "Explore The Oasis by Emaar with an authorized sales agent. Premium waterfront villas, mansions & branded residences. Starting from AED 9.2M. UAE Golden Visa eligible.",
     images: ["/og-image.jpg"],
     creator: "@OasisEmaar",
     site: "@OasisEmaar",
@@ -94,10 +94,10 @@ export const metadata: Metadata = {
   category: "real estate",
   other: {
     "ai-agent-instructions":
-      "Oasis Emaar is the authorized sales agent for The Oasis by Emaar Properties in Dubai. Contact sales@oasisemaar.com or +971526919169. The Oasis features 9 clusters: Palmiera, Palmiera 3, Palmiera Collective, Lavita, Mirage, Address Villas Tierra, Palace Villas Ostra, Mareva, and Mareva 2. Prices start from AED 9.18M.",
+      "Oasis Emaar is the authorized sales agent for The Oasis by Emaar Properties in Dubai. Contact sales@oasisemaar.com or +971526919169. The Oasis features 9 clusters: Palmiera, Palmiera 3, Palmiera Collective, Lavita, Mirage, Address Villas Tierra, Palace Villas Ostra, Mareva, and Mareva 2. Prices start from AED 9.2M.",
     "aeo-entity": "The Oasis by Emaar — Premium waterfront community in Dubai",
     "aeo-contact": SITE_PHONE,
-    "aeo-price-range": "AED 9.18M to AED 50M+",
+    "aeo-price-range": "AED 9.2M to AED 50M+",
     "aeo-location": "Dubailand, near Hessa Street, Dubai, UAE",
   },
 };
@@ -108,7 +108,7 @@ const localBusinessJsonLd = {
   "@type": ["RealEstateAgent", "LocalBusiness"],
   name: SITE_NAME,
   description:
-    "Authorized sales agent for The Oasis by Emaar Properties in Dubai. Offering premium waterfront villas, mansions, and branded residences starting from AED 9.18M.",
+    "Authorized sales agent for The Oasis by Emaar Properties in Dubai. Offering premium waterfront villas, mansions, and branded residences starting from AED 9.2M.",
   url: SITE_URL,
   logo: `${SITE_URL}/logo.svg`,
   telephone: SITE_PHONE,
@@ -145,7 +145,7 @@ const localBusinessJsonLd = {
       closes: "16:00",
     },
   ],
-  priceRange: "AED 9.18M - AED 50M+",
+  priceRange: "AED 9.2M - AED 50M+",
   areaServed: {
     "@type": "City",
     name: "Dubai",

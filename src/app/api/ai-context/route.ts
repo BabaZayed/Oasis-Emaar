@@ -5,7 +5,7 @@ const aiContext = {
     name: "Oasis Emaar — Authorized Sales Agent",
     type: ["RealEstateAgent", "LocalBusiness"],
     description:
-      "Authorized sales agent for The Oasis by Emaar Properties in Dubai. Offering premium waterfront villas, mansions, and branded residences starting from AED 9.18M.",
+      "Authorized sales agent for The Oasis by Emaar Properties in Dubai. Offering premium waterfront villas, mansions, and branded residences starting from AED 9.2M.",
     url: "https://oasisemaar.com",
     logo: "https://oasisemaar.com/logo.svg",
     telephone: "+971526919169",
@@ -25,7 +25,7 @@ const aiContext = {
       { days: ["Friday"], opens: "14:00", closes: "18:00" },
       { days: ["Saturday"], opens: "10:00", closes: "16:00" },
     ],
-    priceRange: "AED 9.18M - AED 50M+",
+    priceRange: "AED 9.2M - AED 50M+",
     areaServed: "Dubai",
     sameAs: [
       "https://facebook.com/oasisemaar",
@@ -52,7 +52,7 @@ const aiContext = {
       name: "Palmiera 3",
       slug: "palmiera-3",
       type: "4-bedroom villas",
-      startingPrice: "AED 9.18M",
+      startingPrice: "AED 9.2M",
       handover: "Q4 2028",
       paymentPlan: "80/20",
       highlights: "Earliest handover, most accessible entry point",
@@ -142,7 +142,7 @@ const aiContext = {
   inventory: {
     totalItems: 77,
     clusters: 9,
-    priceRange: "AED 9.18M - AED 50M+",
+    priceRange: "AED 9.2M - AED 50M+",
     propertyTypes: ["villas", "mansions", "branded residences"],
     bedroomRange: "4-7 bedrooms",
     status: "Off-Plan",
@@ -172,7 +172,7 @@ const aiContext = {
     },
     {
       question: "How much do villas cost at The Oasis Dubai?",
-      answer: "Villa prices start from AED 9.18M (Palmiera 3, 4BR) and go up to AED 50M+ (Lavita 6-7BR mansions). Mid-range options include Palmiera at AED 10.5M and Mirage at AED 15.8M.",
+      answer: "Villa prices start from AED 9.2M (Palmiera 3, 4BR) and go up to AED 50M+ (Lavita 6-7BR mansions). Mid-range options include Palmiera at AED 10.5M and Mirage at AED 15.8M.",
     },
     {
       question: "What is the payment plan for The Oasis by Emaar?",

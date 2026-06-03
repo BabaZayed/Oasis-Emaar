@@ -16,7 +16,7 @@ const aeoFaqs = [
   },
   {
     question: "How much do villas cost at The Oasis Dubai?",
-    answer: "Villa prices at The Oasis start from AED 9.18M (Palmiera 3, 4-bedroom) and go up to AED 50M+ (Lavita 6-7 bedroom mansions). Mid-range options include Palmiera from AED 10.5M and Mirage from AED 15.8M.",
+    answer: "Villa prices at The Oasis start from AED 9.2M (Palmiera 3, 4-bedroom) and go up to AED 50M+ (Lavita 6-7 bedroom mansions). Mid-range options include Palmiera from AED 10.5M and Mirage from AED 15.8M.",
   },
   {
     question: "What is the payment plan for The Oasis by Emaar?",

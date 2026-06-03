@@ -68,6 +68,7 @@ export interface FloorPlan {
   bedrooms: number;
   areaSqft: number;
   plotSqft?: number;
+  startingPrice?: number;
   imageGradient: string;
   imageUrl?: string;
 }
@@ -333,7 +334,7 @@ export const projects: Project[] = [
     name: "Palmiera Collective",
     slug: "palmiera-collective",
     type: "villa",
-    tagline: "Ultra-Exclusive Limited Collection — Only 38 Villas",
+    tagline: "Ultra-Exclusive Limited Collection — 38 Villas · 12 Available",
     description: "Palmiera Collective is the most exclusive cluster within The Oasis, comprising just 38 bespoke 4-bedroom villas. This ultra-limited collection redefines luxury with next-generation villa design featuring basements, private lifts, two kitchens (main and prep), domestic staff quarters, and approximately 7,879 sqft of meticulously planned living space. Each villa is a rare opportunity to own within one of Dubai's most coveted waterfront communities. The limited number of residences ensures unmatched privacy and exclusivity, while the thoughtful architecture maximises natural light, ventilation, and connection to the surrounding waterways and green spaces. Palmiera Collective is for those who appreciate the extraordinary and seek a home that is truly one of a kind.",
     bedrooms: "4",
     startingPrice: 11000000,
@@ -416,9 +417,9 @@ export const projects: Project[] = [
     slug: "palmiera-3",
     type: "villa",
     tagline: "Accessible Luxury Waterfront Villas",
-    description: "Palmiera 3 at The Oasis is the latest phase of the popular Palmiera collection, offering 4-bedroom villas starting from AED 9.18 million. With built-up areas ranging from 5,666 to 5,914 sqft, these villas provide an accessible entry point into The Oasis waterfront lifestyle without compromising on quality or design. Each villa features contemporary architecture, private gardens, swimming pools, and thoughtfully designed interiors with premium finishes. Palmiera 3 benefits from all the community amenities that make The Oasis one of Dubai's most desirable addresses, including crystal lagoons, private beaches, retail, and recreational facilities. With an expected handover in Q4 2028, Palmiera 3 is one of the earliest clusters to be completed within The Oasis.",
+    description: "Palmiera 3 at The Oasis is the latest phase of the popular Palmiera collection, offering 4-bedroom villas starting from AED 9.2 million. With built-up areas ranging from 5,666 to 5,914 sqft, these villas provide an accessible entry point into The Oasis waterfront lifestyle without compromising on quality or design. Each villa features contemporary architecture, private gardens, swimming pools, and thoughtfully designed interiors with premium finishes. Palmiera 3 benefits from all the community amenities that make The Oasis one of Dubai's most desirable addresses, including crystal lagoons, private beaches, retail, and recreational facilities. With an expected handover in Q4 2028, Palmiera 3 is one of the earliest clusters to be completed within The Oasis.",
     bedrooms: "4",
-    startingPrice: 9180000,
+    startingPrice: 9200000,
     areaRange: "5,666 - 5,914 sqft",
     plotArea: "7,000 - 8,000 sqft",
     status: "Off-Plan",
@@ -559,40 +560,40 @@ export const inventoryItems: InventoryItem[] = [
 
 // ======== FLOOR PLANS ========
 export const floorPlans: FloorPlan[] = [
-  // Address Villas Tierra
-  { id: "fp-avt-1", projectId: "address-villas-tierra", name: "Type A - 4 Bedroom Villa", bedrooms: 4, areaSqft: 7269, plotSqft: 8500, imageGradient: "from-emerald-100 to-teal-50", imageUrl: "/images/floorplans/adress-villas-tierra-fp-1.jpg" },
-  { id: "fp-avt-2", projectId: "address-villas-tierra", name: "Type B - 5 Bedroom Villa", bedrooms: 5, areaSqft: 9500, plotSqft: 11000, imageGradient: "from-teal-100 to-cyan-50", imageUrl: "/images/floorplans/adress-villas-tierra-fp-2.jpg" },
-  { id: "fp-avt-3", projectId: "address-villas-tierra", name: "Type C - 6 Bedroom Villa", bedrooms: 6, areaSqft: 12777, plotSqft: 15000, imageGradient: "from-cyan-100 to-sky-50", imageUrl: "/images/floorplans/adress-villas-tierra-fp-3.jpg" },
-  // Lavita
-  { id: "fp-lav-1", projectId: "lavita", name: "Type S1A - 6 Bedroom Mansion (V27)", bedrooms: 6, areaSqft: 20096, plotSqft: 22275, imageGradient: "from-amber-100 to-yellow-50", imageUrl: "/images/floorplans/lavita-fp-1.jpg" },
-  { id: "fp-lav-2", projectId: "lavita", name: "Type S1A - 6 Bedroom Mansion (V47)", bedrooms: 6, areaSqft: 20096, plotSqft: 23824, imageGradient: "from-yellow-100 to-orange-50", imageUrl: "/images/floorplans/lavita-fp-2.jpg" },
-  { id: "fp-lav-3", projectId: "lavita", name: "Type S1B - 6 Bedroom Mansion", bedrooms: 6, areaSqft: 20096, plotSqft: 23000, imageGradient: "from-orange-100 to-red-50", imageUrl: "/images/floorplans/lavita-fp-3.jpg" },
-  // Mareva 1
-  { id: "fp-mar1-1", projectId: "mareva-1", name: "4 Bedroom Villa with Basement", bedrooms: 4, areaSqft: 7254, plotSqft: 8800, imageGradient: "from-violet-100 to-purple-50", imageUrl: "/images/floorplans/mareva-1-fp-4br.jpg" },
-  { id: "fp-mar1-2", projectId: "mareva-1", name: "5 Bedroom Villa", bedrooms: 5, areaSqft: 9800, plotSqft: 12000, imageGradient: "from-purple-100 to-fuchsia-50", imageUrl: "/images/floorplans/mareva-1-fp-5br.jpg" },
-  { id: "fp-mar1-3", projectId: "mareva-1", name: "6 Bedroom Villa with Basement", bedrooms: 6, areaSqft: 12779, plotSqft: 16000, imageGradient: "from-fuchsia-100 to-pink-50", imageUrl: "/images/floorplans/mareva-1-fp-6br.jpg" },
-  // Mareva 2
-  { id: "fp-mar2-1", projectId: "mareva-2", name: "4 Bedroom Villa with Basement", bedrooms: 4, areaSqft: 7500, plotSqft: 9000, imageGradient: "from-indigo-100 to-blue-50", imageUrl: "/images/floorplans/mareva-2-fp-4br.jpg" },
-  { id: "fp-mar2-2", projectId: "mareva-2", name: "5 Bedroom Villa", bedrooms: 5, areaSqft: 10200, plotSqft: 13000, imageGradient: "from-blue-100 to-cyan-50", imageUrl: "/images/floorplans/mareva-2-fp-5br.jpg" },
-  { id: "fp-mar2-3", projectId: "mareva-2", name: "6 Bedroom Villa with Basement", bedrooms: 6, areaSqft: 13000, plotSqft: 16500, imageGradient: "from-cyan-100 to-teal-50", imageUrl: "/images/floorplans/mareva-2-fp-6br.jpg" },
-  // Mirage
-  { id: "fp-mir-1", projectId: "mirage", name: "5 Bedroom Villa", bedrooms: 5, areaSqft: 9500, plotSqft: 12000, imageGradient: "from-sky-100 to-blue-50", imageUrl: "/images/floorplans/mirage-fp-1.jpg" },
-  { id: "fp-mir-2", projectId: "mirage", name: "6 Bedroom Villa", bedrooms: 6, areaSqft: 11297, plotSqft: 14000, imageGradient: "from-blue-100 to-indigo-50", imageUrl: "/images/floorplans/mirage-fp-2.jpg" },
-  { id: "fp-mir-3", projectId: "mirage", name: "6 Bedroom Villa - Premium", bedrooms: 6, areaSqft: 11357, plotSqft: 15000, imageGradient: "from-indigo-100 to-violet-50", imageUrl: "/images/floorplans/mirage-fp-3.jpg" },
-  // Palace Villas Ostra
-  { id: "fp-pvo-1", projectId: "palace-villas-ostra", name: "4 Bedroom Palace Villa", bedrooms: 4, areaSqft: 7500, plotSqft: 9000, imageGradient: "from-rose-100 to-pink-50", imageUrl: "/images/floorplans/palace-villas-ostra-fp-1.jpg" },
-  { id: "fp-pvo-2", projectId: "palace-villas-ostra", name: "5 Bedroom Palace Villa", bedrooms: 5, areaSqft: 10500, plotSqft: 13000, imageGradient: "from-pink-100 to-red-50", imageUrl: "/images/floorplans/palace-villas-ostra-fp-2.jpg" },
-  { id: "fp-pvo-3", projectId: "palace-villas-ostra", name: "6 Bedroom Palace Villa", bedrooms: 6, areaSqft: 13500, plotSqft: 17000, imageGradient: "from-red-100 to-orange-50", imageUrl: "/images/floorplans/palace-villas-ostra-fp-3.jpg" },
-  // Palmiera Collective
-  { id: "fp-pc-1", projectId: "palmiera-collective", name: "4 Bedroom Bespoke Villa - Type 1", bedrooms: 4, areaSqft: 7879, plotSqft: 10000, imageGradient: "from-teal-100 to-emerald-50", imageUrl: "/images/floorplans/palmiera-collective-fp-1.jpg" },
-  { id: "fp-pc-2", projectId: "palmiera-collective", name: "4 Bedroom Bespoke Villa - Type 2", bedrooms: 4, areaSqft: 7879, plotSqft: 10000, imageGradient: "from-emerald-100 to-green-50", imageUrl: "/images/floorplans/palmiera-collective-fp-2.jpg" },
-  { id: "fp-pc-3", projectId: "palmiera-collective", name: "4 Bedroom Bespoke Villa - Type 3", bedrooms: 4, areaSqft: 7879, plotSqft: 10000, imageGradient: "from-green-100 to-lime-50", imageUrl: "/images/floorplans/palmiera-collective-fp-3.jpg" },
-  // Palmiera
-  { id: "fp-pal-1", projectId: "palmiera", name: "4 Bedroom Villa", bedrooms: 4, areaSqft: 8279, plotSqft: 10500, imageGradient: "from-orange-100 to-amber-50", imageUrl: "/images/floorplans/palmiera-fp-4br.jpg" },
-  // Palmiera 3
-  { id: "fp-p3-1", projectId: "palmiera-3", name: "4 Bedroom Villa - Type 1", bedrooms: 4, areaSqft: 5666, plotSqft: 7000, imageGradient: "from-cyan-100 to-sky-50", imageUrl: "/images/floorplans/palmiera-3-fp-1.jpg" },
-  { id: "fp-p3-2", projectId: "palmiera-3", name: "4 Bedroom Villa - Type 2", bedrooms: 4, areaSqft: 5914, plotSqft: 8000, imageGradient: "from-sky-100 to-blue-50", imageUrl: "/images/floorplans/palmiera-3-fp-2.jpg" },
-  { id: "fp-p3-3", projectId: "palmiera-3", name: "4 Bedroom Villa - Type 3", bedrooms: 4, areaSqft: 5914, plotSqft: 8000, imageGradient: "from-blue-100 to-indigo-50", imageUrl: "/images/floorplans/palmiera-3-fp-3.jpg" },
+  // Address Villas Tierra — Starting from AED 13.2M
+  { id: "fp-avt-1", projectId: "address-villas-tierra", name: "Type A - 4 Bedroom Villa", bedrooms: 4, areaSqft: 7269, plotSqft: 9174, startingPrice: 13160000, imageGradient: "from-emerald-100 to-teal-50", imageUrl: "/images/floorplans/adress-villas-tierra-fp-1.jpg" },
+  { id: "fp-avt-2", projectId: "address-villas-tierra", name: "Type B - 5 Bedroom Villa", bedrooms: 5, areaSqft: 9454, plotSqft: 11254, startingPrice: 13860000, imageGradient: "from-teal-100 to-cyan-50", imageUrl: "/images/floorplans/adress-villas-tierra-fp-2.jpg" },
+  { id: "fp-avt-3", projectId: "address-villas-tierra", name: "Type C - 6 Bedroom Villa", bedrooms: 6, areaSqft: 12886, plotSqft: 16746, startingPrice: 24400000, imageGradient: "from-cyan-100 to-sky-50", imageUrl: "/images/floorplans/adress-villas-tierra-fp-3.jpg" },
+  // Lavita — Starting from AED 36.61M
+  { id: "fp-lav-1", projectId: "lavita", name: "Type S1A - 6 Bedroom Mansion (V27)", bedrooms: 6, areaSqft: 20096, plotSqft: 22275, startingPrice: 36610000, imageGradient: "from-amber-100 to-yellow-50", imageUrl: "/images/floorplans/lavita-fp-1.jpg" },
+  { id: "fp-lav-2", projectId: "lavita", name: "Type S1A - 6 Bedroom Mansion (V47)", bedrooms: 6, areaSqft: 20096, plotSqft: 23824, startingPrice: 42700000, imageGradient: "from-yellow-100 to-orange-50", imageUrl: "/images/floorplans/lavita-fp-2.jpg" },
+  { id: "fp-lav-3", projectId: "lavita", name: "Type S1B - 6 Bedroom Mansion", bedrooms: 6, areaSqft: 20096, plotSqft: 23000, startingPrice: 54770000, imageGradient: "from-orange-100 to-red-50", imageUrl: "/images/floorplans/lavita-fp-3.jpg" },
+  // Mareva 1 — Starting from AED 13.47M
+  { id: "fp-mar1-1", projectId: "mareva-1", name: "4 Bedroom Villa with Basement", bedrooms: 4, areaSqft: 7254, plotSqft: 8800, startingPrice: 13470000, imageGradient: "from-violet-100 to-purple-50", imageUrl: "/images/floorplans/mareva-1-fp-4br.jpg" },
+  { id: "fp-mar1-2", projectId: "mareva-1", name: "5 Bedroom Villa", bedrooms: 5, areaSqft: 10290, plotSqft: 10333, startingPrice: 15380000, imageGradient: "from-purple-100 to-fuchsia-50", imageUrl: "/images/floorplans/mareva-1-fp-5br.jpg" },
+  { id: "fp-mar1-3", projectId: "mareva-1", name: "6 Bedroom Villa with Basement", bedrooms: 6, areaSqft: 12779, plotSqft: 14773, startingPrice: 23470000, imageGradient: "from-fuchsia-100 to-pink-50", imageUrl: "/images/floorplans/mareva-1-fp-6br.jpg" },
+  // Mareva 2 — Starting from AED 13.83M
+  { id: "fp-mar2-1", projectId: "mareva-2", name: "4 Bedroom Villa with Basement", bedrooms: 4, areaSqft: 7258, plotSqft: 9000, startingPrice: 13830000, imageGradient: "from-indigo-100 to-blue-50", imageUrl: "/images/floorplans/mareva-2-fp-4br.jpg" },
+  { id: "fp-mar2-2", projectId: "mareva-2", name: "5 Bedroom Villa", bedrooms: 5, areaSqft: 10290, plotSqft: 10333, startingPrice: 15850000, imageGradient: "from-blue-100 to-cyan-50", imageUrl: "/images/floorplans/mareva-2-fp-5br.jpg" },
+  { id: "fp-mar2-3", projectId: "mareva-2", name: "6 Bedroom Villa with Basement", bedrooms: 6, areaSqft: 13000, plotSqft: 16500, startingPrice: 27050000, imageGradient: "from-cyan-100 to-teal-50", imageUrl: "/images/floorplans/mareva-2-fp-6br.jpg" },
+  // Mirage — Starting from AED 15.8M
+  { id: "fp-mir-1", projectId: "mirage", name: "5 Bedroom Villa", bedrooms: 5, areaSqft: 9500, plotSqft: 12000, startingPrice: 15800000, imageGradient: "from-sky-100 to-blue-50", imageUrl: "/images/floorplans/mirage-fp-1.jpg" },
+  { id: "fp-mir-2", projectId: "mirage", name: "6 Bedroom Villa", bedrooms: 6, areaSqft: 11297, plotSqft: 14000, startingPrice: 20500000, imageGradient: "from-blue-100 to-indigo-50", imageUrl: "/images/floorplans/mirage-fp-2.jpg" },
+  { id: "fp-mir-3", projectId: "mirage", name: "6 Bedroom Villa - Premium", bedrooms: 6, areaSqft: 11357, plotSqft: 15000, startingPrice: 22000000, imageGradient: "from-indigo-100 to-violet-50", imageUrl: "/images/floorplans/mirage-fp-3.jpg" },
+  // Palace Villas Ostra — Starting from AED 13.13M
+  { id: "fp-pvo-1", projectId: "palace-villas-ostra", name: "4 Bedroom Palace Villa", bedrooms: 4, areaSqft: 7500, plotSqft: 9000, startingPrice: 13130000, imageGradient: "from-rose-100 to-pink-50", imageUrl: "/images/floorplans/palace-villas-ostra-fp-1.jpg" },
+  { id: "fp-pvo-2", projectId: "palace-villas-ostra", name: "5 Bedroom Palace Villa", bedrooms: 5, areaSqft: 10500, plotSqft: 13000, startingPrice: 14560000, imageGradient: "from-pink-100 to-red-50", imageUrl: "/images/floorplans/palace-villas-ostra-fp-2.jpg" },
+  { id: "fp-pvo-3", projectId: "palace-villas-ostra", name: "6 Bedroom Palace Villa", bedrooms: 6, areaSqft: 13500, plotSqft: 17000, startingPrice: 24050000, imageGradient: "from-red-100 to-orange-50", imageUrl: "/images/floorplans/palace-villas-ostra-fp-3.jpg" },
+  // Palmiera Collective — Starting from AED 11M
+  { id: "fp-pc-1", projectId: "palmiera-collective", name: "4 Bedroom Bespoke Villa - Type 1", bedrooms: 4, areaSqft: 7879, plotSqft: 10000, startingPrice: 11000000, imageGradient: "from-teal-100 to-emerald-50", imageUrl: "/images/floorplans/palmiera-collective-fp-1.jpg" },
+  { id: "fp-pc-2", projectId: "palmiera-collective", name: "4 Bedroom Bespoke Villa - Type 2", bedrooms: 4, areaSqft: 7879, plotSqft: 10000, startingPrice: 16500000, imageGradient: "from-emerald-100 to-green-50", imageUrl: "/images/floorplans/palmiera-collective-fp-2.jpg" },
+  { id: "fp-pc-3", projectId: "palmiera-collective", name: "4 Bedroom Bespoke Villa - Type 3", bedrooms: 4, areaSqft: 7879, plotSqft: 10000, startingPrice: 18000000, imageGradient: "from-green-100 to-lime-50", imageUrl: "/images/floorplans/palmiera-collective-fp-3.jpg" },
+  // Palmiera — Starting from AED 10.5M
+  { id: "fp-pal-1", projectId: "palmiera", name: "4 Bedroom Villa", bedrooms: 4, areaSqft: 8279, plotSqft: 10500, startingPrice: 10500000, imageGradient: "from-orange-100 to-amber-50", imageUrl: "/images/floorplans/palmiera-fp-4br.jpg" },
+  // Palmiera 3 — Starting from AED 9.2M
+  { id: "fp-p3-1", projectId: "palmiera-3", name: "4 Bedroom Villa - Classic", bedrooms: 4, areaSqft: 5666, plotSqft: 7000, startingPrice: 9200000, imageGradient: "from-cyan-100 to-sky-50", imageUrl: "/images/floorplans/palmiera-3-fp-1.jpg" },
+  { id: "fp-p3-2", projectId: "palmiera-3", name: "4 Bedroom Villa - Contemporary", bedrooms: 4, areaSqft: 5914, plotSqft: 8000, startingPrice: 9320000, imageGradient: "from-sky-100 to-blue-50", imageUrl: "/images/floorplans/palmiera-3-fp-2.jpg" },
+  { id: "fp-p3-3", projectId: "palmiera-3", name: "4 Bedroom Villa - Chamfer", bedrooms: 4, areaSqft: 5914, plotSqft: 8000, startingPrice: 9660000, imageGradient: "from-blue-100 to-indigo-50", imageUrl: "/images/floorplans/palmiera-3-fp-3.jpg" },
 ];
 
 // ======== PAYMENT PLANS ========
@@ -728,5 +729,5 @@ export const masterPlanFacts = {
   goldenVisa: "Eligible for all properties AED 2M+",
   developer: "Emaar Properties PJSC",
   handoverRange: "Q4 2028 — Q2 2031",
-  priceRange: "AED 9.18M — AED 47.8M",
+  priceRange: "AED 9.2M — AED 47.8M",
 };

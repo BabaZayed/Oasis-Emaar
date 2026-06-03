@@ -564,7 +564,7 @@ const fr: Dictionary = {
     quickFactsTitle: "Faits rapides pour la presse",
     quickFactsSubtitle: "Tous les faits proviennent d'Emaar Properties PJSC et de registres publics. Veuillez vérifier les tarifs et disponibilités actuels avant toute publication.",
     factLabels: ["Superficie de la communauté", "Résidences totales", "Fourchette de prix", "Emplacement", "Promoteur", "Clusters"],
-    factValues: ["9,4 millions de m²", "7,000+", "AED 9.18M – 50M+", "Dubailand, près de Hessa Street", "Emaar Properties PJSC", "9 Clusters distincts"],
+    factValues: ["9,4 millions de m²", "7,000+", "AED 9.2M – 50M+", "Dubailand, près de Hessa Street", "Emaar Properties PJSC", "9 Clusters distincts"],
     widgetsTitle: "Widgets et badges intégrables",
     widgetsSubtitle: "Ajoutez notre badge d'agent agréé, notre widget d'annonces immobilières ou un lien texte sur votre site. Copiez simplement le code ci-dessous.",
     copyCode: "Copier le code",

@@ -398,7 +398,13 @@ export default function ProjectDetailPage({ project }: { project: Project }) {
                         </span>
                       </div>
                       {plan.plotSqft && (
-                        <p className="text-sm text-gray-400 mb-4">Plot: {formatSqft(plan.plotSqft)}</p>
+                        <p className="text-sm text-gray-400 mb-2">Plot: {formatSqft(plan.plotSqft)}</p>
+                      )}
+                      {plan.startingPrice && (
+                        <div className="flex items-center gap-1 text-sm mb-4">
+                          <span className="text-[#C8A45C] font-heading font-bold">{formatPrice(plan.startingPrice)}</span>
+                          <span className="text-gray-400">starting from</span>
+                        </div>
                       )}
                       <div className="flex gap-2">
                         <Button

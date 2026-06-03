@@ -19,6 +19,7 @@ export default function FloorPlansClient({ lang }: { lang?: import("@/lib/i18n")
   const t = useDict();
   const projectIds = [...new Set(floorPlans.map((fp) => fp.projectId))];
   const masterPlanImage = galleryImages.find((img) => img.category === "Master Plan");
+  const [bedroomFilter, setBedroomFilter] = useState<number | null>(null);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -41,6 +42,14 @@ export default function FloorPlansClient({ lang }: { lang?: import("@/lib/i18n")
                 {t.floorPlans.subtitle}
               </p>
               <div className="section-divider max-w-xs mx-auto mt-8" />
+              <div className="mt-8 flex flex-wrap gap-3 justify-center">
+                <a href="/api/download-floor-plans" download>
+                  <Button className="gold-gradient text-[#1A2332] font-bold px-6 py-3 rounded-md hover:opacity-90">
+                    <Download className="w-4 h-4 mr-2" />
+                    Download All Floor Plans
+                  </Button>
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -48,6 +57,29 @@ export default function FloorPlansClient({ lang }: { lang?: import("@/lib/i18n")
         {/* Floor Plans Content */}
         <section className="py-16 sm:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Bedroom Filter */}
+            <div className="flex flex-wrap gap-2 mb-6 justify-center">
+              <Button
+                variant={bedroomFilter === null ? "default" : "outline"}
+                size="sm"
+                onClick={() => setBedroomFilter(null)}
+                className={bedroomFilter === null ? "bg-[#1A2332] text-white" : "border-[#C8A45C] text-[#C8A45C]"}
+              >
+                All Types
+              </Button>
+              {[4, 5, 6].map((br) => (
+                <Button
+                  key={br}
+                  variant={bedroomFilter === br ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setBedroomFilter(br)}
+                  className={bedroomFilter === br ? "bg-[#1A2332] text-white" : "border-[#C8A45C] text-[#C8A45C]"}
+                >
+                  {br}BR
+                </Button>
+              ))}
+            </div>
+
             <Tabs defaultValue="all" className="w-full">
               <TabsList className="flex flex-wrap justify-center gap-2 bg-transparent h-auto mb-8">
                 <TabsTrigger
@@ -75,9 +107,10 @@ export default function FloorPlansClient({ lang }: { lang?: import("@/lib/i18n")
                 <div className="space-y-16">
                   {projectIds.map((pid) => {
                     const proj = projects.find((p) => p.id === pid);
-                    const plans = floorPlans.filter((fp) => fp.projectId === pid);
+                    const allPlans = floorPlans.filter((fp) => fp.projectId === pid);
+                    const plans = bedroomFilter ? allPlans.filter((p) => p.bedrooms === bedroomFilter) : allPlans;
 
-                    if (!proj) return null;
+                    if (!proj || plans.length === 0) return null;
 
                     return (
                       <div key={pid}>
@@ -121,7 +154,10 @@ export default function FloorPlansClient({ lang }: { lang?: import("@/lib/i18n")
               {/* Per-Cluster Tabs */}
               {projectIds.map((pid) => {
                 const proj = projects.find((p) => p.id === pid);
-                const plans = floorPlans.filter((fp) => fp.projectId === pid);
+                const allPlans = floorPlans.filter((fp) => fp.projectId === pid);
+                const plans = bedroomFilter ? allPlans.filter((p) => p.bedrooms === bedroomFilter) : allPlans;
+
+                if (plans.length === 0) return null;
 
                 return (
                   <TabsContent key={pid} value={pid}>
@@ -317,7 +353,13 @@ function FloorPlanCard({
             </span>
           </div>
           {plan.plotSqft && (
-            <p className="text-sm text-gray-400 mb-4">{t.common.plot}: {formatSqft(plan.plotSqft)}</p>
+            <p className="text-sm text-gray-400 mb-2">{t.common.plot}: {formatSqft(plan.plotSqft)}</p>
+          )}
+          {plan.startingPrice && (
+            <div className="flex items-center gap-1 text-sm mb-4">
+              <span className="text-[#C8A45C] font-heading font-bold">{formatPrice(plan.startingPrice)}</span>
+              <span className="text-gray-400">{t.common.startingFrom || "starting from"}</span>
+            </div>
           )}
           <div className="flex gap-2">
             <Button

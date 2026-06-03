@@ -35,7 +35,7 @@ const embedBadges = [
         <p className="text-[#C8A45C] font-bold text-sm mb-1">The Oasis by Emaar</p>
         <p className="text-white/60 text-xs mb-2">77 waterfront properties available</p>
         <div className="flex gap-1.5 mb-2">
-          <span className="bg-[#C8A45C]/20 text-[#C8A45C] text-[9px] px-1.5 py-0.5 rounded">4BR Villa from AED 9.18M</span>
+          <span className="bg-[#C8A45C]/20 text-[#C8A45C] text-[9px] px-1.5 py-0.5 rounded">4BR Villa from AED 9.2M</span>
           <span className="bg-[#C8A45C]/20 text-[#C8A45C] text-[9px] px-1.5 py-0.5 rounded">6BR Mansion from AED 46.97M</span>
         </div>
         <p className="text-white/40 text-[10px]">oasisemaar.com</p>
@@ -46,7 +46,7 @@ const embedBadges = [
     <div style="color:#C8A45C;font-weight:bold;font-size:14px;font-family:sans-serif;margin-bottom:4px;">The Oasis by Emaar</div>
     <div style="color:rgba(255,255,255,0.6);font-size:12px;font-family:sans-serif;margin-bottom:8px;">77 waterfront properties available</div>
     <div style="display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap;">
-      <span style="background:rgba(200,164,92,0.2);color:#C8A45C;font-size:9px;padding:2px 6px;border-radius:4px;font-family:sans-serif;">4BR Villa from AED 9.18M</span>
+      <span style="background:rgba(200,164,92,0.2);color:#C8A45C;font-size:9px;padding:2px 6px;border-radius:4px;font-family:sans-serif;">4BR Villa from AED 9.2M</span>
       <span style="background:rgba(200,164,92,0.2);color:#C8A45C;font-size:9px;padding:2px 6px;border-radius:4px;font-family:sans-serif;">6BR Mansion from AED 46.97M</span>
     </div>
     <div style="color:rgba(255,255,255,0.4);font-size:10px;font-family:sans-serif;">oasisemaar.com</div>
@@ -68,7 +68,7 @@ const embedBadges = [
 const pressFacts = [
   { icon: Building2, label: "Community Size", value: "9.4 million sqm" },
   { icon: Users, label: "Total Residences", value: "7,000+" },
-  { icon: TrendingUp, label: "Price Range", value: "AED 9.18M – 50M+" },
+  { icon: TrendingUp, label: "Price Range", value: "AED 9.2M – 50M+" },
   { icon: MapPin, label: "Location", value: "Dubailand, Near Hessa Street" },
   { icon: Building2, label: "Developer", value: "Emaar Properties PJSC" },
   { icon: Users, label: "Clusters", value: "9 Distinct Clusters" },

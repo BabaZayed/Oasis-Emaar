@@ -6,7 +6,7 @@ import WebPageSchema from "@/components/web-page-schema";
 export const metadata: Metadata = {
   title: "Inventory - Available Properties for Sale",
   description:
-    "Browse available properties at The Oasis by Emaar. Villas, mansions, and branded residences with pricing, floor plans, and availability status. Starting from AED 9.18M.",
+    "Browse available properties at The Oasis by Emaar. Villas, mansions, and branded residences with pricing, floor plans, and availability status. Starting from AED 9.2M.",
   keywords: [
     "Oasis Emaar inventory",
     "Dubai property for sale",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Inventory | The Oasis by Emaar",
     description:
-      "Browse available properties at The Oasis by Emaar. Villas, mansions, and branded residences starting from AED 9.18M.",
+      "Browse available properties at The Oasis by Emaar. Villas, mansions, and branded residences starting from AED 9.2M.",
     url: `${SITE_URL}/inventory`,
     siteName: "Oasis Emaar",
     type: "website",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Inventory | The Oasis by Emaar",
     description:
-      "Browse available properties at The Oasis by Emaar. Starting from AED 9.18M.",
+      "Browse available properties at The Oasis by Emaar. Starting from AED 9.2M.",
     images: ["/og-image.jpg"],
   },
   alternates: {
@@ -74,12 +74,12 @@ const productCollectionJsonLd = {
         item: {
           "@type": "Product",
           name: "Palmiera 3 — 4 Bedroom Villa",
-          description: "4-bedroom waterfront villa at The Oasis by Emaar, starting from AED 9.18M. Earliest handover Q4 2028.",
+          description: "4-bedroom waterfront villa at The Oasis by Emaar, starting from AED 9.2M. Earliest handover Q4 2028.",
           brand: { "@type": "Brand", name: "Emaar Properties" },
           offers: {
             "@type": "Offer",
             priceCurrency: "AED",
-            price: "9180000",
+            price: "9200000",
             availability: "https://schema.org/InStock",
             seller: { "@type": "RealEstateAgent", name: "Oasis Emaar" },
           },
@@ -128,7 +128,7 @@ export default function InventoryPage() {
     <>
       <WebPageSchema
         name="Available Inventory — The Oasis by Emaar"
-        description="Browse available properties at The Oasis by Emaar. 87 units across 9 clusters starting from AED 9.18M."
+        description="Browse available properties at The Oasis by Emaar. 87 units across 9 clusters starting from AED 9.2M."
         url={`${SITE_URL}/inventory`}
         breadcrumbItems={[{name:"Home",url:`${SITE_URL}`},{name:"Inventory",url:`${SITE_URL}/inventory`}]}
       />

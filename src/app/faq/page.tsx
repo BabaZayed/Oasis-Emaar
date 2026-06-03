@@ -97,7 +97,7 @@ const faqPageJsonLd = {
       name: "How much do villas cost at The Oasis Dubai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Villa prices at The Oasis start from AED 9.18M for Palmiera 3 four-bedroom villas and go up to AED 50M+ for Lavita ultra-luxury mansions. Mid-range options include Palmiera from AED 10.5M and Mirage from AED 15.8M.",
+        text: "Villa prices at The Oasis start from AED 9.2M for Palmiera 3 four-bedroom villas and go up to AED 50M+ for Lavita ultra-luxury mansions. Mid-range options include Palmiera from AED 10.5M and Mirage from AED 15.8M.",
       },
     },
     {
@@ -216,7 +216,7 @@ const qaPageJsonLd = {
     },
     acceptedAnswer: {
       "@type": "Answer",
-      text: "To buy at The Oasis: 1) Contact an authorized agent like Oasis Emaar (+971 52 691 9169). 2) Select from 9 clusters (AED 9.18M to AED 50M+). 3) Pay 10% booking amount. 4) Follow the 80/20 or 90/10 construction-linked payment plan. 5) Complete handover and DLD registration. Properties above AED 2M qualify for the UAE Golden Visa.",
+      text: "To buy at The Oasis: 1) Contact an authorized agent like Oasis Emaar (+971 52 691 9169). 2) Select from 9 clusters (AED 9.2M to AED 50M+). 3) Pay 10% booking amount. 4) Follow the 80/20 or 90/10 construction-linked payment plan. 5) Complete handover and DLD registration. Properties above AED 2M qualify for the UAE Golden Visa.",
       upvoteCount: 42,
       dateCreated: "2025-06-01T05:00:00+04:00",
       url: `${SITE_URL}/faq#accepted-answer`,

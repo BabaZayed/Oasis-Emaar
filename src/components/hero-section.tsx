@@ -15,7 +15,7 @@ export default function HeroSection() {
   const lang = useLang();
 
   const stats = [
-    { icon: Home, label: t.hero.statsStartingFrom, value: formatPrice(9180000) },
+    { icon: Home, label: t.hero.statsStartingFrom, value: formatPrice(9200000) },
     { icon: Building2, label: t.hero.statsResidences, value: "7,000+" },
     { icon: Ruler, label: t.hero.statsTotalArea, value: "9.4M sqm" },
     { icon: Waves, label: t.hero.statsCrystalLagoon, value: "3.5 km" },
