@@ -69,3 +69,30 @@ Stage Summary:
 - "Download All Floor Plans" button provides access to individual downloads
 - Zero remaining instances of "9.18M" or "9180000" in the entire src/ directory
 - Palmiera Collective tagline now reflects "12 Available" out of 38 total villas
+
+---
+Task ID: 3-7
+Agent: Main Agent
+Task: Rebuild floor plan system, sync project data from Google Drive, fix remaining bugs, deploy
+
+Work Log:
+- Extracted data from Google Drive factsheets for all 9 clusters
+- Added startingPrice field to FloorPlan interface
+- Updated all 25 floor plan entries with Drive-verified starting prices and exact sqft
+- Fixed 9.18M → 9.2M across 17+ files (metadata, descriptions, dictionaries, blog, components)
+- Updated Palmiera 3 startingPrice from 9180000 to 9200000
+- Updated Palmiera Collective tagline from "Only 38 Villas" to "38 Villas · 12 Available"
+- Added bedroom filter (All/4BR/5BR/6BR) to /floor-plans page
+- Added "Download All Floor Plans" button
+- Added price display to floor plan cards on project detail pages and /floor-plans page
+- Created /api/download-floor-plans route for individual downloads
+- Updated floor plan names for Palmiera 3 (Classic/Contemporary/Chamfer)
+- Build verified successful
+- Committed and pushed to GitHub (commit 3835c86)
+- Vercel deployment triggered
+
+Stage Summary:
+- All code changes committed in single commit: feat: rebuild floor plan system, sync all project data from Drive, fix remaining bugs
+- 22 files changed, 246 insertions, 98 deletions
+- Zero instances of "9.18M" remain in codebase
+- Pushed to main branch — Vercel deployment in progress
