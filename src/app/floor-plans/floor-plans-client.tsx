@@ -9,7 +9,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Bed, Maximize, ExternalLink, Map, LayoutGrid, ArrowRight, Home } from "lucide-react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Bed, Maximize, Map, LayoutGrid, ArrowRight, Eye, Download, ZoomIn, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useDict } from "@/lib/use-dict";
@@ -75,9 +76,6 @@ export default function FloorPlansClient({ lang }: { lang?: import("@/lib/i18n")
                   {projectIds.map((pid) => {
                     const proj = projects.find((p) => p.id === pid);
                     const plans = floorPlans.filter((fp) => fp.projectId === pid);
-                    const floorPlanDriveUrl = proj?.subfolders?.floorPlan
-                      ? `https://drive.google.com/drive/folders/${proj.subfolders.floorPlan}`
-                      : null;
 
                     if (!proj) return null;
 
@@ -94,31 +92,20 @@ export default function FloorPlansClient({ lang }: { lang?: import("@/lib/i18n")
                               </Badge>
                             </div>
                             <h3 className="font-heading text-2xl font-bold text-[#1A2332]">{proj.name}</h3>
-                            <p className="font-body text-gray-500 text-sm mt-1">{proj.tagline}</p>
+                            <p className="font-body text-gray-500 text-sm mt-1">
+                              Starting from {formatPrice(proj.startingPrice)} · {proj.bedrooms} {t.common.bed} · {proj.areaRange}
+                            </p>
                           </div>
-                          <div className="flex gap-3">
-                            {floorPlanDriveUrl && (
-                              <a href={floorPlanDriveUrl} target="_blank" rel="noopener noreferrer">
-                                <Button
-                                  variant="outline"
-                                  className="border-[#C8A45C] text-[#C8A45C] hover:bg-[#C8A45C]/10 rounded-md text-sm"
-                                >
-                                  <ExternalLink className="w-4 h-4 mr-2" />
-                                  {t.floorPlans.viewFloorPlans}
-                                </Button>
-                              </a>
-                            )}
-                            <Link href={`/projects/${proj.slug}`}>
-                              <Button className="bg-[#1A2332] text-white hover:bg-[#2A3A52] rounded-md text-sm">
-                                {t.floorPlans.viewProject} <ArrowRight className="w-4 h-4 ml-1" />
-                              </Button>
-                            </Link>
-                          </div>
+                          <Link href={`/projects/${proj.slug}`}>
+                            <Button className="bg-[#1A2332] text-white hover:bg-[#2A3A52] rounded-md text-sm">
+                              {t.floorPlans.viewProject} <ArrowRight className="w-4 h-4 ml-1" />
+                            </Button>
+                          </Link>
                         </div>
 
                         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                           {plans.map((plan) => (
-                            <FloorPlanCard key={plan.id} plan={plan} project={proj} driveUrl={floorPlanDriveUrl} />
+                            <FloorPlanCard key={plan.id} plan={plan} project={proj} />
                           ))}
                         </div>
 
@@ -135,9 +122,6 @@ export default function FloorPlansClient({ lang }: { lang?: import("@/lib/i18n")
               {projectIds.map((pid) => {
                 const proj = projects.find((p) => p.id === pid);
                 const plans = floorPlans.filter((fp) => fp.projectId === pid);
-                const floorPlanDriveUrl = proj?.subfolders?.floorPlan
-                  ? `https://drive.google.com/drive/folders/${proj.subfolders.floorPlan}`
-                  : null;
 
                 return (
                   <TabsContent key={pid} value={pid}>
@@ -148,29 +132,26 @@ export default function FloorPlansClient({ lang }: { lang?: import("@/lib/i18n")
                             <Badge className="bg-[#C8A45C] text-white text-xs font-semibold">
                               {proj.clusterTag}
                             </Badge>
+                            <Badge className="bg-[#1A2332] text-white text-xs">
+                              {proj.status}
+                            </Badge>
                           </div>
                           <h3 className="font-heading text-2xl font-bold text-[#1A2332]">{proj.name}</h3>
                           <p className="font-body text-gray-500 text-sm mt-1">
                             Starting from {formatPrice(proj.startingPrice)} · {proj.bedrooms} {t.common.bed} · {proj.areaRange}
                           </p>
                         </div>
-                        {floorPlanDriveUrl && (
-                          <a href={floorPlanDriveUrl} target="_blank" rel="noopener noreferrer">
-                            <Button
-                              variant="outline"
-                              className="border-[#C8A45C] text-[#C8A45C] hover:bg-[#C8A45C]/10 rounded-md text-sm"
-                            >
-                              <ExternalLink className="w-4 h-4 mr-2" />
-                              {t.floorPlans.viewFloorPlans}
-                            </Button>
-                          </a>
-                        )}
+                        <Link href={`/projects/${proj.slug}`}>
+                          <Button className="bg-[#1A2332] text-white hover:bg-[#2A3A52] rounded-md text-sm">
+                            {t.floorPlans.viewProject} <ArrowRight className="w-4 h-4 ml-1" />
+                          </Button>
+                        </Link>
                       </div>
                     )}
 
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                       {plans.map((plan) => (
-                        <FloorPlanCard key={plan.id} plan={plan} project={proj!} driveUrl={floorPlanDriveUrl} />
+                        <FloorPlanCard key={plan.id} plan={plan} project={proj!} />
                       ))}
                     </div>
                   </TabsContent>
@@ -251,93 +232,165 @@ export default function FloorPlansClient({ lang }: { lang?: import("@/lib/i18n")
 function FloorPlanCard({
   plan,
   project,
-  driveUrl,
 }: {
   plan: typeof floorPlans[0];
   project: typeof projects[0];
-  driveUrl: string | null;
 }) {
   const t = useDict();
-  const hasRealImage = !!plan.imageUrl;
-  
+  const [selectedPlan, setSelectedPlan] = useState<typeof floorPlans[0] | null>(null);
+  const [downloadingId, setDownloadingId] = useState<string | null>(null);
+  const hasImage = !!plan.imageUrl;
+
+  const handleDownload = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!plan.imageUrl) return;
+    setDownloadingId(plan.id);
+    try {
+      const response = await fetch(`/api/floorplan-download?id=${plan.id}`);
+      if (!response.ok) throw new Error("Download failed");
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      const contentDisposition = response.headers.get("Content-Disposition");
+      if (contentDisposition) {
+        const match = contentDisposition.match(/filename="?(.+?)"?$/);
+        if (match) a.download = match[1];
+      } else {
+        a.download = `floor-plan-${plan.id}.jpg`;
+      }
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error("Download error:", err);
+    } finally {
+      setDownloadingId(null);
+    }
+  };
+
   return (
-    <Card className="overflow-hidden border-0 shadow-md hover:shadow-lg transition-shadow group">
-      <div className="relative h-72 overflow-hidden bg-[#F5F0E8]">
-        {hasRealImage ? (
-          <Image
-            src={plan.imageUrl!}
-            alt={plan.name}
-            fill
-            className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
-          />
-        ) : project.imageUrl ? (
-          <img
-            src={project.imageUrl}
-            alt={plan.name}
-            className="w-full h-full object-cover opacity-25 group-hover:opacity-35 transition-opacity duration-300"
-          />
-        ) : (
-          <div className="w-full h-full bg-gradient-to-br from-[#F5F0E8] to-[#E8E0D0]" />
-        )}
-        {!hasRealImage && (
-          <div className="absolute inset-0 flex items-center justify-center bg-[#1A2332]/30">
-            <div className="text-center">
-              <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center mx-auto mb-3 shadow-lg">
-                <LayoutGrid className="w-6 h-6 text-[#C8A45C]" />
-              </div>
-              <p className="font-heading text-lg font-bold text-white drop-shadow-md">{t.floorPlans.floorPlanCard}</p>
-              <p className="font-body text-xs text-white/70 mt-1">{plan.name}</p>
-            </div>
-          </div>
-        )}
-        {hasRealImage && (
-          <div className="absolute top-3 left-3">
-            <Badge className="bg-emerald-600 text-white text-xs font-semibold">{t.floorPlans.realFloorPlan}</Badge>
-          </div>
-        )}
-        <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 flex items-center justify-center">
-          <ExternalLink className="w-4 h-4 text-[#1A2332]" />
-        </div>
-      </div>
-      <CardContent className="p-5">
-        <h4 className="font-heading font-bold text-[#1A2332] mb-3">{plan.name}</h4>
-        <div className="flex items-center gap-4 mb-4 text-sm text-gray-500">
-          <span className="flex items-center gap-1">
-            <Bed className="w-4 h-4 text-[#C8A45C]" /> {plan.bedrooms} {t.common.bed}
-          </span>
-          <span className="flex items-center gap-1">
-            <Maximize className="w-4 h-4 text-[#C8A45C]" /> {formatSqft(plan.areaSqft)}
-          </span>
-        </div>
-        {plan.plotSqft && (
-          <p className="text-sm text-gray-400 mb-4">{t.common.plot}: {formatSqft(plan.plotSqft)}</p>
-        )}
-        <div className="flex gap-3">
-          {driveUrl ? (
-            <a href={driveUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
-              <Button
-                variant="outline"
-                className="w-full border-[#C8A45C] text-[#C8A45C] hover:bg-[#C8A45C]/10 rounded-md text-sm"
-              >
-                <ExternalLink className="w-4 h-4 mr-2" />
-                {t.floorPlans.openInDrive}
-              </Button>
-            </a>
+    <>
+      <Card className="overflow-hidden border-0 shadow-md hover:shadow-xl transition-all duration-300 group">
+        {/* Floor Plan Image - Clickable for enlarge */}
+        <div
+          className="relative h-72 overflow-hidden bg-[#F5F0E8] cursor-pointer"
+          onClick={() => hasImage && setSelectedPlan(plan)}
+        >
+          {hasImage ? (
+            <Image
+              src={plan.imageUrl!}
+              alt={plan.name}
+              fill
+              className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
           ) : (
-            <Button
-              variant="outline"
-              className="flex-1 border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332] hover:text-white rounded-md text-sm"
-            >
-              {t.common.comingSoon}
-            </Button>
+            <div className="w-full h-full bg-gradient-to-br from-[#F5F0E8] to-[#E8E0D0] flex items-center justify-center">
+              <LayoutGrid className="w-12 h-12 text-[#C8A45C]/40" />
+            </div>
           )}
-          <Link href={`/projects/${project.slug}`} className="flex-1">
-            <Button className="w-full bg-[#1A2332] text-white hover:bg-[#2A3A52] rounded-md text-sm">
-              {t.floorPlans.viewProject}
-            </Button>
-          </Link>
+          {/* Hover overlay with zoom icon */}
+          {hasImage && (
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+              <ZoomIn className="w-10 h-10 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg" />
+            </div>
+          )}
+          {/* Badge */}
+          {hasImage && (
+            <div className="absolute top-3 left-3">
+              <Badge className="bg-emerald-600 text-white text-xs font-semibold">{t.floorPlans.realFloorPlan}</Badge>
+            </div>
+          )}
         </div>
-      </CardContent>
-    </Card>
+
+        {/* Card Content - Unified info box */}
+        <CardContent className="p-5">
+          <h4 className="font-heading font-bold text-[#1A2332] mb-3">{plan.name}</h4>
+          <div className="flex items-center gap-4 mb-3 text-sm text-gray-500">
+            <span className="flex items-center gap-1">
+              <Bed className="w-4 h-4 text-[#C8A45C]" /> {plan.bedrooms} {t.common.bed}
+            </span>
+            <span className="flex items-center gap-1">
+              <Maximize className="w-4 h-4 text-[#C8A45C]" /> {formatSqft(plan.areaSqft)}
+            </span>
+          </div>
+          {plan.plotSqft && (
+            <p className="text-sm text-gray-400 mb-4">{t.common.plot}: {formatSqft(plan.plotSqft)}</p>
+          )}
+          <div className="flex gap-2">
+            <Button
+              onClick={() => hasImage && setSelectedPlan(plan)}
+              variant="outline"
+              className="flex-1 border-[#C8A45C] text-[#C8A45C] hover:bg-[#C8A45C]/10 rounded-md text-sm"
+              disabled={!hasImage}
+            >
+              <Eye className="w-4 h-4 mr-1" /> View
+            </Button>
+            <Button
+              onClick={handleDownload}
+              className="flex-1 bg-[#1A2332] text-white hover:bg-[#2A3A52] rounded-md text-sm"
+              disabled={!hasImage || downloadingId === plan.id}
+            >
+              <Download className="w-4 h-4 mr-1" />
+              {downloadingId === plan.id ? "..." : t.floorPlans.download || "Download"}
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Lightbox Dialog for Enlarged View */}
+      <Dialog open={!!selectedPlan} onOpenChange={() => setSelectedPlan(null)}>
+        <DialogContent className="max-w-5xl p-0 overflow-hidden bg-[#1A2332] border-0">
+          {selectedPlan && (
+            <div className="relative">
+              <button
+                onClick={() => setSelectedPlan(null)}
+                className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-white/40 transition-colors"
+              >
+                <X className="w-5 h-5 text-white" />
+              </button>
+              <div className="relative h-[60vh] sm:h-[75vh] bg-[#F5F0E8]">
+                <Image
+                  src={selectedPlan.imageUrl!}
+                  alt={selectedPlan.name}
+                  fill
+                  className="object-contain p-4"
+                  sizes="(max-width: 1024px) 100vw, 1024px"
+                  quality={95}
+                />
+              </div>
+              <div className="bg-[#1A2332] p-4 sm:p-6">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div>
+                    <h3 className="font-heading text-xl font-bold text-white mb-1">{selectedPlan.name}</h3>
+                    <div className="flex items-center gap-4 text-sm text-white/60">
+                      <span className="flex items-center gap-1">
+                        <Bed className="w-4 h-4 text-[#C8A45C]" /> {selectedPlan.bedrooms} {t.common.bed}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Maximize className="w-4 h-4 text-[#C8A45C]" /> {formatSqft(selectedPlan.areaSqft)}
+                      </span>
+                      {selectedPlan.plotSqft && (
+                        <span>{t.common.plot}: {formatSqft(selectedPlan.plotSqft)}</span>
+                      )}
+                    </div>
+                  </div>
+                  <Button
+                    onClick={handleDownload}
+                    className="gold-gradient text-[#1A2332] font-bold px-6 py-3 rounded-md hover:opacity-90"
+                    disabled={downloadingId === selectedPlan.id}
+                  >
+                    <Download className="w-4 h-4 mr-2" />
+                    {downloadingId === selectedPlan.id ? "Preparing..." : "Download Floor Plan"}
+                  </Button>
+                </div>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }

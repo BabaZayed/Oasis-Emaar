@@ -553,30 +553,46 @@ export const inventoryItems: InventoryItem[] = [
   { id: "inv-mar2-6br-1", projectId: "mareva-2", name: "OD Mareva 2-V-231", type: "villa", bedrooms: 6, areaSqft: 12779, plotSqft: 14737, price: 27988888, status: "available", isPremium: true, imageGradient: "from-indigo-600 to-blue-400" },
 
   // OP Lavita — 6 Bedroom (2 units)
-  { id: "inv-lav-1", projectId: "lavita", name: "OP Lavita-V-27", type: "mansion", bedrooms: 6, areaSqft: 20096, plotSqft: 22275, price: 46970888, status: "available", isPremium: true, imageGradient: "from-amber-700 to-yellow-400", floorPlan: "/images/inventory/lavita-v27-floorplan.png" },
-  { id: "inv-lav-2", projectId: "lavita", name: "OP Lavita-V-47", type: "mansion", bedrooms: 6, areaSqft: 20096, plotSqft: 23824, price: 47696888, status: "available", isPremium: true, imageGradient: "from-amber-700 to-yellow-400", floorPlan: "/images/inventory/lavita-v47-floorplan.png" },
+  { id: "inv-lav-1", projectId: "lavita", name: "OP Lavita-V-27", type: "mansion", bedrooms: 6, areaSqft: 20096, plotSqft: 22275, price: 46970888, status: "available", isPremium: true, imageGradient: "from-amber-700 to-yellow-400", floorPlan: "/images/inventory/lavita-v27-floorplan.jpg" },
+  { id: "inv-lav-2", projectId: "lavita", name: "OP Lavita-V-47", type: "mansion", bedrooms: 6, areaSqft: 20096, plotSqft: 23824, price: 47696888, status: "available", isPremium: true, imageGradient: "from-amber-700 to-yellow-400", floorPlan: "/images/inventory/lavita-v47-floorplan.jpg" },
 ];
 
 // ======== FLOOR PLANS ========
 export const floorPlans: FloorPlan[] = [
-  { id: "fp-avt-1", projectId: "address-villas-tierra", name: "Type A - 4 Bedroom Villa", bedrooms: 4, areaSqft: 7269, plotSqft: 8500, imageGradient: "from-emerald-100 to-teal-50", imageUrl: "/images/floorplans/address-villas-tierra-fp-1.png" },
-  { id: "fp-avt-2", projectId: "address-villas-tierra", name: "Type B - 5 Bedroom Villa", bedrooms: 5, areaSqft: 9500, plotSqft: 11000, imageGradient: "from-teal-100 to-cyan-50", imageUrl: "/images/floorplans/address-villas-tierra-fp-2.png" },
-  { id: "fp-avt-3", projectId: "address-villas-tierra", name: "Type C - 6 Bedroom Villa", bedrooms: 6, areaSqft: 12777, plotSqft: 15000, imageGradient: "from-cyan-100 to-sky-50", imageUrl: "/images/floorplans/address-villas-tierra-fp-3.png" },
-  { id: "fp-lav-1", projectId: "lavita", name: "OP Lavita-V-27 - Type S1A", bedrooms: 6, areaSqft: 20096, plotSqft: 22275, imageGradient: "from-amber-100 to-yellow-50", imageUrl: "/images/inventory/lavita-v27-floorplan.png" },
-  { id: "fp-lav-2", projectId: "lavita", name: "OP Lavita-V-47 - Type S1A", bedrooms: 6, areaSqft: 20096, plotSqft: 23824, imageGradient: "from-yellow-100 to-orange-50", imageUrl: "/images/inventory/lavita-v47-floorplan.png" },
-  { id: "fp-mar1-1", projectId: "mareva-1", name: "4 Bedroom Villa", bedrooms: 4, areaSqft: 7254, plotSqft: 8800, imageGradient: "from-violet-100 to-purple-50" },
-  { id: "fp-mar1-2", projectId: "mareva-1", name: "5 Bedroom Villa", bedrooms: 5, areaSqft: 9800, plotSqft: 12000, imageGradient: "from-purple-100 to-fuchsia-50" },
-  { id: "fp-mar1-3", projectId: "mareva-1", name: "6 Bedroom Villa", bedrooms: 6, areaSqft: 12779, plotSqft: 16000, imageGradient: "from-fuchsia-100 to-pink-50" },
-  { id: "fp-mar2-1", projectId: "mareva-2", name: "4 Bedroom Villa", bedrooms: 4, areaSqft: 7500, plotSqft: 9000, imageGradient: "from-indigo-100 to-blue-50" },
-  { id: "fp-mar2-2", projectId: "mareva-2", name: "5 Bedroom Villa", bedrooms: 5, areaSqft: 10200, plotSqft: 13000, imageGradient: "from-blue-100 to-cyan-50" },
-  { id: "fp-mir-1", projectId: "mirage", name: "5 Bedroom Villa", bedrooms: 5, areaSqft: 9500, plotSqft: 12000, imageGradient: "from-sky-100 to-blue-50", imageUrl: "/images/floorplans/mirage-fp-1.png" },
-  { id: "fp-mir-2", projectId: "mirage", name: "6 Bedroom Villa", bedrooms: 6, areaSqft: 11297, plotSqft: 14000, imageGradient: "from-blue-100 to-indigo-50", imageUrl: "/images/floorplans/mirage-fp-2.png" },
-  { id: "fp-pvo-1", projectId: "palace-villas-ostra", name: "4 Bedroom Palace Villa", bedrooms: 4, areaSqft: 7500, plotSqft: 9000, imageGradient: "from-rose-100 to-pink-50", imageUrl: "/images/floorplans/palace-villas-ostra-fp-1.png" },
-  { id: "fp-pvo-2", projectId: "palace-villas-ostra", name: "5 Bedroom Palace Villa", bedrooms: 5, areaSqft: 10500, plotSqft: 13000, imageGradient: "from-pink-100 to-red-50", imageUrl: "/images/floorplans/palace-villas-ostra-fp-2.png" },
-  { id: "fp-pc-1", projectId: "palmiera-collective", name: "4 Bedroom Bespoke Villa", bedrooms: 4, areaSqft: 7879, plotSqft: 10000, imageGradient: "from-teal-100 to-emerald-50", imageUrl: "/images/floorplans/palmiera-collective-fp-1.png" },
-  { id: "fp-pal-1", projectId: "palmiera", name: "4 Bedroom Villa", bedrooms: 4, areaSqft: 8279, plotSqft: 10500, imageGradient: "from-orange-100 to-amber-50" },
-  { id: "fp-p3-1", projectId: "palmiera-3", name: "4 Bedroom Villa - Type 1", bedrooms: 4, areaSqft: 5666, plotSqft: 7000, imageGradient: "from-cyan-100 to-sky-50", imageUrl: "/images/floorplans/palmiera-3-fp-1.png" },
-  { id: "fp-p3-2", projectId: "palmiera-3", name: "4 Bedroom Villa - Type 2", bedrooms: 4, areaSqft: 5914, plotSqft: 8000, imageGradient: "from-sky-100 to-blue-50", imageUrl: "/images/floorplans/palmiera-3-fp-2.png" },
+  // Address Villas Tierra
+  { id: "fp-avt-1", projectId: "address-villas-tierra", name: "Type A - 4 Bedroom Villa", bedrooms: 4, areaSqft: 7269, plotSqft: 8500, imageGradient: "from-emerald-100 to-teal-50", imageUrl: "/images/floorplans/adress-villas-tierra-fp-1.jpg" },
+  { id: "fp-avt-2", projectId: "address-villas-tierra", name: "Type B - 5 Bedroom Villa", bedrooms: 5, areaSqft: 9500, plotSqft: 11000, imageGradient: "from-teal-100 to-cyan-50", imageUrl: "/images/floorplans/adress-villas-tierra-fp-2.jpg" },
+  { id: "fp-avt-3", projectId: "address-villas-tierra", name: "Type C - 6 Bedroom Villa", bedrooms: 6, areaSqft: 12777, plotSqft: 15000, imageGradient: "from-cyan-100 to-sky-50", imageUrl: "/images/floorplans/adress-villas-tierra-fp-3.jpg" },
+  // Lavita
+  { id: "fp-lav-1", projectId: "lavita", name: "Type S1A - 6 Bedroom Mansion (V27)", bedrooms: 6, areaSqft: 20096, plotSqft: 22275, imageGradient: "from-amber-100 to-yellow-50", imageUrl: "/images/floorplans/lavita-fp-1.jpg" },
+  { id: "fp-lav-2", projectId: "lavita", name: "Type S1A - 6 Bedroom Mansion (V47)", bedrooms: 6, areaSqft: 20096, plotSqft: 23824, imageGradient: "from-yellow-100 to-orange-50", imageUrl: "/images/floorplans/lavita-fp-2.jpg" },
+  { id: "fp-lav-3", projectId: "lavita", name: "Type S1B - 6 Bedroom Mansion", bedrooms: 6, areaSqft: 20096, plotSqft: 23000, imageGradient: "from-orange-100 to-red-50", imageUrl: "/images/floorplans/lavita-fp-3.jpg" },
+  // Mareva 1
+  { id: "fp-mar1-1", projectId: "mareva-1", name: "4 Bedroom Villa with Basement", bedrooms: 4, areaSqft: 7254, plotSqft: 8800, imageGradient: "from-violet-100 to-purple-50", imageUrl: "/images/floorplans/mareva-1-fp-4br.jpg" },
+  { id: "fp-mar1-2", projectId: "mareva-1", name: "5 Bedroom Villa", bedrooms: 5, areaSqft: 9800, plotSqft: 12000, imageGradient: "from-purple-100 to-fuchsia-50", imageUrl: "/images/floorplans/mareva-1-fp-5br.jpg" },
+  { id: "fp-mar1-3", projectId: "mareva-1", name: "6 Bedroom Villa with Basement", bedrooms: 6, areaSqft: 12779, plotSqft: 16000, imageGradient: "from-fuchsia-100 to-pink-50", imageUrl: "/images/floorplans/mareva-1-fp-6br.jpg" },
+  // Mareva 2
+  { id: "fp-mar2-1", projectId: "mareva-2", name: "4 Bedroom Villa with Basement", bedrooms: 4, areaSqft: 7500, plotSqft: 9000, imageGradient: "from-indigo-100 to-blue-50", imageUrl: "/images/floorplans/mareva-2-fp-4br.jpg" },
+  { id: "fp-mar2-2", projectId: "mareva-2", name: "5 Bedroom Villa", bedrooms: 5, areaSqft: 10200, plotSqft: 13000, imageGradient: "from-blue-100 to-cyan-50", imageUrl: "/images/floorplans/mareva-2-fp-5br.jpg" },
+  { id: "fp-mar2-3", projectId: "mareva-2", name: "6 Bedroom Villa with Basement", bedrooms: 6, areaSqft: 13000, plotSqft: 16500, imageGradient: "from-cyan-100 to-teal-50", imageUrl: "/images/floorplans/mareva-2-fp-6br.jpg" },
+  // Mirage
+  { id: "fp-mir-1", projectId: "mirage", name: "5 Bedroom Villa", bedrooms: 5, areaSqft: 9500, plotSqft: 12000, imageGradient: "from-sky-100 to-blue-50", imageUrl: "/images/floorplans/mirage-fp-1.jpg" },
+  { id: "fp-mir-2", projectId: "mirage", name: "6 Bedroom Villa", bedrooms: 6, areaSqft: 11297, plotSqft: 14000, imageGradient: "from-blue-100 to-indigo-50", imageUrl: "/images/floorplans/mirage-fp-2.jpg" },
+  { id: "fp-mir-3", projectId: "mirage", name: "6 Bedroom Villa - Premium", bedrooms: 6, areaSqft: 11357, plotSqft: 15000, imageGradient: "from-indigo-100 to-violet-50", imageUrl: "/images/floorplans/mirage-fp-3.jpg" },
+  // Palace Villas Ostra
+  { id: "fp-pvo-1", projectId: "palace-villas-ostra", name: "4 Bedroom Palace Villa", bedrooms: 4, areaSqft: 7500, plotSqft: 9000, imageGradient: "from-rose-100 to-pink-50", imageUrl: "/images/floorplans/palace-villas-ostra-fp-1.jpg" },
+  { id: "fp-pvo-2", projectId: "palace-villas-ostra", name: "5 Bedroom Palace Villa", bedrooms: 5, areaSqft: 10500, plotSqft: 13000, imageGradient: "from-pink-100 to-red-50", imageUrl: "/images/floorplans/palace-villas-ostra-fp-2.jpg" },
+  { id: "fp-pvo-3", projectId: "palace-villas-ostra", name: "6 Bedroom Palace Villa", bedrooms: 6, areaSqft: 13500, plotSqft: 17000, imageGradient: "from-red-100 to-orange-50", imageUrl: "/images/floorplans/palace-villas-ostra-fp-3.jpg" },
+  // Palmiera Collective
+  { id: "fp-pc-1", projectId: "palmiera-collective", name: "4 Bedroom Bespoke Villa - Type 1", bedrooms: 4, areaSqft: 7879, plotSqft: 10000, imageGradient: "from-teal-100 to-emerald-50", imageUrl: "/images/floorplans/palmiera-collective-fp-1.jpg" },
+  { id: "fp-pc-2", projectId: "palmiera-collective", name: "4 Bedroom Bespoke Villa - Type 2", bedrooms: 4, areaSqft: 7879, plotSqft: 10000, imageGradient: "from-emerald-100 to-green-50", imageUrl: "/images/floorplans/palmiera-collective-fp-2.jpg" },
+  { id: "fp-pc-3", projectId: "palmiera-collective", name: "4 Bedroom Bespoke Villa - Type 3", bedrooms: 4, areaSqft: 7879, plotSqft: 10000, imageGradient: "from-green-100 to-lime-50", imageUrl: "/images/floorplans/palmiera-collective-fp-3.jpg" },
+  // Palmiera
+  { id: "fp-pal-1", projectId: "palmiera", name: "4 Bedroom Villa", bedrooms: 4, areaSqft: 8279, plotSqft: 10500, imageGradient: "from-orange-100 to-amber-50", imageUrl: "/images/floorplans/palmiera-fp-4br.jpg" },
+  // Palmiera 3
+  { id: "fp-p3-1", projectId: "palmiera-3", name: "4 Bedroom Villa - Type 1", bedrooms: 4, areaSqft: 5666, plotSqft: 7000, imageGradient: "from-cyan-100 to-sky-50", imageUrl: "/images/floorplans/palmiera-3-fp-1.jpg" },
+  { id: "fp-p3-2", projectId: "palmiera-3", name: "4 Bedroom Villa - Type 2", bedrooms: 4, areaSqft: 5914, plotSqft: 8000, imageGradient: "from-sky-100 to-blue-50", imageUrl: "/images/floorplans/palmiera-3-fp-2.jpg" },
+  { id: "fp-p3-3", projectId: "palmiera-3", name: "4 Bedroom Villa - Type 3", bedrooms: 4, areaSqft: 5914, plotSqft: 8000, imageGradient: "from-blue-100 to-indigo-50", imageUrl: "/images/floorplans/palmiera-3-fp-3.jpg" },
 ];
 
 // ======== PAYMENT PLANS ========

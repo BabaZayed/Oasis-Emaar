@@ -9,7 +9,8 @@ import { inventoryItems, floorPlans, projects, formatPrice, formatSqft, type Pro
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Bed, Maximize, ChevronRight, Home, ArrowRight, MapPin, Eye, Lock } from "lucide-react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Bed, Maximize, ChevronRight, Home, ArrowRight, MapPin, Eye, Lock, Download, ZoomIn, X } from "lucide-react";
 import PropertyDetailModal from "@/components/property-detail-modal";
 import ProjectFactsSection from "@/components/project-facts-section";
 import { useState, useEffect } from "react";
@@ -17,6 +18,36 @@ import { trackViewContent } from "@/lib/meta-pixel";
 
 export default function ProjectDetailPage({ project }: { project: Project }) {
   const [detailItem, setDetailItem] = useState<typeof inventoryItems[0] | null>(null);
+  const [selectedFloorPlan, setSelectedFloorPlan] = useState<typeof floorPlans[0] | null>(null);
+  const [downloadingId, setDownloadingId] = useState<string | null>(null);
+
+  const handleFloorPlanDownload = async (plan: typeof floorPlans[0]) => {
+    if (!plan.imageUrl) return;
+    setDownloadingId(plan.id);
+    try {
+      const response = await fetch(`/api/floorplan-download?id=${plan.id}`);
+      if (!response.ok) throw new Error("Download failed");
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      const contentDisposition = response.headers.get("Content-Disposition");
+      if (contentDisposition) {
+        const match = contentDisposition.match(/filename="?(.+?)"?$/);
+        if (match) a.download = match[1];
+      } else {
+        a.download = `floor-plan-${plan.id}.jpg`;
+      }
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error("Download error:", err);
+    } finally {
+      setDownloadingId(null);
+    }
+  };
 
   // Meta Pixel: Track ViewContent when page loads
   useEffect(() => {
@@ -323,16 +354,42 @@ export default function ProjectDetailPage({ project }: { project: Project }) {
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {projectFloorPlans.map((plan) => (
-                  <Card key={plan.id} className="overflow-hidden border-0 shadow-md hover:shadow-lg transition-shadow">
-                    <div className={`h-48 bg-gradient-to-br ${plan.imageGradient} flex items-center justify-center`}>
-                      <div className="text-center">
-                        <div className="w-20 h-16 border-2 border-dashed border-gray-300 rounded mx-auto mb-2" />
-                        <p className="text-xs text-gray-400">Floor Plan Preview</p>
-                      </div>
+                  <Card key={plan.id} className="overflow-hidden border-0 shadow-md hover:shadow-xl transition-all duration-300 group">
+                    {/* Floor Plan Image */}
+                    <div
+                      className="relative h-64 overflow-hidden bg-[#F5F0E8] cursor-pointer"
+                      onClick={() => plan.imageUrl && setSelectedFloorPlan(plan)}
+                    >
+                      {plan.imageUrl ? (
+                        <Image
+                          src={plan.imageUrl}
+                          alt={plan.name}
+                          fill
+                          className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        />
+                      ) : (
+                        <div className={`h-full bg-gradient-to-br ${plan.imageGradient} flex items-center justify-center`}>
+                          <div className="text-center">
+                            <div className="w-20 h-16 border-2 border-dashed border-gray-300 rounded mx-auto mb-2" />
+                            <p className="text-xs text-gray-400">Floor Plan Preview</p>
+                          </div>
+                        </div>
+                      )}
+                      {plan.imageUrl && (
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                          <ZoomIn className="w-10 h-10 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg" />
+                        </div>
+                      )}
+                      {plan.imageUrl && (
+                        <div className="absolute top-3 left-3">
+                          <Badge className="bg-emerald-600 text-white text-xs font-semibold">Floor Plan</Badge>
+                        </div>
+                      )}
                     </div>
                     <CardContent className="p-5">
                       <h4 className="font-heading font-bold text-[#1A2332] mb-3">{plan.name}</h4>
-                      <div className="flex items-center gap-4 mb-4 text-sm text-gray-500">
+                      <div className="flex items-center gap-4 mb-3 text-sm text-gray-500">
                         <span className="flex items-center gap-1">
                           <Bed className="w-4 h-4 text-[#C8A45C]" /> {plan.bedrooms} Bed
                         </span>
@@ -341,8 +398,26 @@ export default function ProjectDetailPage({ project }: { project: Project }) {
                         </span>
                       </div>
                       {plan.plotSqft && (
-                        <p className="text-sm text-gray-400">Plot: {formatSqft(plan.plotSqft)}</p>
+                        <p className="text-sm text-gray-400 mb-4">Plot: {formatSqft(plan.plotSqft)}</p>
                       )}
+                      <div className="flex gap-2">
+                        <Button
+                          onClick={() => plan.imageUrl && setSelectedFloorPlan(plan)}
+                          variant="outline"
+                          className="flex-1 border-[#C8A45C] text-[#C8A45C] hover:bg-[#C8A45C]/10 rounded-md text-sm"
+                          disabled={!plan.imageUrl}
+                        >
+                          <Eye className="w-4 h-4 mr-1" /> View
+                        </Button>
+                        <Button
+                          onClick={() => handleFloorPlanDownload(plan)}
+                          className="flex-1 bg-[#1A2332] text-white hover:bg-[#2A3A52] rounded-md text-sm"
+                          disabled={!plan.imageUrl || downloadingId === plan.id}
+                        >
+                          <Download className="w-4 h-4 mr-1" />
+                          {downloadingId === plan.id ? "..." : "Download"}
+                        </Button>
+                      </div>
                     </CardContent>
                   </Card>
                 ))}
@@ -350,6 +425,58 @@ export default function ProjectDetailPage({ project }: { project: Project }) {
             </div>
           </section>
         )}
+
+        {/* Floor Plan Lightbox */}
+        <Dialog open={!!selectedFloorPlan} onOpenChange={() => setSelectedFloorPlan(null)}>
+          <DialogContent className="max-w-5xl p-0 overflow-hidden bg-[#1A2332] border-0">
+            {selectedFloorPlan && (
+              <div className="relative">
+                <button
+                  onClick={() => setSelectedFloorPlan(null)}
+                  className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-white/40 transition-colors"
+                >
+                  <X className="w-5 h-5 text-white" />
+                </button>
+                <div className="relative h-[60vh] sm:h-[75vh] bg-[#F5F0E8]">
+                  <Image
+                    src={selectedFloorPlan.imageUrl!}
+                    alt={selectedFloorPlan.name}
+                    fill
+                    className="object-contain p-4"
+                    sizes="(max-width: 1024px) 100vw, 1024px"
+                    quality={95}
+                  />
+                </div>
+                <div className="bg-[#1A2332] p-4 sm:p-6">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div>
+                      <h3 className="font-heading text-xl font-bold text-white mb-1">{selectedFloorPlan.name}</h3>
+                      <div className="flex items-center gap-4 text-sm text-white/60">
+                        <span className="flex items-center gap-1">
+                          <Bed className="w-4 h-4 text-[#C8A45C]" /> {selectedFloorPlan.bedrooms} Bedroom
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Maximize className="w-4 h-4 text-[#C8A45C]" /> {formatSqft(selectedFloorPlan.areaSqft)}
+                        </span>
+                        {selectedFloorPlan.plotSqft && (
+                          <span>Plot: {formatSqft(selectedFloorPlan.plotSqft)}</span>
+                        )}
+                      </div>
+                    </div>
+                    <Button
+                      onClick={() => handleFloorPlanDownload(selectedFloorPlan)}
+                      className="gold-gradient text-[#1A2332] font-bold px-6 py-3 rounded-md hover:opacity-90"
+                      disabled={downloadingId === selectedFloorPlan.id}
+                    >
+                      <Download className="w-4 h-4 mr-2" />
+                      {downloadingId === selectedFloorPlan.id ? "Preparing..." : "Download Floor Plan"}
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            )}
+          </DialogContent>
+        </Dialog>
 
         {/* Related Projects */}
         {relatedProjects.length > 0 && (

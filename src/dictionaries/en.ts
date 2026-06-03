@@ -384,9 +384,11 @@ const en = {
   floorPlans: {
     label: "Residence Layouts",
     title: "Floor Plans",
-    subtitle: "Explore detailed floor plans for all residence types across the 9 clusters at The Oasis by Emaar. View layouts, specifications, and download from Google Drive.",
-    viewFloorPlans: "View Floor Plans on Google Drive",
+    subtitle: "Explore detailed floor plans for all residence types across the 9 clusters at The Oasis by Emaar. View, enlarge, and download layouts with specifications.",
+    viewFloorPlans: "View Floor Plans",
     viewProject: "View Project",
+    download: "Download",
+    downloadFloorPlan: "Download Floor Plan",
     masterPlanTitle: "The Oasis Master Plan",
     masterPlanSubtitle: "9.4 million sqm waterfront community by Emaar",
     communityLayout: "Community Layout",
@@ -395,7 +397,7 @@ const en = {
     stats: ["Clusters", "Residences", "Waterways", "Green Space"],
     viewFullMasterPlan: "View Full Master Plan",
     floorPlanCard: "View Floor Plans",
-    realFloorPlan: "Real Floor Plan",
+    realFloorPlan: "Floor Plan",
     openInDrive: "Open in Google Drive",
   },
 

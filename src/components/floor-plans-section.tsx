@@ -5,17 +5,46 @@ import { floorPlans, projects, formatSqft, galleryImages } from "@/lib/data";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Bed, Maximize, Download, Lock, ExternalLink, Map, LayoutGrid } from "lucide-react";
-import { PaywallModal } from "@/components/paywall-modal";
+import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Bed, Maximize, Download, Map, LayoutGrid, ZoomIn, Eye, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function FloorPlansSection() {
-  const [premiumPlan, setPremiumPlan] = useState<string | null>(null);
-  const isRegistered = typeof window !== "undefined" && localStorage.getItem("oasis_registered") === "true";
+  const [selectedPlan, setSelectedPlan] = useState<typeof floorPlans[0] | null>(null);
+  const [downloadingId, setDownloadingId] = useState<string | null>(null);
 
   const projectIds = [...new Set(floorPlans.map((fp) => fp.projectId))];
   const masterPlanImage = galleryImages.find((img) => img.category === "Master Plan");
+
+  const handleDownload = async (plan: typeof floorPlans[0]) => {
+    if (!plan.imageUrl) return;
+    setDownloadingId(plan.id);
+    try {
+      const response = await fetch(`/api/floorplan-download?id=${plan.id}`);
+      if (!response.ok) throw new Error("Download failed");
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      const contentDisposition = response.headers.get("Content-Disposition");
+      if (contentDisposition) {
+        const match = contentDisposition.match(/filename="?(.+?)"?$/);
+        if (match) a.download = match[1];
+      } else {
+        a.download = `floor-plan-${plan.id}.jpg`;
+      }
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error("Download error:", err);
+    } finally {
+      setDownloadingId(null);
+    }
+  };
 
   return (
     <section id="floor-plans" className="py-20 sm:py-28 bg-white">
@@ -28,7 +57,7 @@ export default function FloorPlansSection() {
             Explore Floor Plans
           </h2>
           <p className="font-body text-gray-500 max-w-2xl mx-auto">
-            Detailed layouts for each residence type. Download brochures for complete specifications.
+            Detailed layouts for each residence type. View, enlarge, and download floor plans with specifications.
           </p>
           <div className="section-divider max-w-xs mx-auto mt-6" />
         </div>
@@ -125,84 +154,66 @@ export default function FloorPlansSection() {
           {projectIds.map((pid) => {
             const proj = projects.find((p) => p.id === pid);
             const plans = floorPlans.filter((fp) => fp.projectId === pid);
-            const floorPlanDriveUrl = proj?.subfolders?.floorPlan
-              ? `https://drive.google.com/drive/folders/${proj.subfolders.floorPlan}`
-              : null;
 
             return (
               <TabsContent key={pid} value={pid}>
-                {/* Google Drive Links */}
-                {proj && (floorPlanDriveUrl || proj.driveFolderUrl) && (
-                  <div className="flex flex-wrap gap-3 mb-8">
-                    {floorPlanDriveUrl && (
-                      <a
-                        href={floorPlanDriveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Button
-                          variant="outline"
-                          className="border-[#C8A45C] text-[#C8A45C] hover:bg-[#C8A45C]/10 rounded-md text-sm"
-                        >
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          View Floor Plans on Google Drive
-                        </Button>
-                      </a>
-                    )}
-                    <a
-                      href={proj.driveFolderUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Button
-                        variant="outline"
-                        className="border-[#1A2332] text-[#1A2332] hover:bg-[#1A2332]/5 rounded-md text-sm"
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Open Project Drive Folder
+                {proj && (
+                  <div className="mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div>
+                      <div className="flex items-center gap-3 mb-1">
+                        <Badge className="bg-[#C8A45C] text-white text-xs font-semibold">{proj.clusterTag}</Badge>
+                        <Badge className="bg-[#1A2332] text-white text-xs">{proj.status}</Badge>
+                      </div>
+                      <h3 className="font-heading text-2xl font-bold text-[#1A2332]">{proj.name} Floor Plans</h3>
+                      <p className="font-body text-gray-500 text-sm mt-1">{proj.tagline} · {proj.areaRange}</p>
+                    </div>
+                    <Link href={`/projects/${proj.slug}`}>
+                      <Button className="bg-[#1A2332] text-white hover:bg-[#2A3A52] rounded-md text-sm">
+                        View Project
                       </Button>
-                    </a>
+                    </Link>
                   </div>
                 )}
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {plans.map((plan) => (
-                    <Card key={plan.id} className="overflow-hidden border-0 shadow-md hover:shadow-lg transition-shadow group">
-                      <div className="relative h-52 overflow-hidden">
-                        {/* Faded project image background */}
-                        {(() => {
-                          const p = projects.find((pr) => pr.id === plan.projectId);
-                          if (p?.imageUrl) {
-                            return (
-                              <img
-                                src={p.imageUrl}
-                                alt={plan.name}
-                                className="w-full h-full object-cover opacity-25 group-hover:opacity-35 transition-opacity duration-300"
-                              />
-                            );
-                          }
-                          return (
-                            <div className="w-full h-full bg-gradient-to-br from-[#F5F0E8] to-[#E8E0D0]" />
-                          );
-                        })()}
-                        {/* Overlay with View Floor Plans text */}
-                        <div className="absolute inset-0 flex items-center justify-center bg-[#1A2332]/30">
-                          <div className="text-center">
-                            <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center mx-auto mb-3 shadow-lg">
-                              <LayoutGrid className="w-6 h-6 text-[#C8A45C]" />
-                            </div>
-                            <p className="font-heading text-lg font-bold text-white drop-shadow-md">View Floor Plans</p>
-                            <p className="font-body text-xs text-white/70 mt-1">{plan.name}</p>
+                    <Card key={plan.id} className="overflow-hidden border-0 shadow-md hover:shadow-xl transition-all duration-300 group">
+                      {/* Floor Plan Image */}
+                      <div
+                        className="relative h-72 overflow-hidden bg-[#F5F0E8] cursor-pointer"
+                        onClick={() => plan.imageUrl && setSelectedPlan(plan)}
+                      >
+                        {plan.imageUrl ? (
+                          <Image
+                            src={plan.imageUrl}
+                            alt={plan.name}
+                            fill
+                            className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-gradient-to-br from-[#F5F0E8] to-[#E8E0D0] flex items-center justify-center">
+                            <LayoutGrid className="w-12 h-12 text-[#C8A45C]/40" />
                           </div>
-                        </div>
-                        {/* External link icon */}
-                        <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 flex items-center justify-center">
-                          <ExternalLink className="w-4 h-4 text-[#1A2332]" />
-                        </div>
+                        )}
+                        {/* Hover overlay with zoom icon */}
+                        {plan.imageUrl && (
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                            <ZoomIn className="w-10 h-10 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg" />
+                          </div>
+                        )}
+                        {/* Badge */}
+                        {plan.imageUrl && (
+                          <div className="absolute top-3 left-3">
+                            <Badge className="bg-emerald-600 text-white text-xs font-semibold">Floor Plan</Badge>
+                          </div>
+                        )}
                       </div>
+
+                      {/* Card Content - Unified Box */}
                       <CardContent className="p-5">
                         <h4 className="font-heading font-bold text-[#1A2332] mb-3">{plan.name}</h4>
-                        <div className="flex items-center gap-4 mb-4 text-sm text-gray-500">
+                        <div className="flex items-center gap-4 mb-3 text-sm text-gray-500">
                           <span className="flex items-center gap-1">
                             <Bed className="w-4 h-4 text-[#C8A45C]" /> {plan.bedrooms} Bed
                           </span>
@@ -213,33 +224,24 @@ export default function FloorPlansSection() {
                         {plan.plotSqft && (
                           <p className="text-sm text-gray-400 mb-4">Plot: {formatSqft(plan.plotSqft)}</p>
                         )}
-                        {floorPlanDriveUrl ? (
-                          <a
-                            href={floorPlanDriveUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <Button
-                              variant="outline"
-                              className="w-full border-[#C8A45C] text-[#C8A45C] hover:bg-[#C8A45C]/10 rounded-md text-sm"
-                            >
-                              <ExternalLink className="w-4 h-4 mr-2" />
-                              Open in Google Drive
-                            </Button>
-                          </a>
-                        ) : (
+                        <div className="flex gap-2">
                           <Button
-                            onClick={() => setPremiumPlan(plan.name)}
+                            onClick={() => plan.imageUrl && setSelectedPlan(plan)}
                             variant="outline"
-                            className="w-full border-[#C8A45C] text-[#C8A45C] hover:bg-[#C8A45C]/10 rounded-md text-sm"
+                            className="flex-1 border-[#C8A45C] text-[#C8A45C] hover:bg-[#C8A45C]/10 rounded-md text-sm"
+                            disabled={!plan.imageUrl}
                           >
-                            {isRegistered ? (
-                              <><Download className="w-4 h-4 mr-2" /> Download Brochure</>
-                            ) : (
-                              <><Lock className="w-4 h-4 mr-2" /> Register to Download</>
-                            )}
+                            <Eye className="w-4 h-4 mr-1" /> View
                           </Button>
-                        )}
+                          <Button
+                            onClick={() => handleDownload(plan)}
+                            className="flex-1 bg-[#1A2332] text-white hover:bg-[#2A3A52] rounded-md text-sm"
+                            disabled={!plan.imageUrl || downloadingId === plan.id}
+                          >
+                            <Download className="w-4 h-4 mr-1" />
+                            {downloadingId === plan.id ? "Loading..." : "Download"}
+                          </Button>
+                        </div>
                       </CardContent>
                     </Card>
                   ))}
@@ -250,7 +252,62 @@ export default function FloorPlansSection() {
         </Tabs>
       </div>
 
-      <PaywallModal open={!!premiumPlan} onClose={() => setPremiumPlan(null)} itemName={premiumPlan || ""} />
+      {/* Floor Plan Lightbox / Enlarge Dialog */}
+      <Dialog open={!!selectedPlan} onOpenChange={() => setSelectedPlan(null)}>
+        <DialogContent className="max-w-5xl p-0 overflow-hidden bg-[#1A2332] border-0">
+          {selectedPlan && (
+            <div className="relative">
+              {/* Close button */}
+              <button
+                onClick={() => setSelectedPlan(null)}
+                className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-white/40 transition-colors"
+              >
+                <X className="w-5 h-5 text-white" />
+              </button>
+
+              {/* Floor plan image - full size */}
+              <div className="relative h-[60vh] sm:h-[75vh] bg-[#F5F0E8]">
+                <Image
+                  src={selectedPlan.imageUrl!}
+                  alt={selectedPlan.name}
+                  fill
+                  className="object-contain p-4"
+                  sizes="(max-width: 1024px) 100vw, 1024px"
+                  quality={95}
+                />
+              </div>
+
+              {/* Info bar */}
+              <div className="bg-[#1A2332] p-4 sm:p-6">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div>
+                    <h3 className="font-heading text-xl font-bold text-white mb-1">{selectedPlan.name}</h3>
+                    <div className="flex items-center gap-4 text-sm text-white/60">
+                      <span className="flex items-center gap-1">
+                        <Bed className="w-4 h-4 text-[#C8A45C]" /> {selectedPlan.bedrooms} Bedroom
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Maximize className="w-4 h-4 text-[#C8A45C]" /> {formatSqft(selectedPlan.areaSqft)}
+                      </span>
+                      {selectedPlan.plotSqft && (
+                        <span>Plot: {formatSqft(selectedPlan.plotSqft)}</span>
+                      )}
+                    </div>
+                  </div>
+                  <Button
+                    onClick={() => handleDownload(selectedPlan)}
+                    className="gold-gradient text-[#1A2332] font-bold px-6 py-3 rounded-md hover:opacity-90"
+                    disabled={downloadingId === selectedPlan.id}
+                  >
+                    <Download className="w-4 h-4 mr-2" />
+                    {downloadingId === selectedPlan.id ? "Preparing..." : "Download Floor Plan"}
+                  </Button>
+                </div>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
