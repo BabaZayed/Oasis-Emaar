@@ -189,8 +189,7 @@ export default async function ProjectPageRoute({ params }: PageProps) {
               description: `Watch the official video tour of ${project.name} at The Oasis by Emaar in Dubai. ${project.tagline}. Starting from AED ${(project.startingPrice / 1000000).toFixed(2)}M.`,
               thumbnailUrl: `${SITE_URL}${project.imageUrl}`,
               uploadDate: "2024-06-01T00:00:00+04:00",
-              contentUrl: `https://drive.google.com/file/d/${project.subfolders.video}/view`,
-              embedUrl: `https://drive.google.com/file/d/${project.subfolders.video}/preview`,
+              contentUrl: `${SITE_URL}/projects/${project.slug}`,
               duration: "PT5M",
               publisher: {
                 "@type": "Organization",

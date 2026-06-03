@@ -242,37 +242,31 @@ export default function MasterPlanPageClient({ lang }: { lang?: import("@/lib/i1
                       <h4 className="font-heading text-lg font-bold text-[#1A2332] mb-3">{project.name}</h4>
                       <div className="space-y-2">
                         {project.subfolders.maps && (
-                          <a
-                            href={`https://drive.google.com/drive/folders/${project.subfolders.maps}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                          <Link
+                            href="/availability"
                             className="flex items-center gap-2 text-sm text-[#1A2332] hover:text-[#C8A45C] transition-colors"
                           >
                             <ExternalLink className="w-4 h-4" />
-                            {t.masterPlan.viewMaps}
-                          </a>
+                            Request Maps
+                          </Link>
                         )}
                         {project.subfolders.moodboard && (
-                          <a
-                            href={`https://drive.google.com/drive/folders/${project.subfolders.moodboard}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                          <Link
+                            href="/availability"
                             className="flex items-center gap-2 text-sm text-[#1A2332] hover:text-[#C8A45C] transition-colors"
                           >
                             <ExternalLink className="w-4 h-4" />
-                            {t.masterPlan.viewMoodboard}
-                          </a>
+                            Request Moodboard
+                          </Link>
                         )}
                         {project.subfolders.brochure && (
-                          <a
-                            href={`https://drive.google.com/drive/folders/${project.subfolders.brochure}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                          <Link
+                            href="/availability"
                             className="flex items-center gap-2 text-sm text-[#1A2332] hover:text-[#C8A45C] transition-colors"
                           >
                             <ExternalLink className="w-4 h-4" />
-                            {t.masterPlan.viewBrochure}
-                          </a>
+                            Request Brochure
+                          </Link>
                         )}
                       </div>
                     </CardContent>
