@@ -1,7 +1,6 @@
 "use client";
 
 import { PHONE_NUMBER, EMAIL, ADDRESS, WHATSAPP_LINK } from "@/lib/data";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Facebook, Instagram, Twitter, Linkedin, Youtube, MapPin, Phone, Mail, MessageCircle, ArrowUp, ExternalLink, Loader2, CheckCircle } from "lucide-react";
 import { useState } from "react";
@@ -238,14 +237,15 @@ export default function SiteFooter() {
               onSubmit={handleNewsletterSubmit}
               className="space-y-3"
             >
-              <Input
+              <input
                 placeholder={t.newsletterPlaceholder}
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 disabled={isSubmitting}
-                className="bg-white/[0.06] border-white/[0.1] text-white placeholder:text-white/25 text-sm disabled:opacity-50 h-11 rounded-lg focus:border-[#C8A45C]/40 focus:ring-[#C8A45C]/20 transition-all duration-300"
+                style={{ backgroundColor: 'rgba(255,255,255,0.08)', borderColor: 'rgba(255,255,255,0.2)' }}
+                className="w-full h-11 rounded-lg border px-4 text-sm text-white placeholder:text-white/40 disabled:opacity-50 focus:outline-none focus:border-[#C8A45C]/60 transition-all duration-300"
               />
               <Button
                 type="submit"
