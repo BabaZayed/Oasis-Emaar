@@ -312,16 +312,16 @@ export async function POST(request: NextRequest) {
       // Still save but mark as spam (silently accept so bots don't know)
       await db.lead.create({
         data: {
-          name: data.name,
-          email: data.email,
-          phone: data.phone,
-          budget: data.budget,
-          timeline: data.timeline,
-          nationality: data.nationality,
-          propertyInterest: data.propertyInterest,
-          formType: data.formType,
-          message: data.message,
-          pageUrl: data.pageUrl,
+          name: data.name ?? "",
+          email: data.email ?? "",
+          phone: data.phone ?? "",
+          budget: data.budget ?? "",
+          timeline: data.timeline ?? "",
+          nationality: data.nationality ?? "",
+          propertyInterest: data.propertyInterest ?? "",
+          formType: data.formType ?? "",
+          message: data.message ?? "",
+          pageUrl: data.pageUrl ?? "",
           isSpam: true,
           isQualified: false,
           leadScore: 0,
@@ -351,22 +351,29 @@ export async function POST(request: NextRequest) {
     }
 
     // Calculate lead score (skip for newsletter — minimal scoring)
-    const leadScore = data.formType === "newsletter" ? 10 : calculateLeadScore(data);
+    const leadScore = data.formType === "newsletter" ? 10 : calculateLeadScore({
+      email: data.email ?? "",
+      phone: data.phone ?? "",
+      budget: data.budget,
+      timeline: data.timeline,
+      nationality: data.nationality,
+      propertyInterest: data.propertyInterest,
+    });
     const isQualified = leadScore >= 40; // 40+ score = qualified lead
 
     // Save lead
     const lead = await db.lead.create({
       data: {
-        name: data.name,
-        email: data.email,
-        phone: data.phone,
-        budget: data.budget,
+        name: data.name ?? "",
+        email: data.email ?? "",
+        phone: data.phone ?? "",
+        budget: data.budget ?? "",
         timeline: data.timeline,
         nationality: data.nationality,
         propertyInterest: data.propertyInterest,
-        formType: data.formType,
-        message: data.message,
-        pageUrl: data.pageUrl,
+        formType: data.formType ?? "",
+        message: data.message ?? "",
+        pageUrl: data.pageUrl ?? "",
         isSpam: false,
         isQualified,
         leadScore,
@@ -378,16 +385,16 @@ export async function POST(request: NextRequest) {
 
     // Push to Google Sheets (non-blocking)
     pushToGoogleSheet({
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      budget: data.budget,
-      timeline: data.timeline,
-      nationality: data.nationality,
-      propertyInterest: data.propertyInterest,
-      formType: data.formType,
-      message: data.message,
-      pageUrl: data.pageUrl,
+      name: data.name ?? "",
+      email: data.email ?? "",
+      phone: data.phone ?? "",
+      budget: data.budget ?? "",
+      timeline: data.timeline ?? "",
+      nationality: data.nationality ?? "",
+      propertyInterest: data.propertyInterest ?? "",
+      formType: data.formType ?? "",
+      message: data.message ?? "",
+      pageUrl: data.pageUrl ?? "",
       leadScore,
       isQualified,
       source: "website",
