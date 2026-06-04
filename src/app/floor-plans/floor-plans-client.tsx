@@ -67,7 +67,7 @@ export default function FloorPlansClient({ lang }: { lang?: import("@/lib/i18n")
               >
                 All Types
               </Button>
-              {[4, 5, 6].map((br) => (
+              {[4, 5, 6, 7].map((br) => (
                 <Button
                   key={br}
                   variant={bedroomFilter === br ? "default" : "outline"}
