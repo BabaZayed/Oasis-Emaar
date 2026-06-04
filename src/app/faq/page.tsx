@@ -81,7 +81,7 @@ export const metadata: Metadata = {
 const faqPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  dateModified: "2026-05-19T00:00:00+04:00",
+  dateModified: "2026-06-04T00:00:00+04:00",
   datePublished: "2024-06-01T00:00:00+04:00",
   mainEntity: [
     {
@@ -251,7 +251,7 @@ const webPageJsonLd = {
   name: "FAQ — Frequently Asked Questions | The Oasis by Emaar",
   description: "Get answers to frequently asked questions about The Oasis by Emaar — property types, payment plans, handover dates, freehold ownership, amenities, and how to schedule a viewing.",
   url: `${SITE_URL}/faq`,
-  dateModified: "2026-05-19T00:00:00+04:00",
+  dateModified: "2026-06-04T00:00:00+04:00",
   datePublished: "2024-06-01T00:00:00+04:00",
   author: {
     "@type": "RealEstateAgent",
