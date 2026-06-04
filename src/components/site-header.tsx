@@ -129,13 +129,21 @@ export default function SiteHeader() {
             </nav>
 
             {/* Right side */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <a
                 href={`tel:${PHONE_NUMBER}`}
-                className="hidden sm:flex flex-row items-center gap-2 text-white/80 hover:text-[#C8A45C] text-sm transition-colors whitespace-nowrap"
+                className="hidden md:flex flex-row items-center gap-1.5 text-white/80 hover:text-[#C8A45C] text-xs sm:text-sm transition-colors whitespace-nowrap"
               >
-                <Phone className="w-4 h-4 flex-shrink-0" />
+                <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
                 <span className="whitespace-nowrap">{PHONE_NUMBER}</span>
+              </a>
+              {/* Phone icon only on small screens (tappable) */}
+              <a
+                href={`tel:${PHONE_NUMBER}`}
+                className="hidden sm:flex md:hidden p-2 min-w-[40px] min-h-[40px] items-center justify-center text-white/80 hover:text-[#C8A45C] transition-colors rounded-md hover:bg-white/5"
+                aria-label={`Call ${PHONE_NUMBER}`}
+              >
+                <Phone className="w-4 h-4" />
               </a>
               {/* Language Switcher - ALWAYS VISIBLE */}
               <div ref={langRef} className="relative hidden sm:block">
