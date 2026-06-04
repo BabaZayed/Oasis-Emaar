@@ -576,9 +576,9 @@
 
 /* ── Enhanced Glass Card with Gold Inner Glow ── */
 .glass-card-premium {
-  background: rgba(27, 45, 69, 0.5);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(13, 27, 42, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(200, 164, 92, 0.15);
   border-radius: 16px;
   box-shadow:

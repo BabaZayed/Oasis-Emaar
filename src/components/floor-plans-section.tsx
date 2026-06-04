@@ -124,19 +124,19 @@ export default function FloorPlansSection() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="bg-[#F5F0E8] rounded-xl p-4 text-center">
                     <p className="font-heading text-2xl font-bold text-[#C8A45C]">9</p>
-                    <p className="font-body text-xs text-gray-400 uppercase tracking-wider">Clusters</p>
+                    <p className="font-body text-xs text-gray-500 uppercase tracking-wider">Clusters</p>
                   </div>
                   <div className="bg-[#F5F0E8] rounded-xl p-4 text-center">
                     <p className="font-heading text-2xl font-bold text-[#C8A45C]">7,000+</p>
-                    <p className="font-body text-xs text-gray-400 uppercase tracking-wider">Residences</p>
+                    <p className="font-body text-xs text-gray-500 uppercase tracking-wider">Residences</p>
                   </div>
                   <div className="bg-[#F5F0E8] rounded-xl p-4 text-center">
                     <p className="font-heading text-2xl font-bold text-[#C8A45C]">3.5km</p>
-                    <p className="font-body text-xs text-gray-400 uppercase tracking-wider">Waterways</p>
+                    <p className="font-body text-xs text-gray-500 uppercase tracking-wider">Waterways</p>
                   </div>
                   <div className="bg-[#F5F0E8] rounded-xl p-4 text-center">
                     <p className="font-heading text-2xl font-bold text-[#C8A45C]">25%</p>
-                    <p className="font-body text-xs text-gray-400 uppercase tracking-wider">Green Space</p>
+                    <p className="font-body text-xs text-gray-500 uppercase tracking-wider">Green Space</p>
                   </div>
                 </div>
 

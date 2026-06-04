@@ -141,36 +141,36 @@ export default function ProjectDetailPage({ project }: { project: Project }) {
         {/* Overview */}
         <section className="py-16 sm:py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 mb-12">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-4 sm:gap-6 mb-12">
               <div className="bg-[#F5F0E8] rounded-xl p-5 text-center">
                 <Bed className="w-5 h-5 text-[#C8A45C] mx-auto mb-2" />
-                <p className="font-body text-xs text-gray-400 uppercase tracking-wider">Bedrooms</p>
-                <p className="font-heading text-lg font-bold text-[#1A2332]">{project.bedrooms}</p>
+                <p className="font-body text-xs text-gray-500 uppercase tracking-wider">Bedrooms</p>
+                <p className="font-heading text-base sm:text-lg font-bold text-[#1A2332]">{project.bedrooms}</p>
               </div>
               <div className="bg-[#F5F0E8] rounded-xl p-5 text-center">
                 <Maximize className="w-5 h-5 text-[#C8A45C] mx-auto mb-2" />
-                <p className="font-body text-xs text-gray-400 uppercase tracking-wider">Area</p>
-                <p className="font-heading text-lg font-bold text-[#1A2332]">{project.areaRange}</p>
+                <p className="font-body text-xs text-gray-500 uppercase tracking-wider">Area</p>
+                <p className="font-heading text-base sm:text-lg font-bold text-[#1A2332]">{project.areaRange}</p>
               </div>
               <div className="bg-[#F5F0E8] rounded-xl p-5 text-center">
                 <MapPin className="w-5 h-5 text-[#C8A45C] mx-auto mb-2" />
-                <p className="font-body text-xs text-gray-400 uppercase tracking-wider">Starting Price</p>
-                <p className="font-heading text-lg font-bold text-[#C8A45C]">{formatPrice(project.startingPrice)}</p>
+                <p className="font-body text-xs text-gray-500 uppercase tracking-wider">Starting Price</p>
+                <p className="font-heading text-base sm:text-lg font-bold text-[#C8A45C]">{formatPrice(project.startingPrice)}</p>
               </div>
               {project.plotArea && (
                 <div className="bg-[#F5F0E8] rounded-xl p-5 text-center">
                   <Maximize className="w-5 h-5 text-[#C8A45C] mx-auto mb-2" />
-                  <p className="font-body text-xs text-gray-400 uppercase tracking-wider">Plot Area</p>
-                  <p className="font-heading text-lg font-bold text-[#1A2332]">{project.plotArea}</p>
+                  <p className="font-body text-xs text-gray-500 uppercase tracking-wider">Plot Area</p>
+                  <p className="font-heading text-base sm:text-lg font-bold text-[#1A2332]">{project.plotArea}</p>
                 </div>
               )}
               <div className="bg-[#F5F0E8] rounded-xl p-5 text-center">
-                <p className="font-body text-xs text-gray-400 uppercase tracking-wider">Handover</p>
-                <p className="font-heading text-lg font-bold text-[#1A2332]">{project.handover}</p>
+                <p className="font-body text-xs text-gray-500 uppercase tracking-wider">Handover</p>
+                <p className="font-heading text-base sm:text-lg font-bold text-[#1A2332]">{project.handover}</p>
               </div>
               <div className="bg-[#F5F0E8] rounded-xl p-5 text-center">
-                <p className="font-body text-xs text-gray-400 uppercase tracking-wider">Payment</p>
-                <p className="font-heading text-lg font-bold text-[#1A2332]">{project.paymentPlan}</p>
+                <p className="font-body text-xs text-gray-500 uppercase tracking-wider">Payment</p>
+                <p className="font-heading text-base sm:text-lg font-bold text-[#1A2332]">{project.paymentPlan}</p>
               </div>
             </div>
 

@@ -95,12 +95,12 @@ export default function QuickInventorySection() {
           <div className="flex items-center gap-8 sm:gap-10">
             <div className="text-center sm:text-left">
               <p className="font-heading text-3xl sm:text-4xl font-bold text-[#C8A45C]">{totalAvailable}</p>
-              <p className="font-body text-[10px] text-white/50 uppercase tracking-[0.2em] mt-1">{t.quickInventory.propertiesAvailable}</p>
+              <p className="font-body text-xs text-white/60 uppercase tracking-[0.15em] mt-1">{t.quickInventory.propertiesAvailable}</p>
             </div>
             <div className="hidden sm:block w-px h-12 bg-white/15" />
             <div className="text-center sm:text-left">
               <p className="font-heading text-xl sm:text-2xl font-bold text-white">{t.quickInventory.startingFrom} {formatPrice(lowestPrice)}</p>
-              <p className="font-body text-[10px] text-white/50 uppercase tracking-[0.2em] mt-1">{t.common.aed}</p>
+              <p className="font-body text-xs text-white/60 uppercase tracking-[0.15em] mt-1">{t.common.aed}</p>
             </div>
           </div>
           <Link href={langHref(lang, "/inventory")}>

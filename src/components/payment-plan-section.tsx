@@ -24,7 +24,7 @@ export default function PaymentPlanSection({ lang }: { lang?: import("@/lib/i18n
 
         {/* Payment Timeline */}
         <div className="max-w-4xl mx-auto mb-16">
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-4 mb-8">
             {paymentMilestones.map((milestone, i) => (
               <div key={i} className="flex-1 text-center relative">
                 <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full gold-gradient flex items-center justify-center mb-4">
@@ -34,7 +34,7 @@ export default function PaymentPlanSection({ lang }: { lang?: import("@/lib/i18n
                   <div className="hidden sm:block absolute top-8 sm:top-10 left-[60%] w-[80%] h-0.5 bg-[#C8A45C]/30" />
                 )}
                 <h3 className="font-heading font-bold text-[#C8A45C] mb-2 text-sm sm:text-base">{milestone.label}</h3>
-                <p className="font-body text-white/50 text-xs sm:text-sm px-2">{milestone.description}</p>
+                <p className="font-body text-white/60 text-xs sm:text-sm px-2">{milestone.description}</p>
               </div>
             ))}
           </div>

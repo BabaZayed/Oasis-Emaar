@@ -74,7 +74,7 @@ function ProjectPreviewCard({ project }: { project: typeof projects[0] }) {
 
           <div className="flex items-end justify-between pt-5 border-t border-[#C8A45C]/10">
             <div>
-              <p className="font-body text-[10px] text-[#8A9BB5] uppercase tracking-[0.2em] mb-1.5">{t.common.startingFrom}</p>
+              <p className="font-body text-xs text-[#9BB0C8] uppercase tracking-[0.15em] mb-1.5">{t.common.startingFrom}</p>
               <p className="font-heading text-2xl sm:text-3xl font-bold gold-text">{formatPrice(project.startingPrice)}</p>
             </div>
             <div className="w-11 h-11 rounded-xl bg-[#C8A45C]/10 flex items-center justify-center group-hover:bg-[#C8A45C] transition-all duration-500">
@@ -132,8 +132,8 @@ export default function HomePageClient({ lang }: { lang?: import("@/lib/i18n").L
                     <div className="w-14 h-14 rounded-xl bg-[#C8A45C]/8 border border-[#C8A45C]/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-[#C8A45C]/15 group-hover:border-[#C8A45C]/20 transition-all duration-500">
                       <Icon className="w-6 h-6 text-[#C8A45C] group-hover:scale-110 transition-transform duration-500" />
                     </div>
-                    <p className="font-body text-[11px] text-[#9BB0C8] uppercase tracking-[0.2em] mb-2">{fact.label}</p>
-                    <p className={`font-heading text-xl sm:text-2xl font-bold ${isGoldenVisa ? "text-emerald-400" : "text-[#F0EDE6]"}`}>
+                    <p className="font-body text-xs sm:text-sm text-[#9BB0C8] uppercase tracking-[0.15em] mb-2">{fact.label}</p>
+                    <p className={`font-heading text-xl sm:text-2xl lg:text-3xl font-bold ${isGoldenVisa ? "text-emerald-400" : "text-[#F0EDE6]"}`}>
                       {fact.value}
                     </p>
                     {isGoldenVisa && (

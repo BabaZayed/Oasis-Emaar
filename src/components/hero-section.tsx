@@ -190,10 +190,10 @@ export default function HeroSection() {
               style={{ animationDelay: `${1.2 + i * 0.1}s` }}
             >
               <stat.icon className="w-5 h-5 sm:w-6 sm:h-6 text-[#C8A45C] mx-auto mb-3 group-hover:scale-110 transition-transform duration-500" />
-              <p className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-[#F0EDE6] mb-1.5 tracking-tight">
+              <p className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-[#F0EDE6] mb-2 tracking-tight">
                 {stat.value}
               </p>
-              <p className="font-body text-[10px] sm:text-xs text-[#8A9BB5] uppercase tracking-[0.2em]">{stat.label}</p>
+              <p className="font-body text-xs sm:text-sm text-[#9BB0C8] uppercase tracking-[0.15em]">{stat.label}</p>
             </div>
           ))}
         </motion.div>

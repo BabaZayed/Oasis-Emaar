@@ -233,19 +233,19 @@ export default function FloorPlansClient({ lang }: { lang?: import("@/lib/i18n")
                 <div className="grid grid-cols-2 gap-3 mb-6">
                   <div className="bg-white rounded-xl p-3 text-center shadow-sm">
                     <p className="font-heading text-xl font-bold text-[#C8A45C]">9</p>
-                    <p className="font-body text-xs text-gray-400 uppercase tracking-wider">{t.floorPlans.stats[0]}</p>
+                    <p className="font-body text-xs text-gray-500 uppercase tracking-wider">{t.floorPlans.stats[0]}</p>
                   </div>
                   <div className="bg-white rounded-xl p-3 text-center shadow-sm">
                     <p className="font-heading text-xl font-bold text-[#C8A45C]">7,000+</p>
-                    <p className="font-body text-xs text-gray-400 uppercase tracking-wider">{t.floorPlans.stats[1]}</p>
+                    <p className="font-body text-xs text-gray-500 uppercase tracking-wider">{t.floorPlans.stats[1]}</p>
                   </div>
                   <div className="bg-white rounded-xl p-3 text-center shadow-sm">
                     <p className="font-heading text-xl font-bold text-[#C8A45C]">3.5km</p>
-                    <p className="font-body text-xs text-gray-400 uppercase tracking-wider">{t.floorPlans.stats[2]}</p>
+                    <p className="font-body text-xs text-gray-500 uppercase tracking-wider">{t.floorPlans.stats[2]}</p>
                   </div>
                   <div className="bg-white rounded-xl p-3 text-center shadow-sm">
                     <p className="font-heading text-xl font-bold text-[#C8A45C]">25%</p>
-                    <p className="font-body text-xs text-gray-400 uppercase tracking-wider">{t.floorPlans.stats[3]}</p>
+                    <p className="font-body text-xs text-gray-500 uppercase tracking-wider">{t.floorPlans.stats[3]}</p>
                   </div>
                 </div>
                 <Link href="/master-plan">
@@ -353,12 +353,12 @@ function FloorPlanCard({
             </span>
           </div>
           {plan.plotSqft && (
-            <p className="text-sm text-gray-400 mb-2">{t.common.plot}: {formatSqft(plan.plotSqft)}</p>
+            <p className="text-sm text-gray-500 mb-2">{t.common.plot}: {formatSqft(plan.plotSqft)}</p>
           )}
           {plan.startingPrice && (
             <div className="flex items-center gap-1 text-sm mb-4">
               <span className="text-[#C8A45C] font-heading font-bold">{formatPrice(plan.startingPrice)}</span>
-              <span className="text-gray-400">{t.common.startingFrom || "starting from"}</span>
+              <span className="text-gray-500">{t.common.startingFrom || "starting from"}</span>
             </div>
           )}
           <div className="flex gap-2">
