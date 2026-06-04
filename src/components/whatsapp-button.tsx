@@ -27,7 +27,7 @@ export default function WhatsAppButton() {
   }, [showTooltip]);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex items-end gap-3">
+    <div className="fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-50 flex items-end gap-3">
       {/* Tooltip bubble */}
       <AnimatePresence>
         {showTooltip && !dismissed && (
@@ -35,7 +35,7 @@ export default function WhatsAppButton() {
             initial={{ opacity: 0, x: 20, scale: 0.8 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: 20, scale: 0.8 }}
-            className="bg-white rounded-2xl shadow-2xl p-4 max-w-[220px] relative border border-gray-100"
+            className="bg-white rounded-2xl shadow-2xl p-3 sm:p-4 max-w-[180px] sm:max-w-[220px] relative border border-gray-100"
           >
             <button
               onClick={() => { setShowTooltip(false); setDismissed(true); }}

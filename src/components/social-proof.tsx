@@ -113,7 +113,7 @@ export default function SocialProof() {
   const IconComponent = notification.icon;
 
   return (
-    <div className="fixed bottom-24 left-4 z-40 sm:left-6 sm:bottom-28" aria-live="polite">
+    <div className="fixed bottom-20 left-3 right-20 sm:right-auto sm:left-6 sm:bottom-28 z-40" aria-live="polite">
       <AnimatePresence mode="wait">
         {visible && (
           <motion.div
@@ -125,7 +125,7 @@ export default function SocialProof() {
               duration: 0.4,
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
-            className="bg-[#1A2332] border border-[#C8A45C]/30 rounded-xl shadow-2xl px-4 py-3 max-w-[300px] sm:max-w-[340px] relative overflow-hidden"
+            className="bg-[#1A2332] border border-[#C8A45C]/30 rounded-xl shadow-2xl px-3 py-2.5 sm:px-4 sm:py-3 max-w-[260px] sm:max-w-[340px] relative overflow-hidden"
           >
             {/* Gold accent line at top */}
             <div className="absolute top-0 left-0 right-0 h-[2px] gold-gradient" />
