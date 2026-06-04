@@ -207,7 +207,8 @@ const qaPageJsonLd = {
     "@type": "Question",
     name: "How do I buy a property at The Oasis by Emaar in Dubai?",
     text: "What is the process for purchasing a luxury waterfront villa, mansion, or branded residence at The Oasis by Emaar?",
-    datePublished: "2025-06-01T00:00:00+04:00",
+    datePublished: "2024-06-01T09:15:00+04:00",
+    dateModified: "2026-06-04T12:00:00+04:00",
     answerCount: 2,
     author: {
       "@type": "Person",
@@ -218,7 +219,7 @@ const qaPageJsonLd = {
       "@type": "Answer",
       text: "To buy at The Oasis: 1) Contact an authorized agent like Oasis Emaar (+971 52 691 9169). 2) Select from 9 clusters (AED 9.2M to AED 50M+). 3) Pay 10% booking amount. 4) Follow the 80/20 or 90/10 construction-linked payment plan. 5) Complete handover and DLD registration. Properties above AED 2M qualify for the UAE Golden Visa.",
       upvoteCount: 42,
-      dateCreated: "2025-06-01T05:00:00+04:00",
+      dateCreated: "2024-06-01T10:30:00+04:00",
       url: `${SITE_URL}/faq#accepted-answer`,
       author: {
         "@type": "RealEstateAgent",
@@ -231,7 +232,7 @@ const qaPageJsonLd = {
       "@type": "Answer",
       text: "Oasis Emaar is an authorized sales agent for The Oasis by Emaar. We provide exclusive inventory access, expert guidance, and personalized service across all 9 clusters. Start by calling +971 52 691 9169 or emailing sales@oasisemaar.com.",
       upvoteCount: 38,
-      dateCreated: "2025-06-01T06:30:00+04:00",
+      dateCreated: "2024-06-01T11:45:00+04:00",
       url: `${SITE_URL}/faq#suggested-answer`,
       author: {
         "@type": "RealEstateAgent",
