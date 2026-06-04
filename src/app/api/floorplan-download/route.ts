@@ -94,7 +94,7 @@ export async function GET(request: NextRequest) {
     const safePlanName = plan.name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
     const filename = `${safeName}-${safePlanName}-watermarked.jpg`;
 
-    return new NextResponse(buffer, {
+    return new NextResponse(new Uint8Array(buffer), {
       status: 200,
       headers: {
         "Content-Type": "image/jpeg",
