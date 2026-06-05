@@ -62,7 +62,7 @@ export default function SiteHeader() {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
           scrolled
             ? "bg-[#0D1B2A]/95 backdrop-blur-xl shadow-lg shadow-black/20"
-            : "bg-transparent"
+            : "bg-[#0D1B2A]/80 backdrop-blur-md"
         }`}
         dir={isRTL ? "rtl" : "ltr"}
       >
@@ -77,38 +77,62 @@ export default function SiteHeader() {
             background: "linear-gradient(90deg, transparent 0%, rgba(200, 164, 92, 0.4) 30%, rgba(200, 164, 92, 0.6) 50%, rgba(200, 164, 92, 0.4) 70%, transparent 100%)",
           }}
         />
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-          <div className="flex items-center h-14 sm:h-20 gap-3 sm:gap-4 overflow-x-auto lg:overflow-visible scrollbar-none" style={{ WebkitOverflowScrolling: 'touch' }}>
-            {/* Logo */}
-            <Link href={currentLang === "en" ? "/" : `/${currentLang}`} className="flex items-center gap-2 flex-shrink-0">
+
+        {/* Main header row — horizontally scrollable on screens below xl */}
+        <div className="relative">
+          {/* Left fade hint — visible on scrollable viewports below xl */}
+          <div className="xl:hidden absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-[#0D1B2A]/90 to-transparent z-10 pointer-events-none" />
+          {/* Right fade hint */}
+          <div className="xl:hidden absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#0D1B2A]/90 to-transparent z-10 pointer-events-none" />
+
+          <div
+            className="flex items-center h-14 sm:h-16 lg:h-20 gap-2 sm:gap-3 px-3 sm:px-6 lg:px-8 overflow-x-auto xl:overflow-visible scrollbar-hide"
+            style={{
+              WebkitOverflowScrolling: "touch",
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+            }}
+          >
+            {/* Logo — always first, never shrinks */}
+            <Link
+              href={currentLang === "en" ? "/" : `/${currentLang}`}
+              className="flex items-center gap-2 flex-shrink-0"
+            >
               <div className="flex flex-col">
-                <span className={`font-heading font-bold tracking-wider gold-text transition-all duration-500 ${
-                  scrolled ? "text-lg sm:text-2xl" : "text-xl sm:text-3xl"
-                }`}>
+                <span
+                  className={`font-heading font-bold tracking-wider gold-text transition-all duration-500 ${
+                    scrolled ? "text-lg sm:text-2xl" : "text-xl sm:text-3xl"
+                  }`}
+                >
                   OASIS
                 </span>
-                <span className={`text-[10px] sm:text-xs tracking-[0.15em] text-white/70 -mt-1 transition-all duration-500 ${
-                  scrolled ? "" : "opacity-80"
-                }`}>
+                <span
+                  className={`text-[9px] sm:text-xs tracking-[0.15em] text-white/70 -mt-1 transition-all duration-500 ${
+                    scrolled ? "" : "opacity-80"
+                  }`}
+                >
                   {t.logoSubtitle}
                 </span>
               </div>
             </Link>
 
-            {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-1 flex-shrink-0 lg:flex-1 lg:justify-center">
+            {/* Desktop Nav — visible at lg+, scrollable on lg, centered at xl+ */}
+            <nav className="flex items-center gap-0.5 sm:gap-1 flex-shrink-0">
               {t.nav.map((link, idx) => {
                 const englishHref = headerT.en.nav[idx]?.href || link.href;
                 const navHref = langHref(currentLang, englishHref);
                 const isSellPage = englishHref === "/sell";
                 const isInventory = englishHref === "/inventory";
-                const isActive = currentPagePath === englishHref ||
-                  (englishHref !== "/" && !englishHref.startsWith("/#") && currentPagePath.startsWith(englishHref));
+                const isActive =
+                  currentPagePath === englishHref ||
+                  (englishHref !== "/" &&
+                    !englishHref.startsWith("/#") &&
+                    currentPagePath.startsWith(englishHref));
                 return (
                   <Link
                     key={englishHref}
                     href={navHref}
-                    className={`font-body px-3 py-2 text-sm transition-all duration-300 rounded-md flex items-center gap-1.5 ${
+                    className={`font-body px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm transition-all duration-300 rounded-md flex items-center gap-1 flex-shrink-0 whitespace-nowrap ${
                       isSellPage
                         ? "btn-gold text-[#0D1B2A] font-semibold hover:opacity-90"
                         : isActive
@@ -128,75 +152,82 @@ export default function SiteHeader() {
               })}
             </nav>
 
-            {/* Right side */}
-            <div className="flex items-center gap-1 sm:gap-3 flex-shrink-0 lg:ml-auto">
-              {/* Phone number — ALWAYS visible on ALL screen sizes */}
-              <a
-                href={`tel:${PHONE_NUMBER}`}
-                className="flex items-center gap-1 text-[#C8A45C] hover:text-white text-[11px] sm:text-sm md:text-base font-medium transition-colors whitespace-nowrap"
-              >
-                <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
-                <span className="whitespace-nowrap">{PHONE_NUMBER}</span>
-              </a>
-              {/* Language Switcher - ALWAYS VISIBLE */}
-              <div ref={langRef} className="relative hidden sm:block">
-                <button
-                  onClick={() => setLangOpen(!langOpen)}
-                  className="flex items-center gap-1 p-2 min-w-[44px] min-h-[44px] text-white/80 hover:text-[#C8A45C] transition-colors rounded-md hover:bg-white/5"
-                  aria-label="Switch language"
-                >
-                  <Globe className="w-5 h-5" />
-                  <span className="text-[10px] font-bold bg-[#C8A45C] text-[#1A2332] px-1 py-0.5 rounded leading-none">
-                    {currentLang.toUpperCase()}
-                  </span>
-                </button>
-                {langOpen && (
-                  <div className={`absolute ${isRTL ? 'left-0' : 'right-0'} top-full mt-2 w-48 bg-[#1A2332]/95 backdrop-blur-xl border border-white/10 rounded-lg shadow-2xl overflow-hidden z-50`}>
-                    {langCodes.map((code) => {
-                      // Link to the same page in the selected language
-                      const switchHref = langHref(code, currentPagePath);
-                      return (
-                        <Link
-                          key={code}
-                          href={switchHref}
-                          onClick={() => setLangOpen(false)}
-                          className={`flex items-center gap-3 px-4 py-3 text-sm transition-colors ${
-                            currentLang === code
-                              ? "text-[#C8A45C] bg-white/5"
-                              : "text-white/80 hover:text-[#C8A45C] hover:bg-white/5"
-                          }`}
-                        >
-                          <span className="text-lg">{langNames[code].flag}</span>
-                          <span>{langNames[code].label}</span>
-                        </Link>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-              <Link href={langHref(currentLang, "/availability")}>
-                <Button
-                  className="btn-gold-glow text-[#1A2332] font-semibold text-sm px-5 py-2.5 rounded-md hidden sm:flex items-center gap-2"
-                >
-                  {t.checkAvailability}
-                </Button>
-              </Link>
+            {/* Divider */}
+            <div className="w-px h-6 bg-white/15 flex-shrink-0 hidden sm:block" />
+
+            {/* Phone number — ALWAYS visible */}
+            <a
+              href={`tel:${PHONE_NUMBER}`}
+              className="flex items-center gap-1 text-[#C8A45C] hover:text-white text-[11px] sm:text-sm font-medium transition-colors whitespace-nowrap flex-shrink-0"
+            >
+              <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
+              <span>{PHONE_NUMBER}</span>
+            </a>
+
+            {/* Language Switcher */}
+            <div ref={langRef} className="relative flex-shrink-0">
               <button
-                onClick={() => setMobileOpen(!mobileOpen)}
-                className="lg:hidden p-2.5 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-lg text-white hover:text-[#C8A45C] transition-colors"
+                onClick={() => setLangOpen(!langOpen)}
+                className="flex items-center gap-1 p-1.5 sm:p-2 min-w-[36px] sm:min-w-[44px] min-h-[36px] sm:min-h-[44px] text-white/80 hover:text-[#C8A45C] transition-colors rounded-md hover:bg-white/5"
+                aria-label="Switch language"
               >
-                {mobileOpen ? (
-                  <X className="w-6 h-6" />
-                ) : (
-                  <Menu className="w-6 h-6" />
-                )}
+                <Globe className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="text-[10px] font-bold bg-[#C8A45C] text-[#1A2332] px-1 py-0.5 rounded leading-none">
+                  {currentLang.toUpperCase()}
+                </span>
               </button>
+              {langOpen && (
+                <div
+                  className={`absolute ${isRTL ? "left-0" : "right-0"} top-full mt-2 w-48 bg-[#1A2332]/95 backdrop-blur-xl border border-white/10 rounded-lg shadow-2xl overflow-hidden z-50`}
+                >
+                  {langCodes.map((code) => {
+                    const switchHref = langHref(code, currentPagePath);
+                    return (
+                      <Link
+                        key={code}
+                        href={switchHref}
+                        onClick={() => setLangOpen(false)}
+                        className={`flex items-center gap-3 px-4 py-3 text-sm transition-colors ${
+                          currentLang === code
+                            ? "text-[#C8A45C] bg-white/5"
+                            : "text-white/80 hover:text-[#C8A45C] hover:bg-white/5"
+                        }`}
+                      >
+                        <span className="text-lg">{langNames[code].flag}</span>
+                        <span>{langNames[code].label}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
             </div>
+
+            {/* CTA Button */}
+            <Link
+              href={langHref(currentLang, "/availability")}
+              className="flex-shrink-0"
+            >
+              <Button className="btn-gold-glow text-[#1A2332] font-semibold text-xs sm:text-sm px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-md flex items-center gap-1.5 whitespace-nowrap">
+                {t.checkAvailability}
+              </Button>
+            </Link>
+
+            {/* Hamburger — only for mobile menu */}
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="lg:hidden p-2 min-w-[40px] min-h-[40px] flex items-center justify-center rounded-lg text-white hover:text-[#C8A45C] transition-colors flex-shrink-0"
+            >
+              {mobileOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
+            </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu (hamburger dropdown) */}
       <AnimatePresence>
         {mobileOpen && (
           <>
@@ -213,10 +244,13 @@ export default function SiteHeader() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.98 }}
               transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-              className="fixed top-14 sm:top-20 left-0 right-0 z-40 lg:hidden"
+              className="fixed top-14 sm:top-16 lg:top-20 left-0 right-0 z-40 lg:hidden"
             >
               <div className="bg-[#1A2332]/98 backdrop-blur-xl border-t border-[#C8A45C]/15 shadow-2xl max-h-[85vh] overflow-y-auto luxury-scroll">
-                <nav className="max-w-7xl mx-auto px-4 py-6 flex flex-col" dir={isRTL ? "rtl" : "ltr"}>
+                <nav
+                  className="max-w-7xl mx-auto px-4 py-6 flex flex-col"
+                  dir={isRTL ? "rtl" : "ltr"}
+                >
                   {t.nav.map((link, idx) => {
                     const englishHref = headerT.en.nav[idx]?.href || link.href;
                     const navHref = langHref(currentLang, englishHref);
@@ -251,17 +285,28 @@ export default function SiteHeader() {
                     >
                       WhatsApp: {PHONE_NUMBER}
                     </a>
-                    <Link href={langHref(currentLang, "/availability")} onClick={() => setMobileOpen(false)}>
-                      <Button
-                        className="w-full btn-gold-glow text-[#1A2332] font-semibold py-3.5 rounded-lg text-base"
-                      >
+                    <Link
+                      href={langHref(currentLang, "/availability")}
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      <Button className="w-full btn-gold-glow text-[#1A2332] font-semibold py-3.5 rounded-lg text-base">
                         {t.checkAvailability}
                       </Button>
                     </Link>
-                    {/* Mobile Language Options - ALWAYS VISIBLE */}
+                    {/* Mobile Language Options */}
                     <div className="mt-4 pt-4 border-t border-white/10">
                       <p className="text-xs text-white/50 mb-3 px-1 tracking-wider uppercase">
-                        {currentLang === "ar" ? "اللغة" : currentLang === "zh" ? "语言" : currentLang === "ru" ? "Язык" : currentLang === "fr" ? "Langue" : currentLang === "de" ? "Sprache" : "Language"}
+                        {currentLang === "ar"
+                          ? "اللغة"
+                          : currentLang === "zh"
+                            ? "语言"
+                            : currentLang === "ru"
+                              ? "Язык"
+                              : currentLang === "fr"
+                                ? "Langue"
+                                : currentLang === "de"
+                                  ? "Sprache"
+                                  : "Language"}
                       </p>
                       <div className="grid grid-cols-2 gap-1.5">
                         {langCodes.map((code) => {
@@ -291,6 +336,17 @@ export default function SiteHeader() {
           </>
         )}
       </AnimatePresence>
+
+      {/* Global style to hide scrollbar on the sliding header */}
+      <style jsx global>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
     </>
   );
 }
