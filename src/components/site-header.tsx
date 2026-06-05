@@ -77,13 +77,13 @@ export default function SiteHeader() {
             background: "linear-gradient(90deg, transparent 0%, rgba(200, 164, 92, 0.4) 30%, rgba(200, 164, 92, 0.6) 50%, rgba(200, 164, 92, 0.4) 70%, transparent 100%)",
           }}
         />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 sm:h-20">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 overflow-hidden">
+          <div className="flex items-center justify-between h-14 sm:h-20 min-w-0">
             {/* Logo */}
-            <Link href={currentLang === "en" ? "/" : `/${currentLang}`} className="flex items-center gap-2">
+            <Link href={currentLang === "en" ? "/" : `/${currentLang}`} className="flex items-center gap-2 flex-shrink-0">
               <div className="flex flex-col">
                 <span className={`font-heading font-bold tracking-wider gold-text transition-all duration-500 ${
-                  scrolled ? "text-xl sm:text-2xl" : "text-2xl sm:text-3xl"
+                  scrolled ? "text-lg sm:text-2xl" : "text-xl sm:text-3xl"
                 }`}>
                   OASIS
                 </span>
@@ -129,14 +129,14 @@ export default function SiteHeader() {
             </nav>
 
             {/* Right side */}
-            <div className="flex items-center gap-2 sm:gap-3">
-              {/* Phone number — ALWAYS visible on all screen sizes */}
+            <div className="flex items-center gap-1 sm:gap-3 flex-shrink-0">
+              {/* Phone number — icon on mobile, full number on tablet+ */}
               <a
                 href={`tel:${PHONE_NUMBER}`}
-                className="flex flex-row items-center gap-1.5 text-[#C8A45C] hover:text-white text-xs sm:text-sm md:text-base font-medium transition-colors whitespace-nowrap"
+                className="flex items-center gap-1 text-[#C8A45C] hover:text-white text-xs sm:text-sm font-medium transition-colors"
               >
-                <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
-                <span className="whitespace-nowrap">{PHONE_NUMBER}</span>
+                <Phone className="w-4 h-4 flex-shrink-0" />
+                <span className="hidden sm:inline whitespace-nowrap">{PHONE_NUMBER}</span>
               </a>
               {/* Language Switcher - ALWAYS VISIBLE */}
               <div ref={langRef} className="relative hidden sm:block">
@@ -213,7 +213,7 @@ export default function SiteHeader() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.98 }}
               transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-              className="fixed top-16 left-0 right-0 z-40 lg:hidden"
+              className="fixed top-14 sm:top-20 left-0 right-0 z-40 lg:hidden"
             >
               <div className="bg-[#1A2332]/98 backdrop-blur-xl border-t border-[#C8A45C]/15 shadow-2xl max-h-[85vh] overflow-y-auto luxury-scroll">
                 <nav className="max-w-7xl mx-auto px-4 py-6 flex flex-col" dir={isRTL ? "rtl" : "ltr"}>
