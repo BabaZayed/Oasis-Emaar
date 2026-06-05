@@ -78,9 +78,9 @@ export default function SiteHeader() {
           }}
         />
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-14 sm:h-20 gap-2 sm:gap-4 overflow-x-auto lg:overflow-visible scrollbar-none" style={{ WebkitOverflowScrolling: 'touch' }}>
+          <div className="flex items-center h-14 sm:h-20 gap-3 sm:gap-4 overflow-x-auto lg:overflow-visible scrollbar-none" style={{ WebkitOverflowScrolling: 'touch' }}>
             {/* Logo */}
-            <Link href={currentLang === "en" ? "/" : `/${currentLang}`} className="flex items-center gap-2">
+            <Link href={currentLang === "en" ? "/" : `/${currentLang}`} className="flex items-center gap-2 flex-shrink-0">
               <div className="flex flex-col">
                 <span className={`font-heading font-bold tracking-wider gold-text transition-all duration-500 ${
                   scrolled ? "text-lg sm:text-2xl" : "text-xl sm:text-3xl"
@@ -96,7 +96,7 @@ export default function SiteHeader() {
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden lg:flex items-center gap-1 flex-shrink-0 lg:flex-1 lg:justify-center">
               {t.nav.map((link, idx) => {
                 const englishHref = headerT.en.nav[idx]?.href || link.href;
                 const navHref = langHref(currentLang, englishHref);
@@ -129,7 +129,7 @@ export default function SiteHeader() {
             </nav>
 
             {/* Right side */}
-            <div className="flex items-center gap-1 sm:gap-3 flex-shrink-0">
+            <div className="flex items-center gap-1 sm:gap-3 flex-shrink-0 lg:ml-auto">
               {/* Phone number — always visible, slide header on mobile to see */}
               <a
                 href={`tel:${PHONE_NUMBER}`}
