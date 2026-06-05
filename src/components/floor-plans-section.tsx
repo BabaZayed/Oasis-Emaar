@@ -255,57 +255,98 @@ export default function FloorPlansSection() {
       {/* Floor Plan Lightbox / Enlarge Dialog */}
       <Dialog open={!!selectedPlan} onOpenChange={() => setSelectedPlan(null)}>
         <DialogContent className="max-w-5xl p-0 overflow-hidden bg-[#1A2332] border-0">
-          {selectedPlan && (
-            <div className="relative">
-              {/* Close button */}
-              <button
-                onClick={() => setSelectedPlan(null)}
-                className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-white/40 transition-colors"
-              >
-                <X className="w-5 h-5 text-white" />
-              </button>
+          {selectedPlan && (() => {
+            const proj = projects.find((p) => p.id === selectedPlan.projectId);
+            return (
+              <div className="relative">
+                {/* Close button */}
+                <button
+                  onClick={() => setSelectedPlan(null)}
+                  className="absolute top-4 right-4 z-50 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-white/40 transition-colors"
+                >
+                  <X className="w-5 h-5 text-white" />
+                </button>
 
-              {/* Floor plan image - full size */}
-              <div className="relative h-[60vh] sm:h-[75vh] bg-[#F5F0E8]">
-                <Image
-                  src={selectedPlan.imageUrl!}
-                  alt={selectedPlan.name}
-                  fill
-                  className="object-contain p-4"
-                  sizes="(max-width: 1024px) 100vw, 1024px"
-                  quality={95}
-                />
-              </div>
-
-              {/* Info bar */}
-              <div className="bg-[#1A2332] p-4 sm:p-6">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                  <div>
-                    <h3 className="font-heading text-xl font-bold text-white mb-1">{selectedPlan.name}</h3>
-                    <div className="flex items-center gap-4 text-sm text-white/60">
-                      <span className="flex items-center gap-1">
-                        <Bed className="w-4 h-4 text-[#C8A45C]" /> {selectedPlan.bedrooms} Bedroom
+                {/* Header with full specs */}
+                <div className="bg-[#0F1923] px-6 py-4 border-b border-white/10">
+                  <h3 className="font-heading text-xl sm:text-2xl font-bold text-white mb-2">
+                    {proj?.name ?? "Cluster"} — {selectedPlan.name}
+                  </h3>
+                  <div className="flex flex-wrap gap-x-5 gap-y-1 text-sm">
+                    <span className="flex items-center gap-1.5 text-white/70">
+                      <Bed className="w-4 h-4 text-[#C8A45C]" /> {selectedPlan.bedrooms} Bedroom
+                    </span>
+                    <span className="flex items-center gap-1.5 text-white/70">
+                      <Maximize className="w-4 h-4 text-[#C8A45C]" /> Built-up: {formatSqft(selectedPlan.areaSqft)}
+                    </span>
+                    {selectedPlan.plotSqft && (
+                      <span className="text-white/70">Plot: {formatSqft(selectedPlan.plotSqft)}</span>
+                    )}
+                    {selectedPlan.startingPrice && (
+                      <span className="text-[#C8A45C] font-heading font-bold">
+                        {formatPrice(selectedPlan.startingPrice)}
                       </span>
-                      <span className="flex items-center gap-1">
-                        <Maximize className="w-4 h-4 text-[#C8A45C]" /> {formatSqft(selectedPlan.areaSqft)}
+                    )}
+                    {proj?.clusterTag && (
+                      <span className="bg-[#C8A45C]/20 text-[#C8A45C] px-2 py-0.5 rounded text-xs font-semibold">
+                        {proj.clusterTag}
                       </span>
-                      {selectedPlan.plotSqft && (
-                        <span>Plot: {formatSqft(selectedPlan.plotSqft)}</span>
-                      )}
-                    </div>
+                    )}
+                    {proj?.handover && (
+                      <span className="text-white/50">Handover: {proj.handover}</span>
+                    )}
+                    {proj?.paymentPlan && (
+                      <span className="text-white/50">{proj.paymentPlan} Plan</span>
+                    )}
                   </div>
-                  <Button
-                    onClick={() => handleDownload(selectedPlan)}
-                    className="gold-gradient text-[#1A2332] font-bold px-6 py-3 rounded-md hover:opacity-90"
-                    disabled={downloadingId === selectedPlan.id}
-                  >
-                    <Download className="w-4 h-4 mr-2" />
-                    {downloadingId === selectedPlan.id ? "Preparing..." : "Download Floor Plan"}
-                  </Button>
+                </div>
+
+                {/* Floor plan image - click to view full size */}
+                <div className="relative h-[55vh] sm:h-[65vh] bg-[#F5F0E8] cursor-zoom-in" onClick={() => {
+                  if (selectedPlan.imageUrl) {
+                    const w = window.open(selectedPlan.imageUrl, '_blank');
+                    if (w) w.focus();
+                  }
+                }}>
+                  <Image
+                    src={selectedPlan.imageUrl!}
+                    alt={selectedPlan.name}
+                    fill
+                    className="object-contain p-4"
+                    sizes="(max-width: 1024px) 100vw, 1024px"
+                    quality={95}
+                  />
+                  <div className="absolute bottom-3 right-3 bg-black/50 text-white/70 text-xs px-3 py-1 rounded-full backdrop-blur-sm">
+                    Click to view full size
+                  </div>
+                </div>
+
+                {/* Footer with actions */}
+                <div className="bg-[#1A2332] p-4 sm:p-5">
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                    <Button
+                      onClick={() => handleDownload(selectedPlan)}
+                      className="gold-gradient text-[#1A2332] font-bold px-6 py-3 rounded-md hover:opacity-90 flex-1"
+                      disabled={downloadingId === selectedPlan.id}
+                    >
+                      <Download className="w-4 h-4 mr-2" />
+                      {downloadingId === selectedPlan.id ? "Preparing..." : "Download Floor Plan"}
+                    </Button>
+                    <a
+                      href={`https://wa.me/971526919169?text=${encodeURIComponent(`Hi, I'm interested in the ${selectedPlan.name} at ${proj?.name ?? 'this cluster'}. Please share more details and availability.`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1"
+                    >
+                      <Button className="w-full bg-green-600 text-white hover:bg-green-700 font-bold px-6 py-3 rounded-md">
+                        📞 Enquire About This Unit
+                      </Button>
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
+            );
+          })()}
         </DialogContent>
       </Dialog>
     </section>

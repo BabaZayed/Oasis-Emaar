@@ -81,7 +81,7 @@ const features = [
 // ─── Cluster Data ───
 const clusters = [
   { name: "Palmiera", beds: "4 SZ", price: "ab 10,5M AED", tag: "Villen" },
-  { name: "Palmiera 3", beds: "4 SZ", price: "ab 9,18M AED", tag: "Villen" },
+  { name: "Palmiera 3", beds: "4 SZ", price: "ab 9,2M AED", tag: "Villen" },
   { name: "Mareva", beds: "4 SZ", price: "ab 13,47M AED", tag: "Villen" },
   { name: "Mareva 2", beds: "4 SZ", price: "ab 13,47M AED", tag: "Villen" },
   { name: "Mirage", beds: "5 SZ", price: "ab 15,8M AED", tag: "Premium" },
@@ -244,7 +244,7 @@ export default function DePageClient() {
             className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto mt-12 sm:mt-16"
           >
             {[
-              { icon: Home, value: "ab 9,18M AED", label: "Startpreis" },
+              { icon: Home, value: "ab 9,2M AED", label: "Startpreis" },
               { icon: Building2, value: "7.000+", label: "Residenzen" },
               { icon: Waves, value: "3,5 km", label: "Kristalllagune" },
               { icon: Plane, value: "Golden Visa", label: "Berechtigt" },

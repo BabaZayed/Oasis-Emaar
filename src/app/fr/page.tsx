@@ -4,7 +4,7 @@ import FrPageClient from "./fr-page-client";
 export const metadata: Metadata = {
   title: "L'Oasis by Emaar | Agent Autorisé — Villas de Luxe en Bord de Mer à Dubaï",
   description:
-    "Découvrez L'Oasis by Emaar avec un agent autorisé. Communauté premium en bord de mer à Dubaï avec villas de luxe, mansions et résidences de marque. À partir de 9,18M AED.",
+    "Découvrez L'Oasis by Emaar avec un agent autorisé. Communauté premium en bord de mer à Dubaï avec villas de luxe, mansions et résidences de marque. À partir de 9,2M AED.",
   keywords: [
     "villas dubaï",
     "l'oasis emaar",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "L'Oasis by Emaar | Agent Autorisé — Villas de Luxe en Bord de Mer à Dubaï",
     description:
-      "Découvrez L'Oasis by Emaar avec un agent autorisé. Communauté premium en bord de mer à Dubaï avec villas de luxe, mansions et résidences de marque. À partir de 9,18M AED.",
+      "Découvrez L'Oasis by Emaar avec un agent autorisé. Communauté premium en bord de mer à Dubaï avec villas de luxe, mansions et résidences de marque. À partir de 9,2M AED.",
     url: "https://www.oasisemaar.com/fr/",
     siteName: "Oasis Emaar — Agent Autorisé",
     type: "website",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "L'Oasis by Emaar | Agent Autorisé — Villas de Luxe en Bord de Mer à Dubaï",
     description:
-      "Découvrez L'Oasis by Emaar avec un agent autorisé. Communauté premium en bord de mer à Dubaï. À partir de 9,18M AED.",
+      "Découvrez L'Oasis by Emaar avec un agent autorisé. Communauté premium en bord de mer à Dubaï. À partir de 9,2M AED.",
     images: ["/og-image.jpg"],
   },
   alternates: {
@@ -69,7 +69,7 @@ const realEstateAgentJsonLd = {
   "@type": ["RealEstateAgent", "LocalBusiness"],
   name: "Oasis Emaar — Agent de Vente Autorisé",
   description:
-    "Agent de vente autorisé pour L'Oasis by Emaar Properties à Dubaï. Villas de luxe en bord de mer, mansions et résidences de marque à partir de 9,18M AED.",
+    "Agent de vente autorisé pour L'Oasis by Emaar Properties à Dubaï. Villas de luxe en bord de mer, mansions et résidences de marque à partir de 9,2M AED.",
   url: "https://www.oasisemaar.com/fr/",
   logo: "https://www.oasisemaar.com/logo.svg",
   telephone: "+971526919169",
@@ -195,7 +195,7 @@ const webPageJsonLd = {
   "@type": "WebPage",
   name: "L'Oasis by Emaar | Agent Autorisé — Villas de Luxe en Bord de Mer à Dubaï",
   description:
-    "Découvrez L'Oasis by Emaar avec un agent autorisé. Communauté premium en bord de mer à Dubaï avec villas de luxe, mansions et résidences de marque. À partir de 9,18M AED.",
+    "Découvrez L'Oasis by Emaar avec un agent autorisé. Communauté premium en bord de mer à Dubaï avec villas de luxe, mansions et résidences de marque. À partir de 9,2M AED.",
   url: "https://www.oasisemaar.com/fr/",
   inLanguage: "fr",
   author: {

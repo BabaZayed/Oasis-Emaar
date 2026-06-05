@@ -4,7 +4,7 @@ import DePageClient from "./de-page-client";
 export const metadata: Metadata = {
   title: "The Oasis by Emaar | Autorisierter Agent — Luxus-Wasserfront-Villen in Dubai",
   description:
-    "Entdecken Sie The Oasis by Emaar mit einem autorisierten Verkaufsagenten. Premium-Wasserfront-Gemeinschaft in Dubai mit Luxus-Villen, Anwesen und Marken-Residenzen. Ab 9,18M AED.",
+    "Entdecken Sie The Oasis by Emaar mit einem autorisierten Verkaufsagenten. Premium-Wasserfront-Gemeinschaft in Dubai mit Luxus-Villen, Anwesen und Marken-Residenzen. Ab 9,2M AED.",
   keywords: [
     "villen dubai",
     "oasis emaar",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Oasis by Emaar | Autorisierter Agent — Luxus-Wasserfront-Villen in Dubai",
     description:
-      "Entdecken Sie The Oasis by Emaar mit einem autorisierten Verkaufsagenten. Premium-Wasserfront-Gemeinschaft in Dubai mit Luxus-Villen, Anwesen und Marken-Residenzen. Ab 9,18M AED.",
+      "Entdecken Sie The Oasis by Emaar mit einem autorisierten Verkaufsagenten. Premium-Wasserfront-Gemeinschaft in Dubai mit Luxus-Villen, Anwesen und Marken-Residenzen. Ab 9,2M AED.",
     url: "https://www.oasisemaar.com/de/",
     siteName: "Oasis Emaar — Autorisierter Agent",
     type: "website",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "The Oasis by Emaar | Autorisierter Agent — Luxus-Wasserfront-Villen in Dubai",
     description:
-      "Entdecken Sie The Oasis by Emaar mit einem autorisierten Verkaufsagenten. Premium-Wasserfront-Gemeinschaft in Dubai. Ab 9,18M AED.",
+      "Entdecken Sie The Oasis by Emaar mit einem autorisierten Verkaufsagenten. Premium-Wasserfront-Gemeinschaft in Dubai. Ab 9,2M AED.",
     images: ["/og-image.jpg"],
   },
   alternates: {
@@ -69,7 +69,7 @@ const realEstateAgentJsonLd = {
   "@type": ["RealEstateAgent", "LocalBusiness"],
   name: "Oasis Emaar — Autorisierter Verkaufsagent",
   description:
-    "Autorisierter Verkaufsagent für The Oasis by Emaar Properties in Dubai. Luxus-Wasserfront-Villen, Anwesen und Marken-Residenzen ab 9,18M AED.",
+    "Autorisierter Verkaufsagent für The Oasis by Emaar Properties in Dubai. Luxus-Wasserfront-Villen, Anwesen und Marken-Residenzen ab 9,2M AED.",
   url: "https://www.oasisemaar.com/de/",
   logo: "https://www.oasisemaar.com/logo.svg",
   telephone: "+971526919169",
@@ -195,7 +195,7 @@ const webPageJsonLd = {
   "@type": "WebPage",
   name: "The Oasis by Emaar | Autorisierter Agent — Luxus-Wasserfront-Villen in Dubai",
   description:
-    "Entdecken Sie The Oasis by Emaar mit einem autorisierten Verkaufsagenten. Premium-Wasserfront-Gemeinschaft in Dubai mit Luxus-Villen, Anwesen und Marken-Residenzen. Ab 9,18M AED.",
+    "Entdecken Sie The Oasis by Emaar mit einem autorisierten Verkaufsagenten. Premium-Wasserfront-Gemeinschaft in Dubai mit Luxus-Villen, Anwesen und Marken-Residenzen. Ab 9,2M AED.",
   url: "https://www.oasisemaar.com/de/",
   inLanguage: "de",
   author: {
