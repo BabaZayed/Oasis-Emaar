@@ -77,10 +77,10 @@ export default function SiteHeader() {
             background: "linear-gradient(90deg, transparent 0%, rgba(200, 164, 92, 0.4) 30%, rgba(200, 164, 92, 0.6) 50%, rgba(200, 164, 92, 0.4) 70%, transparent 100%)",
           }}
         />
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 overflow-hidden">
-          <div className="flex items-center justify-between h-14 sm:h-20 min-w-0">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-14 sm:h-20 gap-2 sm:gap-4 overflow-x-auto lg:overflow-visible scrollbar-none" style={{ WebkitOverflowScrolling: 'touch' }}>
             {/* Logo */}
-            <Link href={currentLang === "en" ? "/" : `/${currentLang}`} className="flex items-center gap-2 flex-shrink-0">
+            <Link href={currentLang === "en" ? "/" : `/${currentLang}`} className="flex items-center gap-2">
               <div className="flex flex-col">
                 <span className={`font-heading font-bold tracking-wider gold-text transition-all duration-500 ${
                   scrolled ? "text-lg sm:text-2xl" : "text-xl sm:text-3xl"
@@ -130,13 +130,13 @@ export default function SiteHeader() {
 
             {/* Right side */}
             <div className="flex items-center gap-1 sm:gap-3 flex-shrink-0">
-              {/* Phone number — icon on mobile, full number on tablet+ */}
+              {/* Phone number — always visible, slide header on mobile to see */}
               <a
                 href={`tel:${PHONE_NUMBER}`}
-                className="flex items-center gap-1 text-[#C8A45C] hover:text-white text-xs sm:text-sm font-medium transition-colors"
+                className="flex items-center gap-1 text-[#C8A45C] hover:text-white text-xs sm:text-sm font-medium transition-colors whitespace-nowrap"
               >
                 <Phone className="w-4 h-4 flex-shrink-0" />
-                <span className="hidden sm:inline whitespace-nowrap">{PHONE_NUMBER}</span>
+                <span className="whitespace-nowrap">{PHONE_NUMBER}</span>
               </a>
               {/* Language Switcher - ALWAYS VISIBLE */}
               <div ref={langRef} className="relative hidden sm:block">
