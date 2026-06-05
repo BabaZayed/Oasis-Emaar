@@ -130,12 +130,12 @@ export default function SiteHeader() {
 
             {/* Right side */}
             <div className="flex items-center gap-1 sm:gap-3 flex-shrink-0 lg:ml-auto">
-              {/* Phone number — always visible, slide header on mobile to see */}
+              {/* Phone number — ALWAYS visible on ALL screen sizes */}
               <a
                 href={`tel:${PHONE_NUMBER}`}
-                className="flex items-center gap-1 text-[#C8A45C] hover:text-white text-xs sm:text-sm font-medium transition-colors whitespace-nowrap"
+                className="flex items-center gap-1 text-[#C8A45C] hover:text-white text-[11px] sm:text-sm md:text-base font-medium transition-colors whitespace-nowrap"
               >
-                <Phone className="w-4 h-4 flex-shrink-0" />
+                <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
                 <span className="whitespace-nowrap">{PHONE_NUMBER}</span>
               </a>
               {/* Language Switcher - ALWAYS VISIBLE */}
