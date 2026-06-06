@@ -244,7 +244,18 @@ export default function RootLayout({
           title="Oasis Emaar Blog RSS Feed"
           href={`${SITE_URL}/feed.xml`}
         />
-        {/* Google Analytics */}
+        {/* Google Tag Manager */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
+              new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
+              "https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,"script","dataLayer","GTM-KFVNBMNQ");
+            `,
+          }}
+        />        {/* Google Analytics */}
         <script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID || "G-QPQCZZ61FN"}`}
@@ -299,7 +310,15 @@ export default function RootLayout({
         className={`${cormorant.variable} ${inter.variable} antialiased text-foreground`}
         style={{ fontFamily: "var(--font-body), sans-serif", backgroundColor: "#0D1B2A" }}
       >
-        <UTMTracker />
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-KFVNBMNQ"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>        <UTMTracker />
         <LanguageDetector />
         {children}
         <WhatsAppButton />
