@@ -1,46 +1,42 @@
 /**
  * WhatsApp Cloud API Webhook Handler
- * Receives incoming messages from Meta and forwards to OpenClaw gateway
+ * Vercel serverless function
  */
-
 const VERIFY_TOKEN = 'oasis_emaar_webhook_verify_2026';
 
 export default async function handler(req, res) {
+  // Meta webhook verification (GET)
   if (req.method === 'GET') {
-    const mode = req.query['hub.mode'];
-    const token = req.query['hub.verify_token'];
-    const challenge = req.query['hub.challenge'];
+    const { 'hub.mode': mode, 'hub.verify_token': token, 'hub.challenge': challenge } = req.query;
     
     if (mode === 'subscribe' && token === VERIFY_TOKEN) {
-      console.log('Webhook verified');
-      return res.status(200).send(challenge);
+      console.log('✅ Webhook verified');
+      res.setHeader('Content-Type', 'text/plain');
+      return res.status(200).send(String(challenge));
     }
     return res.status(403).send('Forbidden');
   }
 
+  // Incoming messages (POST)
   if (req.method === 'POST') {
     const body = req.body;
-    console.log('WhatsApp webhook:', JSON.stringify(body).substring(0, 500));
+    console.log('📩 Webhook:', JSON.stringify(body).substring(0, 800));
 
     if (body.entry) {
       for (const entry of body.entry) {
         for (const change of (entry.changes || [])) {
-          if (change.value?.messages) {
-            for (const msg of change.value.messages) {
+          const value = change.value || {};
+          if (value.messages) {
+            for (const msg of value.messages) {
               const from = msg.from;
               const text = msg.text?.body || '';
               console.log(`📩 ${from}: ${text}`);
-              
-              try {
-                const { default: fetch } = await import('node-fetch');
-                await fetch('http://127.0.0.1:18789/webhook/whatsapp', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ from, text, timestamp: msg.timestamp }),
-                });
-              } catch (e) {
-                console.error('Gateway forward failed:', e.message);
-              }
+            }
+          }
+          // Also log statuses
+          if (value.statuses) {
+            for (const s of value.statuses) {
+              console.log(`📊 Status: ${s.status} for ${s.recipient_id}`);
             }
           }
         }
