@@ -1,26 +1,26 @@
 /**
- * WhatsApp Cloud API Webhook Handler
- * Vercel serverless function
+ * WhatsApp Cloud API Webhook - Next.js App Router
+ * URL: https://oasis-emaar.vercel.app/api/whatsapp-webhook
  */
+
 const VERIFY_TOKEN = 'oasis_emaar_webhook_verify_2026';
 
-export default async function handler(req, res) {
-  // Meta webhook verification (GET)
-  if (req.method === 'GET') {
-    const { 'hub.mode': mode, 'hub.verify_token': token, 'hub.challenge': challenge } = req.query;
-    
-    if (mode === 'subscribe' && token === VERIFY_TOKEN) {
-      console.log('✅ Webhook verified');
-      res.setHeader('Content-Type', 'text/plain');
-      return res.status(200).send(String(challenge));
-    }
-    return res.status(403).send('Forbidden');
-  }
+export async function GET(request) {
+  const { searchParams } = new URL(request.url);
+  const mode = searchParams.get('hub.mode');
+  const token = searchParams.get('hub.verify_token');
+  const challenge = searchParams.get('hub.challenge');
 
-  // Incoming messages (POST)
-  if (req.method === 'POST') {
-    const body = req.body;
-    console.log('📩 Webhook:', JSON.stringify(body).substring(0, 800));
+  if (mode === 'subscribe' && token === VERIFY_TOKEN) {
+    return new Response(challenge, { status: 200, headers: { 'Content-Type': 'text/plain' } });
+  }
+  return new Response('Forbidden', { status: 403 });
+}
+
+export async function POST(request) {
+  try {
+    const body = await request.json();
+    console.log('WhatsApp webhook:', JSON.stringify(body).substring(0, 800));
 
     if (body.entry) {
       for (const entry of body.entry) {
@@ -28,23 +28,20 @@ export default async function handler(req, res) {
           const value = change.value || {};
           if (value.messages) {
             for (const msg of value.messages) {
-              const from = msg.from;
-              const text = msg.text?.body || '';
-              console.log(`📩 ${from}: ${text}`);
+              console.log(`Message from ${msg.from}: ${msg.text?.body || ''}`);
             }
           }
-          // Also log statuses
           if (value.statuses) {
             for (const s of value.statuses) {
-              console.log(`📊 Status: ${s.status} for ${s.recipient_id}`);
+              console.log(`Status: ${s.status} for ${s.recipient_id}`);
             }
           }
         }
       }
     }
-
-    return res.status(200).send('ok');
+    return new Response('ok', { status: 200 });
+  } catch (e) {
+    console.error('Webhook error:', e);
+    return new Response('error', { status: 500 });
   }
-
-  return res.status(405).send('Method not allowed');
 }
