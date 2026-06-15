@@ -634,6 +634,217 @@ export const blogPosts: BlogPost[] = [
 <p>Off-plan payment plans fundamentally alter the buy-versus-rent calculus by allowing buyers to secure a property at today's price while distributing payments over the construction period. Consider a Mirage villa at AED 16,500,000 on a 90/10 plan with handover in Q4 2029. The buyer pays 90% of the purchase price over approximately four years (AED 14,850,000) and 10% on handover (AED 1,650,000). During the construction period, the buyer may continue to rent their current home while building equity in their future property. If the Mirage villa appreciates by 25% during the construction period, the buyer's AED 16.5 million investment is worth AED 20.625 million at handover — a gain of AED 4,125,000, achieved with payments spread over four years rather than a single lump sum. This leverage effect is one of the most powerful advantages of off-plan buying and is a key reason why Emaar's payment plan structures make buying significantly more accessible and financially attractive than renting.</p>
     `,
   },
+
+  {
+    slug: "living-in-the-oasis-2026-complete-guide",
+    title: "Living in The Oasis: 2026 Complete Guide — Villas, Prices, Golden Visa & Everything You Need to Know",
+    excerpt:
+      "Everything you need to know about living in The Oasis by Emaar: villa prices from AED 11.8M to AED 47.7M, 10-year Golden Visa, tax-free ownership, London vs Dubai cost comparison, payment plans, schools, and daily life in Dubai\'s most anticipated waterfront community.",
+    category: "Community",
+    tags: [
+      "living in the oasis",
+      "oasis emaar guide",
+      "emaar oasis villas",
+      "dubai golden visa",
+      "dubai waterfront community",
+      "oasis emaar prices",
+      "emaar payment plan",
+      "dubai vs london property",
+    ],
+    author: "Bijon RE Research Team",
+    date: "2026-06-15T00:00:00+04:00",
+    readTime: "12 min read",
+    image: "/products/brochure_hero.jpg",
+    content: `<p><em>By Bijon RE — Emaar Partner</em></p>
+
+<h2>What Is The Oasis by Emaar?</h2>
+
+<p>The Oasis is Emaar's newest waterfront villa community — a private, gated masterplan surrounding a crystal lagoon in Dubai. Think Palm Jumeirah exclusivity. Think Emirates Hills privacy. But with modern off-plan pricing.</p>
+
+<p><strong>**Location:** Dubai (near Dubailand)</strong></p>
+<p><strong>**Developer:** Emaar Properties (Burj Khalifa, Dubai Mall, The Palm, Dubai Marina)</strong></p>
+<p><strong>**Handover:** Phase 1: Mid-2027 | Phase 2: Q1 2028</strong></p>
+<p><strong>**Payment Plan:** 10% down / 40% during construction / 50% on handover</strong></p>
+
+<h2>Why The Oasis?</h2>
+
+<h3>1. Emaar Track Record</h3>
+<p>Emaar doesn't just build — Emaar delivers. Burj Khalifa, Dubai Mall, Dubai Marina, Arabian Ranches, The Palm Jumeirah. Every Emaar project has appreciated. The Oasis is their 2026 flagship.</p>
+
+<h3>2. Tax-Free Ownership</h3>
+<li>0% annual property tax</li>
+<li>0% capital gains tax</li>
+<li>0% inheritance tax</li>
+<li>No stamp duty (unlike UK's 12%)</li>
+
+<h3>3. AED Pegged to USD</h3>
+<p>Your investment is in AED. AED = 3.672 to 1 USD. No currency fluctuation. No exchange risk.</p>
+
+<h3>4. 10-Year Golden Visa</h3>
+<p>Every Oasis villa purchase comes with a renewable 10-year UAE Golden Visa covering you, your spouse, your children, and your parents.</p>
+
+<h3>5. Mortgage Available</h3>
+<p>Emirates NBD and ADCB offer mortgages at ~4.5% for qualified buyers. 10% down payment unlocks the rest.</p>
+
+<h2>The Villas: Tier-by-Tier Breakdown</h2>
+
+<h3>🟢 Entry Tier — Palmiera 3</h3>
+<table>
+<tr><th>Detail</th><th>Value</th></tr>
+<tr><th>Bedrooms</th><th>4BR</th></tr>
+<tr><th>Price</th><th>AED 11.83M</th></tr>
+<tr><th>Plot Size</th><th>~5,500 sqft</th></tr>
+<tr><th>Built-up</th><th>~3,800 sqft</th></tr>
+<tr><th>Units Available</th><th>1</th></tr>
+
+<p>*Best for: First-time Dubai buyers. Investors seeking lowest entry point. Golden Visa minimum threshold.*</p>
+
+</table>
+
+<h3>🟡 Mid Tier — Mareva 1</h3>
+<table>
+<tr><th>Detail</th><th>Value</th></tr>
+<tr><th>Bedrooms</th><th>4BR & 5BR</th></tr>
+<tr><th>Price</th><th>AED 13.9M – 19.3M</th></tr>
+<tr><th>Plot Size</th><th>~5,800 – 7,200 sqft</th></tr>
+<tr><th>Units Available</th><th>22</th></tr>
+
+<p>*Best for: Families. Long-term residents. Buyers who want space + privacy + community.*</p>
+
+</table>
+
+<h3>🟡 Upper Mid — Mareva 2</h3>
+<table>
+<tr><th>Detail</th><th>Value</th></tr>
+<tr><th>Bedrooms</th><th>4BR & 5BR</th></tr>
+<tr><th>Price</th><th>AED 14.2M – 21.0M</th></tr>
+<tr><th>Plot Size</th><th>~6,000 – 7,500 sqft</th></tr>
+<tr><th>Units Available</th><th>22</th></tr>
+
+<p>*Best for: Larger families. Dual-income professionals. Buyers who want larger plots and premium positioning.*</p>
+
+</table>
+
+<h3>🟠 Premium — Palmiera Collective</h3>
+<table>
+<tr><th>Detail</th><th>Value</th></tr>
+<tr><th>Bedrooms</th><th>4BR</th></tr>
+<tr><th>Price</th><th>AED 16.5M – 18.1M</th></tr>
+<tr><th>Plot Size</th><th>~7,000+ sqft</th></tr>
+<tr><th>Units Available</th><th>12</th></tr>
+
+<p>*Best for: Buyers seeking architectural distinction. Premium lagoon positioning. Collective villas have unique design signatures.*</p>
+
+</table>
+
+<h3>🔴 Crown — Lavita Mansions</h3>
+<table>
+<tr><th>Detail</th><th>Value</th></tr>
+<tr><th>Bedrooms</th><th>6-7BR</th></tr>
+<tr><th>Price</th><th>AED 46.9M – 47.7M</th></tr>
+<tr><th>Plot Size</th><th>~12,000+ sqft</th></tr>
+<tr><th>Units Available</th><th>Only 2 in Phase 2</th></tr>
+
+<p>*Best for: Ultra-high-net-worth families. CEO/Founder-level buyers. The most exclusive offering in The Oasis.*</p>
+
+</table>
+
+<h2>The Payment Flow</h2>
+
+<p>1. **10% Down** — On signing SPA (Sales Purchase Agreement)</p>
+<p>2. **40% During Construction** — Spread over milestone-linked instalments</p>
+<p>3. **50% On Handover** — Balance paid when you receive your keys</p>
+
+<p>Buyers pay **Emaar directly** — never a third party. All payments go to Emaar's escrow account, protected by Dubai's Real Estate Regulatory Authority (RERA).</p>
+
+<h2>Dubai vs The World: A Cost Comparison</h2>
+
+<table>
+<tr><th>Market</th><th>Price (Equivalent AED)</th><th>Annual Tax</th><th>Stamp Duty</th></tr>
+<tr><th>**The Oasis (Dubai)**</th><th>AED 13.9M</th><th>0%</th><th>0%</th></tr>
+<tr><th>London</th><th>AED 6M (2BR flat)</th><th>40% income tax</th><th>12% stamp duty</th></tr>
+<tr><th>Hong Kong</th><th>AED 12M (2BR)</th><th>15-17%</th><th>15%</th></tr>
+<tr><th>Singapore</th><th>AED 10M (2BR)</th><th>22%</th><th>25% for foreigners</th></tr>
+<tr><th>Mumbai</th><th>AED 8M (3BR)</th><th>30%+</th><th>6%</th></tr>
+<tr><th>New York</th><th>AED 15M (3BR)</th><th>37% federal + New York state</th><th>2%</th></tr>
+
+<p>*For the same price as a London 2-bedroom flat, you get a Dubai 4-bedroom waterfront villa — plus tax-free ownership, Golden Visa, and 0% capital gains.*</p>
+
+</table>
+
+<h2>Golden Visa: What You Get</h2>
+
+<p>With any Oasis villa purchase (AED 11.83M+):</p>
+
+<li>✅ 10-year renewable residency</li>
+<li>✅ Covers you + spouse + all dependent children + parents</li>
+<li>✅ No minimum stay requirements</li>
+<li>✅ Emirates ID, UAE driving license, bank account eligibility</li>
+<li>✅ Freedom to work, study, live anywhere in the UAE</li>
+<li>✅ No local sponsor required</li>
+
+<h2>Living at The Oasis: Daily Life</h2>
+
+<h3>Amenities</h3>
+<li>Crystal lagoon (swimmable, 28°C year-round)</li>
+<li>Private beach access</li>
+<li>Community parks and green spaces</li>
+<li>Kids' play zones</li>
+<li>Clubhouse with gym, pool, lounge</li>
+<li>Retail plaza with cafes and essentials</li>
+<li>24/7 security with gated access</li>
+
+<h3>Connectivity</h3>
+<li>15 min to Dubai Mall / Burj Khalifa</li>
+<li>15 min to DXB Airport</li>
+<li>20 min to Dubai Marina</li>
+<li>20 min to Palm Jumeirah</li>
+<li>25 min to DWC Airport (Al Maktoum)</li>
+
+<h3>Schools Nearby</h3>
+<li>GEMS World Academy (15 min)</li>
+<li>North London Collegiate School (15 min)</li>
+<li>Kings' School Al Barsha (15 min)</li>
+<li>Kent College Dubai (20 min)</li>
+
+<h2>Your Purchase Journey</h2>
+
+<p>1. **Enquire:** WhatsApp +971 52 691 9169 with your villa preference</p>
+<p>2. **Tour:** Visit The Oasis Sales Center. See the site. Walk the area.</p>
+<p>3. **Select:** Choose your villa from available inventory. Exact prices. Exact locations.</p>
+<p>4. **Sign:** SPA prepared by Emaar. Your lawyer reviews.</p>
+<p>5. **Pay:** 10% down payment to Emaar's escrow.</p>
+<p>6. **Golden Visa:** Application begins immediately after SPA.</p>
+<p>7. **Handover:** Receive keys mid-2027 (Phase 1) or Q1 2028 (Phase 2).</p>
+
+<h2>FAQ</h2>
+
+<p>**Q: Can foreigners buy?**</p>
+<p>A: Yes. The Oasis is freehold. Full ownership for all nationalities.</p>
+
+<p>**Q: What if I want to sell before handover?**</p>
+<p>A: You can. Off-plan resale is allowed once you've paid 40%. Capital appreciation is yours.</p>
+
+<p>**Q: Do I need to be in Dubai to buy?**</p>
+<p>A: No. You can purchase remotely. Documents are digital. We'll guide the process.</p>
+
+<p>**Q: Can I get a mortgage as a non-resident?**</p>
+<p>A: Yes. ENBD and ADCB offer mortgages to non-residents at ~50-60% LTV.</p>
+
+<p>**Q: Are there service charges?**</p>
+<p>A: Yes — ~AED 15-20 per sqft annually. Covers security, landscaping, lagoon, amenities.</p>
+
+<h2>Ready to View?</h2>
+
+<p>📱 WhatsApp: [+971 52 691 9169](https://wa.me/971526919169)</p>
+<p>🌐 Website: [oasisemaar.com](https://www.oasisemaar.com)</p>
+<p>🏢 Bijon RE — Official Emaar Partner</p>
+
+<p>*All prices verified as of June 2026. Subject to Emaar availability.*</p>
+
+`,
+  },
+
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
