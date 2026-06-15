@@ -118,9 +118,7 @@ const langLabels: Record<LangCode, string> = {
 };
 
 export async function generateStaticParams() {
-  return langCodes
-    .filter((l) => l !== "en") // English is at root
-    .map((lang) => ({ lang }));
+  return langCodes.map((lang) => ({ lang }));
 }
 
 export async function generateMetadata({
