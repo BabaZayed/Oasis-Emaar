@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Bed, Maximize, Eye, Lock, Building2 } from 'lucide-react';
-import { InventoryItem } from '@/lib/data';
+import { InventoryItem, formatPrice } from '@/lib/data';
 
 interface PropertyCardProps {
   item: InventoryItem;
@@ -49,7 +49,7 @@ export default function PropertyCard({ item, onViewDetails }: PropertyCardProps)
 
         {/* Price */}
         <div className="absolute bottom-3 left-3 bg-navy/80 backdrop-blur-sm px-3 py-1.5 rounded-md">
-          <p className="text-sm font-bold text-gold">{item.priceLabel}</p>
+          <p className="text-sm font-bold text-gold">{{formatPrice(item.price)}</p>
         </div>
       </div>
 
