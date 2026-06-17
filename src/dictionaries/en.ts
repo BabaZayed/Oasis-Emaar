@@ -490,6 +490,7 @@ const en = {
     bedroomsLabel: "Bedrooms *",
     bedroomsPlaceholder: "e.g. 4",
     builtUpArea: "Built-up Area (sqft) *",
+  builtUp: "Built-up",
     builtUpAreaPlaceholder: "e.g. 8279",
     askingPrice: "Asking Price (AED) *",
     askingPricePlaceholder: "e.g. 15000000",
