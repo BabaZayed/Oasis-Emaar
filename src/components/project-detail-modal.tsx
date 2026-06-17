@@ -44,7 +44,7 @@ export default function ProjectDetailModal({ project, open, onClose }: ProjectDe
         {/* Image */}
         <div className="relative w-full h-48 sm:h-64 rounded-lg overflow-hidden">
           <img
-            src={project.image}
+            src={project.imageUrl}
             alt={project.name}
             className="w-full h-full object-cover"
           />
