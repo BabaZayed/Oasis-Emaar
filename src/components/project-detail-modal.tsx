@@ -63,7 +63,7 @@ export default function ProjectDetailModal({ project, open, onClose }: ProjectDe
             <Maximize className="w-5 h-5 text-gold" />
             <div>
               <p className="text-xs text-muted-foreground">Area</p>
-              <p className="font-semibold text-navy text-sm">{project.area}</p>
+              <p className="font-semibold text-navy text-sm">{project.areaRange}</p>
             </div>
           </div>
           <div className="flex items-center gap-2 p-3 bg-cream rounded-lg">
@@ -77,7 +77,7 @@ export default function ProjectDetailModal({ project, open, onClose }: ProjectDe
             <MapPin className="w-5 h-5 text-gold" />
             <div>
               <p className="text-xs text-muted-foreground">Starting</p>
-              <p className="font-semibold text-navy text-sm">{project.startingPriceLabel}</p>
+              <p className="font-semibold text-navy text-sm">{{formatPrice(project.startingPrice)}</p>
             </div>
           </div>
         </div>
@@ -118,8 +118,8 @@ export default function ProjectDetailModal({ project, open, onClose }: ProjectDe
         {/* Developer Info */}
         <div className="mt-4 p-4 bg-navy rounded-lg text-white">
           <p className="text-xs text-white/50 mb-1">Developer</p>
-          <p className="font-semibold">{project.developer}</p>
-          <p className="text-sm text-white/70">{project.location}</p>
+          <p className="font-semibold">{project.facts.developer}</p>
+          <p className="text-sm text-white/70">{project.facts.location}</p>
         </div>
 
         {/* CTA */}
