@@ -845,6 +845,111 @@ export const blogPosts: BlogPost[] = [
 `,
   },
 
+  {
+    slug: "the-oasis-construction-update-june-2026",
+    title: "The Oasis Construction Update — June 2026 (DLD Verified)",
+    excerpt:
+      "Official DLD construction status for every The Oasis sub-project: Palmiera 72.62%, Lavita 20.13%, Mirage 30.53%, and more. Government-verified data, updated June 2026.",
+    category: "Construction",
+    tags: [
+      "the oasis construction update",
+      "oasis emaar project status",
+      "emaar oasis construction progress",
+      "palmiera construction update",
+      "lavita construction status",
+      "dubai land department project status",
+      "dld oasis emaar",
+      "oasis emaar handover date",
+      "emaar off plan construction",
+      "dubai real estate project status",
+    ],
+    author: "Bijon RE Research Team",
+    date: "2026-06-17",
+    readTime: "8 min read",
+    image: "/products/brochure_hero.jpg",
+    content: \`## Official DLD Project Status — June 2026
+
+Data sourced directly from the **Dubai Land Department** (dubailand.gov.ae) — the official government authority for all UAE real estate projects.
+
+---
+
+### The Oasis by Emaar: Construction Progress
+
+| Sub-Project | DLD Number | Completion | Status |
+|------------|-----------|-----------|--------|
+| **Palmiera 3** | #3221 | **72.62%** | Active |
+| **Palmiera** | #2732 | **72.56%** | Active |
+| Palmiera 2 | #3031 | 63.24% | Active |
+| Mirage | #3025 | 30.53% | Active |
+| **Lavita** | #3266 | **20.13%** | Active |
+| Palmiera Collective | #4209 | 0% | Active |
+| Mareva | #4269 | 0% | Active |
+| Mareva 2 | #4270 | 0% | Active |
+
+---
+
+### What These Numbers Mean for Buyers
+
+**Palmiera & Palmiera 3 — 72%+ Complete**
+
+The most advanced phases of The Oasis. These 4 & 5-bedroom villas are approaching handover. Buyers benefit from near-immediate possession, post-handover payment plans, and Golden Visa eligibility (starting from AED 2M investment).
+
+**Lavita — 20.13% Complete**
+
+The luxury tier: 4,600 sq.ft. villas from AED 46.9M. Early entry means pre-completion pricing, customization options, and prime unit selection.
+
+**Mareva — Newly Registered (0%)**
+
+Freshly registered with DLD. Ground-floor entry at developer launch pricing. Mareva 2-bedrooms compare favorably to London equivalents at one-third the price per square foot.
+
+---
+
+### DLD Escrow Protection
+
+Every off-plan buyer is protected by Dubai's escrow system:
+
+1. **Escrow Accounts** — All buyer payments held in DLD-regulated accounts
+2. **Milestone Releases** — Developers paid only when construction milestones are verified
+3. **Cancellation Protection** — DLD guarantees buyer refunds for cancelled projects
+4. **Independent Audits** — Construction percentages verified by government surveyors
+
+---
+
+### Estimated Handover Timeline
+
+| Phase | Estimated Handover |
+|-------|-------------------|
+| Palmiera / Palmiera 3 | Q4 2026 — Q1 2027 |
+| Palmiera 2 | Q2—Q3 2027 |
+| Mirage | Q4 2027 — Q1 2028 |
+| Lavita | Q4 2027 — Q2 2028 |
+| Mareva | 2028+ |
+
+*Timelines are estimates based on current DLD completion rates and Emaar's historical delivery performance.*
+
+---
+
+### DLD Verification
+
+All construction percentages are sourced from the **Dubai Land Department Real Estate Project Status** portal (dubailand.gov.ae). This is the same system used by banks, valuers, and government agencies to verify project progress.
+
+**To verify yourself:**
+1. Visit dubailand.gov.ae
+2. Navigate to E-Services → Real Estate Project Status
+3. Search for "The Oasis" or specific phase names
+
+---
+
+### Interested in The Oasis?
+
+Contact Bijon RE for unit availability, payment plan calculations, and site visits:
+
+📞 **+971 52 691 9169**
+🌐 **oasisemaar.com**
+
+*Last updated: June 17, 2026. Data source: Dubai Land Department.*\`,
+  },
+
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
