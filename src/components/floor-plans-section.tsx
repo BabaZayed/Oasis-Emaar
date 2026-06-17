@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { floorPlans, projects, formatSqft, galleryImages } from "@/lib/data";
+import { floorPlans, projects, formatSqft, formatPrice, galleryImages } from "@/lib/data";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
