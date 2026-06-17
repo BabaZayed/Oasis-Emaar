@@ -77,7 +77,7 @@ export default function ProjectDetailModal({ project, open, onClose }: ProjectDe
             <MapPin className="w-5 h-5 text-gold" />
             <div>
               <p className="text-xs text-muted-foreground">Starting</p>
-              <p className="font-semibold text-navy text-sm">{{formatPrice(project.startingPrice)}</p>
+              <p className="font-semibold text-navy text-sm">{formatPrice(project.startingPrice)}</p>
             </div>
           </div>
         </div>
