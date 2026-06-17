@@ -14,24 +14,13 @@ export function middleware(request: NextRequest) {
   const host = request.headers.get("host") || "";
   const url = request.nextUrl;
 
-  // ONLY redirect theoasisemaar.com variants → www.oasisemaar.com
-  // (Do NOT redirect www.oasisemaar.com → oasisemaar.com — Vercel primary domain)
+  // Only redirect theoasisemaar.com variants → www.oasisemaar.com
   if (
     host === "theoasisemaar.com" ||
     host === "www.theoasisemaar.com"
   ) {
     const destination = new URL(url.pathname + url.search, "https://www.oasisemaar.com");
     return NextResponse.redirect(destination, 301);
-  }
-
-  // Detect browser language for root path
-  const acceptLanguage = request.headers.get("accept-language") || "";
-  const prefersArabic = acceptLanguage.includes("ar");
-
-  // Redirect root / → /en or /ar based on browser language
-  if (url.pathname === "/") {
-    const lang = prefersArabic ? "ar" : "en";
-    return NextResponse.redirect(new URL(`/${lang}`, request.url));
   }
 
   return NextResponse.next();
