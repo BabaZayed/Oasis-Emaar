@@ -102,6 +102,8 @@ const en = {
     sslEncrypted: "SSL encrypted connection",
     dataNeverShared: "Data never shared with third parties",
     reraLicensed: "RERA licensed & regulated",
+    builtUp: "Built-up",
+    builtUpArea: "Built-up Area",
     alsoAccessibleAt: "Also accessible at:",
   },
 
