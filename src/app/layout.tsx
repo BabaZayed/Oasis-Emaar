@@ -338,7 +338,7 @@ export default function RootLayout({
         </noscript>
         {/* Meta Pixel (noscript) */}
         <noscript>
-          <img height="1" width="1" style="display:none"
+          <img height="1" width="1" style={{ display: "none" }}
             src="https://www.facebook.com/tr?id=884012804008929&ev=PageView&noscript=1"
           />
         </noscript>
