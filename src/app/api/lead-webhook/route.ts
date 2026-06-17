@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
               const alert = `🔔 *New Lead!*\n\n📋 Lead ID: ${leadgenId}\n📝 Form: ${formId}\n🏠 Page: ${pageId}\n🕐 Time: ${new Date().toLocaleString("en-AE", { timeZone: "Asia/Dubai" })}\n\n_Log into Meta to view full details_`;
               
               // Send to Ahmed's number
-              await sendWhatsApp("971564440088", alert);
+              await sendWhatsApp("971555585525", alert);
             }
           }
         }
