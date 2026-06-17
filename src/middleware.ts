@@ -28,9 +28,10 @@ export function middleware(request: NextRequest) {
   const acceptLanguage = request.headers.get("accept-language") || "";
   const prefersArabic = acceptLanguage.includes("ar");
 
-  // Redirect root / → /ar based on browser language (English stays at root)
-  if (url.pathname === "/" && prefersArabic) {
-    return NextResponse.redirect(new URL("/ar", request.url));
+  // Redirect root / → /en or /ar based on browser language
+  if (url.pathname === "/") {
+    const lang = prefersArabic ? "ar" : "en";
+    return NextResponse.redirect(new URL(`/${lang}`, request.url));
   }
 
   return NextResponse.next();
