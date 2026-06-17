@@ -404,7 +404,7 @@ function FloorPlanCard({
                     <Bed className="w-4 h-4 text-[#C8A45C]" /> {selectedPlan.bedrooms} {t.common.bed}
                   </span>
                   <span className="flex items-center gap-1.5 text-white/70">
-                    <Maximize className="w-4 h-4 text-[#C8A45C]" /> {t.common.builtUp || "Built-up"}: {formatSqft(selectedPlan.areaSqft)}
+                    <Maximize className="w-4 h-4 text-[#C8A45C]" /> {t.common.builtUpArea || "Built-up"}: {formatSqft(selectedPlan.areaSqft)}
                   </span>
                   {selectedPlan.plotSqft && (
                     <span className="flex items-center gap-1.5 text-white/70">
