@@ -38,7 +38,9 @@ export async function POST(request: NextRequest) {
 📱 ${phone}
 🌍 ${country}
 🎯 ${interest || "Not specified"}
-🕐 ${new Date().toLocaleString("en-AE", { timeZone: "Asia/Dubai" })}`;
+🕐 ${new Date().toLocaleString("en-AE", { timeZone: "Asia/Dubai" })}
+
+🔗 Booking: https://wa.me/971526919169?text=I%20have%20downloaded%20the%20Relocation%20Guide.%20I%20would%20like%20to%20schedule%20a%20private%20consultation%20with%20Ahmed%20regarding%20exclusive%20allocations.`;
     await sendWhatsApp("971555585525", alert);
 
     return NextResponse.json({ success: true });
