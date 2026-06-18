@@ -35,12 +35,18 @@ export default function GuidePageClient() {
             The 2026 Dubai Luxury Real Estate Wealth & Tax Relocation Guide has been sent to your email.
             A Bijon RE consultant will follow up within 2 hours with personalised insights.
           </p>
-          <p className="text-sm text-white/40">
-            📞 Need immediate assistance?{" "}
-            <a href="tel:+971526919169" className="text-[#C8A45C] hover:underline">
-              +971 52 691 9169
+          <div className="space-y-3">
+            <a
+              href="https://wa.me/971526919169?text=I%20have%20downloaded%20the%20Relocation%20Guide.%20I%20would%20like%20to%20schedule%20a%20private%20consultation%20with%20Ahmed%20regarding%20exclusive%20allocations."
+              target="_blank"
+              className="block w-full bg-[#C8A45C] hover:bg-[#B8933F] text-[#0D1B2A] font-bold text-center py-4 px-6 rounded-md transition-colors"
+            >
+              Schedule Your Private Consultation →
             </a>
-          </p>
+            <p className="text-sm text-white/40">
+              📞 <a href="tel:+971526919169" className="text-[#C8A45C] hover:underline">+971 52 691 9169</a>
+            </p>
+          </div>
         </Card>
       </div>
     );
