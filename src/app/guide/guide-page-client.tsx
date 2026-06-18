@@ -20,6 +20,13 @@ export default function GuidePageClient() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
+            // Track Lead conversion event
+      if (typeof window !== "undefined" && (window as any).fbq) {
+        (window as any).fbq("track", "Lead", {
+          content_name: "Wealth & Tax Relocation Guide",
+          content_category: "Lead Magnet",
+        });
+      }
       setStep("success");
     } catch {}
     setLoading(false);
