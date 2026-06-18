@@ -634,6 +634,147 @@ export const blogPosts: BlogPost[] = [
 <p>Off-plan payment plans fundamentally alter the buy-versus-rent calculus by allowing buyers to secure a property at today's price while distributing payments over the construction period. Consider a Mirage villa at AED 16,500,000 on a 90/10 plan with handover in Q4 2029. The buyer pays 90% of the purchase price over approximately four years (AED 14,850,000) and 10% on handover (AED 1,650,000). During the construction period, the buyer may continue to rent their current home while building equity in their future property. If the Mirage villa appreciates by 25% during the construction period, the buyer's AED 16.5 million investment is worth AED 20.625 million at handover — a gain of AED 4,125,000, achieved with payments spread over four years rather than a single lump sum. This leverage effect is one of the most powerful advantages of off-plan buying and is a key reason why Emaar's payment plan structures make buying significantly more accessible and financially attractive than renting.</p>
     `,
   },
+  {
+    slug: "the-oasis-construction-update-june-2026",
+    title: "The Oasis Construction Update — June 2026 (DLD Verified)",
+    excerpt: "Official DLD construction status for every The Oasis sub-project: Palmiera 72.62%, Lavita 20.13%, Mirage 30.53%. Government-verified data, updated June 2026.",
+    category: "Construction",
+    tags: ["the oasis construction update","oasis emaar project status","emaar oasis construction progress","palmiera construction","lavita construction","dubai land department project status","dld oasis emaar"],
+    author: "Bijon RE Research Team",
+    date: "2026-06-18",
+    readTime: "6 min read",
+    image: "/products/brochure_hero.jpg",
+    content: `## Official DLD Project Status — June 2026
+
+Data sourced from the **Dubai Land Department** (dubailand.gov.ae).
+
+### Construction Progress
+
+| Sub-Project | DLD # | Completion | Status |
+|------------|-------|-----------|--------|
+| Palmiera 3 | #3221 | 72.62% | Active |
+| Palmiera | #2732 | 72.56% | Active |
+| Palmiera 2 | #3031 | 63.24% | Active |
+| Mirage | #3025 | 30.53% | Active |
+| Lavita | #3266 | 20.13% | Active |
+| Palmiera Collective | #4209 | 0% | Active |
+| Mareva | #4269 | 0% | Active |
+| Mareva 2 | #4270 | 0% | Active |
+
+### Handover Timeline
+- Palmiera / Palmiera 3: Q4 2026 — Q1 2027
+- Palmiera 2: Q2—Q3 2027
+- Mirage: Q4 2027 — Q1 2028
+- Lavita: Q4 2027 — Q2 2028
+- Mareva: 2028+
+
+All payments protected by DLD escrow accounts. Developer-paid only on verified milestones.
+
+📞 +971 52 691 9169 | 🌐 oasisemaar.com`,
+  },
+  {
+    slug: "palmiera-the-oasis-near-handover-guide",
+    title: "Palmiera at The Oasis — 72% Complete, Near Handover (2026 Guide)",
+    excerpt: "Palmiera is the most advanced cluster at The Oasis by Emaar with 72.62% DLD-verified completion. 4 & 5 BR villas from AED 11.8M. Golden Visa eligible. Near-immediate possession.",
+    category: "Community",
+    tags: ["palmiera oasis emaar","palmiera villas dubai","palmiera 3 handover","emaar palmiera price","oasis emaar palmiera","dubai villa near handover","dld palmiera construction"],
+    author: "Bijon RE Research Team",
+    date: "2026-06-18",
+    readTime: "5 min read",
+    image: "/products/brochure_hero.jpg",
+    content: `## Palmiera — The Most Advanced Cluster at The Oasis
+
+**DLD Verified: 72.62% Complete** — approaching handover.
+
+### Why Palmiera Right Now
+
+The most advanced phase of The Oasis by Emaar. At 72%+ completion per Dubai Land Department, Palmiera offers what other clusters can't: near-immediate possession with post-handover payment flexibility.
+
+### Pricing
+- 4-Bedroom Villas: From AED 11.8M
+- 5-Bedroom Villas: From AED 14.5M
+- Golden Visa eligible (AED 2M+ investment)
+
+### Payment Plans
+- 80/20: 80% during construction, 20% on handover
+- 90/10: 90% during construction, 10% on handover
+- Post-handover 1% monthly options available
+
+### DLD Protection
+All Palmiera payments held in DLD-regulated escrow accounts. Developer paid only when construction milestones are verified by government surveyors.
+
+📞 +971 52 691 9169 | 🌐 oasisemaar.com`,
+  },
+  {
+    slug: "lavita-the-oasis-luxury-tier",
+    title: "Lavita at The Oasis — The Premium Tier at AED 46.9M (2026)",
+    excerpt: "Lavita is The Oasis by Emaar's luxury flagship: 5-6 BR villas from AED 46.9M. 4,600 sq.ft. Waterfront. DLD-verified at 20.13% complete. Early entry pricing.",
+    category: "Luxury",
+    tags: ["lavita oasis emaar","lavita emaar price","lavita dubai villa","emaar luxury villa","dubai waterfront mansion","oasis emaar premium","lavita construction update"],
+    author: "Bijon RE Research Team",
+    date: "2026-06-18",
+    readTime: "4 min read",
+    image: "/products/brochure_interior.jpg",
+    content: `## Lavita — The Luxury Flagship of The Oasis
+
+**DLD Verified: 20.13% Complete** — Early entry, maximum appreciation window.
+
+### The Premium Tier
+Lavita represents the highest expression of luxury at The Oasis by Emaar. 5-6 bedroom villas spanning 4,600+ sq.ft. with direct waterfront positioning and panoramic lagoon views.
+
+### Pricing & Specs
+- 5-Bedroom: From AED 46.9M
+- 6-Bedroom: From AED 47.7M
+- Built-up Area: 4,600+ sq.ft.
+- Waterfront plots available
+
+### Why Early Entry at 20%
+Buying at 20.13% completion means:
+- Pre-completion pricing before milestone appreciation
+- Prime plot selection still available
+- Customisation input on finishes and layouts
+- Maximum capital appreciation trajectory through handover
+
+### Global Context
+A 5-bedroom waterfront villa at AED 46.9M (≈£10M) compares favorably to equivalent London or Monaco properties at 3-4x the price per square foot — with zero property tax and Golden Visa eligibility.
+
+📞 +971 52 691 9169 | 🌐 oasisemaar.com`,
+  },
+  {
+    slug: "mareva-the-oasis-entry-level-waterfront",
+    title: "Mareva at The Oasis — Waterfront Living from AED 13.9M",
+    excerpt: "Mareva is the most accessible waterfront entry at The Oasis by Emaar. 2-4 BR villas from AED 13.9M. Newly registered with DLD. Developer launch pricing available.",
+    category: "Buying Guide",
+    tags: ["mareva oasis emaar","mareva emaar price","oasis emaar 2 bedroom","mareva dubai villa","emaar waterfront entry","dubai affordable villa","mareva dld"],
+    author: "Bijon RE Research Team",
+    date: "2026-06-18",
+    readTime: "4 min read",
+    image: "/products/mareva1.jpg",
+    content: `## Mareva — The Accessible Waterfront Entry
+
+**DLD Registered: #4269 & #4270** — Ground-floor entry pricing.
+
+### The Entry Point to The Oasis
+Mareva offers the most accessible path into Dubai's premier waterfront community. 2-4 bedroom villas starting from AED 13.9M — a rare combination of luxury positioning and attainable pricing in The Oasis.
+
+### Pricing & Options
+- Mareva 1 (2-BR): From AED 13.9M
+- Mareva 1 (3-BR): From AED 14.5M
+- Mareva 2 (3-BR): From AED 19.4M
+- Mareva 2 (4-BR): From AED 21.3M
+
+### London Comparison
+A Mareva 2-bedroom (\u007e1,800 sq.ft.) at AED 13.9M costs approximately **one-third the price per square foot** of an equivalent London property. Add zero property tax, zero capital gains tax, and Golden Visa eligibility — the arbitrage is compelling.
+
+### Why Developer Launch Pricing
+Newly registered with DLD means:
+- Entry at developer-set launch prices
+- Maximum room for appreciation as construction progresses
+- Preferred unit selection — best views and plots available now
+
+📞 +971 52 691 9169 | 🌐 oasisemaar.com`,
+  },
+
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
