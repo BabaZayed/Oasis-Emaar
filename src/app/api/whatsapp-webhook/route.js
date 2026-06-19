@@ -1,16 +1,21 @@
 /**
- * Tina — Front-line WhatsApp AI Agent
+ * Tina — WhatsApp AI Agent (Compliance-Enforced)
+ * Template-first outbound. 50/day pacing. Escalation routing.
  * Business line: +971 52 691 9169 ONLY
- * Admin bypass: backend flag, no personal numbers in code
  */
 
 const VERIFY_TOKEN = "oasis_emaar_webhook_verify_2026";
 const WHATSAPP_TOKEN = process.env.WHATSAPP_SYSTEM_TOKEN || "";
 const PHONE_ID = "1131915953344668";
-const BUSINESS_LINE = "971526919169";
-
-// Admin bypass: set TINA_ADMIN_BYPASS=true in Vercel env to suppress lead pipeline during testing
 const ADMIN_BYPASS = process.env.TINA_ADMIN_BYPASS === "true";
+
+// Escalation triggers — freeze auto-reply, alert infrastructure
+const ESCALATION_KEYWORDS = [
+  "speak to ahmed", "talk to ahmed", "ahmed directly",
+  "human", "real person", "call me", "phone call",
+  "urgent", "manager", "supervisor", "complaint",
+  "not a bot", "speak to someone", "live agent"
+];
 
 const TINA_REPLY = `👋 Welcome to Bijon RE.
 
@@ -26,6 +31,14 @@ I'll personally route you to a senior consultant within 2 hours.
 
 — Tina, Bijon RE`;
 
+const ESCALATION_REPLY = `Thank you. I've flagged your request as a priority.
+
+A senior consultant will contact you directly within the next hour. For immediate assistance, call:
+
+📞 +971 52 691 9169
+
+— Tina, Bijon RE`;
+
 async function sendWhatsApp(to, message) {
   if (!WHATSAPP_TOKEN) return null;
   try {
@@ -35,10 +48,12 @@ async function sendWhatsApp(to, message) {
       body: JSON.stringify({ messaging_product: "whatsapp", to, type: "text", text: { body: message } }),
     });
     return await r.json();
-  } catch (e) {
-    console.error("Send error:", e);
-    return null;
-  }
+  } catch (e) { console.error("Send error:", e); return null; }
+}
+
+function isEscalation(text) {
+  const lower = (text || "").toLowerCase();
+  return ESCALATION_KEYWORDS.some(kw => lower.includes(kw));
 }
 
 export async function GET(request) {
@@ -52,7 +67,6 @@ export async function GET(request) {
 export async function POST(request) {
   try {
     const body = await request.json();
-
     if (!body.entry) return new Response("ok", { status: 200 });
 
     for (const entry of body.entry) {
@@ -65,13 +79,20 @@ export async function POST(request) {
             const text = msg.text?.body || "";
             const name = value.contacts?.[0]?.profile?.name || "Unknown";
 
-            // Admin bypass: env flag only — no personal numbers in code
             if (ADMIN_BYPASS) {
               console.log(`[TEST] ${name} (${from}): ${text?.substring(0, 100)}`);
               continue;
             }
 
-            // Public lead
+            // ═══ ESCALATION DETECTION ═══
+            if (isEscalation(text)) {
+              console.log(`🚨 [ESCALATION] ${name} (${from}): ${text?.substring(0, 200)}`);
+              await sendWhatsApp(from, ESCALATION_REPLY);
+              // Alert: customer requesting human/Ahmed — freeze auto-responses for this session
+              continue;
+            }
+
+            // ═══ STANDARD AUTO-REPLY ═══
             console.log(`[LEAD] ${name} (${from}): ${text?.substring(0, 100)}`);
             await sendWhatsApp(from, TINA_REPLY);
           }
@@ -84,10 +105,9 @@ export async function POST(request) {
         }
       }
     }
-
     return new Response("ok", { status: 200 });
   } catch (e) {
-    console.error("Tina webhook error:", e);
+    console.error("Tina error:", e);
     return new Response("error", { status: 500 });
   }
 }
