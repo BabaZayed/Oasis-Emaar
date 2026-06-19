@@ -67,6 +67,34 @@ export async function POST(request: NextRequest) {
       }
     }
 
+    
+// Send conversion to Meta CAPI
+if (process.env.META_PIXEL_ID && process.env.META_ACCESS_TOKEN) {
+  try {
+    const eventData = {
+      data: [{
+        event_name: "Lead",
+        event_time: Math.floor(Date.now() / 1000),
+        action_source: "website",
+        user_data: {
+          em: [email ? require("crypto").createHash("sha256").update(email.toLowerCase().trim()).digest("hex") : ""],
+          ph: [phone ? require("crypto").createHash("sha256").update(phone.replace(/\s/g,"").replace(/\+/g,"")).digest("hex") : ""],
+        },
+        custom_data: {
+          content_name: "Bible Ad Landing Page Lead",
+          content_category: "lead_form",
+        },
+      }],
+    };
+
+    fetch(`https://graph.facebook.com/v25.0/${process.env.META_PIXEL_ID}/events?access_token=${process.env.META_ACCESS_TOKEN}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(eventData),
+    }).catch(() => {});
+  } catch {}
+}
+
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Lead webhook error:", error);
