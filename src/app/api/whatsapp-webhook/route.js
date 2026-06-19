@@ -1,15 +1,16 @@
 /**
  * Tina — Front-line WhatsApp AI Agent
- * Handles ALL inbound comms for: Oasis Emaar, Grand Polo, Mina Rashid, DealsOfGenie
- * Admin bypass: Ahmed's numbers → system/test mode, no lead alerts
- * Public: Auto-reply + alert to Ahmed's private line
+ * Business line: +971 52 691 9169 ONLY
+ * Admin bypass: backend flag, no personal numbers in code
  */
 
 const VERIFY_TOKEN = "oasis_emaar_webhook_verify_2026";
 const WHATSAPP_TOKEN = process.env.WHATSAPP_SYSTEM_TOKEN || "";
 const PHONE_ID = "1131915953344668";
+const BUSINESS_LINE = "971526919169";
 
-const ADMIN_NUMBERS = ["971287101", "971555585525"]; // Ahmed only — bypass lead pipeline
+// Admin bypass: set TINA_ADMIN_BYPASS=true in Vercel env to suppress lead pipeline during testing
+const ADMIN_BYPASS = process.env.TINA_ADMIN_BYPASS === "true";
 
 const TINA_REPLY = `👋 Welcome to Bijon RE.
 
@@ -40,21 +41,6 @@ async function sendWhatsApp(to, message) {
   }
 }
 
-async function alertAhmed(from, name, text) {
-  const alert = `📩 *New Lead — ${name || "Unknown"}*
-
-👤 ${from}
-💬 ${text?.substring(0, 200) || "(no text)"}
-🕐 ${new Date().toLocaleString("en-AE", { timeZone: "Asia/Dubai" })}
-📱 Via: +971 52 691 9169`;
-
-  await sendWhatsApp(ADMIN_NUMBERS[1], alert); // +971 55 558 5525
-}
-
-function isAdmin(from) {
-  return ADMIN_NUMBERS.includes(from);
-}
-
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
   if (searchParams.get("hub.mode") === "subscribe" && searchParams.get("hub.verify_token") === VERIFY_TOKEN) {
@@ -79,23 +65,15 @@ export async function POST(request) {
             const text = msg.text?.body || "";
             const name = value.contacts?.[0]?.profile?.name || "Unknown";
 
-            // ═══ ADMIN BYPASS ═══
-            if (isAdmin(from)) {
-              console.log(`[ADMIN] ${name} (${from}): ${text?.substring(0, 100)}`);
-              // Admin message — log only, no auto-reply, no lead alert
-              // Tina responds: "Admin message received. System nominal."
-              await sendWhatsApp(from, `✅ Admin message received. System nominal. Tina active on +971 52 691 9169.`);
-              continue; // SKIP lead pipeline entirely
+            // Admin bypass: env flag only — no personal numbers in code
+            if (ADMIN_BYPASS) {
+              console.log(`[TEST] ${name} (${from}): ${text?.substring(0, 100)}`);
+              continue;
             }
 
-            // ═══ PUBLIC LEAD ═══
+            // Public lead
             console.log(`[LEAD] ${name} (${from}): ${text?.substring(0, 100)}`);
-
-            // Auto-reply with Tina's profiling questions
             await sendWhatsApp(from, TINA_REPLY);
-
-            // Alert Ahmed's private line
-            await alertAhmed(from, name, text);
           }
         }
 
