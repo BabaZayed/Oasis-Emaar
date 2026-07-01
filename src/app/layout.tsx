@@ -271,9 +271,12 @@ export default function RootLayout({
                 page_title: document.title,
                 page_location: window.location.href,
               });
+              gtag('config', 'AW-16778553895');
             `,
           }}
         />
+        {/* Google Ads Global Site Tag */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16778553895" />
         {/* Meta Pixel */}
         <script
           dangerouslySetInnerHTML={{
