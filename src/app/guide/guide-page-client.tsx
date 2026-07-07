@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Download, Shield, FileText, Globe, Building2, Wallet, ArrowRight } from "lucide-react";
+import { trackLead } from "@/lib/meta-pixel";
 
 export default function GuidePageClient() {
   const [step, setStep] = useState<"form" | "success">("form");
@@ -20,13 +21,8 @@ export default function GuidePageClient() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-            // Track Lead conversion event
-      if (typeof window !== "undefined" && (window as any).fbq) {
-        (window as any).fbq("track", "Lead", {
-          content_name: "Wealth & Tax Relocation Guide",
-          content_category: "Lead Magnet",
-        });
-      }
+      // Track Lead conversion event
+      trackLead({ formType: "general", propertyInterest: "Wealth & Tax Relocation Guide" });
       setStep("success");
     } catch {}
     setLoading(false);
@@ -46,6 +42,8 @@ export default function GuidePageClient() {
             <a
               href="https://wa.me/971526919169?text=I%20have%20downloaded%20the%20Relocation%20Guide.%20I%20would%20like%20to%20schedule%20a%20private%20consultation%20with%20Ahmed%20regarding%20exclusive%20allocations."
               target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackLead({ formType: "general", propertyInterest: "Guide WhatsApp CTA" })}
               className="block w-full bg-[#C8A45C] hover:bg-[#B8933F] text-[#0D1B2A] font-bold text-center py-4 px-6 rounded-md transition-colors"
             >
               Schedule Your Private Consultation →

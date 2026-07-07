@@ -1,0 +1,13 @@
+node_modules
+.git
+.next
+*.log
+.cache
+db/
+examples/
+download/
+mini-services/
+skills/
+worklog.md
+Caddyfile
+package-lock.json
