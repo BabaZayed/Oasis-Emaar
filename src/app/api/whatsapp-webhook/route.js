@@ -5,8 +5,8 @@
  */
 
 const VERIFY_TOKEN = "oasis_emaar_webhook_verify_2026";
-const WHATSAPP_TOKEN = process.env.WHATSAPP_SYSTEM_TOKEN || "";
-const PHONE_ID = "1131915953344668";
+const WHATSAPP_TOKEN = process.env.WHATSAPP_SYSTEM_TOKEN || process.env.WHATSAPP_ACCESS_TOKEN || "";
+const PHONE_ID = process.env.WHATSAPP_PHONE_NUMBER_ID || "1106774849196524";
 const ADMIN_BYPASS = process.env.TINA_ADMIN_BYPASS === "true";
 
 // Escalation triggers — freeze auto-reply, alert infrastructure
