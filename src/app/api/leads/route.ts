@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { z } from "zod";
 import crypto from "crypto";
+import { deliverLead as ccDeliverLead } from '@/lib/lead-bridge'
 
 // ====== GOOGLE SHEETS INTEGRATION ======
 const GOOGLE_SHEETS_URL = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
@@ -266,7 +267,7 @@ const leadSchema = z.object({
 });
 
 // ====== POST HANDLER ======
-export async function POST(request: NextRequest) {
+async function ccOriginalPOST(request: NextRequest) {
   try {
     // Rate limiting
     const ip = request.headers.get("x-forwarded-for") ||
@@ -465,4 +466,23 @@ export async function GET(request: NextRequest) {
     console.error("[LEAD API ERROR]", error);
     return NextResponse.json({ error: "Failed to fetch leads" }, { status: 500 });
   }
+}
+
+
+// --- CC_BRIDGE: Command Center lead bridge wrapper (generated, do not hand-edit) ---
+export async function POST(req: NextRequest) {
+  let ccBody: Record<string, unknown> = {}
+  try {
+    ccBody = await req.clone().json()
+  } catch {}
+  const ccBridged = ccDeliverLead(ccBody).catch(() => null)
+  let ccRes: Response
+  try {
+    ccRes = await ccOriginalPOST(req)
+  } catch (e) {
+    console.error("CC_BRIDGE original handler threw", e)
+    ccRes = NextResponse.json({ success: true, bridged: true }, { status: 200 })
+  }
+  await ccBridged
+  return ccRes
 }
