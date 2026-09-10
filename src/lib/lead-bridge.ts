@@ -109,15 +109,22 @@ export async function bridgeHealth() {
   // Never report tunnel:true alone as proof of delivery.
   let tunnelLive = false
   let tunnelHost = ''
+  let tunnelError = ''
+  let tunnelMs = 0
   if (TUNNEL) {
+    const t0 = Date.now()
     try {
       const u = new URL(TUNNEL)
       tunnelHost = u.host
-      const r = await fetch(u.origin + '/health', { signal: AbortSignal.timeout(3000), cache: 'no-store' })
+      const r = await fetch(u.origin + '/health', { signal: AbortSignal.timeout(6000), cache: 'no-store' })
       tunnelLive = r.ok
-    } catch {
+      if (!r.ok) tunnelError = 'HTTP ' + r.status + ' ' + (r.headers.get('cf-mitigated') || '') + ' ' + (await r.text()).slice(0, 160)
+    } catch (e) {
       tunnelLive = false
+      const err = e as { name?: string; message?: string; cause?: { code?: string; message?: string } }
+      tunnelError = [err.name, err.message, err.cause && (err.cause.code || err.cause.message)].filter(Boolean).join(': ').slice(0, 200)
     }
+    tunnelMs = Date.now() - t0
   }
-  return { site: SITE, project: PROJECT, tunnel: !!TUNNEL, tunnelLive, tunnelHost, secret: !!TSECRET, queue: !!BLOB }
+  return { site: SITE, project: PROJECT, tunnel: !!TUNNEL, tunnelLive, tunnelHost, tunnelMs, tunnelError, secret: !!TSECRET, queue: !!BLOB }
 }
