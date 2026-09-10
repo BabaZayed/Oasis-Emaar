@@ -102,6 +102,20 @@ export async function deliverLead(body: Record<string, unknown>) {
   return { ok: pushed || queued, id: lead.platformLeadId, pushed, queued }
 }
 
-export function bridgeHealth() {
-  return { site: SITE, project: PROJECT, tunnel: !!TUNNEL, secret: !!TSECRET, queue: !!BLOB }
+export async function bridgeHealth() {
+  // tunnel = the variable exists; tunnelLive = the endpoint it names answered /health just now.
+  // Never report tunnel:true alone as proof of delivery.
+  let tunnelLive = false
+  let tunnelHost = ''
+  if (TUNNEL) {
+    try {
+      const u = new URL(TUNNEL)
+      tunnelHost = u.host
+      const r = await fetch(u.origin + '/health', { signal: AbortSignal.timeout(3000), cache: 'no-store' })
+      tunnelLive = r.ok
+    } catch {
+      tunnelLive = false
+    }
+  }
+  return { site: SITE, project: PROJECT, tunnel: !!TUNNEL, tunnelLive, tunnelHost, secret: !!TSECRET, queue: !!BLOB }
 }
