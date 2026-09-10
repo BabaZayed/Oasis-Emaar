@@ -32,7 +32,7 @@ async function drain() {
         }
         const text = await new Response(res.stream).text()
         const lead = JSON.parse(text)
-        const sent = await pushInstant(lead)
+        const sent = await pushInstant(lead, 8000)
         if (sent) {
           await del(b.url, { token: BLOB })
           delivered++

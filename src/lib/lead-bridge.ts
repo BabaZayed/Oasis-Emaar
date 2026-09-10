@@ -55,14 +55,16 @@ export function normalise(body: Record<string, unknown>) {
   }
 }
 
-export async function pushInstant(lead: Record<string, unknown>) {
+// timeoutMs: the site form uses a short timeout (a visitor is waiting); the cron drainer
+// can afford a longer one because the gateway now waits for n8n -> Twenty to finish.
+export async function pushInstant(lead: Record<string, unknown>, timeoutMs = 2500) {
   if (!TUNNEL) return false
   try {
     const r = await fetch(TUNNEL, {
       method: 'POST',
       headers: { 'content-type': 'application/json', 'x-cc-secret': TSECRET },
       body: JSON.stringify(lead),
-      signal: AbortSignal.timeout(2500),
+      signal: AbortSignal.timeout(timeoutMs),
     })
     return r.ok
   } catch {
