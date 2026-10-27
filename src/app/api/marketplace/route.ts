@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "@/lib/db";
+import { hasDb, withDb } from "@/lib/db";
 import { z } from "zod";
 
 // Rate limiting
@@ -44,7 +44,15 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Too many requests." }, { status: 429 });
     }
 
-    const body = await request.json();
+    let body: Record<string, unknown>;
+    try {
+      body = await request.json();
+    } catch {
+      return NextResponse.json({ error: "Invalid data." }, { status: 400 });
+    }
+    if (!body || typeof body !== "object") {
+      return NextResponse.json({ error: "Invalid data." }, { status: 400 });
+    }
     if (body.honeypot) return NextResponse.json({ success: true }); // Bot trap
 
     const parsed = sellerListingSchema.safeParse(body);
@@ -52,8 +60,17 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Invalid data.", details: parsed.error.flatten() }, { status: 400 });
     }
 
+    // Listings live only in the local DB. Without one, say so honestly (the sell page shows
+    // data.error in a toast) instead of pretending the listing was saved or returning a 500.
+    if (!hasDb()) {
+      return NextResponse.json(
+        { success: false, error: "Online listing is temporarily unavailable. Please contact us on WhatsApp to list your property." },
+        { status: 503 }
+      );
+    }
+
     const data = parsed.data;
-    const listing = await db.sellerListing.create({
+    const listing = await withDb((client) => client.sellerListing.create({
       data: {
         propertyType: data.propertyType,
         villaNumber: data.villaNumber,
@@ -67,7 +84,14 @@ export async function POST(request: NextRequest) {
         whatsapp: data.whatsapp,
         description: data.description,
       },
-    });
+    }), null);
+
+    if (!listing) {
+      return NextResponse.json(
+        { success: false, error: "Online listing is temporarily unavailable. Please contact us on WhatsApp to list your property." },
+        { status: 503 }
+      );
+    }
 
     return NextResponse.json({ success: true, listingId: listing.id });
   } catch (error) {
@@ -99,11 +123,13 @@ export async function GET(request: NextRequest) {
                           sort === "price-desc" ? { price: "desc" } :
                           { createdAt: "desc" };
 
-    const listings = await db.sellerListing.findMany({
+    // No local DB (or it failed): an empty marketplace, not a 500. The page renders its
+    // empty state from { listings: [] }.
+    const listings = await withDb((client) => client.sellerListing.findMany({
       where,
       orderBy,
       take: 50,
-    });
+    }), []);
 
     return NextResponse.json({ listings, total: listings.length });
   } catch (error) {

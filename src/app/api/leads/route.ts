@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "@/lib/db";
+import { db, hasDb, withDb } from "@/lib/db";
 import { z } from "zod";
 import crypto from "crypto";
 import { deliverLead as ccDeliverLead } from '@/lib/lead-bridge'
@@ -282,8 +282,16 @@ async function ccOriginalPOST(request: NextRequest) {
       );
     }
 
-    // Parse and validate
-    const body = await request.json();
+    // Parse and validate (malformed JSON is a client error, not a server error)
+    let body: Record<string, unknown>;
+    try {
+      body = await request.json();
+    } catch {
+      return NextResponse.json({ error: "Invalid data provided." }, { status: 400 });
+    }
+    if (!body || typeof body !== "object" || Array.isArray(body)) {
+      return NextResponse.json({ error: "Invalid data provided." }, { status: 400 });
+    }
     const parsed = leadSchema.safeParse(body);
 
     if (!parsed.success) {
@@ -303,15 +311,15 @@ async function ccOriginalPOST(request: NextRequest) {
 
     // Spam detection (only for forms with name/phone)
     const spamResult = data.name && data.phone ? detectSpam({
-      honeypot: body.honeypot,
+      honeypot: typeof body.honeypot === "string" ? body.honeypot : undefined,
       name: data.name,
       email: data.email,
       phone: data.phone,
       message: data.message,
     }) : { isSpam: false };
     if (spamResult.isSpam) {
-      // Still save but mark as spam (silently accept so bots don't know)
-      await db.lead.create({
+      // Still save (when a local DB exists) but mark as spam (silently accept so bots don't know)
+      await withDb((client) => client.lead.create({
         data: {
           name: data.name ?? "",
           email: data.email ?? "",
@@ -328,21 +336,22 @@ async function ccOriginalPOST(request: NextRequest) {
           leadScore: 0,
           source: "website",
         },
-      });
+      }), null);
       // Return success to not alert bots
       return NextResponse.json({ success: true, message: "Thank you for your submission." });
     }
 
-    // Check for duplicate (same email within last 24h — phone too for non-newsletter)
+    // Check for duplicate (same email within last 24h — phone too for non-newsletter).
+    // Only possible with a local DB; without one we skip dedupe (the CRM dedupes downstream).
     const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
-    const existing = await db.lead.findFirst({
+    const existing = await withDb((client) => client.lead.findFirst({
       where: {
         email: data.email,
         ...(data.formType !== "newsletter" && data.phone ? { phone: data.phone } : {}),
         createdAt: { gte: oneDayAgo },
         isSpam: false,
       },
-    });
+    }), null);
 
     if (existing) {
       return NextResponse.json({
@@ -362,8 +371,8 @@ async function ccOriginalPOST(request: NextRequest) {
     });
     const isQualified = leadScore >= 40; // 40+ score = qualified lead
 
-    // Save lead
-    const lead = await db.lead.create({
+    // Save lead locally when a DB exists (lead delivery itself goes through the CC_BRIDGE)
+    const lead = await withDb((client) => client.lead.create({
       data: {
         name: data.name ?? "",
         email: data.email ?? "",
@@ -380,7 +389,7 @@ async function ccOriginalPOST(request: NextRequest) {
         leadScore,
         source: "website",
       },
-    });
+    }), null);
 
     console.log(`[LEAD] New ${isQualified ? "QUALIFIED" : "UNQUALIFIED"} lead: ${data.name || "N/A"} | Score: ${leadScore} | Type: ${data.formType} | Interest: ${data.propertyInterest || "N/A"}`);
 
@@ -420,7 +429,7 @@ async function ccOriginalPOST(request: NextRequest) {
       message: isQualified
         ? "Thank you! Our senior property consultant will contact you within 2 hours with exclusive options."
         : "Thank you for your interest. Our team will be in touch within 24 hours.",
-      leadId: lead.id,
+      leadId: lead?.id ?? null, // null when no local DB is configured
     });
 
   } catch (error) {
@@ -440,6 +449,10 @@ export async function GET(request: NextRequest) {
   // Simple auth check
   if (!adminKey || authHeader !== `Bearer ${adminKey}`) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  if (!hasDb()) {
+    return NextResponse.json({ error: "Lead storage is not configured on this deployment." }, { status: 503 });
   }
 
   try {
