@@ -94,6 +94,20 @@ export async function deliverLead(body: Record<string, unknown>) {
   if (!lead.name && !lead.phone && !lead.email) {
     return { ok: false, id: lead.platformLeadId, pushed: false, queued: false, skipped: true }
   }
+  // spam gate: drop only on a honeypot, a solicitation, or >=2 weak bot signals (real leads trip 0-1)
+  {
+    const digits = (lead.phone.match(/\d/g) || []).length
+    const elocal = lead.email.split('@')[0] || ''
+    const dottedGmail = lead.email.endsWith('@gmail.com') && (elocal.match(/\./g) || []).length >= 4
+    const solicit = /decentgears|look rich|best-?sellers|quiet luxury|seo service|backlink|crypto/i.test((lead.message || '') + ' ' + (lead.name || ''))
+    const gib = (t: string) => { t = t || ''; const l = (t.match(/[a-z]/gi) || []).length, v = (t.match(/[aeiou]/gi) || []).length; return l >= 6 && v / l < 0.2 }
+    const hp = s(body.company_url ?? body.hp ?? '', 50)
+    const weak = [digits < 7, dottedGmail, gib(lead.name), gib(lead.message)].filter(Boolean).length
+    if (hp || solicit || weak >= 2) {
+      console.log('LEAD_SPAM ' + lead.platformLeadId + ' ' + JSON.stringify({ hp: !!hp, solicit, weak }))
+      return { ok: true, id: lead.platformLeadId, pushed: false, queued: false, spam: true }
+    }
+  }
   const [p, q] = await Promise.allSettled([pushInstant(lead), enqueue(lead)])
   const pushed = p.status === 'fulfilled' && p.value === true
   const queued = q.status === 'fulfilled' && q.value === true
